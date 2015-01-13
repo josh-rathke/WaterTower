@@ -56,4 +56,84 @@
   Add your own folders and scss files for your project and import them below
 */ 
 
+
+.desktop-header {padding: 40px 0px;}
+.main-logo {width: 370px;}
+
+.top-bar-container {background: white !important; border-top: 1px solid #DDD;}
+
+.top-bar {background: white !important;}
+.top-bar-section > ul > li {background: white !important;}
+
+.top-bar-section li a {font-size: 14px !important;}
+.top-bar-section .has-dropdown > a {padding-right: 15px !important;}
+.top-bar-section .has-dropdown > a:after {border-color: transparent transparent transparent;}
+
+.top-bar-section li a:not(.button) { background: white !important; color: #222; font-family:"HelveticaNeueW01-47LtCn 692686" !important; letter-spacing: 2px; text-transform: uppercase;}
+
+.top-bar-section li.active:not(has-form) a:not(.button) {color: #333 !important;}
+.top-bar-section li.active:hover a:not(.button) {color: white;}
+.top-bar-section .dropdown a:not(.button) { background: #EFEFEF !important; color: #333 !important; font-size: 12px !important;}
+.top-bar-section .dropdown li:hover a:not(.button) {background: #DDD !important;}
+
+.top-bar-section li:hover a { background: #609FCE !important;}
+.top-bar-section li a i {color: #555;}
+.top-bar-section li:hover a i {color: white;}
+
+
+.desktop-search-form-container {
+  border-radius: 3px;
+  float: left;
+  font-size: 14px;
+  margin: 8px 0px;
+  overflow: hidden !important;
+  position: relative;
+  width: 25px;
+  transition: .35s;
+  -webkit-transition: .35s;
+}
+
+.desktop-search-form-container:hover {
+  width: 150px;
+}
+
+.desktop-search-form-container fieldset {
+  padding: 0px;
+  border: none;
+  margin: 0px;
+}
+
+.desktop-search-form-container #header-search {
+  padding: 5px 5px 5px 30px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  top: 0px;
+}
+
+.desktop-search-form-container.search-active #header-search {background: #F3F3F3;}
+
+.desktop-search-form-container .submit-search {
+  background: url('images/search-button.png');
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center center;
+  border: none !important;
+  opacity: .8;
+  position: absolute !important;;
+  top: 0px;
+  bottom: 0px;
+  width: 30px;
+}
+
+.desktop-search-form-container.search-active {
+  width: 150px !important;
+}
+
+.desktop-search-form-container input[type=text] {border: 1px solid transparent; box-shadow: none !important;}
+.desktop-search-form-container:hover input[type=text] {border: 1px solid #CCC !important;}
+.desktop-search-form-container.search-active input[type=text] {border: 1px solid #609FCE !important;}
+
+
+
 @import "site/base"; 
