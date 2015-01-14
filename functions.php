@@ -21,6 +21,14 @@ require_once('library/enqueue-scripts.php');
 require_once('library/theme-support.php');
 // Add Header image
 require_once('library/custom-header.php');
+
+
+// Add WaterTower Admin Dashboard Functions
+require_once('library/watertower-admin.php');
+// Add Program Classification Functions
+require_once('library/program-classification.php');
+
+
 // START OLD FUNCTIONS FILE
 /* Custom Post Type Includes
  * This is where all of the custom posts type of Water Tower
