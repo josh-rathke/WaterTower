@@ -51,8 +51,15 @@
 	</nav>
 
 	<?php get_template_part('parts/off-canvas-menu'); ?>
+	
+	<?php get_template_part('parts/logo-banner'); ?>
 
 	<?php get_template_part('parts/top-bar'); ?>
+	
+	<?php get_template_part('parts/img-banner'); ?>
+	
+	
+	
 
 <section class="container" role="document">
 	<?php do_action('foundationPress_after_header'); ?>

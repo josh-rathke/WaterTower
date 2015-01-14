@@ -46,10 +46,12 @@
 @import "../bower_components/foundation/scss/foundation/components/thumbs";
 @import "../bower_components/foundation/scss/foundation/components/tooltips";
 @import "../bower_components/foundation/scss/foundation/components/top-bar";
-@import "../bower_components/foundation/scss/foundation/components/type";
+//@import "../bower_components/foundation/scss/foundation/components/type";
 @import "../bower_components/foundation/scss/foundation/components/offcanvas";
 @import "../bower_components/foundation/scss/foundation/components/visibility";
 
+// Import Font Families
+@import "assets/fonts";
 
 /* 
   My custom styles:
@@ -57,10 +59,20 @@
 */ 
 
 
+h1 {
+  color: #222;
+  font-family: "HelveticaNeueW01-77BdCn 692722";
+  text-transform: uppercase;
+}
+
+
+
+
 .desktop-header {padding: 40px 0px;}
 .main-logo {width: 370px;}
 
-.top-bar-container {background: white !important; border-top: 1px solid #DDD;}
+// Top Bar Styles
+.top-bar-container {background: white !important; border-top: 1px solid #DDD; margin-bottom: 0px !important;}
 
 .top-bar {background: white !important;}
 .top-bar-section > ul > li {background: white !important;}
@@ -133,6 +145,28 @@
 .desktop-search-form-container input[type=text] {border: 1px solid transparent; box-shadow: none !important;}
 .desktop-search-form-container:hover input[type=text] {border: 1px solid #CCC !important;}
 .desktop-search-form-container.search-active input[type=text] {border: 1px solid #609FCE !important;}
+
+
+/*  Standard Banner
+ *  These styles partain to the standard
+ *  banner that uses a simple image.
+ */
+ 
+ .standard-banner-container {height: 400px; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important; margin-bottom: 20px;}
+
+
+
+/*  Slider Styles
+ *  These styles are reserved for the slider used in the
+ *  website.
+ */
+ 
+.primary-slider {}
+.primary-slider .orbit-container .orbit-slides-container>* .orbit-caption {background: transparent !important; color: #222; font-size: 16px !important; position: relative !important;}
+.primary-slider .orbit-caption i {font-size: 18px; margin-right: 5px;}
+.primary-slider .orbit-caption a {font-family: "HelveticaNeueW01-47LtCn 692689"; font-size: 15px; letter-spacing: 1px; text-transform: uppercase;}
+.primary-slider .orbit-slider-placeholder {height: 400px; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important;}
+
 
 
 
