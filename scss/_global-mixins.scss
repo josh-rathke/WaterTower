@@ -1,0 +1,16 @@
+// Transition Time Mixin
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Background Size
+@mixin background-size($args...) {
+  -webkit-background-size: $args !important; 
+     -moz-background-size: $args !important; 
+       -o-background-size: $args !important; 
+          background-size: $args !important;
+}

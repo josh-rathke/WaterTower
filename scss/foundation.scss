@@ -3,6 +3,9 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 @import "normalize";
 
+// Import Global Mixins
+@import "global-mixins";
+
 /*  
   ZURB Foundation components:
   Import the building blocks you need for your project. 
@@ -50,20 +53,24 @@
 @import "../bower_components/foundation/scss/foundation/components/offcanvas";
 @import "../bower_components/foundation/scss/foundation/components/visibility";
 
-// Import Font Families
-@import "assets/fonts";
+
+// Fonts
+@import "../bower_components/fontawesome/css/font-awesome.css"; // Import Font Awesome
+@import "assets/fonts"; // Import Font Families
+
+
+// WaterTower Style Sheets
+@import "assets/scaffolding"; // Import Scaffolding Styles
+@import "assets/img-banner"; // Import Image Banner Styles
+@import "assets/postmeta"; // Import Post Meta Styles
+@import "assets/comments"; // Import Comment Styles
+@import "assets/authors"; // Import Author Styles
+
 
 /* 
   My custom styles:
   Add your own folders and scss files for your project and import them below
 */ 
-
-
-h1 {
-  color: #222;
-  font-family: "HelveticaNeueW01-77BdCn 692722";
-  text-transform: uppercase;
-}
 
 
 
@@ -152,7 +159,11 @@ h1 {
  *  banner that uses a simple image.
  */
  
- .standard-banner-container {height: 400px; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important; margin-bottom: 20px;}
+ .standard-banner-container {
+   height: 400px; 
+   @include background-size(cover); 
+   margin-bottom: 40px;
+ }
 
 
 
@@ -166,6 +177,8 @@ h1 {
 .primary-slider .orbit-caption i {font-size: 18px; margin-right: 5px;}
 .primary-slider .orbit-caption a {font-family: "HelveticaNeueW01-47LtCn 692689"; font-size: 15px; letter-spacing: 1px; text-transform: uppercase;}
 .primary-slider .orbit-slider-placeholder {height: 400px; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important;}
+
+
 
 
 

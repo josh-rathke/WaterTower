@@ -13,8 +13,6 @@ require_once('library/navigation.php');
 require_once('library/menu-walker.php');
 // Create widget areas in sidebar and footer
 require_once('library/widget-areas.php');
-// Return entry meta information for posts
-require_once('library/entry-meta.php');
 // Enqueue scripts
 require_once('library/enqueue-scripts.php');
 // Add theme support
@@ -25,11 +23,15 @@ require_once('library/custom-header.php');
 
 // Add WaterTower Admin Dashboard Functions
 require_once('library/watertower-admin.php');
+// Add Author Class & Helper Functions
+require_once('library/author-class.php');
 // Add Program Classification Functions
 require_once('library/program-classification.php');
+// Add Comments Walker
+require_once('library/comments-walker.php');
 
 
-// START OLD FUNCTIONS FILE
+
 /* Custom Post Type Includes
  * This is where all of the custom posts type of Water Tower
  * get pulled into the theme. There should be no custom post
@@ -53,6 +55,9 @@ require_once('library/program-classification.php');
 	include ('library/custom_post_types/surges_cpt.php');
 	// Staff Needs CPT
 	include ('library/custom_post_types/staff_needs_cpt.php');
+	
+	
+	
 /*	Custom Taxonomy Includes
  *	This is where all of the custom taxonomies of Water Tower
  *	get pulled into the theme.  There should be no custom taxonomies
@@ -78,6 +83,9 @@ require_once('library/program-classification.php');
 	include ('library/custom_taxonomies/page_page_menu_locations_tax.php');
 	// Project Taxo
 	include ('library/custom_taxonomies/projects_tax.php');
+	
+	
+	
 /*	CPT - Taxonomy Relationships
  *	Custom Post Type to Taxonomy relationships allow for 
  *	dynamic linking between posts that may be "owned" by one 
@@ -95,9 +103,7 @@ require_once('library/program-classification.php');
 	include ('library/cpt_tax_relationships/programcpt_programprerequisitestax.php');				
 					
 			
-			
-			
-					
+						
 /*	Include Widgetize Areas Function
  *	This function runs through an array of defined post
  *	types and generates a unique sidebar for each area

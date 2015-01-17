@@ -13,7 +13,7 @@ if (is_home() || is_front_page()) {
 
 ?>
 	
-	<div class="primary-slider">
+	<div class="slideshow-wrapper primary-slider">
 		<ul class="orbit-slider" data-orbit>
 		
 			<?php
