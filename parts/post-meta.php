@@ -1,0 +1,62 @@
+<div class="postmetadata post-meta row">
+			
+			<?php // Post Date and Author Info ?>
+			
+			<?php $authors = new authorInfo($post->ID); ?>
+			
+			<div class="small-12 medium-4 columns">
+				<div class="post-meta-section">
+					<h6><i class="fa fa-calendar"></i>Date Published</h6>
+					<div class="post-meta-content">
+						<?php the_time('F jS, Y') ?>
+					</div>
+				</div>
+				
+				
+				<div class="post-meta-section">
+					<h6><i class="fa fa-user"></i>Author</h6>
+					<div class="post-meta-content">
+						<?php 
+						$authors = new authorInfo($post->ID);
+						$authors->author_links_list();
+						?>
+					</div>
+				</div>
+			</div>
+			
+			<?php // Post Categories and Tags ?>
+			<div class="small-12 medium-4 columns">
+				<div class="post-meta-section">
+					<h6><i class="fa fa-sitemap fa-rotate-270"></i>Categories</h6>
+					<div class="post-meta-content">
+						<?php the_category(', '); ?>
+					</div>
+				</div>
+				
+				<div class="post-meta-data-section">
+					<h6><i class="fa fa-tags"></i>Tags</h6>
+					<div class="post-meta-content">
+						<?php the_tags('', ', '); ?>
+					</div>
+				</div>
+			</div>
+			
+			<?php // Post Related Programs ?>
+			<div class="small-12 medium-4 columns">
+				<div class="post-meta-section">
+					<h6><i class="fa fa-mortar-board"></i>Related Programs</h6>
+					<div class="post-meta-content">
+						<?php
+							$related_programs = wp_get_post_terms( $post->ID, 'program_taxo');
+							foreach ($related_programs as $related_program) {
+								$link_url = get_bloginfo('url') . '/programs/' . $related_program->slug;
+								$name = $related_program->name;
+								$link_format = '<div><a href="%s">%s</a></div>';
+								echo sprintf($link_format, $link_url, $name);
+							}
+						?>
+					</div>
+				</div>
+			</div>
+			
+		</div>
