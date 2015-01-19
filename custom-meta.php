@@ -6,8 +6,8 @@ global $meta_boxes;
 
 $meta_boxes = array();
 
-	include ('includes/custom_meta/projects_meta.php');
-	include ('includes/custom_meta/staff_needs_meta.php');
+	include ('library/custom_meta/projects_meta.php');
+	include ('library/custom_meta/staff_needs_meta.php');
 
 $meta_boxes[] = array(
 	'title'  => 'Profile Options',

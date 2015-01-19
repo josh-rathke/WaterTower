@@ -42,6 +42,8 @@
 		<?php endwhile;?>
 		
 		
+		<?php echo do_shortcode('[vimeography id="2"]'); ?>
+		
 		<?php
 		/**
 		 * Program Info Section
