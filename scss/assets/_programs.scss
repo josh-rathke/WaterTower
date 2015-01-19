@@ -1,13 +1,41 @@
 .single-program-content-container {
   
+  .program-info-container {
+    margin-top: 50px;
+    
+    .program-info-duration-container {
+      text-align: center;
+      
+      .program-info-duration-number {
+        color: #444;
+        font-family:"HelveticaNeueW01-77BdCn 692722";
+        font-size: 96px;
+        line-height: 1;
+      }
+      
+      .program-info-duration-desc {
+        font-family:"HelveticaNeueW01-47LtCn 692686";
+        font-size: 16px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+    }
+    
+    .program-info-academic-container {
+      h5 i {
+        margin-left: 5px;
+      }
+    }
+  }
+  
   .program-dates-container {
-    margin: 70px 0px;
+    margin: 70px 0px 20px 0px;
     text-align: center;
     
     .program-date-info-container {
       background: #F6F6F6;
       
-      h3 {
+      h4 {
         background: #E6E6E6;
         margin-bottom: 20px;
         padding: 6px 0px;
@@ -23,11 +51,26 @@
         list-style-type: none;
         margin: 0px 20px;
         padding: 4px;
+        text-align: left;
       }
       
       a.button {
         margin-top: 18px;
       }
+    }
+  }
+  
+  .program-prereqs-container {
+    margin: 0px 10px;
+    padding: 10px 20px;
+    
+    @media #{$small-only} {
+      padding: 15px 5px;
+      }
+    
+    .program-prereqs-icon-container {
+      font-size: 50px;
+      text-align: center;
     }
   }
 }

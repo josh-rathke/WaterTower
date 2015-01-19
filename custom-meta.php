@@ -6,8 +6,8 @@ global $meta_boxes;
 
 $meta_boxes = array();
 
-	include ('includes/custom_meta/projects_meta.php');
-	include ('includes/custom_meta/staff_needs_meta.php');
+	include ('library/custom_meta/projects_meta.php');
+	include ('library/custom_meta/staff_needs_meta.php');
 
 $meta_boxes[] = array(
 	'title'  => 'Profile Options',
@@ -310,23 +310,13 @@ $meta_boxes[] = array(
 
 		),
 		
-		
-		//PREREQUISITES
 		array(
-			'name'  => __('Minimum Age Without GED', 'water-tower'),
-			'id'    => "{$prefix}min_age_woged_prereqs",
-			'desc'  => __('Insert the minimum age requirement of an application applying who has not earned a GED.', 'water-tower'),
-			'type'  => 'number',
-			'std'   => 0,
-		),
-		
-		array(
-			'name'  => __('Recommended Prerequisites', 'rwmb'),
+			'name'  => __('Prerequisites', 'rwmb'),
 			'id'    => "{$prefix}custom_prereqs",
 			'desc'  => 'Please enter any recomended prerequisites needed to apply for this school here.',
 			'type'  => 'textarea',
 			'std'   => '',
-			'clone' => true,
+			'clone' => false,
 		),
 		
 		
