@@ -1,4 +1,8 @@
 <?php
+
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', true);
+
 /*
 Author: Ole Fredrik Lie
 URL: http://olefredrik.com
@@ -23,6 +27,8 @@ require_once('library/custom-header.php');
 
 // Add WaterTower Admin Dashboard Functions
 require_once('library/watertower-admin.php');
+// Add WaterTower Custom Meta
+require_once('custom-meta.php');
 // Add Author Class & Helper Functions
 require_once('library/author-class.php');
 // Add Program Classification Functions
