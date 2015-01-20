@@ -1,0 +1,11 @@
+.magellan-container {
+  padding-top: 46px;
+  
+  &.fixed {
+    left: auto !important;
+  }
+  
+  .sub-nav {
+    width: 220px;
+  }
+}

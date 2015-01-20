@@ -73,4 +73,28 @@
       text-align: center;
     }
   }
+  
+  .program-onbase-phase-info-container {
+    margin-top: 70px;
+    
+    h3 {
+      border-bottom: 1px solid $primary-color;
+    }
+    
+    .onbase-phase-activity-details-container {
+    
+      .onbase-phase-activity-detail-chart {
+        
+        .chart-container {
+          text-align: center;
+          margin-top: -17px;
+          
+          i {
+            font-size: 24px;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
 }

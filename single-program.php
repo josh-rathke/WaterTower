@@ -25,8 +25,6 @@
 			
 			$program_id = $post->ID;
 			$program_object = new programInfo($program_id);
-			
-			print_r($program_object);
 			 
 			?>
  			
@@ -41,8 +39,12 @@
 			</article>
 		<?php endwhile;?>
 		
+		<div class="row">
+			<div class="medium-12 columns">
+			<?php echo do_shortcode('[vimeography id="1"]'); ?>
+			</div>
+		</div>
 		
-		<?php echo do_shortcode('[vimeography id="2"]'); ?>
 		
 		<?php
 		/**
@@ -127,10 +129,157 @@
 		?>
 		
 		
+		
+		
+		
+		
+		
+		<div class="program-onbase-phase-info-container">
+			
+			<?php // OnBase phase description ?>
+			<div class="program-onbase-phase-desc">
+				<h2><?php echo rwmb_meta('lecture_phase_title'); ?></h2>
+				<p><?php echo rwmb_meta('lecture_phase_desc'); ?></p>
+			</div>
+			
+			
+			<?php // On Base Phase Details ?>
+			<div class="onbase-phase-detail-container">
+															
+				<div class="onbase-phase-details">
+					<?php $n = 1; ?>
+					<?php $activity_title = 'activity_title' . $n; ?>
+					<?php $activity_hours = 'hours_per_week' . $n; ?>
+					<?php $activity_desc = 'activity_description' . $n; ?>
+										
+					
+					
+					<?php 
+					
+					/*	Function find_total_hours()
+					 *
+					 *	This function finds the total amount of hours
+					 *	per week for whichever particular program is
+					 *	being displayed.
+					 *
+					 *	@input string $title
+					 *	@output string $total_hours
+					 */
+					 
+					function find_total_hours($title) {
+						
+						while (rwmb_meta($title) !== '') {
+							$j = $j + 1;
+							$title = 'activity_title' . $j;
+							$activity_hours = 'hours_per_week' . $j;
+							$total_hours = $total_hours + rwmb_meta($activity_hours);
+							
+						}
+						return $total_hours;
+					} 
+					
+					$total_hours = find_total_hours($activity_title); 
+					
+					?>
+					
+					
+				
+					<?php while (rwmb_meta($activity_title) !== '') { ?>
+					<div class="onbase-phase-activity-details-container row">
+						
+						<div class="small-12 columns">
+							<h3><?php echo rwmb_meta($activity_title); ?></h3>
+						</div>
+						
+						<div class="small-9 medium-10 columns">
+							<?php echo rwmb_meta($activity_desc); ?>
+							
+						</div>
+					
+					
+						<div class="small-3 medium-2 columns">
+						<div class="onbase-phase-activity-detail-chart">
+							<div class="chart-container">
+								<i class="fa fa-caret-down"></i>
+								<canvas id="activity-detail-<?php echo $n; ?>" class="chart" width="150" height="150"></canvas>
+								
+								<script>
+									jQuery(document).ready(function($) {
+									
+									var onbaseOverview = [
+									
+									
+									//LOOP THROUGH TOTAL CHART DATA
+									<?php $i = 1; ?>
+									<?php $activity_title = 'activity_title' . $i; ?>
+									<?php $activity_hours = 'hours_per_week' . $i; ?>
+									<?php $activity_desc = 'activity_description' . $i; ?>
+									<?php $hours_before = 0; ?>
+									<?php $hours_after = $total_hours - rwmb_meta($activity_hours); ?>
+	
+									<?php while (rwmb_meta($activity_title) !== '') { ?>
+	
+											<?php if ($n == $i) { ?>
+												{value : <?php echo $hours_before; ?>, color : "#EFEFEF"},
+												{value : <?php echo rwmb_meta($activity_hours); ?>, color : "#609FCE" },
+												{value : <?php echo $hours_after; ?>, color : "#EFEFEF"},
+											<?php } ?>
+											
+										<?php $hours_before = $hours_before + rwmb_meta($activity_hours); ?>
+										
+											
+										<?php $i = $i + 1; ?>
+										<?php $activity_title = 'activity_title' . $i; ?>
+										<?php $activity_hours = 'hours_per_week' . $i; ?>
+										<?php $activity_desc = 'activity_description' . $i; ?>
+										<?php $hours_after = $total_hours - (rwmb_meta($activity_hours)+$hours_before); ?>
+										
+									<?php } ?>
+									
+										]
+									var options = {
+										segmentStrokeWidth : 2,
+										percentageInnerCutout : 55,
+										animation: false,
+										responsive: true,
+									}
+									var ctx = document.getElementById("activity-detail-<?php echo $n; ?>").getContext("2d");
+									var myNewChart = new Chart(ctx).Doughnut(onbaseOverview, options);
+										
+											
+									});			
+								</script>
+								
+							</div>
+						</div>
+						</div>
+					
+					</div><!--/.onbase-phase-detail-container-->
+					
+					<?php $n = $n + 1; ?>
+					<?php $activity_title = 'activity_title' . $n; ?>
+					<?php $activity_hours = 'hours_per_week' . $n; ?>
+					<?php $activity_desc = 'activity_description' . $n; ?>
+					<?php } ?>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
  	</div>
  	
  	<div class="large-3 columns">
- 		
+ 		<div class="magellan-container" data-magellan-expedition="fixed">
+		  <dl class="sub-nav side-nav-container">
+		    <dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
+		    <dd data-magellan-arrival="js"><a href="#js">Arrival 2</a></dd>
+		  </dl>
+		</div>
  	</div>
  	
  </div>

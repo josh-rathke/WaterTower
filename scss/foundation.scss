@@ -67,7 +67,11 @@
 @import "assets/authors"; // Import Author Styles
 @import "assets/footer"; // Import Footer Styles
 @import "assets/programs"; // Import Program Pages Styles
+@import "assets/side_nav"; // Import Side Nav Styles
 
+// CSS Hacks
+@import "assets/vimeography_hacks"; // Import the hacky css for Vimeography
+@import "assets/magellan_hacks"; // Import the Magellan Hacks
 
 /* 
   My custom styles:
