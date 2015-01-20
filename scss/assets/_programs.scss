@@ -3,6 +3,10 @@
   .program-info-container {
     margin-top: 50px;
     
+    @media #{$small-only} {
+      text-align: center;
+    }
+    
     .program-info-duration-container {
       text-align: center;
       
@@ -22,8 +26,13 @@
     }
     
     .program-info-academic-container {
+      
       h5 i {
         margin-left: 5px;
+      }
+      
+      @media #{$small-only} {
+        margin-top: 16px;
       }
     }
   }
@@ -77,13 +86,20 @@
   .program-onbase-phase-info-container {
     margin-top: 70px;
     
-    h3 {
-      border-bottom: 1px solid $primary-color;
+    h4 {
+      border-bottom: 2px solid #EFEFEF;
+    }
+    
+    .onbase-phase-activity-hours {
+      color: #888;
+      font-size: 16px; 
     }
     
     .onbase-phase-activity-details-container {
+      padding: 16px 0px;
     
       .onbase-phase-activity-detail-chart {
+        padding: 0px 24px;
         
         .chart-container {
           text-align: center;
@@ -91,7 +107,7 @@
           
           i {
             font-size: 24px;
-            color: $primary-color;
+            color: #EFEFEF;
           }
         }
       }

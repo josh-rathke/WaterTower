@@ -188,17 +188,20 @@
 					<div class="onbase-phase-activity-details-container row">
 						
 						<div class="small-12 columns">
-							<h3><?php echo rwmb_meta($activity_title); ?></h3>
+							<h4>
+								<?php echo rwmb_meta($activity_title); ?>
+								<span class="right show-for-medium-up onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
+							</h4>
+							<span class="show-for-small-only onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
 						</div>
 						
-						<div class="small-9 medium-10 columns">
+						<div class="small-12 medium-10 columns">
 							<?php echo rwmb_meta($activity_desc); ?>
 							
 						</div>
 					
 					
-						<div class="small-3 medium-2 columns">
-						<div class="onbase-phase-activity-detail-chart">
+						<div class="hide-for-small medium-2 columns onbase-phase-activity-detail-chart">
 							<div class="chart-container">
 								<i class="fa fa-caret-down"></i>
 								<canvas id="activity-detail-<?php echo $n; ?>" class="chart" width="150" height="150"></canvas>
@@ -239,7 +242,7 @@
 										]
 									var options = {
 										segmentStrokeWidth : 2,
-										percentageInnerCutout : 55,
+										percentageInnerCutout : 65,
 										animation: false,
 										responsive: true,
 									}
@@ -251,7 +254,6 @@
 								</script>
 								
 							</div>
-						</div>
 						</div>
 					
 					</div><!--/.onbase-phase-detail-container-->

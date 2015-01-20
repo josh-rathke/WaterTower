@@ -70,6 +70,7 @@
 @import "assets/side_nav"; // Import Side Nav Styles
 
 // CSS Hacks
+@import "assets/topbar_hacks"; // Import the top bar hacks.
 @import "assets/vimeography_hacks"; // Import the hacky css for Vimeography
 @import "assets/magellan_hacks"; // Import the Magellan Hacks
 
@@ -87,14 +88,14 @@
 // Top Bar Styles
 .top-bar-container {background: white !important; border-top: 1px solid #DDD; margin-bottom: 0px !important;}
 
-.top-bar {background: white !important;}
-.top-bar-section > ul > li {background: white !important;}
+.top-bar {background: transparent !important;}
+.top-bar-section > ul > li {background: transparent !important;}
 
 .top-bar-section li a {font-size: 14px !important;}
 .top-bar-section .has-dropdown > a {padding-right: 15px !important;}
 .top-bar-section .has-dropdown > a:after {border-color: transparent transparent transparent;}
 
-.top-bar-section li a:not(.button) { background: white !important; color: #222; font-family:"HelveticaNeueW01-47LtCn 692686" !important; letter-spacing: 2px; text-transform: uppercase;}
+.top-bar-section li a:not(.button) { background: transparent !important; color: #222; font-family:"HelveticaNeueW01-47LtCn 692686" !important; letter-spacing: 2px; text-transform: uppercase;}
 
 .top-bar-section li.active:not(has-form) a:not(.button) {color: #333 !important;}
 .top-bar-section li.active:hover a:not(.button) {color: white;}
