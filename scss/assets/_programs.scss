@@ -13,7 +13,7 @@
       .program-info-duration-number {
         color: #444;
         font-family:"HelveticaNeueW01-77BdCn 692722";
-        font-size: 96px;
+        font-size: 116px;
         line-height: 1;
       }
       
@@ -111,6 +111,30 @@
           }
         }
       }
+    }
+  }
+}
+
+.recent-posts-header-container {
+  h2 {
+    border-bottom: 2px solid #EFEFEF;
+  }
+  
+  .recent-posts-header-post-num-container {
+    text-align: center;
+    
+    .recent-posts-header-post-num {
+      color: #444;
+      font-family:"HelveticaNeueW01-77BdCn 692722";
+      font-size: 116px;
+      line-height: 1;
+    }
+    
+    .recent-posts-header-post-num-desc {
+      font-family:"HelveticaNeueW01-47LtCn 692686";
+      font-size: 16px;
+      line-height: 1;
+      text-transform: uppercase;
     }
   }
 }

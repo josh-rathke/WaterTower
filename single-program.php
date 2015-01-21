@@ -269,11 +269,110 @@
 		</div>
 		
 		
+		<?php function recent_posts($args) {
+			
+			// The Query
+			$the_query = new WP_Query( $args );
+			
+			// The Loop
+			if ( $the_query->have_posts() ) {
+				echo '<div class="recent-posts-container">';
+				echo '<h2>Recent Posts</h2>';
+					echo '<ul class="medium-block-grid-2">';
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						echo '<li class="recent-post-container">';
+						the_post_thumbnail('thumbnail-card');
+						echo '<h5>' . get_the_title() . '</h5>';
+						echo '<p>' . get_the_excerpt() . '</p>'; 
+						echo '</li>';
+					}
+					echo '</ul>';
+				echo '</div>';
+			} else {
+				// no posts found
+			}
+			/* Restore original Post Data */
+			wp_reset_postdata();
+		
+		}
+		
+		recent_posts('post_type=post&posts_per_page=2');
+		
+		?>
+		
+		<div class="recent-posts-header-container">
+			<h2>Related Posts</h2>
+			<div class="row">
+				<div class="medium-5 columns">
+					<p>Want to know what it's like to go through a Discipleship Training School from people who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
+				</div>
+				
+				<div class="medium-4 columns">
+					<p>
+						<strong>Popular Tags:</strong>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<a href="#_">Some Stuff</a>
+						<?php 
+							get_tags_related_to_tax_term('program_taxo', 'discipleship-training-school');
+						?>
+					</p>
+				</div>
+				
+				<div class="medium-3 columns recent-posts-header-post-num-container">
+					<div class="recent-posts-header-post-num">12</div>
+					<div class="recent-posts-header-post-num-desc">Posts</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<?php function recent_posts2($args) {
+			
+			// The Query
+			$the_query = new WP_Query( $args );
+			
+			// The Loop
+			if ( $the_query->have_posts() ) {
+				echo '<div class="recent-posts-container">';
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						
+						echo '<div class="row">';
+							echo '<div class="medium-4 columns">';
+								the_post_thumbnail('thumbnail-card');
+							echo '</div>';
+							
+							echo '<div class="medium-8 columns">';
+								echo '<h5>' . get_the_title() . '</h5>';
+								echo '<p>' . get_the_excerpt() . '</p>';
+							echo '</div>';
+						echo '</div>';
+					}
+					echo '</ul>';
+				echo '</div>';
+			} else {
+				// no posts found
+			}
+			/* Restore original Post Data */
+			wp_reset_postdata();
+		
+		}
+		
+		recent_posts2('post_type=post&posts_per_page=2');
+		
+		?>
 		
 		
 		
 		
- 	</div>
+	</div>
  	
  	<div class="large-3 columns">
  		<div class="magellan-container" data-magellan-expedition="fixed">
