@@ -269,71 +269,48 @@
 		</div>
 		
 		
-		<?php function recent_posts($args) {
-			
-			// The Query
-			$the_query = new WP_Query( $args );
-			
-			// The Loop
-			if ( $the_query->have_posts() ) {
-				echo '<div class="recent-posts-container">';
-				echo '<h2>Recent Posts</h2>';
-					echo '<ul class="medium-block-grid-2">';
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						echo '<li class="recent-post-container">';
-						the_post_thumbnail('thumbnail-card');
-						echo '<h5>' . get_the_title() . '</h5>';
-						echo '<p>' . get_the_excerpt() . '</p>'; 
-						echo '</li>';
-					}
-					echo '</ul>';
-				echo '</div>';
-			} else {
-				// no posts found
-			}
-			/* Restore original Post Data */
-			wp_reset_postdata();
 		
-		}
 		
-		recent_posts('post_type=post&posts_per_page=2');
-		
-		?>
 		
 		<div class="recent-posts-header-container">
-			<h2>Related Posts</h2>
+			<div class="recent-posts-header-title">
+				<div class="row">
+					<div class="medium-9 columns">
+						<h2>Related Posts</h2>
+					</div>
+					
+					<div class="medium-3 columns">
+						<a href="#_" class="recent-posts-header-archive-link">
+							View All Posts
+						</a>
+					</div>
+				</div>
+			</div>
+			
 			<div class="row">
 				<div class="medium-5 columns">
-					<p>Want to know what it's like to go through a Discipleship Training School from people who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
+					<p>Want to know what it's like to go through a Discipleship Training School from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
 				</div>
 				
 				<div class="medium-4 columns">
-					<p>
+					<p class="recent-posts-header-post-tags">
 						<strong>Popular Tags:</strong>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
-						<a href="#_">Some Stuff</a>
 						<?php 
-							get_tags_related_to_tax_term('program_taxo', 'discipleship-training-school');
+							get_tags_related_to_tax_term_list('program_taxo', 'discipleship-training-school', 20);
 						?>
 					</p>
 				</div>
 				
 				<div class="medium-3 columns recent-posts-header-post-num-container">
+					<i class="fa fa-caret-down"></i>
 					<div class="recent-posts-header-post-num">12</div>
-					<div class="recent-posts-header-post-num-desc">Posts</div>
+					<div class="recent-posts-header-post-num-desc">Related Posts</div>
 				</div>
 			</div>
 		</div>
 		
 		
-		<?php function recent_posts2($args) {
+		<?php function recent_posts($args) {
 			
 			// The Query
 			$the_query = new WP_Query( $args );
@@ -344,12 +321,12 @@
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
 						
-						echo '<div class="row">';
-							echo '<div class="medium-4 columns">';
+						echo '<div class="row recent-post-container">';
+							echo '<div class="medium-4 columns recent-post-feat-img-container">';
 								the_post_thumbnail('thumbnail-card');
 							echo '</div>';
 							
-							echo '<div class="medium-8 columns">';
+							echo '<div class="medium-8 columns recent-post-content-container">';
 								echo '<h5>' . get_the_title() . '</h5>';
 								echo '<p>' . get_the_excerpt() . '</p>';
 							echo '</div>';
@@ -365,7 +342,7 @@
 		
 		}
 		
-		recent_posts2('post_type=post&posts_per_page=2');
+		recent_posts('post_type=post&posts_per_page=2');
 		
 		?>
 		

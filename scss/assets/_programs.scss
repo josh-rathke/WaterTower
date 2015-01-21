@@ -116,12 +116,42 @@
 }
 
 .recent-posts-header-container {
-  h2 {
-    border-bottom: 2px solid #EFEFEF;
+  margin-top: 60px;
+  
+  .recent-posts-header-title {
+    border-bottom: 2px solid $primary_color;
+    margin: 0px 0px 10px 0px;
+    
+    h2 {
+      margin: 0px;
+    }
+    
+    .recent-posts-header-archive-link {
+      background: $primary_color;
+      color: white;
+      display: block;
+      font-family:"HelveticaNeueW01-47LtCn 692686";
+      font-size: 14px;
+      padding: 10px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      top: 5px;
+    }
+  }
+  
+  .recent-posts-header-post-tags {
+    font-size: 13px; 
   }
   
   .recent-posts-header-post-num-container {
+    margin-top: -20px;
     text-align: center;
+    
+    i {
+      font-size: 26px;
+      color: $primary_color;
+    }
     
     .recent-posts-header-post-num {
       color: #444;
@@ -135,6 +165,17 @@
       font-size: 16px;
       line-height: 1;
       text-transform: uppercase;
+    }
+  }
+}
+
+.recent-posts-container {
+  
+  .recent-post-container {
+    margin-top: 20px;
+    
+    .recent-post-feat-img-container {
+      margin-top: 6px; 
     }
   }
 }

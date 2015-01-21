@@ -177,6 +177,16 @@ function get_tags_related_to_tax_term($taxonomy, $term) {
 	usort($post_tags, 'sort_post_tags');
 	return $post_tags;
 }
+
+function get_tags_related_to_tax_term_list($taxonomy, $term, $num_requested) {
+	$post_tags = array_slice(get_tags_related_to_tax_term($taxonomy, $term), 0, $num_requested);
+	
+	foreach($post_tags as $post_tag) {
+		$format = '<a href="' . get_bloginfo('url') . '/tag/%s">%s</a>';
+		echo sprintf($format, $post_tag->slug, $post_tag->name);
+		echo (end($post_tags) !== $post_tag) ? ', ' : null;
+	}
+}
  
  
  
