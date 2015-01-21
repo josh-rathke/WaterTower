@@ -141,4 +141,53 @@ require_once('library/comments-walker.php');
  
  
  
+ 
+function get_tags_related_to_tax_term($taxonomy, $term) {
+	
+	// Make all of the args for Get Posts
+	$get_posts_args = array (
+		'posts_per_page' => -1,
+		$taxonomy		 => $term,
+	);
+	
+	// Get all posts that match the taxonomy and term
+	$posts = get_posts($get_posts_args);
+	
+	// Loop through all posts
+	foreach ($posts as $post) {
+		
+		// Queue Up Next Post Tag For Verification
+		$post_tags_on_deck = wp_get_post_tags($post->ID);
+		
+		foreach ($post_tags_on_deck as $post_tag_on_deck) {
+			if (!in_array($post_tag_on_deck, $post_tags)) {
+				$post_tags[] = $post_tag_on_deck;
+			}
+		}
+	}
+	
+	function sort_post_tags($a, $b) {
+		if ($a->count == $b->count) {
+	        return 0;
+	    } else {
+	    	return ($a->count < $b->count) ? 1 : -1;
+		}
+	}
+	
+	usort($post_tags, 'sort_post_tags');
+	return $post_tags;
+}
+
+function get_tags_related_to_tax_term_list($taxonomy, $term, $num_requested) {
+	$post_tags = array_slice(get_tags_related_to_tax_term($taxonomy, $term), 0, $num_requested);
+	
+	foreach($post_tags as $post_tag) {
+		$format = '<a href="' . get_bloginfo('url') . '/tag/%s">%s</a>';
+		echo sprintf($format, $post_tag->slug, $post_tag->name);
+		echo (end($post_tags) !== $post_tag) ? ', ' : null;
+	}
+}
+ 
+ 
+ 
 ?>

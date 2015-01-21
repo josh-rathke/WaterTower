@@ -1,0 +1,9 @@
+.top-bar-container {
+  
+  &.fixed {
+    background: #F9F9F9 !important;
+    border-bottom: 2px solid $primary_color;
+    @include transition(.5s); 
+  }
+  
+}

@@ -6,15 +6,19 @@ function FoundationPress_theme_support() {
     // Add menu support
     add_theme_support('menus');
 
-    // Add post thumbnail support: http://codex.wordpress.org/Post_Thumbnails
-    add_theme_support('post-thumbnails');
-    // set_post_thumbnail_size(150, 150, false);
-
     // rss thingy
     add_theme_support('automatic-feed-links');
 
-    // Add post formarts support: http://codex.wordpress.org/Post_Formats
-    add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
+	//ADD POST THUMBNAIL FUNCTIONALITY
+	if ( function_exists( 'add_theme_support' ) ) {
+		add_theme_support( 'post-thumbnails' );			
+	}
+	
+	//DEFINE THUMBNAIL SIZES
+	if ( function_exists( 'add_image_size' ) ) {
+		add_image_size( 'full-width-banner', 2800, 450, true); //USE FOR FULL WIDTH BANNERS
+		add_image_size( 'thumbnail-card', 700, 400, true ); //USE FOR DISPLAY OF THUMBNAIL SIZE CARDS
+	}
 
 }
 

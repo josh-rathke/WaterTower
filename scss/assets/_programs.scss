@@ -3,13 +3,17 @@
   .program-info-container {
     margin-top: 50px;
     
+    @media #{$small-only} {
+      text-align: center;
+    }
+    
     .program-info-duration-container {
       text-align: center;
       
       .program-info-duration-number {
         color: #444;
         font-family:"HelveticaNeueW01-77BdCn 692722";
-        font-size: 96px;
+        font-size: 116px;
         line-height: 1;
       }
       
@@ -22,8 +26,13 @@
     }
     
     .program-info-academic-container {
+      
       h5 i {
         margin-left: 5px;
+      }
+      
+      @media #{$small-only} {
+        margin-top: 16px;
       }
     }
   }
@@ -71,6 +80,102 @@
     .program-prereqs-icon-container {
       font-size: 50px;
       text-align: center;
+    }
+  }
+  
+  .program-onbase-phase-info-container {
+    margin-top: 70px;
+    
+    h4 {
+      border-bottom: 2px solid #EFEFEF;
+    }
+    
+    .onbase-phase-activity-hours {
+      color: #888;
+      font-size: 16px; 
+    }
+    
+    .onbase-phase-activity-details-container {
+      padding: 16px 0px;
+    
+      .onbase-phase-activity-detail-chart {
+        padding: 0px 24px;
+        
+        .chart-container {
+          text-align: center;
+          margin-top: -17px;
+          
+          i {
+            font-size: 24px;
+            color: #EFEFEF;
+          }
+        }
+      }
+    }
+  }
+}
+
+.recent-posts-header-container {
+  margin-top: 60px;
+  
+  .recent-posts-header-title {
+    border-bottom: 2px solid $primary_color;
+    margin: 0px 0px 10px 0px;
+    
+    h2 {
+      margin: 0px;
+    }
+    
+    .recent-posts-header-archive-link {
+      background: $primary_color;
+      color: white;
+      display: block;
+      font-family:"HelveticaNeueW01-47LtCn 692686";
+      font-size: 14px;
+      padding: 10px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      top: 5px;
+    }
+  }
+  
+  .recent-posts-header-post-tags {
+    font-size: 13px; 
+  }
+  
+  .recent-posts-header-post-num-container {
+    margin-top: -20px;
+    text-align: center;
+    
+    i {
+      font-size: 26px;
+      color: $primary_color;
+    }
+    
+    .recent-posts-header-post-num {
+      color: #444;
+      font-family:"HelveticaNeueW01-77BdCn 692722";
+      font-size: 116px;
+      line-height: 1;
+    }
+    
+    .recent-posts-header-post-num-desc {
+      font-family:"HelveticaNeueW01-47LtCn 692686";
+      font-size: 16px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.recent-posts-container {
+  
+  .recent-post-container {
+    margin-top: 20px;
+    
+    .recent-post-feat-img-container {
+      margin-top: 6px; 
     }
   }
 }

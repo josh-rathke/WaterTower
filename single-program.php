@@ -25,8 +25,6 @@
 			
 			$program_id = $post->ID;
 			$program_object = new programInfo($program_id);
-			
-			print_r($program_object);
 			 
 			?>
  			
@@ -41,8 +39,12 @@
 			</article>
 		<?php endwhile;?>
 		
+		<div class="row">
+			<div class="medium-12 columns">
+			<?php echo do_shortcode('[vimeography id="1"]'); ?>
+			</div>
+		</div>
 		
-		<?php echo do_shortcode('[vimeography id="2"]'); ?>
 		
 		<?php
 		/**
@@ -127,10 +129,235 @@
 		?>
 		
 		
- 	</div>
+		
+		
+		
+		
+		
+		<div class="program-onbase-phase-info-container">
+			
+			<?php // OnBase phase description ?>
+			<div class="program-onbase-phase-desc">
+				<h2><?php echo rwmb_meta('lecture_phase_title'); ?></h2>
+				<p><?php echo rwmb_meta('lecture_phase_desc'); ?></p>
+			</div>
+			
+			
+			<?php // On Base Phase Details ?>
+			<div class="onbase-phase-detail-container">
+															
+				<div class="onbase-phase-details">
+					<?php $n = 1; ?>
+					<?php $activity_title = 'activity_title' . $n; ?>
+					<?php $activity_hours = 'hours_per_week' . $n; ?>
+					<?php $activity_desc = 'activity_description' . $n; ?>
+										
+					
+					
+					<?php 
+					
+					/*	Function find_total_hours()
+					 *
+					 *	This function finds the total amount of hours
+					 *	per week for whichever particular program is
+					 *	being displayed.
+					 *
+					 *	@input string $title
+					 *	@output string $total_hours
+					 */
+					 
+					function find_total_hours($title) {
+						
+						while (rwmb_meta($title) !== '') {
+							$j = $j + 1;
+							$title = 'activity_title' . $j;
+							$activity_hours = 'hours_per_week' . $j;
+							$total_hours = $total_hours + rwmb_meta($activity_hours);
+							
+						}
+						return $total_hours;
+					} 
+					
+					$total_hours = find_total_hours($activity_title); 
+					
+					?>
+					
+					
+				
+					<?php while (rwmb_meta($activity_title) !== '') { ?>
+					<div class="onbase-phase-activity-details-container row">
+						
+						<div class="small-12 columns">
+							<h4>
+								<?php echo rwmb_meta($activity_title); ?>
+								<span class="right show-for-medium-up onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
+							</h4>
+							<span class="show-for-small-only onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
+						</div>
+						
+						<div class="small-12 medium-10 columns">
+							<?php echo rwmb_meta($activity_desc); ?>
+							
+						</div>
+					
+					
+						<div class="hide-for-small medium-2 columns onbase-phase-activity-detail-chart">
+							<div class="chart-container">
+								<i class="fa fa-caret-down"></i>
+								<canvas id="activity-detail-<?php echo $n; ?>" class="chart" width="150" height="150"></canvas>
+								
+								<script>
+									jQuery(document).ready(function($) {
+									
+									var onbaseOverview = [
+									
+									
+									//LOOP THROUGH TOTAL CHART DATA
+									<?php $i = 1; ?>
+									<?php $activity_title = 'activity_title' . $i; ?>
+									<?php $activity_hours = 'hours_per_week' . $i; ?>
+									<?php $activity_desc = 'activity_description' . $i; ?>
+									<?php $hours_before = 0; ?>
+									<?php $hours_after = $total_hours - rwmb_meta($activity_hours); ?>
+	
+									<?php while (rwmb_meta($activity_title) !== '') { ?>
+	
+											<?php if ($n == $i) { ?>
+												{value : <?php echo $hours_before; ?>, color : "#EFEFEF"},
+												{value : <?php echo rwmb_meta($activity_hours); ?>, color : "#609FCE" },
+												{value : <?php echo $hours_after; ?>, color : "#EFEFEF"},
+											<?php } ?>
+											
+										<?php $hours_before = $hours_before + rwmb_meta($activity_hours); ?>
+										
+											
+										<?php $i = $i + 1; ?>
+										<?php $activity_title = 'activity_title' . $i; ?>
+										<?php $activity_hours = 'hours_per_week' . $i; ?>
+										<?php $activity_desc = 'activity_description' . $i; ?>
+										<?php $hours_after = $total_hours - (rwmb_meta($activity_hours)+$hours_before); ?>
+										
+									<?php } ?>
+									
+										]
+									var options = {
+										segmentStrokeWidth : 2,
+										percentageInnerCutout : 65,
+										animation: false,
+										responsive: true,
+									}
+									var ctx = document.getElementById("activity-detail-<?php echo $n; ?>").getContext("2d");
+									var myNewChart = new Chart(ctx).Doughnut(onbaseOverview, options);
+										
+											
+									});			
+								</script>
+								
+							</div>
+						</div>
+					
+					</div><!--/.onbase-phase-detail-container-->
+					
+					<?php $n = $n + 1; ?>
+					<?php $activity_title = 'activity_title' . $n; ?>
+					<?php $activity_hours = 'hours_per_week' . $n; ?>
+					<?php $activity_desc = 'activity_description' . $n; ?>
+					<?php } ?>
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<div class="recent-posts-header-container">
+			<div class="recent-posts-header-title">
+				<div class="row">
+					<div class="medium-9 columns">
+						<h2>Related Posts</h2>
+					</div>
+					
+					<div class="medium-3 columns">
+						<a href="#_" class="recent-posts-header-archive-link">
+							View All Posts
+						</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="medium-5 columns">
+					<p>Want to know what it's like to go through a Discipleship Training School from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
+				</div>
+				
+				<div class="medium-4 columns">
+					<p class="recent-posts-header-post-tags">
+						<strong>Popular Tags:</strong>
+						<?php 
+							get_tags_related_to_tax_term_list('program_taxo', 'discipleship-training-school', 20);
+						?>
+					</p>
+				</div>
+				
+				<div class="medium-3 columns recent-posts-header-post-num-container">
+					<i class="fa fa-caret-down"></i>
+					<div class="recent-posts-header-post-num">12</div>
+					<div class="recent-posts-header-post-num-desc">Related Posts</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<?php function recent_posts($args) {
+			
+			// The Query
+			$the_query = new WP_Query( $args );
+			
+			// The Loop
+			if ( $the_query->have_posts() ) {
+				echo '<div class="recent-posts-container">';
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						
+						echo '<div class="row recent-post-container">';
+							echo '<div class="medium-4 columns recent-post-feat-img-container">';
+								the_post_thumbnail('thumbnail-card');
+							echo '</div>';
+							
+							echo '<div class="medium-8 columns recent-post-content-container">';
+								echo '<h5>' . get_the_title() . '</h5>';
+								echo '<p>' . get_the_excerpt() . '</p>';
+							echo '</div>';
+						echo '</div>';
+					}
+					echo '</ul>';
+				echo '</div>';
+			} else {
+				// no posts found
+			}
+			/* Restore original Post Data */
+			wp_reset_postdata();
+		
+		}
+		
+		recent_posts('post_type=post&posts_per_page=2');
+		
+		?>
+		
+		
+		
+		
+	</div>
  	
  	<div class="large-3 columns">
- 		
+ 		<div class="magellan-container" data-magellan-expedition="fixed">
+		  <dl class="sub-nav side-nav-container">
+		    <dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
+		    <dd data-magellan-arrival="js"><a href="#js">Arrival 2</a></dd>
+		  </dl>
+		</div>
  	</div>
  	
  </div>
