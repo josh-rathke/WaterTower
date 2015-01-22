@@ -16,9 +16,16 @@ function FoundationPress_theme_support() {
 	
 	//DEFINE THUMBNAIL SIZES
 	if ( function_exists( 'add_image_size' ) ) {
-		add_image_size( 'full-width-banner', 2800, 450, true); //USE FOR FULL WIDTH BANNERS
+		add_image_size( 'full-width-banner', 2800, 800, true); //USE FOR FULL WIDTH BANNERS
 		add_image_size( 'thumbnail-card', 700, 400, true ); //USE FOR DISPLAY OF THUMBNAIL SIZE CARDS
 	}
+	
+	// Allow .svg files to be uploaded to WordPress
+	function cc_mime_types($mimes) {
+	  $mimes['svg'] = 'image/svg+xml';
+	  return $mimes;
+	}
+	add_filter('upload_mimes', 'cc_mime_types');
 
 }
 

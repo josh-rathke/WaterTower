@@ -8,6 +8,7 @@ $meta_boxes = array();
 
 	include ('library/custom_meta/projects_meta.php');
 	include ('library/custom_meta/staff_needs_meta.php');
+	include ('library/custom_meta/focus_tracks_meta.php');
 
 $meta_boxes[] = array(
 	'title'  => 'Profile Options',

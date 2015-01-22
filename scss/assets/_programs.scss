@@ -1,7 +1,7 @@
 .single-program-content-container {
   
   .program-info-container {
-    margin-top: 50px;
+    padding-top: 60px;
     
     @media #{$small-only} {
       text-align: center;
@@ -38,7 +38,8 @@
   }
   
   .program-dates-container {
-    margin: 70px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
+    padding-top: 70px;
     text-align: center;
     
     .program-date-info-container {
@@ -84,7 +85,7 @@
   }
   
   .program-onbase-phase-info-container {
-    margin-top: 70px;
+    padding-top: 70px;
     
     h4 {
       border-bottom: 2px solid #EFEFEF;
@@ -115,10 +116,10 @@
   }
 }
 
-.recent-posts-header-container {
-  margin-top: 60px;
+.related-posts-header-container {
+  padding-top: 60px;
   
-  .recent-posts-header-title {
+  .related-posts-header-title {
     border-bottom: 2px solid $primary_color;
     margin: 0px 0px 10px 0px;
     
@@ -126,7 +127,7 @@
       margin: 0px;
     }
     
-    .recent-posts-header-archive-link {
+    .related-posts-header-archive-link {
       background: $primary_color;
       color: white;
       display: block;
@@ -140,11 +141,11 @@
     }
   }
   
-  .recent-posts-header-post-tags {
+  .related-posts-header-post-tags {
     font-size: 13px; 
   }
   
-  .recent-posts-header-post-num-container {
+  .related-posts-header-post-num-container {
     margin-top: -20px;
     text-align: center;
     
@@ -153,14 +154,14 @@
       color: $primary_color;
     }
     
-    .recent-posts-header-post-num {
+    .related-posts-header-post-num {
       color: #444;
       font-family:"HelveticaNeueW01-77BdCn 692722";
       font-size: 116px;
       line-height: 1;
     }
     
-    .recent-posts-header-post-num-desc {
+    .related-posts-header-post-num-desc {
       font-family:"HelveticaNeueW01-47LtCn 692686";
       font-size: 16px;
       line-height: 1;
@@ -169,13 +170,33 @@
   }
 }
 
-.recent-posts-container {
+.related-posts-container {
   
-  .recent-post-container {
+  .related-post-container {
     margin-top: 20px;
     
-    .recent-post-feat-img-container {
+    .related-post-feat-img-container {
       margin-top: 6px; 
+    }
+  }
+}
+
+.program-focus-tracks-container {
+  
+  .program-focus-track-container {
+    
+    .program-focus-track-content {
+      background: #EFEFEF;
+      text-align: center;
+      
+      .program-focus-track-icon {
+        padding: 1.6rem 2.8rem 1.2rem 2.8rem;
+      }
+      
+      .program-focus-track-title {
+        background: #DDD;
+        padding: 6px 0px;
+      }
     }
   }
 }

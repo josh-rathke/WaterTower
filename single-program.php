@@ -13,7 +13,7 @@
  
  
  <div class="row">
- 	<div class="large-9 columns single-program-content-container">
+ 	<div class="large-9 columns single-program-content-container entry">
  		<?php while (have_posts()) : the_post(); ?>
  			
  			<?php
@@ -56,7 +56,8 @@
 		 */
 		 ?>
 		 
-		 <div class="row program-info-container">
+		 <div id="accreditation" data-magellan-destination="accreditation" class="row program-info-container">
+		 	<h2 style="display: none;">Accreditation</h2>
 		 	<div class="medium-3 columns program-info-duration-container">
 		 		<div class="program-info-duration-number"><?php echo $program_object->academic_info['program_duration']; ?></div>
 		 		<div class="program-info-duration-desc">Weeks Total</div>
@@ -76,41 +77,43 @@
 		 * 	upcoming programs are displayed along with links to
 		 * 	apply for each of the scheduled schools. 
 		 */
-
-		echo '<ul class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
-			if (!empty($program_object->schedule)) {
-					
-				// Dispaly available program instaces	
-				foreach ($program_object->schedule as $program_occurance) {
-					echo '<li><div class="program-date-info-container">';
-					echo '<h4>' . $program_occurance['quarter'] . '</h4>';
-						echo '<ul>';
-						
-							$program_info_string = '<li>%s:<span class="right">%s</span></li>';
+		echo '<div data-magellan-destination="schedule">';
+			echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
+				echo '<h2 style="display: none;">Schedule</h2>';
+					if (!empty($program_object->schedule)) {
 							
-							echo sprintf($program_info_string, 'Start Date', date('m/d/y', strtotime($program_occurance['start_date'])));
-							echo sprintf($program_info_string, 'End Date', date('m/d/y', strtotime($program_occurance['end_date'])));
-							echo sprintf($program_info_string, 'Total Cost', $program_occurance['total_cost']);
-							echo sprintf($program_info_string, 'Apps Due', date('m/d/y', strtotime($program_occurance['app_deadline'])));
-						echo '</ul>';
-						echo '<a href="#_" class="button">Apply Online</a>';
-					echo '</div></li>';
+						// Dispaly available program instaces	
+						foreach ($program_object->schedule as $program_occurance) {
+							echo '<li><div class="program-date-info-container">';
+							echo '<h4>' . $program_occurance['quarter'] . '</h4>';
+								echo '<ul>';
+								
+									$program_info_string = '<li>%s:<span class="right">%s</span></li>';
+									
+									echo sprintf($program_info_string, 'Start Date', date('m/d/y', strtotime($program_occurance['start_date'])));
+									echo sprintf($program_info_string, 'End Date', date('m/d/y', strtotime($program_occurance['end_date'])));
+									echo sprintf($program_info_string, 'Total Cost', $program_occurance['total_cost']);
+									echo sprintf($program_info_string, 'Apps Due', date('m/d/y', strtotime($program_occurance['app_deadline'])));
+								echo '</ul>';
+								echo '<a href="#_" class="button">Apply Online</a>';
+							echo '</div></li>';
+							}
+						
+					} else {
+						echo "Sorry there aren't any available dates at this time.";
 					}
-				
-			} else {
-				echo "Sorry there aren't any available dates at this time.";
-			}
-		echo '</ul>';
+				echo '</ul>';
 		
-		// Display some of the academic and application requirements ?>
-		<div class="row program-prereqs-container alert-box warning">
-			<div class="small-3 medium-2 columns program-prereqs-icon-container">
-				<i class="fa fa-check-square-o"></i>
-			</div>
-			<div class="small-9 medium-10 columns">
-				<div class="program-pre-reqs">
-					<h5>Pre-Requisites</h5>
-					<?php echo $program_object->academic_info['recommended_prereqs']; ?>
+			// Display some of the academic and application requirements ?>
+			<div class="row program-prereqs-container alert-box warning">
+				<div class="small-3 medium-2 columns program-prereqs-icon-container">
+					<i class="fa fa-check-square-o"></i>
+				</div>
+				<div class="small-9 medium-10 columns">
+					<div class="program-pre-reqs">
+						<h5>Pre-Requisites</h5>
+						<?php echo $program_object->academic_info['recommended_prereqs']; ?>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -134,7 +137,7 @@
 		
 		
 		
-		<div class="program-onbase-phase-info-container">
+		<div data-magellan-destination="<?php echo str_replace( ' ', '-', strtolower(rwmb_meta('lecture_phase_title'))); ?>" class="program-onbase-phase-info-container">
 			
 			<?php // OnBase phase description ?>
 			<div class="program-onbase-phase-desc">
@@ -271,80 +274,157 @@
 		
 		
 		
-		
-		<div class="recent-posts-header-container">
-			<div class="recent-posts-header-title">
+		<div data-magellan-destination="related-posts">
+			<div class="related-posts-header-container">
+				<div class="related-posts-header-title">
+					<div class="row">
+						<div class="medium-9 columns">
+							<h2>Related Posts</h2>
+						</div>
+						
+						<div class="medium-3 columns">
+							<a href="#_" class="related-posts-header-archive-link">
+								View All Posts
+							</a>
+						</div>
+					</div>
+				</div>
+				
 				<div class="row">
-					<div class="medium-9 columns">
-						<h2>Related Posts</h2>
+					<div class="medium-5 columns">
+						<p>Want to know what it's like to go through a Discipleship Training School from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
 					</div>
 					
-					<div class="medium-3 columns">
-						<a href="#_" class="recent-posts-header-archive-link">
-							View All Posts
-						</a>
+					<div class="medium-4 columns">
+						<p class="related-posts-header-post-tags">
+							<strong>Popular Tags:</strong>
+							<?php 
+								get_tags_related_to_tax_term_list('program_taxo', 'discipleship-training-school', 20);
+							?>
+						</p>
+					</div>
+					
+					<div class="medium-3 columns related-posts-header-post-num-container">
+						<i class="fa fa-caret-down"></i>
+						<div class="related-posts-header-post-num">12</div>
+						<div class="related-posts-header-post-num-desc">Related Posts</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="medium-5 columns">
-					<p>Want to know what it's like to go through a Discipleship Training School from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
-				</div>
+			
+			<?php function related_posts($args) {
 				
-				<div class="medium-4 columns">
-					<p class="recent-posts-header-post-tags">
-						<strong>Popular Tags:</strong>
-						<?php 
-							get_tags_related_to_tax_term_list('program_taxo', 'discipleship-training-school', 20);
-						?>
-					</p>
-				</div>
+				// The Query
+				$the_query = new WP_Query( $args );
 				
-				<div class="medium-3 columns recent-posts-header-post-num-container">
-					<i class="fa fa-caret-down"></i>
-					<div class="recent-posts-header-post-num">12</div>
-					<div class="recent-posts-header-post-num-desc">Related Posts</div>
-				</div>
-			</div>
+				// The Loop
+				if ( $the_query->have_posts() ) {
+					echo '<div class="related-posts-container">';
+						while ( $the_query->have_posts() ) {
+							$the_query->the_post();
+							
+							echo '<div class="row related-post-container">';
+								echo '<div class="medium-4 columns related-post-feat-img-container">';
+									the_post_thumbnail('thumbnail-card');
+								echo '</div>';
+								
+								echo '<div class="medium-8 columns related-post-content-container">';
+									echo '<h5>' . get_the_title() . '</h5>';
+									echo '<p>' . get_the_excerpt() . '</p>';
+								echo '</div>';
+							echo '</div>';
+						}
+						echo '</ul>';
+					echo '</div>';
+				} else {
+					// no posts found
+				}
+				/* Restore original Post Data */
+				wp_reset_postdata();
+			
+			}
+			
+			related_posts('post_type=post&posts_per_page=2');
+			
+			?>
+		
 		</div>
 		
 		
-		<?php function recent_posts($args) {
+<?php
+		
+/**
+ *	Focus Tracks Section
+ *	This section displays all of our focus tracks,
+ *	and displays a modal box to reveal more information
+ *	about each track if/when selected.
+ */
+
+$focus_tracks_query_args = array (
+	'post_type' 	=> 'focus_tracks',
+	'program_taxo'	=> $program_object->program_slug,
+);
+ 
+// Run Query for Focus Tracks Related to Program
+$focus_tracks = new WP_Query( $focus_tracks_query_args );
+
+// Loop through all Focus Tracks related to Program
+if ( $focus_tracks->have_posts() ) : ?>
+	<div data-magellan-destination="focus-tracks" class="program-focus-tracks-container">
+ 		<h2>Focus Tracks</h2>
+ 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra elit id mauris bibendum hendrerit. Nulla metus enim, porttitor eget diam quis, sodales faucibus odio. Nunc eu tellus vitae metus suscipit sodales id nec ex. Vestibulum mollis eros nec odio interdum, non malesuada purus hendrerit.</p>
+ 		<ul class="medium-block-grid-4">
+ 			
+		<?php while ( $focus_tracks->have_posts() ) : $focus_tracks->the_post(); ?>
 			
-			// The Query
-			$the_query = new WP_Query( $args );
-			
-			// The Loop
-			if ( $the_query->have_posts() ) {
-				echo '<div class="recent-posts-container">';
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						
-						echo '<div class="row recent-post-container">';
-							echo '<div class="medium-4 columns recent-post-feat-img-container">';
-								the_post_thumbnail('thumbnail-card');
-							echo '</div>';
-							
-							echo '<div class="medium-8 columns recent-post-content-container">';
-								echo '<h5>' . get_the_title() . '</h5>';
-								echo '<p>' . get_the_excerpt() . '</p>';
-							echo '</div>';
-						echo '</div>';
-					}
-					echo '</ul>';
-				echo '</div>';
-			} else {
-				// no posts found
-			}
-			/* Restore original Post Data */
-			wp_reset_postdata();
+			<li class="program-focus-track-container">
+				<div class="program-focus-track-content">
+					<a href="#" data-reveal-id="<?php echo $post->post_name; ?>">
+			 			<div class="program-focus-track-icon">
+			 				<img src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
+			 			</div>
+			 			<div class="program-focus-track-title"><h5><?php the_title(); ?></h5></div>
+		 			</a>
+	 			</div>
+	 		</li>
+	 		
+	 		
+			<div class="reveal-modal-bg" style="display: none"></div>
+	 		<div id="<?php echo $post->post_name; ?>" class="reveal-modal small" data-reveal>
+	 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner')[0]; ?>) no-repeat center center;">
+	 				<img class="reveal-modal-post-thumbnail-icon" src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
+	 			</div>
+				  
+				 <div class="reveal-modal-post-content-container">
+				 	<h3><?php the_title(); ?></h3>
+				 	<?php the_content(); ?>
+				 </div>
+				 				 	
+			 	<?php
+			 	// Display Reveal Modal Footer 
+			 	$quarters = rwmb_meta('focus_tracks_quarters', 'type=checkbox_list');
+				
+				if (!empty($quarters)) {
+					echo '<footer>';
+						echo '<i class="fa fa-check-square-o"></i>Available: ';
+						foreach ($quarters as $quarter) {
+							echo $quarter;
+							echo end($quarters) !== $quarter ? ', ' : null;
+						}
+					echo '</footer>';
+				}
+			 	?>
+			 	
+			</div>
+		<?php endwhile; ?>
 		
-		}
+		</ul>
+	</div>
+<?php else : ?>
+	// no posts found
+<?php endif; wp_reset_postdata(); ?>
 		
-		recent_posts('post_type=post&posts_per_page=2');
-		
-		?>
 		
 		
 		
@@ -353,9 +433,7 @@
  	
  	<div class="large-3 columns">
  		<div class="magellan-container" data-magellan-expedition="fixed">
-		  <dl class="sub-nav side-nav-container">
-		    <dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>
-		    <dd data-magellan-arrival="js"><a href="#js">Arrival 2</a></dd>
+		  <dl class="sub-nav side-nav-container side-nav-by-heading">
 		  </dl>
 		</div>
  	</div>

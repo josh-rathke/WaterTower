@@ -42,7 +42,7 @@
 @import "../bower_components/foundation/scss/foundation/components/reveal";
 @import "../bower_components/foundation/scss/foundation/components/side-nav";
 @import "../bower_components/foundation/scss/foundation/components/split-buttons";
-@import "../bower_components/foundation/scss/foundation/components/sub-nav";
+//@import "../bower_components/foundation/scss/foundation/components/sub-nav";
 @import "../bower_components/foundation/scss/foundation/components/switches";
 @import "../bower_components/foundation/scss/foundation/components/tables";
 @import "../bower_components/foundation/scss/foundation/components/tabs";
@@ -73,6 +73,7 @@
 @import "assets/topbar_hacks"; // Import the top bar hacks.
 @import "assets/vimeography_hacks"; // Import the hacky css for Vimeography
 @import "assets/magellan_hacks"; // Import the Magellan Hacks
+@import "assets/reveal_modal_hacks"; // Import the Reveal Modal
 
 /* 
   My custom styles:

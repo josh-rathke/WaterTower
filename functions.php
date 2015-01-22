@@ -61,6 +61,8 @@ require_once('library/comments-walker.php');
 	include ('library/custom_post_types/surges_cpt.php');
 	// Staff Needs CPT
 	include ('library/custom_post_types/staff_needs_cpt.php');
+	// Focus Tracks CPT
+	include ('library/custom_post_types/focus_tracks_cpt.php');
 	
 	
 	
