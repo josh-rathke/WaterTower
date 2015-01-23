@@ -1,3 +1,47 @@
+.archive-program-content-container {
+  
+  h2 {
+    background: #F6F6F6;
+    border-bottom: 1px solid #DDD;
+    font-size: 26px;
+    margin-top: 50px;
+    margin-bottom: -1px;
+    padding: 6px 16px 4px 16px;
+  }
+  
+  .program-archive-programs-container {
+    
+    .program-archive-program-container {
+      
+      &:first-of-type {
+        
+        .program-archive-program-image {
+          margin-top: 46px;
+        }
+        
+        .program-archive-program-content {
+          padding-top: 42px;
+        }
+      }
+      
+      .program-archive-program-image {
+        margin-top: 20px;
+        padding-right: 24px;
+      }
+      
+      .program-archive-program-content {
+        border-left: 1px solid #DDD;
+        padding-top: 16px;
+        padding-left: 24px;
+        
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
 .single-program-content-container {
   
   .program-info-container {
