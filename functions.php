@@ -47,14 +47,8 @@ require_once('library/comments-walker.php');
 	
 	// Programs CPT
 	include ('library/custom_post_types/programs_cpt.php');
-	// Class Portfolio CPT
-	include ('library/custom_post_types/class_portfolios_cpt.php');
-	// Annual Reports CPT
-	include ('library/custom_post_types/annual_reports_cpt.php');
 	// Target Nations CPT
 	include ('library/custom_post_types/target_nations_cpt.php');
-	// Teachings CPT
-	include ('library/custom_post_types/teachings_cpt.php');
 	// Project CPT
 	include ('library/custom_post_types/projects_cpt.php'); 
 	// Surges CPT
@@ -77,18 +71,10 @@ require_once('library/comments-walker.php');
 	include ('library/custom_taxonomies/program_classifications_tax.php');	
 	// Program Taxo
 	include ('library/custom_taxonomies/programs_tax.php');
-	// Program Pre-Requisite Taxo
-	include ('library/custom_taxonomies/program_prerequisites_tax.php');
-	// Class Portfolio Taxo
-	include ('library/custom_taxonomies/class_portfolios_tax.php');
 	// Target Nation Taxo
 	include ('library/custom_taxonomies/target_nations_tax.php');
-	// Teaching Teaching Types Taxo
-	include ('library/custom_taxonomies/teaching_teaching_types_tax.php');
 	// Page Page Categories Taxo
 	include ('library/custom_taxonomies/page_page_categories_tax.php');
-	// Page Menu Locations Taxo
-	include ('library/custom_taxonomies/page_page_menu_locations_tax.php');
 	// Project Taxo
 	include ('library/custom_taxonomies/projects_tax.php');
 	
@@ -106,9 +92,7 @@ require_once('library/comments-walker.php');
  */
  
  	// Program CPT -> Program Taxo
- 	include ('library/cpt_tax_relationships/programcpt_programtax.php');
-	// Program CPT -> Program Pre-Requisite Taxonomy
-	include ('library/cpt_tax_relationships/programcpt_programprerequisitestax.php');				
+ 	include ('library/cpt_tax_relationships/programcpt_programtax.php');				
 					
 			
 						
@@ -187,6 +171,17 @@ function get_tags_related_to_tax_term_list($taxonomy, $term, $num_requested) {
 		$format = '<a href="' . get_bloginfo('url') . '/tag/%s">%s</a>';
 		echo sprintf($format, $post_tag->slug, $post_tag->name);
 		echo (end($post_tags) !== $post_tag) ? ', ' : null;
+	}
+}
+
+
+
+function get_id_by_slug($page_slug) {
+	$page = get_page_by_path($page_slug);
+	if ($page) {
+		return $page->ID;
+	} else {
+		return null;
 	}
 }
  

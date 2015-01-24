@@ -3,16 +3,30 @@
 /**
  *	Program Archive Page Template
  *	This page template displays all of the programs
- * 	we offer. 
+ * 	we offer.
+ * 
+ *	Template Name: Programs Archive
  */
-get_header(); 
+ 
+//	Get Page ID from the slug
+$page_id = get_id_by_slug('programs');
 
 // Get all program classifications
-$program_classifications = get_terms('program_classification'); ?>
+$program_classifications = get_terms('program_classification'); 
+
+get_header();
+
+?>
+
+
 
 <div class="row">
 	
-	<div class="medium-9 columns archive-program-content-container entry">	
+	<div class="medium-9 columns archive-program-content-container entry">
+		
+		<h1><?php echo get_the_title($page_id); ?></h1>
+		<?php echo get_post_field('post_content', $page_id); ?>
+
 		<?php
 		
 		// Loop through all of the program classifications
@@ -37,7 +51,7 @@ $program_classifications = get_terms('program_classification'); ?>
 				   		<?php the_post_thumbnail('thumbnail-card'); ?>
 				   	</div>
 				   	<div class="medium-8 columns program-archive-program-content">
-				   		<h5><?php the_title(); ?></h5>
+				   		<h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
 				   		<?php the_excerpt(); ?>
 				   	</div>
 				   </div>

@@ -61,19 +61,21 @@
 
 // WaterTower Style Sheets
 @import "assets/scaffolding"; // Import Scaffolding Styles
-@import "assets/img-banner"; // Import Image Banner Styles
-@import "assets/postmeta"; // Import Post Meta Styles
-@import "assets/comments"; // Import Comment Styles
-@import "assets/authors"; // Import Author Styles
-@import "assets/footer"; // Import Footer Styles
-@import "assets/programs"; // Import Program Pages Styles
-@import "assets/side_nav"; // Import Side Nav Styles
+@import "assets/archive_header";     // Import Archive Header Styles
+@import "assets/content";     // Import Content Styles
+@import "assets/img-banner";  // Import Image Banner Styles
+@import "assets/postmeta";    // Import Post Meta Styles
+@import "assets/comments";    // Import Comment Styles
+@import "assets/authors";     // Import Author Styles
+@import "assets/footer";      // Import Footer Styles
+@import "assets/programs";    // Import Program Pages Styles
+@import "assets/side_nav";    // Import Side Nav Styles
 
 // CSS Hacks
-@import "assets/topbar_hacks"; // Import the top bar hacks.
-@import "assets/vimeography_hacks"; // Import the hacky css for Vimeography
-@import "assets/magellan_hacks"; // Import the Magellan Hacks
-@import "assets/reveal_modal_hacks"; // Import the Reveal Modal
+@import "assets/topbar_hacks";        // Import the top bar hacks.
+@import "assets/vimeography_hacks";   // Import the hacky css for Vimeography
+@import "assets/magellan_hacks";      // Import the Magellan Hacks
+@import "assets/reveal_modal_hacks";  // Import the Reveal Modal
 
 /* 
   My custom styles:

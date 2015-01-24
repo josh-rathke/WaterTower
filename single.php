@@ -10,16 +10,18 @@
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 			</header>
 			<?php do_action('foundationPress_post_before_entry_content'); ?>
+			
 			<div class="entry-content">
-
-			<?php the_content(); ?>
+				<?php the_content(); ?>
 			</div>
+			
 			<footer>
 				<?php get_template_part('parts/post-meta') ?>
 			</footer>
+			
 			<?php display_authors($post->ID, null); ?>
 			<?php do_action('foundationPress_post_before_comments'); ?>
-			<?php comments_template(); ?>
+				<?php comments_template(); ?>
 			<?php do_action('foundationPress_post_after_comments'); ?>
 		</article>
 	<?php endwhile;?>
@@ -27,6 +29,9 @@
 	<?php do_action('foundationPress_after_content'); ?>
 
 	</div>
-	<?php get_sidebar(); ?>
+	
+	<aside id="sidebar" class="small-12 large-4 columns">
+		<?php get_sidebar(); ?>
+	</aside>
 </div>
 <?php get_footer(); ?>

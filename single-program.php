@@ -39,11 +39,25 @@
 			</article>
 		<?php endwhile;?>
 		
+		
+		
+		
+		<?php 
+		/**
+		 * Video Section
+		 * This is the section of each school page where we pull in
+		 * any videos that may lend themselves to the school.
+		 */
+		?>
+		
 		<div class="row">
 			<div class="medium-12 columns">
 			<?php echo do_shortcode('[vimeography id="1"]'); ?>
 			</div>
 		</div>
+		
+		
+		
 		
 		
 		<?php
@@ -120,16 +134,7 @@
 		
 		
 		
-		<?php 
-		/**
-		 * Video Section
-		 * This is the section of each school page where we pull in
-		 * any videos that may lend themselves to the school.
-		 */
 		
-		
-		
-		?>
 		
 		
 		
@@ -292,31 +297,37 @@
 				
 				<div class="row">
 					<div class="medium-5 columns">
-						<p>Want to know what it's like to go through a Discipleship Training School from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
+						<p>Want to know what it's like to go through <?php echo get_the_title($program_object->program_id); ?> from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
 					</div>
 					
 					<div class="medium-4 columns">
 						<p class="related-posts-header-post-tags">
 							<strong>Popular Tags:</strong>
 							<?php 
-								get_tags_related_to_tax_term_list('program_taxo', 'discipleship-training-school', 20);
+								get_tags_related_to_tax_term_list('program_taxo', $program_object->program_slug, 20);
 							?>
 						</p>
 					</div>
 					
 					<div class="medium-3 columns related-posts-header-post-num-container">
 						<i class="fa fa-caret-down"></i>
-						<div class="related-posts-header-post-num">12</div>
+						<div class="related-posts-header-post-num"><?php echo count(get_posts("post_type=post&posts_per_page=-1&program_taxo={$program_object->program_slug}")); ?></div>
 						<div class="related-posts-header-post-num-desc">Related Posts</div>
 					</div>
 				</div>
 			</div>
 			
 			
-			<?php function related_posts($args) {
+			<?php 
+			
+			$program_related_posts_query_args = array (
+				'post_type'		=> 'post',
+				'posts_per_page'	=> 2,
+				'program_taxo'	=> $program_object->program_slug,
+			);
 				
 				// The Query
-				$the_query = new WP_Query( $args );
+				$the_query = new WP_Query( $program_related_posts_query_args );
 				
 				// The Loop
 				if ( $the_query->have_posts() ) {
@@ -343,89 +354,109 @@
 				/* Restore original Post Data */
 				wp_reset_postdata();
 			
-			}
-			
-			related_posts('post_type=post&posts_per_page=2');
 			
 			?>
 		
 		</div>
 		
 		
-<?php
-		
-/**
- *	Focus Tracks Section
- *	This section displays all of our focus tracks,
- *	and displays a modal box to reveal more information
- *	about each track if/when selected.
- */
-
-$focus_tracks_query_args = array (
-	'post_type' 	=> 'focus_tracks',
-	'program_taxo'	=> $program_object->program_slug,
-);
- 
-// Run Query for Focus Tracks Related to Program
-$focus_tracks = new WP_Query( $focus_tracks_query_args );
-
-// Loop through all Focus Tracks related to Program
-if ( $focus_tracks->have_posts() ) : ?>
-	<div data-magellan-destination="focus-tracks" class="program-focus-tracks-container">
- 		<h2>Focus Tracks</h2>
- 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra elit id mauris bibendum hendrerit. Nulla metus enim, porttitor eget diam quis, sodales faucibus odio. Nunc eu tellus vitae metus suscipit sodales id nec ex. Vestibulum mollis eros nec odio interdum, non malesuada purus hendrerit.</p>
- 		<ul class="medium-block-grid-4">
- 			
-		<?php while ( $focus_tracks->have_posts() ) : $focus_tracks->the_post(); ?>
+	<?php
 			
-			<li class="program-focus-track-container">
-				<div class="program-focus-track-content">
-					<a href="#" data-reveal-id="<?php echo $post->post_name; ?>">
-			 			<div class="program-focus-track-icon">
-			 				<img src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
-			 			</div>
-			 			<div class="program-focus-track-title"><h5><?php the_title(); ?></h5></div>
-		 			</a>
-	 			</div>
-	 		</li>
-	 		
-	 		
-			<div class="reveal-modal-bg" style="display: none"></div>
-	 		<div id="<?php echo $post->post_name; ?>" class="reveal-modal small" data-reveal>
-	 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner')[0]; ?>) no-repeat center center;">
-	 				<img class="reveal-modal-post-thumbnail-icon" src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
-	 			</div>
-				  
-				 <div class="reveal-modal-post-content-container">
-				 	<h3><?php the_title(); ?></h3>
-				 	<?php the_content(); ?>
-				 </div>
-				 				 	
-			 	<?php
-			 	// Display Reveal Modal Footer 
-			 	$quarters = rwmb_meta('focus_tracks_quarters', 'type=checkbox_list');
+	/**
+	 *	Focus Tracks Section
+	 *	This section displays all of our focus tracks,
+	 *	and displays a modal box to reveal more information
+	 *	about each track if/when selected.
+	 */
+	
+	$focus_tracks_query_args = array (
+		'post_type' 	=> 'focus_tracks',
+		'program_taxo'	=> $program_object->program_slug,
+	);
+	 
+	// Run Query for Focus Tracks Related to Program
+	$focus_tracks = new WP_Query( $focus_tracks_query_args );
+	
+	// Loop through all Focus Tracks related to Program
+	if ( $focus_tracks->have_posts() ) : ?>
+		<div data-magellan-destination="focus-tracks" class="program-focus-tracks-container">
+	 		<h2>Focus Tracks</h2>
+	 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra elit id mauris bibendum hendrerit. Nulla metus enim, porttitor eget diam quis, sodales faucibus odio. Nunc eu tellus vitae metus suscipit sodales id nec ex. Vestibulum mollis eros nec odio interdum, non malesuada purus hendrerit.</p>
+	 		<ul class="medium-block-grid-4">
+	 			
+			<?php while ( $focus_tracks->have_posts() ) : $focus_tracks->the_post(); ?>
 				
-				if (!empty($quarters)) {
-					echo '<footer>';
-						echo '<i class="fa fa-check-square-o"></i>Available: ';
-						foreach ($quarters as $quarter) {
-							echo $quarter;
-							echo end($quarters) !== $quarter ? ', ' : null;
-						}
-					echo '</footer>';
-				}
-			 	?>
-			 	
-			</div>
-		<?php endwhile; ?>
+				<li class="program-focus-track-container">
+					<div class="program-focus-track-content">
+						<a href="#" data-reveal-id="<?php echo $post->post_name; ?>">
+				 			<div class="program-focus-track-icon">
+				 				<img src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
+				 			</div>
+				 			<div class="program-focus-track-title"><h5><?php the_title(); ?></h5></div>
+			 			</a>
+		 			</div>
+		 		</li>
+		 		
+		 		
+				<div class="reveal-modal-bg" style="display: none"></div>
+		 		<div id="<?php echo $post->post_name; ?>" class="reveal-modal small" data-reveal>
+		 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner')[0]; ?>) no-repeat center center;">
+		 				<img class="reveal-modal-post-thumbnail-icon" src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
+		 			</div>
+					  
+					 <div class="reveal-modal-post-content-container">
+					 	<h3><?php the_title(); ?></h3>
+					 	<?php the_content(); ?>
+					 </div>
+					 				 	
+				 	<?php
+				 	// Display Reveal Modal Footer 
+				 	$quarters = rwmb_meta('focus_tracks_quarters', 'type=checkbox_list');
+					
+					if (!empty($quarters)) {
+						echo '<footer>';
+							echo '<i class="fa fa-check-square-o"></i>Available: ';
+							foreach ($quarters as $quarter) {
+								echo $quarter;
+								echo end($quarters) !== $quarter ? ', ' : null;
+							}
+						echo '</footer>';
+					}
+				 	?>
+				 	
+				</div>
+			<?php endwhile; ?>
+			
+			</ul>
+		</div>
+	<?php else : ?>
+		// no posts found
+	<?php endif; wp_reset_postdata(); ?>
 		
-		</ul>
-	</div>
-<?php else : ?>
-	// no posts found
-<?php endif; wp_reset_postdata(); ?>
 		
 		
+	<?php
+	
+	/**
+	 *	Leader Section
+	 * 	This section displays all of the leaders of the
+	 * 	particular program.
+	 */									
+									
+	$terms = rwmb_meta('leaders', 'type=select&multiple=1');
+	
+	if (!empty($terms)) {
+		echo '<div class="authors-container program-leaders-container">';
+			echo '<h2>School Leaders</h2>';
+			foreach ( $terms as $term ) {
+				$author_object = get_post( $term, OBJECT);
+				$leader_ids[] = $author_object->ID;
+			}
+			display_authors($program_id, $leader_ids);
+		echo '</div>';
+	}
+		
+	?>
 		
 		
 		
