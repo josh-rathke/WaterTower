@@ -1,6 +1,6 @@
-# FoundationPress
+# watertower
 
-This is a WordPress starter theme based on Foundation 5 by Zurb. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product. If you're looking for an all-in-one theme with built-in shortcodes, plugins, fancypancy portfolio templates or whatnot, I'm afraid you have to look elsewhere.
+This is a WordPress starter theme based on Foundation 5 by Zurb. The purpose of watertower, is to act as a small and handy toolbox that contains the essentials needed to build any design. watertower is meant to be a starting point, not the final product. If you're looking for an all-in-one theme with built-in shortcodes, plugins, fancypancy portfolio templates or whatnot, I'm afraid you have to look elsewhere.
 
 Please fork, copy, modify, delete, share or do whatever you like with this. 
 
@@ -27,14 +27,14 @@ Bower is a package manager used by Zurb to distribute Foundation. When you have 
 
 ```bash
 cd my-wordpress-folder/wp-content/themes/
-git clone git@github.com:olefredrik/FoundationPress.git
-mv FoundationPress your-theme-name
+git clone git@github.com:olefredrik/watertower.git
+mv watertower your-theme-name
 cd your-theme-name
 npm install && bower install && grunt build
 ```
 
 Tip: If you get an error saying Permission denied (publickey) when cloning the repository, use the https protocol instead:
-```git clone https://github.com/olefredrik/FoundationPress.git```
+```git clone https://github.com/olefredrik/watertower.git```
 
 While you're working on your project, run:
 
@@ -53,7 +53,7 @@ Check for Foundation Updates? Run:
   * `scss/foundation.scss`: Imports for Foundation components and your custom styles.
   * `scss/config/_settings.scss`: Original Foundation 5 base settings
   * `scss/assets/_icons.scss`: Foundation Icons
-  * `scss/site/_base.scss`: Basic styles for FoundationPress. These can be replaced by your needs.
+  * `scss/site/_base.scss`: Basic styles for watertower. These can be replaced by your needs.
 
   * `css/foundation.css`: All Sass files are minified and compiled to this file
   * `css/foundation.css.map`: CSS source maps
@@ -62,23 +62,23 @@ Check for Foundation Updates? Run:
   
   * `bower_components/`: This is the source folder where all Foundation components are located. `foundation update` will check and update scripts in this folder.
 
-  * `js/custom`: This is where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated to [foundation.js](https://github.com/olefredrik/FoundationPress/blob/master/js/foundation.js)
+  * `js/custom`: This is where you put all your custom scripts. Every .js file you put in this directory will be minified and concatinated to [foundation.js](https://github.com/olefredrik/watertower/blob/master/js/foundation.js)
 
   * `js/vendor`: Vendor scripts are copied from `bower_components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
 
-  * Please note that you must run `grunt build` in your terminal for the script to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/FoundationPress/blob/master/Gruntfile.js) for details
+  * Please note that you must run `grunt build` in your terminal for the script to be copied and concatinated. See [Gruntfile.js](https://github.com/olefredrik/watertower/blob/master/Gruntfile.js) for details
 
 ## Demo
 
-* [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
-* [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
-* [FoundationPSD - Photoshop template for Foundation](http://foundationpress.olefredrik.com/downloads/foundation-psd-template/)
+* [Clean watertower install](http://watertower.olefredrik.com/)
+* [watertower Kitchen Sink - see every single element in action](http://watertower.olefredrik.com/kitchen-sink/)
+* [FoundationPSD - Photoshop template for Foundation](http://watertower.olefredrik.com/downloads/foundation-psd-template/)
 
 ## How to make Foundation your own
 * [Learn to use the _settings file to change almost every aspect of a Foundation site](http://zurb.com/university/lessons/66)
 * [Other lessons from Zurb University](http://zurb.com/university/past-lessons)
 
-## Examples of sites built using FoundationPress
+## Examples of sites built using watertower
 
 * [Harvard Center for Green Buildings and Cities](http://www.harvardcgbc.org/)
 * [Parent-Child Home Program](http://www.parent-child.org/)
@@ -98,15 +98,15 @@ Check for Foundation Updates? Run:
 ## Contributing
 #### Here are ways to get involved:
 
-1. [Star](https://github.com/olefredrik/FoundationPress/stargazers) the project!
-2. Answer questions that come through [GitHub issues](https://github.com/olefredrik/FoundationPress/issues)
+1. [Star](https://github.com/olefredrik/watertower/stargazers) the project!
+2. Answer questions that come through [GitHub issues](https://github.com/olefredrik/watertower/issues)
 3. Report a bug that you find
-4. Share a theme you've built on top of FoundationPress
-5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%205&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) about the advantages (and criticisms) of FoundationPress
+4. Share a theme you've built on top of watertower
+5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwatertower.olefredrik.com%2F&text=Check%20out%20watertower%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%205&tw_p=tweetbutton&url=http%3A%2F%2Fwatertower.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-watertower-a-wordpress-starter-theme-106/) about the advantages (and criticisms) of watertower
 
 #### Pull Requests
 
-Pull requests are highly appreciated. About a dozen people have written parts of FoundationPress (so far). Here are some guidelines to help:
+Pull requests are highly appreciated. About a dozen people have written parts of watertower (so far). Here are some guidelines to help:
 
 1. Solve a problem. Features are great, but even better is cleaning-up and fixing issues in the code that you discover
 2. Make sure that your code is bug-free and does not introduce new bugs

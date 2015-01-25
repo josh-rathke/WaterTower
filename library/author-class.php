@@ -261,7 +261,7 @@
 				
 					<div class="small-12 medium-9 columns">
 						<div class="author-name">
-							<h3>
+							<h4>
 								<?php 
 								$n = 1; 
 								foreach ($couple as $author_info) {
@@ -273,7 +273,7 @@
 									}
 								}
 								?>
-							</h3>
+							</h4>
 						</div>
 						
 							<?php foreach ($couple as $author_info) { ?>
@@ -339,7 +339,7 @@
 						</div>
 					
 						<div class="small-12 medium-9 columns">
-							<div class="author-name"><h3><?php echo $single['author_info']['display_name']; ?></h3></div>
+							<div class="author-name"><h4><?php echo $single['author_info']['display_name']; ?></h4></div>
 							<p><?php echo $single['author_info']['description']; ?></p>
 							<div class="user-snippet-meta">
 							

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FoundationPress\n"
+"Project-Id-Version: watertower\n"
 "POT-Creation-Date: 2014-07-10 10:45-0500\n"
 "PO-Revision-Date: 2014-08-02 11:58-0600\n"
 "Last-Translator: Alex Fermon <alex@fermongroup.com>\n"

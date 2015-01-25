@@ -12,8 +12,8 @@ register_nav_menus(array(
  * Left top bar
  * http://codex.wordpress.org/Function_Reference/wp_nav_menu
  */
-if ( ! function_exists( 'foundationPress_top_bar_main' ) ) {
-	function foundationPress_top_bar_main() {
+if ( ! function_exists( 'watertower_top_bar_main' ) ) {
+	function watertower_top_bar_main() {
 	    wp_nav_menu(array( 
 	        'container' => false,                           // remove nav container
 	        'container_class' => '',                        // class of container
@@ -33,8 +33,8 @@ if ( ! function_exists( 'foundationPress_top_bar_main' ) ) {
 /**
  * Right top bar
  */
-if ( ! function_exists( 'foundationPress_top_bar_contact' ) ) {
-	function foundationPress_top_bar_contact() {
+if ( ! function_exists( 'watertower_top_bar_contact' ) ) {
+	function watertower_top_bar_contact() {
 	    wp_nav_menu(array( 
 	        'container' => false,                           // remove nav container
 	        'container_class' => '',                        // class of container
@@ -54,8 +54,8 @@ if ( ! function_exists( 'foundationPress_top_bar_contact' ) ) {
 /**
  * Mobile off-canvas
  */
-if ( ! function_exists( 'foundationPress_mobile_off_canvas' ) ) {
-	function foundationPress_mobile_off_canvas() {
+if ( ! function_exists( 'watertower_mobile_off_canvas' ) ) {
+	function watertower_mobile_off_canvas() {
 	    wp_nav_menu(array( 
 	        'container' => false,                           // remove nav container
 	        'container_class' => '',                        // class of container

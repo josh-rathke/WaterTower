@@ -1,4 +1,22 @@
 .side-nav-container {
-  background: #EFEFEF;
+  background: #F9F9F9;
+  padding: 0px;
   
+  >dd {
+    border-left: 2px solid transparent;
+    border-bottom: 1px solid #EFEFEF;
+    margin: 0px;
+    padding: 4px 0px 4px 18px;
+    width: 100%;
+  }
+  
+  >dd.active {
+    border-left: 2px solid $primary_color;
+  }
+  
+  >dd a {
+    font-family:"HelveticaNeueW01-47LtCn 692686";
+    font-size: 14px;
+    text-transform: uppercase;
+  }
 }

@@ -9,7 +9,7 @@
  * will display a featured image if one exists for the post or page.
  */
  
-if (is_home() || is_front_page()) {
+if (is_front_page()) {
 
 ?>
 	
@@ -63,13 +63,26 @@ if (is_home() || is_front_page()) {
 	 *	simply displays it.  There is no native slider 
 	 *	functionality built into this function
 	 */
+	 
+	// Check to see if $page_id variable is set, if so use current setting
+	global $page_id;
+	$page_id = $page_id != 0 ? $page_id : null;
 	
-	if (has_post_thumbnail) {
-		$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail-size', true);
-		
-		echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">';
-		echo '</div>';
+	if ( is_archive() || is_home() ){
+		if ( $page_id != null && has_post_thumbnail($page_id) ) {
+			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'thumbnail-size', true);
+
+			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
+		}
+	} else {
+		if ( has_post_thumbnail($post->ID) ) {
+			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail-size', true);
+			
+			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
+		}
 	}
+	
+	
 	
 }
 

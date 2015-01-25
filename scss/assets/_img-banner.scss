@@ -1,8 +1,19 @@
 // Make the image banner slightly taller for extra large screens
-@media #{$xlarge-up} {
-  .standard-banner-container {
+.standard-banner-container {
+  
+  @media #{$xlarge-up} {
     height: 480px !important;
   }
+  
+  @media #{$xxlarge-up} {
+    height: 560px !important;
+  }
+  
+}
+
+
+
+@media #{$xlarge-up} {
   
   .primary-slider .orbit-slider-placeholder {
     height: 480px !important;
