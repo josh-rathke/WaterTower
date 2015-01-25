@@ -1,5 +1,5 @@
 {
-  "name": "foundationpress",
+  "name": "watertower",
   "version": "5.5.0",
   "devDependencies": {
     "node-sass" : "~1.2.3",
@@ -12,6 +12,6 @@
   },
   "repository" : {
     "type" : "git", 
-    "url" : "https://github.com/olefredrik/FoundationPress.git"
+    "url" : "https://github.com/olefredrik/foundationpress.git"
   }
 }
