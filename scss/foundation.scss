@@ -107,7 +107,6 @@
 
 .top-bar-section li:hover a { background: #609FCE !important;}
 .top-bar-section li a i {color: #555;}
-.top-bar-section li:hover a i {color: white;}
 
 
 .desktop-search-form-container {
@@ -115,7 +114,6 @@
   float: left;
   font-size: 14px;
   margin: 8px 0px;
-  overflow: hidden !important;
   position: relative;
   width: 25px;
   transition: .35s;
@@ -133,6 +131,7 @@
 }
 
 .desktop-search-form-container #header-search {
+  background: transparent;
   padding: 5px 5px 5px 30px;
   width: 100%;
   border: none;
@@ -140,19 +139,19 @@
   top: 0px;
 }
 
-.desktop-search-form-container.search-active #header-search {background: #F3F3F3;}
+.desktop-search-form-container.search-active #header-search {background: #F9F9F9;}
 
 .desktop-search-form-container .submit-search {
-  background: url('images/search-button.png');
-  background-repeat: no-repeat;
-  background-size: 40%;
-  background-position: center center;
-  border: none !important;
-  opacity: .8;
-  position: absolute !important;;
+  background: transparent;
+  color: #444;
+  padding: 0px 9px;
+  position: absolute !important;
   top: 0px;
   bottom: 0px;
-  width: 30px;
+  
+  &:hover {
+    color: #444; 
+  }
 }
 
 .desktop-search-form-container.search-active {
@@ -161,7 +160,7 @@
 
 .desktop-search-form-container input[type=text] {border: 1px solid transparent; box-shadow: none !important;}
 .desktop-search-form-container:hover input[type=text] {border: 1px solid #CCC !important;}
-.desktop-search-form-container.search-active input[type=text] {border: 1px solid #609FCE !important;}
+.desktop-search-form-container.search-active input[type=text] {border: 1px solid #CCC !important;}
 
 
 /*  Standard Banner
