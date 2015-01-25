@@ -2,8 +2,8 @@
 /**
  * The default template for displaying content. Used for index/archive/search.
  *
- * @subpackage FoundationPress
- * @since FoundationPress 1.0
+ * @subpackage watertower
+ * @since watertower 1.0
  */
 ?>
 
@@ -18,7 +18,7 @@
 				<h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
 			</header>
 			<div class="entry-content">
-				<?php the_excerpt(__('Continue reading...', 'FoundationPress')); ?>
+				<?php the_excerpt(__('Continue reading...', 'watertower')); ?>
 			</div>
 			
 			<footer>

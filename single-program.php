@@ -32,7 +32,7 @@
 				<header>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 				</header>
-				<?php do_action('foundationPress_program_before_entry_content'); ?>
+				<?php do_action('watertower_program_before_entry_content'); ?>
 				<div class="entry-content">
 					<?php the_content(); ?>
 				</div>

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FoundationPress v5.4\n"
+"Project-Id-Version: watertower v5.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2014-11-01 13:28+0100\n"
@@ -19,83 +19,83 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:71
 msgid "Name"
 msgstr "Naam"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:88
 msgid "Submit Comment"
 msgstr "Verzend commentaar"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:68
 msgid "Log out of this account"
 msgstr "Uitloggen met dit account"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:68
 msgid "Log out &raquo;"
 msgstr "Uitloggen &raquo;"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:36
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 "Deze post is beveiligd met een wachtwoord. Voer uw wachtwoord in om "
 "commentaar te zien."
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:79
 msgid "Website"
 msgstr "Website"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:64
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "U dient <a href=\"%s\">aangemeld</a> te zijn indien u iets wilt schrijven."
 
-# @ FoundationPress
+# @ watertower
 #: hero.php:40 kitchen-sink.php:739 page-full.php:19 page-sidebar-left.php:21
 #: page.php:18 single.php:27 woocommerce.php:18
 msgid "Pages:"
 msgstr "Pagina's:"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:16
 msgid "Your comment is awaiting moderation."
 msgstr "Uw kommentaar wacht op goedkeuring."
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:10
 msgid "(Edit)"
 msgstr "(Bewerken)"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:61
 msgid "Leave a Reply"
 msgstr "Geef een reactie"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:61
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Geef een reactie op %s"
 
-# @ FoundationPress
+# @ watertower
 #: searchform.php:6 searchform.php:10
 msgid "Search"
 msgstr "Zoeken"
 
-# @ FoundationPress
+# @ watertower
 #: 404.php:8
 msgid "File Not Found"
 msgstr "Bestand niet gevonden"
 
-# @ FoundationPress
+# @ watertower
 #: 404.php:12
 msgid ""
 "The page you are looking for might have been removed, had its name changed, "
@@ -104,111 +104,111 @@ msgstr ""
 "De pagina die u zoekt kan verwijderd zijn, heeft een andere naam gekregen of "
 "is tijdelijk niet bereikbaar."
 
-# @ FoundationPress
+# @ watertower
 #: 404.php:14
 msgid "Please try the following:"
 msgstr "Probeer a.u.b. het volgende:"
 
-# @ FoundationPress
+# @ watertower
 #: 404.php:16
 msgid "Check your spelling"
 msgstr "Controleer uw spelling"
 
-# @ FoundationPress
+# @ watertower
 #: 404.php:17
 #, php-format
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr "Terug naar de <a href=\"%s\">home pagina</a>"
 
-# @ FoundationPress
+# @ watertower
 #: 404.php:18
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr "Klik op de <a href=\"javascript:history.back()\">Terug<a> knop"
 
-# @ FoundationPress
+# @ watertower
 #: archive.php:21 index.php:24 search.php:25
 msgid "&larr; Older posts"
 msgstr "&larr; Oudere berichten"
 
-# @ FoundationPress
+# @ watertower
 #: archive.php:22 index.php:25 search.php:26
 msgid "Newer posts &rarr;"
 msgstr "Nieuwere berichten &rarr;"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:8
 #, php-format
 msgid "<cite class=\"fn\">%s</cite>"
 msgstr ""
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:9
 #, php-format
 msgid "%1$s"
 msgstr ""
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:31
 msgid "Please do not load this page directly. Thanks!"
 msgstr "Gelieve deze pagina niet direct aan te roepen. Bedankt!"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:46
 msgid "No Responses to"
 msgstr "Geen antwoorden op"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:46
 msgid "One Response to"
 msgstr "Een antwoord op"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:46
 msgid "% Responses to"
 msgstr "% Antwoorden op"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:53
 msgid "&larr; Older comments"
 msgstr "&larr; ouder commentaar"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:54
 msgid "Newer comments &rarr;"
 msgstr "Nieuwer commentaar &rarr;"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:68
 #, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
 msgstr "Ingelogd als <a href=\"%s/wp-admin/profile.php\">%s</a>."
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:71 comments.php:75
 msgid " (required)"
 msgstr "(verplicht)"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:75
 msgid "Email (will not be published)"
 msgstr "Email (wordt niet gepubliceerd)"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:84
 msgid "Comment"
 msgstr "Commentaar"
 
-# @ FoundationPress
+# @ watertower
 #: comments.php:87
 msgid "You can use these tags:"
 msgstr "U kunt deze tags gebruiken:"
 
-# @ FoundationPress
+# @ watertower
 #: content-none.php:11
 msgid "Nothing Found"
 msgstr "Niets gevonden"
 
-# @ FoundationPress
+# @ watertower
 #: content-none.php:17
 #, php-format
 msgid ""
@@ -216,7 +216,7 @@ msgid ""
 msgstr ""
 "Klaar om uw eerste bericht te publiceren? <a href=\"%1$s\">Start hier</a>"
 
-# @ FoundationPress
+# @ watertower
 #: content-none.php:21
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
@@ -225,40 +225,40 @@ msgstr ""
 "Sorry, we hebben niets gevonden met uw zoekopdracht. Probeer het nog eens "
 "met andere sleutelwoorden."
 
-# @ FoundationPress
+# @ watertower
 #: content-none.php:26
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr "We kunnen dit helaas niet vinden. Misschien helpt zoeken."
 
-# @ FoundationPress
+# @ watertower
 #: content.php:16
 msgid "Continue reading..."
 msgstr "Verder lezen..."
 
-# @ FoundationPress
+# @ watertower
 #: library/entry-meta.php:4
 #, php-format
 msgid "Posted on %s at %s."
 msgstr "Gepost op %s te %s."
 
-# @ FoundationPress
+# @ watertower
 #: library/entry-meta.php:5
 msgid "Written by"
 msgstr "Geschreven door"
 
-# @ FoundationPress
+# @ watertower
 #: library/foundation.php:16
 msgid "&laquo;"
 msgstr "&laquo;"
 
-# @ FoundationPress
+# @ watertower
 #: library/foundation.php:17
 msgid "&raquo;"
 msgstr "&raquo;"
 
-# @ FoundationPress
+# @ watertower
 #: library/foundation.php:40
 #, php-format
 msgid ""
@@ -268,39 +268,39 @@ msgstr ""
 "Gelieve een primair menu toe te wijzen aan de eerste menupositie op %1$s of "
 "%2$s van het ontwerp."
 
-# @ FoundationPress
+# @ watertower
 #: library/foundation.php:41
 #, php-format
 msgid "<a href=\"%s\">Menus</a>"
 msgstr "<a href=\"%s\">Menu's</a>"
 
-# @ FoundationPress
+# @ watertower
 #: library/foundation.php:44
 #, php-format
 msgid "<a href=\"%s\">Customize</a>"
 msgstr "<a href=\"%s\">Aanpassen</a>"
 
-# @ FoundationPress
+# @ watertower
 #: library/widget-areas.php:6
 msgid "Sidebar widgets"
 msgstr "Zijbar-widgets"
 
-# @ FoundationPress
+# @ watertower
 #: library/widget-areas.php:7
 msgid "Drag widgets to this sidebar container."
 msgstr "Drag widgets naar de zijbar-container."
 
-# @ FoundationPress
+# @ watertower
 #: library/widget-areas.php:16
 msgid "Footer widgets"
 msgstr "Footer-widgets"
 
-# @ FoundationPress
+# @ watertower
 #: library/widget-areas.php:17
 msgid "Drag widgets to this footer container"
 msgstr "Drag widgets naar de footer-container"
 
-# @ FoundationPress
+# @ watertower
 #: search.php:7
 msgid "Search Results for"
 msgstr "Zoekresultaten voor"
