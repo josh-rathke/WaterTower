@@ -138,6 +138,7 @@ function get_tags_related_to_tax_term($taxonomy, $term) {
 	
 	// Get all posts that match the taxonomy and term
 	$posts = get_posts($get_posts_args);
+	$post_tags = array();
 	
 	// Loop through all posts
 	foreach ($posts as $post) {
