@@ -15,8 +15,9 @@
 		    curl_close($ch); 
 		    return $result;
 		  }
-		  $result = fetchData("https://api.instagram.com/v1/users/231333075/media/recent/?access_token=231333075.ab103e5.3476407678e643b5a846cf26ad1efc72");
+		  $result = fetchData("https://api.instagram.com/v1/users/231333075/media/recent/?access_token=231333075.1677ed0.66f333818f114fa5b00afae4d1032e7e");
 		  $result = json_decode($result);
+		  print_r($result);
 		  foreach ($result->data as $post) {
 		    print_r($post);
 		  }
