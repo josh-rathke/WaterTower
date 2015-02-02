@@ -1,30 +1,36 @@
 </section>
 
+<?php do_action('watertower_before_footer'); ?>
 <footer class="footer">
-	<?php do_action('watertower_before_footer'); ?>
-	<?php //dynamic_sidebar("footer-widgets"); ?>
+	<div class="row">
+		
+		<div class="medium-4 columns">
+			<?php //dynamic_sidebar("footer-widgets"); ?>
+			
+			<?php
+			  	function fetchData($url){
+				    $ch = curl_init();
+				    curl_setopt($ch, CURLOPT_URL, $url);
+				    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+				    $result = curl_exec($ch);
+				    curl_close($ch); 
+				    return $result;
+				  }
+				  $result = fetchData("https://api.instagram.com/v1/users/231333075/media/recent/?access_token=231333075.1677ed0.66f333818f114fa5b00afae4d1032e7e&count=9");
+				  $result = json_decode($result);
+				  
+				  echo '<ul class="medium-block-grid-3">';
+				  foreach ($result->data as $post) {
+					echo "<li><img src='{$post->images->low_resolution->url}' /></li>";
+				  }
+				  echo '</ul>';
+			?>
+		</div>
 	
-	<?php echo 'something'; ?>
-	<?php
-	  	function fetchData($url){
-		    $ch = curl_init();
-		    curl_setopt($ch, CURLOPT_URL, $url);
-		    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-		    $result = curl_exec($ch);
-		    curl_close($ch); 
-		    return $result;
-		  }
-		  $result = fetchData("https://api.instagram.com/v1/users/231333075/media/recent/?access_token=231333075.1677ed0.66f333818f114fa5b00afae4d1032e7e");
-		  $result = json_decode($result);
-		  print_r($result);
-		  foreach ($result->data as $post) {
-		    print_r($post);
-		  }
-	?>
-	
-	<?php do_action('watertower_after_footer'); ?>
+	</div>
 </footer>
+<?php do_action('watertower_after_footer'); ?>
 
 <a class="exit-off-canvas"></a>
 
