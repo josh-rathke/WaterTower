@@ -4,28 +4,46 @@
 <footer class="footer">
 	<div class="row">
 		
-		<div class="medium-4 columns">
-			<?php //dynamic_sidebar("footer-widgets"); ?>
+		<div class="medium-3 columns our-campus-container">
+			<h2>Our Campus</h2>
 			
-			<?php
-			  	function fetchData($url){
-				    $ch = curl_init();
-				    curl_setopt($ch, CURLOPT_URL, $url);
-				    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-				    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-				    $result = curl_exec($ch);
-				    curl_close($ch); 
-				    return $result;
-				  }
-				  $result = fetchData("https://api.instagram.com/v1/users/231333075/media/recent/?access_token=231333075.1677ed0.66f333818f114fa5b00afae4d1032e7e&count=9");
-				  $result = json_decode($result);
-				  
-				  echo '<ul class="medium-block-grid-3">';
-				  foreach ($result->data as $post) {
-					echo "<li><img src='{$post->images->low_resolution->url}' /></li>";
-				  }
-				  echo '</ul>';
-			?>
+			<div class="our-campus-phone"><i class="fa fa-mobile"></i>(406) - 844 - 2221</div>
+			
+			<div class="our-campus-email">info@ywammontana.org</div>
+			
+			<div class="our-campus-organization">YWAM Montana | Lakeside</div>
+			<div class="our-campus-address-container">
+				<div>501 Blacktail Rd.</div>
+				<div>Lakeside MT, 59922</div>
+				<div>United States</div>
+			</div>
+			
+			<div class="our-campus-tour"><i class="fa fa-long-arrow-right"></i>Campus Tour</div>
+		</div>
+		
+		<div class="medium-1 columns">
+			<div class="icon-bar vertical five-up">
+			  <a class="item">
+			    <i class="fa fa-instagram"></i>
+			    <label>Home</label>
+			  </a>
+			  <a class="item">
+			    <img src="../assets/img/images/fi-bookmark.svg" >
+			    <label>Bookmark</label>
+			  </a>
+			  <a class="item">
+			    <img src="../assets/img/images/fi-info.svg" >
+			    <label>Info</label>
+			  </a>
+			  <a class="item">
+			    <img src="../assets/img/images/fi-mail.svg" >
+			    <label>Mail</label>
+			  </a>
+			  <a class="item">
+			    <img src="../assets/img/images/fi-like.svg" >
+			    <label>Like</label>
+			  </a>
+			</div>
 		</div>
 	
 	</div>
