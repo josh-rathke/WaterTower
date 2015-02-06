@@ -21,29 +21,33 @@
 			<div class="our-campus-tour"><i class="fa fa-long-arrow-right"></i>Campus Tour</div>
 		</div>
 		
-		<div class="medium-1 columns">
-			<div class="icon-bar vertical five-up">
-			  <a class="item">
-			    <i class="fa fa-instagram"></i>
-			    <label>Home</label>
-			  </a>
-			  <a class="item">
-			    <img src="../assets/img/images/fi-bookmark.svg" >
-			    <label>Bookmark</label>
-			  </a>
-			  <a class="item">
-			    <img src="../assets/img/images/fi-info.svg" >
-			    <label>Info</label>
-			  </a>
-			  <a class="item">
-			    <img src="../assets/img/images/fi-mail.svg" >
-			    <label>Mail</label>
-			  </a>
-			  <a class="item">
-			    <img src="../assets/img/images/fi-like.svg" >
-			    <label>Like</label>
-			  </a>
-			</div>
+		<div class="medium-5 columns contact-us-container">
+			<h2>Contact Us</h2>
+			<?php echo do_shortcode('[gravityform id="1" name="Contact Form" title="false" description="false" ajax="true"]'); ?>
+			<div class="contact-us-time-to-respond">We try our best to respond to inquiries as quickly as possible. Until then, feel free to check out the rest of the site!</div>
+		</div>
+		
+		<div class="medium-4 columns get-involved-container">
+			
+			<?php
+			// Query Staffing Needs
+			$staffing_needs = get_posts('post_type=staffing_needs');
+			
+			foreach ($staffing_needs as $staffing_need) {
+				$need_url = get_permalink($staffing_need->ID);
+				$staffing_needs_list .= "<strong><a href='{$need_url}'>{$staffing_need->post_title}</a></strong>";
+				$staffing_needs_list .=  end($staffing_needs) != $staffing_need ? ', ' : '.';
+			}
+			 
+			?>
+			
+			<h2>Get Involved</h2>
+			<p class="get-involved-staffing-needs">We are currently looking for full-time volunteers to fill these staff positions: <?php echo $staffing_needs_list; ?></p>
+			<ul>
+				<li>Staffing Needs</li>
+				<li>Community Events</li>
+				<li>Schools & Seminars</li>
+			</ul>
 		</div>
 	
 	</div>

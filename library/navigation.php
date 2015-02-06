@@ -4,9 +4,10 @@
  * http://codex.wordpress.org/Function_Reference/register_nav_menus#Examples
  */
 register_nav_menus(array(
-    'top-bar-main' => 'Top Bar Main Section', // registers the menu in the WordPress admin menu editor
-    'top-bar-contact' => 'Top Bar Contact Section',
-    'mobile-off-canvas' => 'Mobile'
+    'top-bar-main' 		=> 'Top Bar Main Section', // registers the menu in the WordPress admin menu editor
+    'top-bar-contact' 	=> 'Top Bar Contact Section',
+    'mobile-off-canvas' => 'Mobile',
+    'get-involved'		=> 'Get Involved'
 ));
 /**
  * Left top bar

@@ -1,0 +1,8 @@
+.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=text],
+.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=password],
+.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=url],
+.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=tel],
+.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=email],
+.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container select:not([multiple]) {
+  background-image: none !important;
+}

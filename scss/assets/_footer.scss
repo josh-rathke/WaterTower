@@ -32,4 +32,70 @@
       margin-top: 16px;
     }
   }
+  
+  .contact-us-container {
+    position: relative;
+    
+    .gform_wrapper input[type=text], 
+    .gform_wrapper input[type=url], 
+    .gform_wrapper input[type=email], 
+    .gform_wrapper input[type=tel], 
+    .gform_wrapper input[type=number], 
+    .gform_wrapper input[type=password], 
+    .gform_wrapper textarea, 
+    .gform_wrapper select {
+      background: rgba(255, 255, 255, .35);
+      border: none !important;
+      box-shadow: none !important;
+      color: white;
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+    
+    .gform_wrapper .gform_footer input.button,
+    .gform_wrapper .gform_footer input[type=submit] {
+      background: rgba(255, 255, 255, .35);
+      float: right;
+      font-size: 12px;
+      margin-top: -15px;
+      margin-right: 3px;
+      padding: 10px 24px;
+    }
+    
+    ::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, .85);
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: rgba(255, 255, 255, .85);
+    }
+    :-ms-input-placeholder {
+      color: rgba(255, 255, 255, .85);
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: rgba(255, 255, 255, .85);
+    }
+    
+    .contact-us-time-to-respond {
+      font-size: 12px;
+      position: absolute;
+      bottom: 0px;
+      width: 65%;
+    }
+  }
+  
+  .get-involved-container {
+    
+    p.get-involved-staffing-needs {
+      font-size: 14px;
+      
+      a {
+        color: white;
+        font-size: 16px;
+      
+        &:hover {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+  }
 }
