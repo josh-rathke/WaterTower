@@ -97,5 +97,29 @@
         }
       }
     }
+    
+    .get-involved-menu {
+      margin: 0px;
+      
+      li {
+        border-top: 1px solid rgba(255, 255, 255, .15);
+        list-style-type: none;
+        
+        a {
+          color: white;
+          display: block;
+          font-size: 14px;
+          padding: 4px 12px;
+          
+          &:hover {
+            background: rgba(255, 255, 255, .15);
+          }
+        }
+      }
+      
+      li:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, .15);
+      }
+    }
   }
 }

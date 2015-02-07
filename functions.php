@@ -38,6 +38,26 @@ require_once('library/comments-walker.php');
 
 
 
+/*	Add Options Framework Core Files
+ * 	This will add the options framework core files
+ * 	from the bower_components folder.
+ */
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/bower_components/options-framework-theme/inc/' );
+require_once dirname( __FILE__ ) . '/bower_components/options-framework-theme/inc/options-framework.php';
+
+// Loads options.php from child or parent theme
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
+
+add_filter( 'optionsframework_menu', function( $menu ) {
+		$menu['mode']		= 'menu';
+	    $menu['page_title'] = 'The Options';
+	    $menu['menu_title'] = 'The Optio';
+	    return $menu;
+	 });
+
+
+
 /* Custom Post Type Includes
  * This is where all of the custom posts type of Water Tower
  * get pulled into the theme. There should be no custom post
