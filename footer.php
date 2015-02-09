@@ -4,21 +4,31 @@
 <footer class="footer">
 	<div class="row">
 		
-		<div class="medium-3 columns our-campus-container">
+		<div class="medium-3 columns find-us-container">
 			<h2>Find Us</h2>
 			
-			<div class="our-campus-phone"><i class="fa fa-mobile"></i>(406) - 844 - 2221</div>
+			<div class="find-us-phone"><i class="fa fa-mobile"></i>(406) - 844 - 2221</div>
 			
-			<div class="our-campus-email">info@ywammontana.org</div>
+			<div class="find-us-email">info@ywammontana.org</div>
 			
-			<div class="our-campus-organization">YWAM Montana | Lakeside</div>
-			<div class="our-campus-address-container">
+			<div class="find-us-organization">YWAM Montana | Lakeside</div>
+			<div class="find-us-address-container">
 				<div>501 Blacktail Rd.</div>
 				<div>Lakeside MT, 59922</div>
 				<div>United States</div>
 			</div>
 			
-			<div class="our-campus-tour"><i class="fa fa-long-arrow-right"></i>Campus Tour</div>
+			<div class="find-us-tour"><i class="fa fa-long-arrow-right"></i>Campus Tour</div>
+			
+			<div class="find-us-social">
+				<h5>Social Networks</h5>
+				<ul>
+					<li><a href="<?php echo of_get_option( 'instagram_url' ); ?>" target="_blank"><i class="fa fa-instagram"></i></a></li>
+					<li><a href="<?php echo of_get_option( 'facebook_url' ); ?>" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+					<li><a href="<?php echo of_get_option( 'vimeo_url' ); ?>" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
+					<li><a href="<?php echo of_get_option( 'twitter_url' ); ?>" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+				</ul>
+			</div>
 		</div>
 		
 		<div class="medium-5 columns contact-us-container">

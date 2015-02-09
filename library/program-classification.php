@@ -55,9 +55,9 @@ class PostRibbon {
 		echo '<div style="' . $styles . '" class="post-ribbon-container ' . $container_class . '">';
 			foreach ($this->post_color_info as $ribbon) {
 				if ($orientation == 'vertical') {
-					echo '<div style="height: ' . (($ribbon['count']/$this->total_terms)*100) . '%; background: #' . $ribbon['color'] . ';" class="post-ribbon"></div>';
+					echo '<div style="height: ' . (($ribbon['count']/$this->total_terms)*100) . '%; background: ' . $ribbon['color'] . ';" class="post-ribbon"></div>';
 				} else {
-					echo '<div style="width: ' . (($ribbon['count']/$this->total_terms)*100) . '%; background: #' . $ribbon['color'] . ';" class="post-ribbon"></div>';
+					echo '<div style="width: ' . (($ribbon['count']/$this->total_terms)*100) . '%; background: ' . $ribbon['color'] . ';" class="post-ribbon"></div>';
 				}
 			}
 		echo '</div>';
@@ -88,19 +88,19 @@ function get_program_class($program_id) {
 function get_program_color($post_id) {
 
 	$terms = get_program_class($post_id); 
-	$program_slug = str_replace('-', '_', $terms[0]->slug) . '_color';
+	$program_slug = $terms[0]->slug . '-class-color';
+	print_r($program_slug);
 
-	$program_colors = get_option('display_options');
-	
-	$program_color = $program_colors[$program_slug];
+	$program_color = of_get_option($program_slug);
+	print_r($program_color);
 	return $program_color;	
 }
 
 function get_classification_color ($classification) {
-	$classification = str_replace('-', '_', $classification) . '_color';			
+	$classification = $classification . '-class-color';
+	print_r($classification);			
 
-	$program_colors = get_option('display_options');
-	$program_color = $program_colors[$classification];
+	$program_color = of_get_option($program_slug);
 	return $program_color;
 }
 
@@ -115,7 +115,7 @@ function all_class_ribbon($height) {
 	$classifications = get_terms('program_classification');
 	$width = 100*(1/count($classifications));
 	foreach ($classifications as $classification) {
-		$format = '<div class="%s" style="background: #%s; width:' . $width . '%%; float: left; height: 100%%"></div>';
+		$format = '<div class="%s" style="background: %s; width:' . $width . '%%; float: left; height: 100%%"></div>';
 		$slug = $classification->slug;
 		$color = get_classification_color($slug);
 		

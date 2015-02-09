@@ -111,44 +111,60 @@
 
 
 .desktop-search-form-container {
-  border-radius: 3px;
   float: left;
   font-size: 14px;
   margin: 8px 6px 8px 0px;
   position: relative;
-  width: 25px;
-  transition: .35s;
-  -webkit-transition: .35s;
-}
-
-.desktop-search-form-container:hover {
-  width: 150px;
-}
-
-.desktop-search-form-container fieldset {
-  padding: 0px;
-  border: none;
-  margin: 0px;
-}
-
-.desktop-search-form-container #header-search {
-  background: transparent;
-  padding: 5px 5px 5px 30px;
-  width: 100%;
-  border: none;
-  border-radius: 3px;
-  top: 0px;
+  width: 80px;
+  @include transition(.6s);
+  
+  &:hover {
+    width: 150px;
+  }
+  
+  fieldset {
+    padding: 0px;
+    border: none;
+    margin: 0px;
+  }
+  
+  #header-search {
+    background: transparent;
+    font-family:"HelveticaNeueW01-47LtCn 692686";
+    font-size: 14px;
+    padding: 5px 5px 5px 30px;
+    width: 100%;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    top: 0px;
+  }
+  
+  ::-webkit-input-placeholder {
+    color: #444;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #444;
+  }
+  :-ms-input-placeholder {
+    color: #444;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #444;
+  }
 }
 
 .desktop-search-form-container.search-active #header-search {background: #F9F9F9;}
 
 .desktop-search-form-container .submit-search {
-  background: transparent;
   color: #444;
+  background: transparent;
+  font-size: 12px;
   padding: 0px 9px;
   position: absolute !important;
   top: 0px;
   bottom: 0px;
+  width: 32px;
   
   &:hover {
     color: #444; 
@@ -159,7 +175,7 @@
   width: 150px !important;
 }
 
-.desktop-search-form-container input[type=text] {border: 1px solid transparent; box-shadow: none !important;}
+.desktop-search-form-container input[type=text] {box-shadow: none !important; @include transition(.6s);}
 .desktop-search-form-container:hover input[type=text] {border: 1px solid #CCC !important;}
 .desktop-search-form-container.search-active input[type=text] {border: 1px solid #CCC !important;}
 

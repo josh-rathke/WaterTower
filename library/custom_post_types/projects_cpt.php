@@ -16,7 +16,7 @@ function my_custom_post_projects() {
 		'add_new_item'       => __( 'Add New Project', 'water-tower' ),
 		'edit_item'          => __( 'Edit Project', 'water-tower' ),
 		'new_item'           => __( 'New Project', 'water-tower' ),
-		'all_items'          => __( 'All Projects', 'water-tower' ),
+		'all_items'          => __( 'Projects', 'water-tower' ),
 		'view_item'          => __( 'View Project', 'water-tower' ),
 		'search_items'       => __( 'Search Projects', 'water-tower' ),
 		'not_found'          => __( 'No Projects found', 'water-tower' ),
@@ -30,6 +30,7 @@ function my_custom_post_projects() {
 		'menu_position' => 23,
 		'menu_icon'		=> 'dashicons-hammer',
 		'supports'      => array( 'title', 'author', 'editor', 'thumbnail', 'revisions' ),
+		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
 	);

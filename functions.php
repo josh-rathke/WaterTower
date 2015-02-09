@@ -1,7 +1,5 @@
 <?php
 
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', true);
 
 /*
 Author: Ole Fredrik Lie
@@ -21,12 +19,10 @@ require_once('library/widget-areas.php');
 require_once('library/enqueue-scripts.php');
 // Add theme support
 require_once('library/theme-support.php');
-// Add Header image
-require_once('library/custom-header.php');
 
 
 // Add WaterTower Admin Dashboard Functions
-require_once('library/watertower-admin.php');
+//require_once('library/watertower-admin_old.php');
 // Add WaterTower Custom Meta
 require_once('custom-meta.php');
 // Add Author Class & Helper Functions
@@ -50,7 +46,6 @@ $optionsfile = locate_template( 'options.php' );
 load_template( $optionsfile );
 
 add_filter( 'optionsframework_menu', function( $menu ) {
-		$menu['mode']		= 'menu';
 	    $menu['page_title'] = 'The Options';
 	    $menu['menu_title'] = 'The Optio';
 	    return $menu;
@@ -74,7 +69,7 @@ add_filter( 'optionsframework_menu', function( $menu ) {
 	// Surges CPT
 	include ('library/custom_post_types/surges_cpt.php');
 	// Staff Needs CPT
-	include ('library/custom_post_types/staff_needs_cpt.php');
+	include ('library/custom_post_types/staffing_needs_cpt.php');
 	// Focus Tracks CPT
 	include ('library/custom_post_types/focus_tracks_cpt.php');
 	

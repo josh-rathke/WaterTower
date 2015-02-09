@@ -10,7 +10,7 @@
     color: white;
   }
   
-  .our-campus-container {
+  .find-us-container {
     font-size: 14px;
     
     i {
@@ -19,17 +19,57 @@
       vertical-align: middle;
     }
     
-    .our-campus-phone {
+    .find-us-phone {
       font-size: 16px;
       margin-bottom: 16px;
     }
     
-    .our-campus-address-container {
+    .find-us-address-container {
       margin-top: 16px; 
     }
     
-    .our-campus-tour {
+    .find-us-tour {
       margin-top: 16px;
+    }
+    
+    .find-us-social {
+      height: 40px;
+      margin-top: 20px;
+      
+      h5 {
+        color: white;
+      }
+      
+      ul {
+        display: inline-block;
+        height: 100%;
+        margin: 0px;
+        
+        li {
+          display: inline-block;
+          height: 100%;
+          list-style-type: none;
+          width: 40px;
+          
+          a {
+            background: rgba(255, 255, 255, .15);
+            color: white;
+            display: block;
+            height: 100%;
+            padding-top: 6px;
+            text-align: center;
+            
+            i {
+              font-size: 18px;
+              margin: 0px;
+            }
+            
+            &:hover {
+              background: rgba(255, 255, 255, .25);
+            }
+          }
+        }
+      }
     }
   }
   

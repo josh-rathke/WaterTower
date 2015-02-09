@@ -33,10 +33,10 @@ if (is_front_page()) {
 					echo '<div class="orbit-slider-placeholder" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">';
 					echo '</div>';
 					
-					echo '<div class="orbit-caption" style="border-top: 3px solid #' . $background_color . '">';
+					echo '<div class="orbit-caption" style="border-top: 3px solid ' . $background_color . '">';
 					echo '<div class="row">';
 					echo '<div class="small-12 columns">';
-					echo '<a href="' . get_the_permalink() . '" style="color: #' . $background_color . '"><i class="fa fa-level-up fa-rotate-90"></i> New Blog Post: <span style="color:#444;">' . get_the_title() . '</span></a>';
+					echo '<a href="' . get_the_permalink() . '" style="color: ' . $background_color . '"><i class="fa fa-level-up fa-rotate-90"></i> New Blog Post: <span style="color:#444;">' . get_the_title() . '</span></a>';
 					echo '</div>';
 					echo '</div>';
 					echo '</div>';
