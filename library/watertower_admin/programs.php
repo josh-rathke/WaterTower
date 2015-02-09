@@ -51,5 +51,14 @@ $options[] = array(
 	'id' => 'career-discipleship-class-color',
 	'std' => '#2A608D',
 	'type' => 'color' );
+	
+
+// Apply By Dates Description
+$options[] = array(
+	'name' => __('Apply By Dates, Description', 'options_framework_theme'),
+	'desc' => __('This is the description that will be displayed as an info section that give the user more information on the apply by dates.', 'options_framework_theme'),
+	'id' => 'apply_by_dates_desc',
+	'std' => '',
+	'type' => 'textarea');
 
 ?>

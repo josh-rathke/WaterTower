@@ -68,7 +68,7 @@
 		 * if there is an outreach how long it is, and the 
 		 * accreditation information.
 		 */
-		 ?>
+		 if (!empty($program_object->accreditation)) : ?>
 		 
 		 <div id="accreditation" data-magellan-destination="accreditation" class="row program-info-container">
 		 	<h2 style="display: none;">Accreditation</h2>
@@ -81,16 +81,17 @@
 		 		<?php echo $program_object->academic_info['accreditation']; ?>
 		 	</div>
 		 </div>
+		 
+		<?php endif; 
 		
-		
-		
-		<?php
 		/**
 		 *	Program Schedule Section
 		 * 	This is the section where all of the dates for
 		 * 	upcoming programs are displayed along with links to
 		 * 	apply for each of the scheduled schools. 
 		 */
+		if ($program_object->ongoing_status != 1) :
+			
 		echo '<div data-magellan-destination="schedule">';
 			echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
 				echo '<h2 style="display: none;">Schedule</h2>';
@@ -110,7 +111,7 @@
 								echo '</ul>';
 								
 								echo '<ul class="program-app-due-dates-container">';
-									echo '<h6>Apply By Dates<a href="#appdeadlineinfo"><i class="fa fa-info"></i></a></h6>';
+									echo '<h6>Apply By Dates<a href="#appduedatedesc"><i class="fa fa-info"></i></a></h6>';
 									echo sprintf($program_info_string, 'African', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 180 days')));
 									echo sprintf($program_info_string, 'Canadian', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 30 days')));
 									echo sprintf($program_info_string, 'International', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 120 days')));
@@ -126,8 +127,23 @@
 						echo "Sorry there aren't any available dates at this time.";
 					}
 				echo '</ul>';
+				?>
 		
-			// Display some of the academic and application requirements ?>
+				<div id="appduedatedesc" class="program-apply-by-desc-container">
+					<div class="program-apply-by-desc">
+						<h5>Apply By Dates<i class="fa fa-info"></i></h5>
+						<p><?php echo of_get_option('apply_by_dates_desc'); ?></p>
+					</div>
+				</div>
+			</div>
+			
+			<?php else : // Display Rolling Enrollment Info ?>
+				
+				somdsdlkfjoiwjef
+				
+			<?php endif; ?>
+			
+		
 			<div class="row program-prereqs-container alert-box warning">
 				<div class="small-3 medium-2 columns program-prereqs-icon-container">
 					<i class="fa fa-check-square-o"></i>
@@ -139,7 +155,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		
 		
 		

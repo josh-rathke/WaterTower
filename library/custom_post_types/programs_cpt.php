@@ -173,12 +173,6 @@ class programInfo {
 				'has_fixed_price' => rwmb_meta('has_fixed_price', '', $post_id=$this->program_id),
 				'ongoing_fixed_price'	=> rwmb_meta('ongoing_fixed_price', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_fixed_price', '', $post_id=$this->program_id)) : null,
 				'via_correspondence_fixed_price'	=> rwmb_meta('via_correspondence_fixed_price', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('via_correspondence_fixed_price', '', $post_id=$this->program_id)) : null,					
-				'ongoing_support_desc' => $ongoing_support_desc,
-				'ongoing_app_status' => rwmb_meta('ongoing_app_status', '', $post_id=$this->program_id),
-				'ongoing_startup_cost' => rwmb_meta('ongoing_startup_cost', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_startup_cost', '', $post_id=$this->program_id)) : null,
-				'ongoing_monthly_cost' => rwmb_meta('ongoing_monthly_cost', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_monthly_cost', '', $post_id=$this->program_id)) : null,
-				'ongoing_min_support_single' => rwmb_meta('ongoing_min_support_single', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_min_support_single', '', $post_id=$this->program_id)) : null,
-				'ongoing_min_support_married' => rwmb_meta('ongoing_min_support_married', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_min_support_married', '', $post_id=$this->program_id)) : null,
 			);
 		}
 		

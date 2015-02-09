@@ -1,5 +1,15 @@
 </section>
 
+<div class="breadcrumbs-container">
+	<div class="row">
+		<div class="medium-12 columns">
+			<?php if ( function_exists('yoast_breadcrumb') ) {
+				yoast_breadcrumb('<p id="breadcrumbs">','</p>');
+			} ?>
+		</div>
+	</div>
+</div>
+
 <?php do_action('watertower_before_footer'); ?>
 <footer class="footer">
 	<div class="row">

@@ -82,7 +82,7 @@
   }
   
   .program-dates-container {
-    margin: 0px 0px 20px 0px;
+    margin: 0px;
     padding-top: 70px;
     text-align: center;
     
@@ -152,6 +152,34 @@
     .program-prereqs-icon-container {
       font-size: 50px;
       text-align: center;
+    }
+  }
+  
+  .program-apply-by-desc-container {
+    padding: 60px 10px 10px 10px;
+    
+    .program-apply-by-desc {
+      
+      h5 {
+        
+        i {
+          background: #444;
+          border-radius: 999px;
+          color: white;
+          font-size: 12px;
+          margin: 4px 0px 0px 8px;
+          padding-top: 3px;
+          text-align: center;
+          height: 18px;
+          width: 18px;
+          vertical-align: top;
+        }
+      }
+      
+      p {
+        color: #666;
+        font-size: 12px;
+      }
     }
   }
   

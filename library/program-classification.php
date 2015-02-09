@@ -89,10 +89,8 @@ function get_program_color($post_id) {
 
 	$terms = get_program_class($post_id); 
 	$program_slug = $terms[0]->slug . '-class-color';
-	print_r($program_slug);
 
 	$program_color = of_get_option($program_slug);
-	print_r($program_color);
 	return $program_color;	
 }
 
