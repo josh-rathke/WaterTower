@@ -111,6 +111,33 @@
       a.button {
         margin-top: 18px;
       }
+      
+      .program-app-due-dates-container {
+        
+        h6 {
+          border-bottom: 1px solid #E6E6E6;
+          font-size: 14px;
+          margin: 18px 24px 0px 24px;
+          padding-bottom: 4px;
+          text-align: left;
+          
+          i {
+            border: 1px solid $primary_color;
+            border-radius: 999px;
+            float: right;
+            font-size: 12px;
+            height: 17px;
+            padding: 2px 0px 0px 1px;
+            text-align: center;
+            width: 17px;
+            
+            &:hover {
+              background: $primary_color;
+              color: #F6F6F6;
+            }
+          }
+        }
+      }
     }
   }
   

@@ -107,8 +107,17 @@
 									echo sprintf($program_info_string, 'Start Date', date('m/d/y', strtotime($program_occurance['start_date'])));
 									echo sprintf($program_info_string, 'End Date', date('m/d/y', strtotime($program_occurance['end_date'])));
 									echo sprintf($program_info_string, 'Total Cost', $program_occurance['total_cost']);
-									echo sprintf($program_info_string, 'Apps Due', date('m/d/y', strtotime($program_occurance['app_deadline'])));
 								echo '</ul>';
+								
+								echo '<ul class="program-app-due-dates-container">';
+									echo '<h6>Apply By Dates<a href="#appdeadlineinfo"><i class="fa fa-info"></i></a></h6>';
+									echo sprintf($program_info_string, 'African', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 180 days')));
+									echo sprintf($program_info_string, 'Canadian', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 30 days')));
+									echo sprintf($program_info_string, 'International', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 120 days')));
+									echo sprintf($program_info_string, 'Domestic', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 14 days')));
+								echo '</ul>';
+									
+								
 								echo '<a href="#_" class="button">Apply Online</a>';
 							echo '</div></li>';
 							}
