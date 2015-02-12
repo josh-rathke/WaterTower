@@ -60,5 +60,13 @@ $options[] = array(
 	'id' => 'apply_by_dates_desc',
 	'std' => '',
 	'type' => 'textarea');
+	
+// Weekly Schedule Description
+$options[] = array(
+	'name' => __('Weekly Schedule Description', 'options_framework_theme'),
+	'desc' => __('This is the description that will be displayed before the weekly schedule section of each program page.', 'options_framework_theme'),
+	'id' => 'weekly_schedule_desc',
+	'std' => '',
+	'type' => 'textarea');
 
 ?>

@@ -90,11 +90,12 @@
 		 * 	upcoming programs are displayed along with links to
 		 * 	apply for each of the scheduled schools. 
 		 */
-		if ($program_object->ongoing_status != 1) :
+		if ($program_object->rolling_enrollment_status != 1) :
 			
-		echo '<div data-magellan-destination="schedule">';
+		echo '<div data-magellan-destination="upcoming-schools">';
 			echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
-				echo '<h2 style="display: none;">Schedule</h2>';
+				echo '<h2>Upcoming Schools</h2>';
+					available_via_correspondence_link();
 					if (!empty($program_object->schedule)) {
 							
 						// Dispaly available program instaces	
@@ -111,7 +112,7 @@
 								echo '</ul>';
 								
 								echo '<ul class="program-app-due-dates-container">';
-									echo '<h6>Apply By Dates<a href="#appduedatedesc"><i class="fa fa-info"></i></a></h6>';
+									echo '<h6>Apply By Dates<a href="#appduedatedesc"><i class="fa fa-info info-circle-link right"></i></a></h6>';
 									echo sprintf($program_info_string, 'African', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 180 days')));
 									echo sprintf($program_info_string, 'Canadian', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 30 days')));
 									echo sprintf($program_info_string, 'International', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 120 days')));
@@ -131,15 +132,17 @@
 		
 				<div id="appduedatedesc" class="program-apply-by-desc-container">
 					<div class="program-apply-by-desc">
-						<h5>Apply By Dates<i class="fa fa-info"></i></h5>
+						<h5>Apply By Dates<i class="fa fa-info info-circle"></i></h5>
 						<p><?php echo of_get_option('apply_by_dates_desc'); ?></p>
 					</div>
 				</div>
 			</div>
 			
 			<?php else : // Display Rolling Enrollment Info ?>
+				<h2>Rolling Enrollment</h2>
+				<?php available_via_correspondence_link() ?>
 				
-				somdsdlkfjoiwjef
+				<?php echo $program_object->schedule['rolling_enrollment_desc']; ?>
 				
 			<?php endif; ?>
 			
@@ -166,11 +169,12 @@
 		
 		
 		
-		<div data-magellan-destination="<?php echo str_replace( ' ', '-', strtolower(rwmb_meta('lecture_phase_title'))); ?>" class="program-onbase-phase-info-container">
+		<div data-magellan-destination="weekly-schedule" class="program-onbase-phase-info-container">
 			
 			<?php // OnBase phase description ?>
 			<div class="program-onbase-phase-desc">
-				<h2><?php echo rwmb_meta('lecture_phase_title'); ?></h2>
+				<h2>Weekly Schedule</h2>
+				<p><?php echo of_get_option('weekly_schedule_desc'); ?></p>
 				<p><?php echo rwmb_meta('lecture_phase_desc'); ?></p>
 			</div>
 			
@@ -453,9 +457,12 @@
 			
 			</ul>
 		</div>
-	<?php else : ?>
+	
+	<?php 
+	else :
 		// no posts found
-	<?php endif; wp_reset_postdata(); ?>
+	endif; wp_reset_postdata(); 
+	?>
 		
 		
 		
@@ -470,7 +477,7 @@
 	$terms = rwmb_meta('leaders', 'type=select&multiple=1');
 	
 	if (!empty($terms)) {
-		echo '<div class="authors-container program-leaders-container">';
+		echo '<div data-magellan-destination="school-leaders" class="authors-container program-leaders-container">';
 			echo '<h2>School Leaders</h2>';
 			foreach ( $terms as $term ) {
 				$author_object = get_post( $term, OBJECT);

@@ -53,7 +53,7 @@ class programInfo {
 	var $program_slug;
 	var $program_short_name;
 	var $schedule;
-	var $ongoing_status;
+	var $rolling_enrollment_status;
 	var $academic_info;
 	
 	public function populate_schedule() {
@@ -150,29 +150,14 @@ class programInfo {
 		setlocale(LC_MONETARY,"en_US");
 	
 		// Populate Schedule if Ongoing Status is False
-		// Set App Status to Open if True
-		$this->ongoing_status = rwmb_meta('ongoing_status', '', $post_id=$this->program_id);
-		if ($this->ongoing_status == 0) {
+		$this->rolling_enrollment_status = rwmb_meta('rolling_enrollment_status', '', $post_id=$this->program_id);
+		if ($this->rolling_enrollment_status == 0) {
 			$this->populate_schedule();
 		} else {
 		
-			//Get ongoing program description
-			$program_settings = get_option('program_options');
-			$ongoing_desc = $program_settings['ongoing_program_message'];
-			$ongoing_support_desc = $program_settings['ongoing_support_desc'];
-			
-			$app_color_settings = get_option('program_options');
-			$open_app_color = $app_color_settings['program_open_app_color'];
-			$closed_app_color = $app_color_settings['program_closed_app_color'];
-			$app_status_color = rwmb_meta('ongoing_app_status', '', $post_id=$this->program_id) == 'open' ? $open_app_color : $closed_app_color;
-		
-			$this->schedule[] = array(
-				'app_status' => 'open',
-				'app_status_color' => $app_status_color,
-				'ongoing_desc' => $ongoing_desc,
-				'has_fixed_price' => rwmb_meta('has_fixed_price', '', $post_id=$this->program_id),
-				'ongoing_fixed_price'	=> rwmb_meta('ongoing_fixed_price', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_fixed_price', '', $post_id=$this->program_id)) : null,
-				'via_correspondence_fixed_price'	=> rwmb_meta('via_correspondence_fixed_price', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('via_correspondence_fixed_price', '', $post_id=$this->program_id)) : null,					
+			//Get Rolling Enrollment Information
+			$this->schedule = array(
+				'rolling_enrollment_desc' => rwmb_meta('rolling_enrollment_desc', '', $post_id=$this->program_id),			
 			);
 		}
 		
@@ -285,8 +270,17 @@ function get_program_classification($program_id) {
 			}
 			
 			
-			
-			
+/**
+ * Display Also Available Via Correspondence
+ * This function displays the also available via correspondence link
+ * wherever it is called.
+ */	
+ 
+function available_via_correspondence_link() { ?>
+	<div class="via-correspondence-link">
+		<a href="#viacorrespondence">Also Available Via Correspondence<i class="fa fa-info info-circle-link"></i></a>
+	</div>
+<?php }
 			
 			
 			
