@@ -45,3 +45,5 @@ $(document).ready(function() {
 	});
 	
 });
+
+$(".stick-to-parent").stick_in_parent({offset_top:70})

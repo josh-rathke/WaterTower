@@ -1,8 +1,40 @@
-.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=text],
-.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=password],
-.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=url],
-.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=tel],
-.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container input[type=email],
-.gform_wrapper .gfield_label_hidden.gfield_contains_required .ginput_container select:not([multiple]) {
-  background-image: none !important;
+.gform_wrapper {
+
+  // Remove Required Star....Cause its ugly!
+  .gfield_required {
+    display: none !important;
+  }
+
+  // Style Standard Fields
+  input[type=text],
+  input[type=url],
+  input[type=email],
+  input[type=tel],
+  input[type=number],
+  input[type=password] {
+    background: #F9F9F9;
+    border: 1px solid #E6E6E6;
+    box-shadow: none;
+    color: #444;
+    font-size: 14px !important;
+    padding: 0px 8px !important;
+  }
+  
+  @mixin placeholder {
+    color: rgba(0, 0, 0, .35);
+  }
+  
+  // Style The Placeholder
+  ::-webkit-input-placeholder {
+    @include placeholder;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    @include placeholder;
+  }
+  :-ms-input-placeholder {
+    @include placeholder;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    @include placeholder;
+  }
 }

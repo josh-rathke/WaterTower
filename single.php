@@ -30,7 +30,7 @@
 
 	</div>
 	
-	<aside id="sidebar" class="small-12 large-4 columns">
+	<aside id="sidebar" class="small-12 large-4 columns stick-to-parent">
 		<?php get_sidebar(); ?>
 	</aside>
 </div>
