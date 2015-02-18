@@ -14,3 +14,20 @@
        -o-background-size: $args !important; 
           background-size: $args !important;
 }
+
+// Vertical Align
+@mixin vertical-align-relative {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin vertical-align-absolute {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

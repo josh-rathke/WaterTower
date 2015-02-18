@@ -7,7 +7,7 @@ global $meta_boxes;
 $meta_boxes = array();
 
 	include ('library/custom_meta/projects_meta.php');
-	include ('library/custom_meta/staff_needs_meta.php');
+	include ('library/custom_meta/staffing_needs_meta.php');
 	include ('library/custom_meta/focus_tracks_meta.php');
 
 $meta_boxes[] = array(
@@ -911,28 +911,6 @@ $meta_boxes[] = array(
 );
 
 
-
-
-
-//PAGE MAIN DISPLAY CONTROLS
-$meta_boxes[] = array(
-	'title'  => 'Display Controls',
-	'pages' => array( 'page', 'focus_ministries' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-		
-		array(
-			'name'  => 'Menu Priority',
-			'id'    => "{$prefix}menu_priority",
-			'desc'  => 'Use integers such as 3, 4, and 5 to determine the menu location.  The Top of the primary menu column is determined by the lowest number, so number 1 will be at the top.  At the time of site launch, all menu items were given integers in multiples of 10 to allow for adjustment in the future.  For example, the top level menu item has been given a value of 10, and the following items were given, 20, 30, 40 etc.  This should allow for menu items to be inserted manually without having to change more than one value.',
-			'type'  => 'text',
-			'std'   => '1000',
-			'clone' => false,
-		),
-	
-	),
-);
 
 
 
