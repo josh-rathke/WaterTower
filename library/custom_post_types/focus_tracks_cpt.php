@@ -26,7 +26,7 @@ function focus_tracks_cpt() {
 		'description'   => 'Holds our focus tracks and focus track specific data',
 		'public'        => true,
 		'supports'      => array( 'title', 'editor', 'thumbnail', 'revisions' ),
-		'show_in_menu'  => 'edit.php?post_type=program',
+		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'rewrite' => array('slug' => 'focus-tracks'), 
 		'taxonomies' 	=> array('post_tag'),

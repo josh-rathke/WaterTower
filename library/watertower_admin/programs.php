@@ -11,6 +11,12 @@ $options[] = array(
 	'type' => 'heading');
 
 $options[] = array(
+		'name' => __( '', 'options_framework_theme' ),
+		'desc' => __( '<h1>Program Classification Colors</h1>This is just some example information you can put in the panel.', 'theme-textdomain' ),
+		'type' => 'info'
+	);
+
+$options[] = array(
 	'name' => __('Discipleship Training Schools Classification Color', 'options_framework_theme'),
 	'desc' => __('This will be the primary classification color that displays for any school classified as a Discipleship Training School.', 'options_framework_theme'),
 	'id' => 'discipleship-training-schools-class-color',

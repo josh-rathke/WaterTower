@@ -30,6 +30,7 @@ function my_custom_post_target_nations() {
 		'menu_position' => 6,
 		'menu_icon'		=> 'dashicons-location-alt',
 		'supports'      => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
 		'rewrite' => array('slug' => 'target-nations'), 
