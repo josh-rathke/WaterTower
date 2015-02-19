@@ -13,8 +13,6 @@ require_once('library/foundation.php');
 require_once('library/navigation.php');
 // Add menu walker
 require_once('library/menu-walker.php');
-// Create widget areas in sidebar and footer
-require_once('library/widget-areas.php');
 // Enqueue scripts
 require_once('library/enqueue-scripts.php');
 // Add theme support

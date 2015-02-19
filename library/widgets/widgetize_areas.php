@@ -31,11 +31,6 @@ function widgetize_areas_init() {
 								'title' => 'Target Nations Archive',
 								'id'	=> 'target_nations_archive',
 								),
-								
-		'target_nations_single_sidebar'	=> array (
-								'title' => 'Target Nation Sidebar',
-								'id'	=> 'target_nations_single_sidebar',
-								),	
 	);
 	
 	
