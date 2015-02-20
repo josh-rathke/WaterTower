@@ -15,7 +15,7 @@ get_header();
 ?>
 
 <div class="row target-nations-archive-container">
-	<div class="medium-8 columns">
+	<div class="large-9 columns entry" data-magellan-destination="school-leaders">
 		
 		<h1><?php echo get_the_title($page_id); ?></h1>
 		<?php echo apply_filters('the_content', get_post_field('post_content', $page_id)); ?>
@@ -53,27 +53,38 @@ get_header();
 				$the_query->the_post();
 				
 				$country_info = jp_country_info(strtoupper(rwmb_meta('country_id', '', $post->ID)));
-				echo $country_info['data'][0]['PercentChristianity'];
 				
 				echo '<h2 class="target-nation-section-title">' . get_the_title() . '<span>' . number_format($country_info['data'][0]['PercentChristianity'], 2) . '% Christian</span></h2>'; ?>
 				
+				<?php the_post_thumbnail('full-width-banner'); ?>
+				
+				<?php the_content(); ?>
+				
 				<ul class="medium-block-grid-3 target-nation-info">
 					<li>
-						<div>Population</div>
-						<div><?php echo number_format($country_info['data'][0]['Population']); ?></div>
+						<i class="fa fa-child target-nation-info-icon"></i>
+						<div class="target-nation-info-content-container">
+							<div class="target-nation-info-title">Population</div>
+							<div class="target-nation-info-content"><?php echo number_format($country_info['data'][0]['Population']); ?></div>
+						</div>
 					</li>
 					<li>
-						<div>National Religion</div>
-						<div><?php echo $country_info['data'][0]['ReligionPrimary']; ?></div>
+						<i class="fa fa-globe target-nation-info-icon"></i>
+						<div class="target-nation-info-content-container">
+							<div class="target-nation-info-title">National Religion</div>
+							<div class="target-nation-info-content"><?php echo $country_info['data'][0]['ReligionPrimary']; ?></div>
+						</div>
 					</li>
 					<li>
-						<div>Official Language</div>
-						<div><?php echo $country_info['data'][0]['OfficialLang']; ?></div>
+						<i class="fa fa-comments-o target-nation-info-icon"></i>
+						<div class="target-nation-info-content-container">
+							<div class="target-nation-info-title">Official Language</div>
+							<div class="target-nation-info-content"><?php echo $country_info['data'][0]['OfficialLang']; ?></div>
+						</div>
 					</li>
 				</ul>
 				
-				<?php the_content();
-			}
+			<?php }
 		} else {
 			// no posts found
 		}
@@ -82,9 +93,12 @@ get_header();
 		
 	</div>
 	
-	<aside id="sidebar" class="medium-4 columns stick-to-parent">
-		<?php dynamic_sidebar("target_nations_archive"); ?>
-	</aside>
+	<div class="large-3 columns stick-to-parent">
+ 		<div class="magellan-container" data-magellan-expedition>
+		  <dl class="sub-nav side-nav-container side-nav-by-heading">
+		  </dl>
+		</div>
+ 	</div>
 </div>
 
 

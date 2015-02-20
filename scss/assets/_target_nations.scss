@@ -20,7 +20,7 @@
   }
   
   .target-nation-section-title {
-    border-bottom: 1px solid #999;
+    margin-bottom: 0px;
     
     span {
       color: #F7464A;
@@ -33,5 +33,22 @@
   
   .target-nation-info {
     
+    .target-nation-info-icon {
+      display: inline-block;
+      font-size: 26px;
+      text-align: center;
+    }
+    
+    .target-nation-info-content-container {
+      display: inline-block;
+      
+      .target-nation-info-title {
+        font-family:"HelveticaNeueW01-65Medi";
+      }
+      
+      .target-nation-info-content {
+        font-family:"HelveticaNeueW01-47LtCn 692686";
+      }
+    }
   }
 }

@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
 		
 		headers[i] = jQuery(this).text();
 		jQuery(this).attr('id', ID);
-	})
+	});
 	
 	//Display list of all H2 Headings
 	if (headers.length > 1) {
@@ -46,4 +46,4 @@ $(document).ready(function() {
 	
 });
 
-$(".stick-to-parent").stick_in_parent({offset_top:70})
+$(".stick-to-parent").stick_in_parent()

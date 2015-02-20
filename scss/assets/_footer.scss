@@ -117,8 +117,12 @@
       border: none !important;
       box-shadow: none !important;
       color: white;
-      font-size: 12px;
+      font-size: 14px;
       padding: 6px 10px;
+    }
+    
+    .gform_wrapper .gfield_label {
+      display: none;
     }
     
     .gform_wrapper .gform_footer input.button,

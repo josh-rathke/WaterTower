@@ -43,8 +43,6 @@ add_action( 'init', 'my_custom_post_target_nations' );
 function jp_country_info($country_id) {
 	
 	$api_key = "491f2410d044";
-	print_r($country_id);
-	//$country_id = strtoupper(rwmb_meta('country_id', '', $post->ID));
 	$url = "http://joshuaproject.net/api/v2/countries?api_key={$api_key}&ROG3={$country_id}";
 	
 	// Open Connection
