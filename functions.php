@@ -70,6 +70,8 @@ add_filter( 'optionsframework_menu', function( $menu ) {
 	include ('library/custom_post_types/staffing_needs_cpt.php');
 	// Focus Tracks CPT
 	include ('library/custom_post_types/focus_tracks_cpt.php');
+	// Acceptance Packets CPT 
+	include ('library/custom_post_types/acceptance_packets_cpt.php');
 	
 	
 	

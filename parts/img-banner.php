@@ -68,7 +68,7 @@ if (is_front_page()) {
 	global $page_id;
 	$page_id = $page_id != 0 ? $page_id : null;
 	
-	if ( is_archive() || is_home() ){
+	if ( is_archive() || is_home() || $page_id != null ){
 		if ( $page_id != null && has_post_thumbnail($page_id) ) {
 			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'thumbnail-size', true);
 

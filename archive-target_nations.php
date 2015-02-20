@@ -52,13 +52,19 @@ get_header();
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				
-				$country_info = jp_country_info(strtoupper(rwmb_meta('country_id', '', $post->ID)));
+				echo '<div class="target-nation-container">';
+				$country_id = rwmb_meta('country_id', '', $post->ID);
+				$country_info = jp_country_info(strtoupper($country_id));
+				$country_name = strtolower($country_info['data'][0]['Ctry']);
 				
-				echo '<h2 class="target-nation-section-title">' . get_the_title() . '<span>' . number_format($country_info['data'][0]['PercentChristianity'], 2) . '% Christian</span></h2>'; ?>
+				the_post_thumbnail('full-width-banner');
 				
-				<?php the_post_thumbnail('full-width-banner'); ?>
+				echo '<div class="target-nation-title-wrapper">';
+				echo '<h2 class="target-nation-section-title">' . get_the_title() . '</h2>';
+				echo '<span class="target-nation-section-percentage"><i class="fa fa-long-arrow-right"></i> ' . number_format($country_info['data'][0]['PercentChristianity'], 2) . '% Christian</span></h2>';
+				echo '</div>';
+				?>
 				
-				<?php the_content(); ?>
 				
 				<ul class="medium-block-grid-3 target-nation-info">
 					<li>
@@ -84,6 +90,13 @@ get_header();
 					</li>
 				</ul>
 				
+				<?php the_content(); ?>
+				
+				<ul class="target-nation-footer">
+					<li><a href="<?php echo get_bloginfo('url'); ?>/target-nation-blogs/<?php echo $country_name ?>">Posts Related to <?php echo ucfirst($country_name); ?> (<?php echo count(get_posts("target_nations_taxo={$country_name}")) ?>)</a></li>
+					<li><a href="http://joshuaproject.net/countries/<?php echo $country_id; ?>">Joshua Project <i class="fa fa-external-link"></i></a></li>
+				</ul>
+			</div>
 			<?php }
 		} else {
 			// no posts found
