@@ -1,0 +1,18 @@
+.front-page-featured-video-container {
+  
+  > div {
+    background-color: #EFEFEF;
+    background-clip: content-box;
+  }
+  
+  .flex-video {
+    margin-bottom: 0px !important;
+  }
+  
+  .front-page-featured-video-desc {
+    
+    p {
+      font-size: 14px;
+    }
+  }
+}

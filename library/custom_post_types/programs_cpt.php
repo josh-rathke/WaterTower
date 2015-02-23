@@ -190,85 +190,112 @@ function get_program_classification($program_id) {
 
 
 //---------------------------------------------------------------//
-		//----- CLASS TO RETIRVE AND RETURN UPCOMING SCHOOLS OBJECT -----//
-		//---------------------------------------------------------------//
-		
-		class ProgramDates {
-			var $cur_date;
-			var $schools;
-			var $featured;
-			
-			//---- BUILD UPCOMING SCHOOLS OBJECT -----//
-			public function get_schools() {
-				
-				//----- STORE ALL INSTANCES OF SCHOOLS IN ARRAY BASED ON SCHOOL ID -----//
-				$raw_programs = new WP_Query( 'post_type=program&nopaging=true' );
-				
-				if ( $raw_programs->have_posts() ) {
-					while ( $raw_programs->have_posts() ) {
-						$raw_programs->the_post();
-						
-						$i = 1;
-						$start_date = 'start_date' . $i;
-						while (rwmb_meta($start_date) != '') {
-						
-							//GET PROGRAM CLASSIFICATION
-							$program_class = get_the_terms($raw_programs->post->ID, 'program_classification');
-							reset($program_class);
-							$program_class_key = key($program_class);
-							
-							
-							
-							if (rwmb_meta($start_date, '', $post_id=$post->ID) > $this->cur_date) {
-							
-								$raw_program_dates[] = array(
-									'program_name'  =>	$raw_programs->post->post_title,
-									'slug'			=>	$raw_programs->post->post_name,
-									'program_id'	=>	$raw_programs->post->ID,
-									'program_class' =>	$program_class[$program_class_key]->name,
-									'start_date'	=>	rwmb_meta($start_date),
-									'quarter'		=>	define_quarter(rwmb_meta($start_date)),
-								);
-							}
-							$i = ++$i;
-							$start_date = 'start_date' . $i;
-						}
-					}
-				$this->schools = $raw_program_dates;
-				usort($this->schools, array($this, 'sort_by_date'));
+//----- CLASS TO RETIRVE AND RETURN UPCOMING SCHOOLS OBJECT -----//
+//---------------------------------------------------------------//
 
+class ProgramDates {
+	var $cur_date;
+	var $schools;
+	var $featured;
+	
+	//---- BUILD UPCOMING SCHOOLS OBJECT -----//
+	public function get_schools() {
+		
+		//----- STORE ALL INSTANCES OF SCHOOLS IN ARRAY BASED ON SCHOOL ID -----//
+		$raw_programs = new WP_Query( 'post_type=program&nopaging=true' );
+		
+		if ( $raw_programs->have_posts() ) {
+			while ( $raw_programs->have_posts() ) {
+				$raw_programs->the_post();
+				
+				$i = 1;
+				$start_date = 'start_date' . $i;
+				while (rwmb_meta($start_date) != '') {
+				
+					//GET PROGRAM CLASSIFICATION
+					$program_class = get_the_terms($raw_programs->post->ID, 'program_classification');
+					reset($program_class);
+					$program_class_key = key($program_class);
+					
+					
+					
+					if (rwmb_meta($start_date, '', $post_id=$post->ID) > $this->cur_date) {
+					
+						$raw_program_dates[] = array(
+							'program_name'  =>	$raw_programs->post->post_title,
+							'slug'			=>	$raw_programs->post->post_name,
+							'program_id'	=>	$raw_programs->post->ID,
+							'program_class' =>	$program_class[$program_class_key]->name,
+							'start_date'	=>	rwmb_meta($start_date),
+							'quarter'		=>	define_quarter(rwmb_meta($start_date)),
+						);
+					}
+					$i = ++$i;
+					$start_date = 'start_date' . $i;
 				}
 			}
-			
-			
-			//----- SORT UPCOMING SCHOOLS BY DATE -----//
-			public function sort_by_date($a, $b) {
-				return ($a['start_date'] < $b['start_date']) ? -1 : 1;
-			}
-				
-			
-			
-			function __construct() {
-				$this->cur_date = date('Ymd');
-				$this->get_schools();
+		$this->schools = $raw_program_dates;
+		usort($this->schools, array($this, 'sort_by_date'));
+
+		}
+	}
+	
+	
+	//----- SORT UPCOMING SCHOOLS BY DATE -----//
+	public function sort_by_date($a, $b) {
+		return ($a['start_date'] < $b['start_date']) ? -1 : 1;
+	}
+		
+	function __construct() {
+		$this->cur_date = date('Ymd');
+		$this->get_schools();
+	}
+}
+
+//------------------------------------------------//
+//----- PROGRAM DATES CLASS HELPER FUNCTIONS -----//
+//------------------------------------------------//
+
+	//----- GET UPCOMING SCHOOLS -----//
+	function get_upcoming_schools($num_requested) {
+		$programs = new ProgramDates();
+		
+		// Define Upcoming Schools Variable
+		$upcoming_schools = array();
+		
+		/*	Search Array Function
+		 * 
+		 * 	We use this function to verify that there aren't
+		 * 	any duplicate programs displayed, even if they are
+		 * 	"more" upcoming than others.
+		 */
+		 
+		function search_array($needle, $haystack) {
+		     if(in_array($needle, $haystack)) {
+		          return true;
+		     }
+		     foreach($haystack as $element) {
+		          if(is_array($element) && search_array($needle, $element))
+		               return true;
+		     }
+		   return false;
+		}
+		
+		// Use the search_array function to check for duplicate school entries
+		foreach ($programs->schools as $program) {
+			if (!search_array($program['slug'], $upcoming_schools)) {
+				$upcoming_schools[] = $program;
 			}
 		}
 		
-		//------------------------------------------------//
-		//----- PROGRAM DATES CLASS HELPER FUNCTIONS -----//
-		//------------------------------------------------//
+		// Grab the 10 closest schools and shuffle them.
+		$upcoming_schools = array_slice($upcoming_schools, 0, 10);
+		shuffle($upcoming_schools);
 		
-			//----- GET UPCOMING SCHOOLS -----//
-			function get_upcoming_schools($num_requested) {
-				$programs = new ProgramDates();
-				
-				$programs->schools = array_slice($programs->schools, 0, 8);
-				shuffle($programs->schools);
-				
-				//----- FINALIZE RANDOMIZED SCHOOLS
-				$programs->schools = array_slice($programs->schools, 0, $num_requested);
-				return $programs;
-			}
+		// Package upcoming schools and inject back into the object.
+		$programs->schools = array_slice($upcoming_schools, 0, $num_requested);
+		return $programs;
+	}
 			
 			
 /**

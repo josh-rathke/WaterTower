@@ -2,7 +2,6 @@
 
 /**
  *	Staffing Needs Archive
- * 	Template Name: Staffing Needs
  * 
  *	This is the template for the staffing needs page.
  */

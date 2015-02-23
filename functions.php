@@ -44,8 +44,8 @@ $optionsfile = locate_template( 'options.php' );
 load_template( $optionsfile );
 
 add_filter( 'optionsframework_menu', function( $menu ) {
-	    $menu['page_title'] = 'The Options';
-	    $menu['menu_title'] = 'The Optio';
+	    $menu['page_title'] = 'WaterTower Options';
+	    $menu['menu_title'] = 'WaterTower';
 	    return $menu;
 	 });
 

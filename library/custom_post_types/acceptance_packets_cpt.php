@@ -28,8 +28,8 @@ function acceptance_packets_cpt() {
 		'supports'      => array( 'title', 'editor', 'revisions' ),
 		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
-		'rewrite' => array('slug' => 'acceptance-packets'), 
-		'taxonomies' 	=> null,
+		'rewrite' 		=> array('slug' => 'acceptance-packets'), 
+		'taxonomies' 	=> array(),
 	);
 	register_post_type( 'acceptance_packets', $args );	
 }
