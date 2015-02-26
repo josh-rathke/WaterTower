@@ -1,5 +1,6 @@
 </section>
 
+<?php if (!is_front_page()) : ?>
 <div class="breadcrumbs-container">
 	<div class="row">
 		<div class="medium-12 columns">
@@ -9,6 +10,9 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>
+
+
 
 <?php do_action('watertower_before_footer'); ?>
 <footer class="footer">

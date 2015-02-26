@@ -81,18 +81,45 @@
     }
   }
   
+  .videos-container {
+    margin-top: -40px;
+    padding-top: 40px;
+    
+    h2 {
+      height: 0px !important;
+      overflow: hidden;
+    }
+  }
+  
+  .upcoming-schools-header {
+      margin-bottom: 30px;
+    
+      h2 {
+        border-bottom: 1px solid #CCC;
+        margin: 0px;
+      }
+    
+      .via-correspondence-link {
+        font-size: 14px;
+        margin-top: 0px;
+        padding-top: 5px;
+      }
+    }
+    
+  .via-correspondence-container {
+    margin-top: -60px;
+    padding: 60px 10px 10px 10px;
+    
+    p {
+      color: #666;
+      font-size: 12px;
+    }
+  }
+  
   .program-dates-container {
     margin: 0px;
     padding-top: 70px;
     
-    
-    
-    .via-correspondence-link {
-        border-top: 1px solid #CCC;
-        font-size: 14px;
-        margin: -10px 0px 28px 0px;
-        padding-top: 5px;
-      }
     
     .program-date-info-container {
       background: #F6F6F6;
@@ -149,13 +176,10 @@
   }
   
   .program-apply-by-desc-container {
+    margin-top: -30px;
     padding: 60px 10px 10px 10px;
     
     .program-apply-by-desc {
-      
-      h5 {
-        
-      }
       
       p {
         color: #666;

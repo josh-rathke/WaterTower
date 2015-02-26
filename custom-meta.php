@@ -239,7 +239,7 @@ $meta_boxes[] = array(
 		array(
 			'name'  => 'Accreditiation',
 			'id'    => "{$prefix}accreditation",
-			'desc'  => 'Please insert the accreditation info here.  If you are unsure what exactly to put, please email the registrar. DO NOT GUESS HERE.',
+			'desc'  => '',
 			'type'  => 'textarea',
 			'std'   => '',
 			'clone' => false,
@@ -286,6 +286,10 @@ $meta_boxes[] = array(
 			'id'   => $prefix . 'rolling_enrollment_desc',
 			'type' => 'wysiwyg',
 			'desc' => '',
+			'after'=> '				<hr style="margin: 30px -12px;
+									border-top: 1px solid #CCC;
+									border-bottom: 1px solid #FFF;
+									background-color: transparent;">',
 		),
 			
 		// OFFERED VIA CORRESPONDENCE
@@ -294,6 +298,13 @@ $meta_boxes[] = array(
 			'id'   => $prefix . 'via_correspondence',
 			'type' => 'checkbox',
 			'desc' => 'If the school is offered via correspondence check this box.',
+		),
+		
+		array(
+			'name' => 'Via Correspondence Description',
+			'id'   => $prefix . 'via_correspondence_desc',
+			'type' => 'wysiwyg',
+			'desc' => '',
 			'after'=> '				<hr style="margin: 30px -12px;
 									border-top: 1px solid #CCC;
 									border-bottom: 1px solid #FFF;

@@ -201,6 +201,29 @@ function get_id_by_slug($page_slug) {
 	}
 }
  
- 
+
+
+/*	Function Get Excerpt By ID
+ *	This function allows us to get the excerpt of a
+ *	post by the ID of the post, and also allows a
+ *	word count to be passed to allow for excerpt length
+ *	variability.
+ */
+		
+function get_excerpt_by_id($post_id, $excerpt_length=40){
+	$the_post = get_post($post_id); //Gets post ID
+	$the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
+	$the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+	$words = explode(' ', $the_excerpt, $excerpt_length + 1);
+	
+	if(count($words) > $excerpt_length) :
+		array_pop($words);
+		array_push($words, '…');
+		$the_excerpt = implode(' ', $words);
+	endif;
+	
+	$the_excerpt = '<p>' . $the_excerpt . '</p>';
+	return $the_excerpt;
+}	
  
 ?>

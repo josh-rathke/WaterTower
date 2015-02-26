@@ -4,7 +4,7 @@
 @import "normalize";
 
 // Import Global Mixins
-@import "global-mixins";
+@import "global_mixins";
 
 /*  
   ZURB Foundation components:
@@ -77,6 +77,7 @@
 // WaterTower Widget Styles
 @import "assets/widgets/wt_subscribe_widget"; // Import Subscribe Widget Styles
 @import "assets/widgets/wt_related_media_widget"; // Import Related Media Widget
+@import "assets/widgets/wt_featured_page_widget"; // Import Featured Page Widget
 
 // CSS Hacks
 @import "assets/topbar_hacks";        // Import the top bar hacks.

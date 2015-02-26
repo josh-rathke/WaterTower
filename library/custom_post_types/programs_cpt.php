@@ -66,11 +66,6 @@ class programInfo {
 		$app_deadline = 'app_deadline' . $i;
 		$this->cur_date = date('Ymd');
 		
-		
-		$app_color_settings = get_option('program_options');
-		$open_app_color = $app_color_settings['program_open_app_color'];
-		$closed_app_color = $app_color_settings['program_closed_app_color'];
-		
 		while (rwmb_meta($start_date, '', $program_id=$this->program_id) != '') {
 			
 			//----- ONLY DISPLAY FUTURE SCHOOLS -----//
@@ -84,15 +79,6 @@ class programInfo {
 				);
 				
 				$this->schedule[$i]['quarter'] = define_quarter(rwmb_meta($start_date, '', $program_id=$this->program_id)); 
-				
-				//----- DEFINE AMERICAN APP STATUS -----//
-				if ($this->cur_date > rwmb_meta($app_open_date, '', $program_id=$this->program_id) && $this->cur_date < rwmb_meta($app_deadline, '', $program_id=$this->program_id)) {
-					$this->schedule[$i]['app_status'] = 'open';
-					$this->schedule[$i]['app_status_color'] = $open_app_color;
-				} else {
-					$this->schedule[$i]['app_status'] = 'closed';
-					$this->schedule[$i]['app_status_color'] = $closed_app_color;
-				}
 			}
 			
 			$i = ++$i;
@@ -171,15 +157,6 @@ class programInfo {
 
 
 
-
-
-
-
-
-
-
-
-
 //----- FUNCTION TO GET THE PROGRAMS CLASS AND RETURN OBJECT -----//
 function get_program_classification($program_id) {
 	$program_classification = wp_get_post_terms($program_id, 'program_classification');
@@ -249,6 +226,7 @@ class ProgramDates {
 	function __construct() {
 		$this->cur_date = date('Ymd');
 		$this->get_schools();
+		wp_reset_postdata();
 	}
 }
 
@@ -304,11 +282,13 @@ class ProgramDates {
  * wherever it is called.
  */	
  
-function available_via_correspondence_link() { ?>
-	<div class="via-correspondence-link">
-		<a href="#viacorrespondence">Also Available Via Correspondence<i class="fa fa-info info-circle-link"></i></a>
-	</div>
-<?php }
+function available_via_correspondence_link() {
+	if (rwmb_meta('via_correspondence')) : ?>
+		<div class="via-correspondence-link">
+			<a href="#viacorrespondence">Also Available Via Correspondence<i class="fa fa-info info-circle-link"></i></a>
+		</div>
+	<?php endif; 
+}
 			
 			
 			

@@ -20,10 +20,13 @@ array( 'description' => __( 'This widget allows you to strategically insert link
 // This is where the action happens
 public function widget( $args, $instance ) {
 $title = apply_filters( 'widget_title', $instance['title'] );
+
 // before and after widget arguments are defined by themes
 echo $args['before_widget'];
-if ( ! empty( $title ) )
-echo $args['before_title'] . $title . $args['after_title'];
+
+if ( ! empty( $title ) ) {
+	echo $args['before_title'] . $title . $args['after_title'];
+}
 
 // This is where you run the code and display the output
 
@@ -34,10 +37,10 @@ echo $args['before_title'] . $title . $args['after_title'];
 	<?php
 	
 	$featured_page = get_post($instance['featured-page'], OBJECT);
-	echo ($instance['custom-description']) ? '<p>' . $instance['custom-description'] . '</p>' : get_excerpt_by_id($featured_page->ID, $instance['excerpt-length']);
+	$custom_desc = $instance['custom-description'];
 	
-	
-	echo '<div><a href="' .get_permalink($featured_page->ID) . '">' . $instance['link-text'] . '<i class="fa fa-long-arrow-right"></i></a></div>';
+	echo ($custom_desc) ? '<p>' . $custom_desc . '</p>' : get_excerpt_by_id($featured_page->ID, $instance['excerpt-length']);
+	echo '<div class="featured-page-widget-link-container"><a href="' .get_permalink($featured_page->ID) . '">' . $instance['link-text'] . '<i class="fa fa-long-arrow-right"></i></a></div>';
 	
 	?>
 	

@@ -50,12 +50,10 @@
 		 */
 		?>
 		
-		<div class="row">
-			<div class="medium-12 columns">
+		<div class="videos-container" data-magellan-destination="videos">
+			<h2>Videos</h2>
 			<?php echo do_shortcode('[vimeography id="1"]'); ?>
-			</div>
 		</div>
-		
 		
 		
 		
@@ -94,8 +92,10 @@
 			
 		echo '<div data-magellan-destination="upcoming-schools">';
 			echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
-				echo '<h2>Upcoming Schools</h2>';
-					available_via_correspondence_link();
+				echo '<div class="upcoming-schools-header"><h2>Upcoming Schools</h2>';
+				available_via_correspondence_link();
+				echo '</div>';
+					
 					if (!empty($program_object->schedule)) {
 							
 						// Dispaly available program instaces	
@@ -136,17 +136,52 @@
 						<p><?php echo of_get_option('apply_by_dates_desc'); ?></p>
 					</div>
 				</div>
-			</div>
 			
 			<?php else : // Display Rolling Enrollment Info ?>
-				<h2>Rolling Enrollment</h2>
-				<?php available_via_correspondence_link() ?>
-				
-				<?php echo $program_object->schedule['rolling_enrollment_desc']; ?>
-				
+				<div class="rolling-enrollment-container" data-magellan-destination="rolling-enrollment">
+					<div class="upcoming-schools-header">
+						<h2>Rolling Enrollment</h2>
+						<?php available_via_correspondence_link() ?>
+					</div>
+					
+					<?php echo $program_object->schedule['rolling_enrollment_desc']; ?>
+				</div>
+			<?php endif; ?>
+			
+			
+			<?php 
+			
+			/**
+			 * 	Available Via Correspondence Info Section
+			 * 
+			 * 	This section displays the information related
+			 * 	to taking the course via correspondence.
+			 */
+			 
+			if (rwmb_meta('via_correspondence')) : ?>
+			
+			<div id="viacorrespondence" class="via-correspondence-container">
+				<h5>Also Available Via Correspondence<i class="fa fa-info info-circle"></i></h5>
+				<?php echo rwmb_meta('via_correspondence_desc'); ?>
+			</div>
+			
 			<?php endif; ?>
 			
 		
+			<?php 
+			
+			/**
+			 * 	Pre Requisites Section
+			 * 
+			 * 	This section displays the pre-requisites for each school. The
+			 *  reason we have the check for "Array" is because of a glitch we had
+			 * 	when updated from V2 to V3.
+			 */
+			
+			$pre_reqs = $program_object->academic_info['recommended_prereqs'];
+			
+			if ( $pre_reqs && $pre_reqs != "Array") : ?>
+					
 			<div class="row program-prereqs-container alert-box warning">
 				<div class="small-3 medium-2 columns program-prereqs-icon-container">
 					<i class="fa fa-check-square-o"></i>
@@ -158,7 +193,10 @@
 					</div>
 				</div>
 			</div>
-		
+			
+			<?php endif; ?>
+			
+		</div><!-- upcoming-schools-container -->
 		
 		
 		
