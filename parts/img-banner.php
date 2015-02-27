@@ -55,9 +55,83 @@ if (is_front_page()) {
 
 <?php
 	
+} elseif (is_page('campus-tour')) {
+	
+	/**
+	 * 	Campus Tour Banner
+	 * 	This displays the campus tour header that allows
+	 * 	anyone viewing the page to navigate through our 
+	 * 	campus virtually.
+	 */ ?>
+	 
+	<script type="text/javascript"
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvS3wK11EOSK0jvsAXlTnGvpUb85uXpTw">
+	</script>
+	<script>
+	var panorama = null;
+	var links = null;
+	
+	function setPano2link(pano_id) {
+	  panorama.setPano(pano_id);
+	  panorama.setVisible(true);
+	}
+	
+	function initialize() {
+	  var myPanoid = 'RB2Y2YqYEncAAAGu5uu9ug';
+	  var panoramaOptions = {
+	    pano: myPanoid,
+	    pov: {
+	      heading: 270,
+	      pitch: 0
+	    },
+	    visible: true,
+	    scrollwheel: false,
+		addressControl: false,
+	  };
+	  panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+	
+		//Whenever the pano is changed check to make sure that the menu
+		//is up to date so that the user can track where they are within
+		//the tour.
+		google.maps.event.addListener(panorama, 'pano_changed', function() {
+			var curPanoID = panorama.getPano();
+		
+			//Toggle the active class off of the list item.
+			$('.campus-tour-jump-to-menu .active').toggleClass('active');
+			
+			//Toggle the active class to the correct list item.
+			$('#' + curPanoID).toggleClass('active');
+		});
+		
+		google.maps.event.addListener(panorama, 'position_changed', function() {
+		    var positionCell = document.getElementById('position_cell');
+		    var latitude = parseFloat(panorama.getPosition().lat()).toFixed(4);
+		    var longitude = parseFloat(panorama.getPosition().lng()).toFixed(4);
+		    
+		    positionCell.firstChild.nodeValue = '(' + latitude + ' \u00B0, ' + longitude + ' \u00B0)';
+		});
+		
+	    google.maps.event.addListener(panorama, 'pov_changed', function() {
+	      var headingCell = document.getElementById('heading_cell');
+	      var pitchCell = document.getElementById('pitch_cell' + '');
+	      headingCell.firstChild.nodeValue = parseFloat(panorama.getPov().heading).toFixed(7) + ' \u00B0';
+	      pitchCell.firstChild.nodeValue = parseFloat(panorama.getPov().pitch).toFixed(7) + ' \u00B0';
+	    });
+	
+	}
+	
+	google.maps.event.addDomListener(window, 'load', initialize);
+	
+	</script>
+	
+	
+	<div id="pano" style="width: 100%; height: 450px;"></div>
+ 
+	 <?
+	
 } else {
 	
-	/*	Function the_standard_banner	
+	/*	Standard Banner	
 	 *	This bit of code pulls in the featured image of the
 	 *	post or page either currently on or provided and 
 	 *	simply displays it.  There is no native slider 
