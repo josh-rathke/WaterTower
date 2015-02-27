@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
 		
 		headers[i] = jQuery(this).text();
 		jQuery(this).attr('id', ID);
-	})
+	});
 	
 	//Display list of all H2 Headings
 	if (headers.length > 1) {
@@ -20,6 +20,12 @@ jQuery(document).ready(function() {
 				'<dd data-magellan-arrival="' + slug + '"><a href="#' + slug + '">' + val + '</dd>'
 			);
 		});
+		
+		// Create Back to Top Button
+		jQuery('.side-nav-by-heading').append(
+			'<dd class="back-to-top"><a href="#back-to-top">Back To Top<i class="fa fa-angle-double-up"></i></dd>'
+		);
+		
 	} else {
 		jQuery('.widget_page_directory_widget').css('display', 'none');
 	}
@@ -45,3 +51,5 @@ $(document).ready(function() {
 	});
 	
 });
+
+$(".stick-to-parent").stick_in_parent();

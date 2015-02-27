@@ -7,44 +7,25 @@
  
 $meta_boxes[] = array(
 	'title'  => 'Staff Needs',
-	'pages' => array( 'staff_needs'),
+	'pages' => array( 'staffing_needs'),
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
-		// IMAGE ADVANCED (WP 3.5+)
-		array(
-			'name'             => __( 'Staff Need Icon', 'meta-box' ),
-			'id'               => "{$prefix}staff_needs_icon",
-			'type'             => 'image_advanced',
-			'max_file_uploads' => 1,
-		),
 		
 		array(
 			'name'  => 'Helpful Skills',
 			'id'    => "{$prefix}helpful_skills",
 			'desc'  => 'List some skills that are helpful for the person fulfilling this role to have.',
-			'type'  => 'text',
+			'type'  => 'textarea',
 			'std'   => '',
-			'clone' => true,
 		),
 		
 		array(
 			'name'  => 'Requirements',
 			'id'    => "{$prefix}requirements",
 			'desc'  => 'If there are any requirements for someone to fill this role, please list them here.',
-			'type'  => 'text',
+			'type'  => 'textarea',
 			'std'   => '',
-			'clone' => true,
-		),
-		
-		array(
-			'name'  => 'Contact Email',
-			'id'    => "{$prefix}contact_email",
-			'desc'  => 'Insert the email of the person that has agreed to be the contact for this particular Staff Need.',
-			'type'  => 'text',
-			'std'   => '',
-			'clone' => false,
 		),
 	),
 );
@@ -91,22 +72,10 @@ $meta_boxes[] = array(
 			),
 		),
 		
-		array(
-			'name'    => __( 'What to Expect Author', 'rwmb' ),
-			'id'      => "{$prefix}what_to_expect_author",
-			'type'    => 'post',
-
-			// Post type
-			'post_type' => 'guest-author',
-			'field_type' => 'select_multiple',
-			'std'		=> '',
-			'placeholder' => __( 'Select an Item', 'rwmb' ),
-		),
-		
 	),
 	'only_on'    => array(
 		'id'       => array(),
-		'slug'  => array( 'staff-needs' ),
+		'slug'  => array( 'staffing-needs' ),
 		'template' => array(),
 		'parent'   => array()
 	),

@@ -7,8 +7,9 @@ global $meta_boxes;
 $meta_boxes = array();
 
 	include ('library/custom_meta/projects_meta.php');
-	include ('library/custom_meta/staff_needs_meta.php');
+	include ('library/custom_meta/staffing_needs_meta.php');
 	include ('library/custom_meta/focus_tracks_meta.php');
+	include ('library/custom_meta/acceptance_packets_meta.php');
 
 $meta_boxes[] = array(
 	'title'  => 'Profile Options',
@@ -113,38 +114,6 @@ $meta_boxes[] = array(
 
 
 
-//GALLERY FUNCTION TO DISPLAY ADDITIONAL IMAGE INPUT BOX
-
-$meta_boxes[] = array(
-	'title'  => 'Slider Options',
-	'pages' => array( 'target_nations', 'program', 'page'),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-	
-		array(
-			'name'             => 'Additional Images to Include',
-			'id'               => "{$prefix}slide_imgs",
-			'desc'				=> 'If desired, add more images in addition to the featured image.  Never set these images before a featured image has been set.',
-			'type'             => 'image_advanced',
-			'max_file_uploads' => 20,
-		),
-		
-		//PHOTO CREDITS
-		array(
-			'name'  => 'Image Credits',
-			'id'    => "{$prefix}image_credits",
-			'desc'  => 'Insert, preferably in order, the names of those who have contributed photos to this site',
-			'type'  => 'text',
-			'std'   => '',
-			'clone' => true,
-		),
-
-	),
-
-);
-
-
 
 
 
@@ -178,68 +147,12 @@ $meta_boxes[] = array(
 
 
 
-//POST CUSTOM FIELDS
-
-$meta_boxes[] = array(
-	'title'  => 'Post Information',
-	'pages' => array( 'post' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-
-		//PULL QUOTE
-		array(
-			'name'  => 'Pull Quote',
-			'id'    => "{$prefix}pull_quote",
-			'desc'  => 'Enter the Pull Quote of the article. A Pull Quote is one phrase that the author would like to be highlighted out of the entire work.  This quote will be pulled to the side of post and highlighted in a larger font in the left column of the page.',
-			'type'  => 'textarea',
-			'std'   => '',
-		),
-		
-		//PHOTO CREDITS
-		array(
-			'name'  => 'Image Credits',
-			'id'    => "{$prefix}image_credits",
-			'desc'  => 'Insert, preferably in order, the names of those who have contributed photos to this site',
-			'type'  => 'text',
-			'std'   => '',
-			'clone' => true,
-		),
-
-	),
-	
-);
-
-
-
-$meta_boxes[] = array(
-	'title'  => 'Geological Reference',
-	'pages' => array( 'post' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-		array(
-			'id'            => 'address',
-			'name'          => 'Location Title',
-			'type'          => 'text',
-			'std'           => 'Lakeside, United States',
-		),
-		array(
-			'id'            => 'longlat',
-			'name'          => 'Location',
-			'type'          => 'map',
-			'std'           => '-6.233406,-35.049906,15',     // 'latitude,longitude[,zoom]' (zoom is optional)
-			'style'         => 'width: 500px; height: 500px',
-			'address_field' => 'address',                     // Name of text field where address is entered. Can be list of text fields, separated by commas (for ex. city, state)
-		),
-	),
-);
 
 
 //Video Gallery Options
 $meta_boxes[] = array(
 	'title'  => 'Video Gallery Options',
-	'pages' => array( 'program', 'class_portfolios', 'projects' ),
+	'pages' => array( 'program', 'projects' ),
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
@@ -326,7 +239,7 @@ $meta_boxes[] = array(
 		array(
 			'name'  => 'Accreditiation',
 			'id'    => "{$prefix}accreditation",
-			'desc'  => 'Please insert the accreditation info here.  If you are unsure what exactly to put, please email the registrar. DO NOT GUESS HERE.',
+			'desc'  => '',
 			'type'  => 'textarea',
 			'std'   => '',
 			'clone' => false,
@@ -362,11 +275,22 @@ $meta_boxes[] = array(
 	
 	
 		array(
-				'name' => 'Ongoing Status',
-				'id'   => $prefix . 'ongoing_status',
-				'type' => 'checkbox',
-				'desc' => 'If the school or program has an ongoing status, meaning that the school does not have specific dates or times, but is always open for students willing to come, check this box',
-			),
+			'name' => 'Rolling Enrollment Status',
+			'id'   => $prefix . 'rolling_enrollment_status',
+			'type' => 'checkbox',
+			'desc' => 'If the school or program has an ongoing status, meaning that the school does not have specific dates or times, but is always open for students willing to come, check this box',
+		),
+		
+		array(
+			'name' => 'Rolling Enrollment Desc',
+			'id'   => $prefix . 'rolling_enrollment_desc',
+			'type' => 'wysiwyg',
+			'desc' => '',
+			'after'=> '				<hr style="margin: 30px -12px;
+									border-top: 1px solid #CCC;
+									border-bottom: 1px solid #FFF;
+									background-color: transparent;">',
+		),
 			
 		// OFFERED VIA CORRESPONDENCE
 		array(
@@ -375,80 +299,17 @@ $meta_boxes[] = array(
 			'type' => 'checkbox',
 			'desc' => 'If the school is offered via correspondence check this box.',
 		),
-			
+		
 		array(
-				'name' => 'Ongoing Application Status',
-				'id'   => $prefix . 'ongoing_app_status',
-				'type' => 'Select',
-				'desc' => 'Since the school is ongoing, the application status needs to be set manually.  Please select a status for applications for this school.',
-				'options' => array(
-					'open' => 'open',
-					'closed' => 'closed',
-					'full'	=> 'full',
-				),
-			),
-			
-		array(
-				'name' => 'Ongoing Total Cost',
-				'id'   => $prefix . 'ongoing_startup_cost',
-				'type' => 'number',
-				'desc' => 'Enter the estimated startup cost of a student participating in this program.',
-			),
-			
-		array(
-				'name' => 'Ongoing Monthly Cost',
-				'id'   => $prefix . 'ongoing_monthly_cost',
-				'type' => 'number',
-				'desc' => 'Enter the estimated monthly cost of a student in this program.',
-			),
-			
-		array(
-				'name' => 'Ongoing Minimum Required Support (Single)',
-				'id'   => $prefix . 'ongoing_min_support_single',
-				'type' => 'number',
-				'desc' => 'Enter the minimum amount of support required to participate in this program.',
-				
-			),
-			
-		array(
-				'name' => 'Ongoing Minimum Required Support (Married)',
-				'id'   => $prefix . 'ongoing_min_support_married',
-				'type' => 'number',
-				'desc' => 'Enter the minimum amount of support required to participate in this program for married participants.',
-				'after'=> '				<hr style="margin: 30px -12px;
+			'name' => 'Via Correspondence Description',
+			'id'   => $prefix . 'via_correspondence_desc',
+			'type' => 'wysiwyg',
+			'desc' => '',
+			'after'=> '				<hr style="margin: 30px -12px;
 									border-top: 1px solid #CCC;
 									border-bottom: 1px solid #FFF;
 									background-color: transparent;">',
-			),
-			
-			
-		array(
-				'before' => '<h4>Ongoing Program Fixed Pricing</h4>',
-				'name' => 'Enable Fixed Price',
-				'id'   => $prefix . 'has_fixed_price',
-				'type' => 'checkbox',
-				'desc' => 'If this program has a fixed price, check this box.',
-			),
-			
-		array(
-			'name' => 'Fixed Price',
-			'id'   => $prefix . 'ongoing_fixed_price',
-			'type' => 'number',
-			'desc' => 'Enter the ongoing fixed price of this program.',
 		),
-			
-		array(
-			'name' => 'Via Correspondence Price',
-			'id'   => $prefix . 'via_correspondence_fixed_price',
-			'type' => 'number',
-			'desc' => 'Enter the ongoing fixed price of this program.',
-			'after'=> '				<hr style="margin: 30px -12px;
-								border-top: 1px solid #CCC;
-								border-bottom: 1px solid #FFF;
-								background-color: transparent;">',
-		),
-	
-		
 	
 	
 
@@ -496,95 +357,13 @@ $meta_boxes[] = array(
 			'type'  => 'text',
 			'std'   => '',
 			'clone' => false,
-		),
-		
-		array(
-				'name' => 'Application Open Date',
-				'id'   => $prefix . 'app_open_date1',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		
-			
-		array(
-				'name' => 'Application Deadline',
-				'id'   => $prefix . 'app_deadline1',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (International)',
-				'id'   => $prefix . 'international_app_deadline1',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (Canadian)',
-				'id'   => $prefix . 'canadian_app_deadline1',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-		
-			
-		array(
-				'name' => 'Application Deadline (African)',
-				'id'   => $prefix . 'african_app_deadline1',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-				'after'=> '				<hr style="margin: 30px -12px;
+			'after'=> '				<hr style="margin: 30px -12px;
 									border-top: 1px solid #CCC;
 									border-bottom: 1px solid #FFF;
 									background-color: transparent;">',
-			),		
-
+		),
+		
+		
 		
 				
 		
@@ -636,95 +415,13 @@ $meta_boxes[] = array(
 			'type'  => 'text',
 			'std'   => '',
 			'clone' => false,
-		),
-		
-		array(
-				'name' => 'Application Open Date',
-				'id'   => $prefix . 'app_open_date2',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		
-			
-		array(
-				'name' => 'Application Deadline',
-				'id'   => $prefix . 'app_deadline2',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (International)',
-				'id'   => $prefix . 'international_app_deadline2',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (Canadian)',
-				'id'   => $prefix . 'canadian_app_deadline2',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-		
-			
-		array(
-				'name' => 'Application Deadline (African)',
-				'id'   => $prefix . 'african_app_deadline2',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-				'after'=> '				<hr style="margin: 30px -12px;
+			'after'=> '				<hr style="margin: 30px -12px;
 									border-top: 1px solid #CCC;
 									border-bottom: 1px solid #FFF;
 									background-color: transparent;">',
-			),		
-
+		),
+		
+		
 		
 		
 		
@@ -775,237 +472,8 @@ $meta_boxes[] = array(
 			'type'  => 'text',
 			'std'   => '',
 			'clone' => false,
-		),
-		
-		array(
-				'name' => 'Application Open Date',
-				'id'   => $prefix . 'app_open_date3',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-		
-		
-		array(
-				'name' => 'Application Deadline',
-				'id'   => $prefix . 'app_deadline3',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (International)',
-				'id'   => $prefix . 'international_app_deadline3',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (Canadian)',
-				'id'   => $prefix . 'canadian_app_deadline3',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-		
-			
-		array(
-				'name' => 'Application Deadline (African)',
-				'id'   => $prefix . 'african_app_deadline3',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-				'after'=> '				<hr style="margin: 30px -12px;
-									border-top: 1px solid #CCC;
-									border-bottom: 1px solid #FFF;
-									background-color: transparent;">',
-			),		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		array(
-				'name' => 'Program Start Date',
-				'id'   => $prefix . 'start_date4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		
-			
-		array(
-				'name' => 'Program End Date',
-				'id'   => $prefix . 'end_date4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),	
-			
-		array(
-			'name'  => 'Total Cost',
-			'id'    => "{$prefix}total_cost4",
-			'desc'  => 'Insert the program cost.  It will automatically be formatted when brought into the front end of the site, so there is no need to add commas or dollar signs.',
-			'type'  => 'text',
-			'std'   => '',
-			'clone' => false,
-		),
-		
-		array(
-				'name' => 'Application Open Date',
-				'id'   => $prefix . 'app_open_date4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		
-			
-		array(
-				'name' => 'Application Deadline',
-				'id'   => $prefix . 'app_deadline4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (International)',
-				'id'   => $prefix . 'international_app_deadline4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-			
-		array(
-				'name' => 'Application Deadline (Canadian)',
-				'id'   => $prefix . 'canadian_app_deadline4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-			),
-		
-			
-		array(
-				'name' => 'Application Deadline (African)',
-				'id'   => $prefix . 'african_app_deadline4',
-				'type' => 'date',
-
-				// jQuery date picker options. See here http://jqueryui.com/demos/datepicker
-				'js_options' => array(
-					'appendText'      => '(Month Day, Year)',
-					'autoSize'        => true,
-					'buttonText'      => 'Select Date',
-					'dateFormat'      => 'yymmdd',
-					'numberOfMonths'  => 2,
-					'showButtonPanel' => true,
-				),
-				'after'=> '				<hr style="margin: 30px -12px;
-									border-top: 1px solid #CCC;
-									border-bottom: 1px solid #FFF;
-									background-color: transparent;">',
-			),		
-
-		
+		),	
 	),
-
 );
 
 
@@ -1017,15 +485,6 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
-	
-		array(
-			'name' => 'Lecture Phase Title',
-			'id'   => "{$prefix}lecture_phase_title",
-			'desc' => 'If Lecture Phase is not an appropriate title, then use this field to change the title of this section',
-			'type' => 'text',
-			'std'  => 'Lecture Phase',
-		),
 		
 		array(
 			'name' => 'Lecture Phase Description',
@@ -1415,243 +874,6 @@ $meta_boxes[] = array(
 
 
 
-$meta_boxes[] = array(
-	'title'  => 'Control Switches',
-	'pages' => array( 'program' ),
-	'context' => 'side',
-	'priority' => 'low',
-	'fields' => array(
-	
-		
-		array(
-			'name' => 'Include Outreach Map',
-			'id'   => "{$prefix}display_map",
-			'desc' => 'Check this box if you would like the outreach map to be display on the page',
-			'type' => 'checkbox',
-			// Value can be 0 or 1
-			'std'  => 0,
-		),
-		
-		array(
-			'name' => 'Online Application',
-			'id'   => "{$prefix}app_link",
-			'desc' => 'Check this box if this program can be applied for online',
-			'type' => 'checkbox',
-			// Value can be 0 or 1
-			'std'  => 1,
-			'after'=> '				<hr style="margin: 30px -12px;
-									border-top: 1px solid #CCC;
-									border-bottom: 1px solid #FFF;
-									background-color: transparent;">',
-		),
-		
-		array(
-			'name' => 'Enable Contact Form',
-			'id'   => "{$prefix}program_contact_form",
-			'desc' => '',
-			'type' => 'checkbox',
-			'std'  => 0,
-		),
-		
-		array(
-			'name'  => 'Contact Form ID',
-			'id'    => "{$prefix}program_contact_form_id",
-			'desc'  => '',
-			'type'  => 'text',
-			'std'   => '',
-			'clone' => false,
-		),
-	
-	),
-);
-
-
-
-
-
-
-
-/* 
- * Class Portfolio Fields
- * These are fields that are displayed during
- * the creation of a class portfolio.  All fields
- * are available using the meta box API.
- *
- */
-
-$meta_boxes[] = array(
-	'title'  => 'School Information',
-	'pages' => array( 'class_portfolios' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-	
-		// CLASS ACRONYM
-			array(
-				'name'  => __( 'Class Acronym', 'rwmb' ),
-				'id'    => "{$prefix}class_acronym",
-				'desc'  => __( 'Enter the class acronym here, for example: WDTS12.', 'rwmb' ),
-				'type'  => 'text',
-				'std'   => __( 'SDTS13', 'rwmb' ),
-				'clone' => false,
-			),
-			
-		// CLASS QUARTER
-			array(
-				'name'  => __( 'Class Quarter', 'rwmb' ),
-				'id'    => "{$prefix}class_quarter",
-				'desc'  => __( 'Enter the class quarter here, for example: Spring DTS 2013.', 'rwmb' ),
-				'type'  => 'text',
-				'std'   => __( 'Spring DTS 2013', 'rwmb' ),
-				'clone' => false,
-			),
-			
-		// CLASS VERSE REFERENCE
-			array(
-				'name'  => __( 'Class Verse Reference', 'rwmb' ),
-				'id'    => "{$prefix}class_verse_reference",
-				'desc'  => __( 'Enter the class verse reference here, for example: Romans: 8:15-17.', 'rwmb' ),
-				'type'  => 'text',
-				'std'   => __( 'John 3:16', 'rwmb' ),
-				'clone' => false,
-			),
-			
-		// CLASS VERSE
-			array(
-				'name'  => __( 'Class Verse', 'rwmb' ),
-				'id'    => "{$prefix}class_verse",
-				'desc'  => __( 'Enter the class verse here.', 'rwmb' ),
-				'type'  => 'textarea',
-				'std'   => __( '', 'rwmb' ),
-				'clone' => false,
-			),
-			
-		//
-		
-		//SCHOOL LEADRES
-		array(
-			'name'    => __( 'School Leaders', 'rwmb' ),
-			'id'      => "{$prefix}leaders",
-			'type'    => 'post',
-			'post_type' => 'guest-author',
-			'field_type' => 'select_advanced',
-			'placeholder' => __( 'Select an Item', 'rwmb' ),
-			'multiple'	=> true,
-		),
-		
-		// IMAGE ADVANCED (WP 3.5+)
-		array(
-			'name'             => __( 'School Poster Upload', 'rwmb' ),
-			'id'               => "{$prefix}poster1_thumbnail",
-			'type'             => 'image_advanced',
-			'max_file_uploads' => 1,
-		),
-		
-		// FILE ADVANCED (WP 3.5+)
-			array(
-				'name' => __( 'File Advanced Upload', 'rwmb' ),
-				'id'   => "{$prefix}school_poster_options",
-				'type' => 'file_advanced',
-				'max_file_uploads' => 4,
-				'mime_type' => 'application,audio,video', // Leave blank for all file types
-			),
-	),
-);
-
-$meta_boxes[] = array(
-	'title'  => 'Music Information',
-	'pages' => array( 'class_portfolios' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-	
-		//ENABLE MUSIC TRACK
-		array(
-			'name' => 'Enable Music Section',
-			'name' => 'Enable Music Track',
-			'id'   => "{$prefix}enable_music_track",
-			'type' => 'checkbox',
-			'std'  => 0,
-		),
-		
-		// MUSIC Section Title
-		array(
-			'name' => __( 'Music Section Title', 'rwmb' ),
-			'desc' => __( 'Enter the title of the music section', 'rwmb' ),
-			'id'   => "{$prefix}cp_music_section_title",
-			'type' => 'text',
-		),
-	
-		// MUSIC Section EMBED CODE
-		array(
-			'name' => __( 'Music Section Explaination', 'rwmb' ),
-			'desc' => __( 'Enter the explaination behind the album or track list.', 'rwmb' ),
-			'id'   => "{$prefix}cp_music_track_exp",
-			'type' => 'textarea',
-			'cols' => 20,
-			'rows' => 3,
-		),
-		
-
-		// MUSIC TRACK EMBED CODE
-		array(
-			'name' => __( 'Bandcamp Embed Code', 'rwmb' ),
-			'desc' => __( 'Enter the bandcamp embed code here.  Please change the width of the box to be 100%.', 'rwmb' ),
-			'id'   => "{$prefix}cp_bandcamp_embed_code",
-			'type' => 'textarea',
-			'cols' => 20,
-			'rows' => 3,
-		),		
-	),
-);
-
-$meta_boxes[] = array(
-	'title'  => 'Creative Media Track Information',
-	'pages' => array( 'class_portfolios' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-	
-		//ENABLE CREATIVE MEDIA TRACK
-		array(
-			'name' => 'Enable Creative Media Track',
-			'id'   => "{$prefix}enable_creative_media_track",
-			'type' => 'checkbox',
-			'std'  => 0,
-		),
-		
-		array(
-				'name' => __( 'Creative Media Track Entry', 'rwmb' ),
-				'id'   => "{$prefix}cp_cm_track_entry",
-				'type' => 'wysiwyg',
-				// Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
-				'raw'  => false,
-				'std'  => __( 'Enter the Creative Media track information here...', 'rwmb' ),
-
-				// Editor settings, see wp_editor() function: look4wp.com/wp_editor
-				'options' => array(
-					'textarea_rows' => 4,
-					'teeny'         => true,
-					'media_buttons' => true,
-				),
-			),
-		
-	),
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // EMMAUS ENCOUNTER
@@ -1704,28 +926,6 @@ $meta_boxes[] = array(
 
 
 
-//PAGE MAIN DISPLAY CONTROLS
-$meta_boxes[] = array(
-	'title'  => 'Display Controls',
-	'pages' => array( 'page', 'focus_ministries' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-		
-		array(
-			'name'  => 'Menu Priority',
-			'id'    => "{$prefix}menu_priority",
-			'desc'  => 'Use integers such as 3, 4, and 5 to determine the menu location.  The Top of the primary menu column is determined by the lowest number, so number 1 will be at the top.  At the time of site launch, all menu items were given integers in multiples of 10 to allow for adjustment in the future.  For example, the top level menu item has been given a value of 10, and the following items were given, 20, 30, 40 etc.  This should allow for menu items to be inserted manually without having to change more than one value.',
-			'type'  => 'text',
-			'std'   => '1000',
-			'clone' => false,
-		),
-	
-	),
-);
-
-
-
 
 //FRONT PAGE
 $meta_boxes[] = array(
@@ -1741,13 +941,7 @@ $meta_boxes[] = array(
 				'type' => 'textarea',
 				'desc' => 'Put the short-code for the video gallery you would like on the front page here.',
 		),
-		
-		array(
-				'name' => 'Class Portfolio Description',
-				'id'   => "{$prefix}class_portfolio_description",
-				'type' => 'textarea',
-				'desc' => 'Put the Class Portfolio description here.',
-		),
+
 	),
 		
 	'only_on'    => array(
@@ -1851,44 +1045,6 @@ $meta_boxes[] = array(
 
 
 
-
-
-//TEACHING CUSTOM POST TYPE CUSTOM FIELDS
-$meta_boxes[] = array(
-	'title'  => 'Media Files',
-	'pages' => array( 'teachings' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-		
-		array(
-				'name' => 'Media File Upload',
-				'id'   => "{$prefix}media_files",
-				'type' => 'file',
-		),
-		
-		array(
-				'name' => 'Media File Source',
-				'id'   => "{$prefix}media_files_source",
-				'type' => 'text',
-				'desc' => 'If the media file has an original source, please provide a URL to that source',
-		),
-		
-		array(
-				'name'    => __( 'Media Type', 'rwmb' ),
-				'id'      => "{$prefix}media_type",
-				'type'    => 'radio',
-				// Array of 'value' => 'Label' pairs for radio options.
-				// Note: the 'value' is stored in meta field, not the 'Label'
-				'options' => array(
-					'audio' => __( 'Audio', 'rwmb' ),
-					'video' => __( 'Video', 'rwmb' ),
-					'text'	=> __( 'Text', 'rwmb' ),
-				),
-		),
-		
-	),
-);
 
 
 

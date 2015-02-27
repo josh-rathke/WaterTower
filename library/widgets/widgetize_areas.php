@@ -26,21 +26,11 @@ function widgetize_areas_init() {
 								'title'	=>	'Programs Sidebar',
 								'id'	=>	'program_sidebar',
 								),
-							
-		'teaching_archive'	=>	array (
-								'title'	=>	'Teaching Archive',
-								'id'	=>	'teaching_archive',	
-								),
 		
 		'target_nations_archive'=> array (
 								'title' => 'Target Nations Archive',
 								'id'	=> 'target_nations_archive',
 								),
-								
-		'target_nations_single_sidebar'	=> array (
-								'title' => 'Target Nation Sidebar',
-								'id'	=> 'target_nations_single_sidebar',
-								),	
 	);
 	
 	
@@ -51,8 +41,8 @@ function widgetize_areas_init() {
 			'id' => $widgetized_area['id'],
 			'before_widget' => '<div class="clearfix">',
 			'after_widget' => '</div>',
-			'before_title' => '<h2>',
-			'after_title' => '</h2>',
+			'before_title' => '<h4>',
+			'after_title' => '</h4>',
 		) );
 	};
 	
@@ -94,8 +84,8 @@ function widgetize_3col_areas_init() {
 			'id' => $widgetized_area['id'],
 			'before_widget' => '<div class="medium-4 columns">',
 			'after_widget' => '</div>',
-			'before_title' => '<h4>',
-			'after_title' => '</h4>',
+			'before_title' => '<h3>',
+			'after_title' => '</h3>',
 		) );
 	};
 	

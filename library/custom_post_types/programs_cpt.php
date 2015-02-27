@@ -27,6 +27,7 @@ function my_custom_post_program() {
 		'menu_position' => 6,
 		'menu_icon'			 => 'dashicons-welcome-learn-more',
 		'supports'      => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
 		'rewrite' => array('slug' => 'programs'), 
@@ -53,7 +54,7 @@ class programInfo {
 	var $program_slug;
 	var $program_short_name;
 	var $schedule;
-	var $ongoing_status;
+	var $rolling_enrollment_status;
 	var $academic_info;
 	
 	public function populate_schedule() {
@@ -64,11 +65,6 @@ class programInfo {
 		$total_cost = 'total_cost' . $i;
 		$app_deadline = 'app_deadline' . $i;
 		$this->cur_date = date('Ymd');
-		
-		
-		$app_color_settings = get_option('program_options');
-		$open_app_color = $app_color_settings['program_open_app_color'];
-		$closed_app_color = $app_color_settings['program_closed_app_color'];
 		
 		while (rwmb_meta($start_date, '', $program_id=$this->program_id) != '') {
 			
@@ -83,15 +79,6 @@ class programInfo {
 				);
 				
 				$this->schedule[$i]['quarter'] = define_quarter(rwmb_meta($start_date, '', $program_id=$this->program_id)); 
-				
-				//----- DEFINE AMERICAN APP STATUS -----//
-				if ($this->cur_date > rwmb_meta($app_open_date, '', $program_id=$this->program_id) && $this->cur_date < rwmb_meta($app_deadline, '', $program_id=$this->program_id)) {
-					$this->schedule[$i]['app_status'] = 'open';
-					$this->schedule[$i]['app_status_color'] = $open_app_color;
-				} else {
-					$this->schedule[$i]['app_status'] = 'closed';
-					$this->schedule[$i]['app_status_color'] = $closed_app_color;
-				}
 			}
 			
 			$i = ++$i;
@@ -150,35 +137,14 @@ class programInfo {
 		setlocale(LC_MONETARY,"en_US");
 	
 		// Populate Schedule if Ongoing Status is False
-		// Set App Status to Open if True
-		$this->ongoing_status = rwmb_meta('ongoing_status', '', $post_id=$this->program_id);
-		if ($this->ongoing_status == 0) {
+		$this->rolling_enrollment_status = rwmb_meta('rolling_enrollment_status', '', $post_id=$this->program_id);
+		if ($this->rolling_enrollment_status == 0) {
 			$this->populate_schedule();
 		} else {
 		
-			//Get ongoing program description
-			$program_settings = get_option('program_options');
-			$ongoing_desc = $program_settings['ongoing_program_message'];
-			$ongoing_support_desc = $program_settings['ongoing_support_desc'];
-			
-			$app_color_settings = get_option('program_options');
-			$open_app_color = $app_color_settings['program_open_app_color'];
-			$closed_app_color = $app_color_settings['program_closed_app_color'];
-			$app_status_color = rwmb_meta('ongoing_app_status', '', $post_id=$this->program_id) == 'open' ? $open_app_color : $closed_app_color;
-		
-			$this->schedule[] = array(
-				'app_status' => 'open',
-				'app_status_color' => $app_status_color,
-				'ongoing_desc' => $ongoing_desc,
-				'has_fixed_price' => rwmb_meta('has_fixed_price', '', $post_id=$this->program_id),
-				'ongoing_fixed_price'	=> rwmb_meta('ongoing_fixed_price', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_fixed_price', '', $post_id=$this->program_id)) : null,
-				'via_correspondence_fixed_price'	=> rwmb_meta('via_correspondence_fixed_price', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('via_correspondence_fixed_price', '', $post_id=$this->program_id)) : null,					
-				'ongoing_support_desc' => $ongoing_support_desc,
-				'ongoing_app_status' => rwmb_meta('ongoing_app_status', '', $post_id=$this->program_id),
-				'ongoing_startup_cost' => rwmb_meta('ongoing_startup_cost', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_startup_cost', '', $post_id=$this->program_id)) : null,
-				'ongoing_monthly_cost' => rwmb_meta('ongoing_monthly_cost', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_monthly_cost', '', $post_id=$this->program_id)) : null,
-				'ongoing_min_support_single' => rwmb_meta('ongoing_min_support_single', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_min_support_single', '', $post_id=$this->program_id)) : null,
-				'ongoing_min_support_married' => rwmb_meta('ongoing_min_support_married', '', $post_id=$this->program_id) != '' ? money_format( '%i', rwmb_meta('ongoing_min_support_married', '', $post_id=$this->program_id)) : null,
+			//Get Rolling Enrollment Information
+			$this->schedule = array(
+				'rolling_enrollment_desc' => rwmb_meta('rolling_enrollment_desc', '', $post_id=$this->program_id),			
 			);
 		}
 		
@@ -188,15 +154,6 @@ class programInfo {
 	
 }	
 	
-
-
-
-
-
-
-
-
-
 
 
 
@@ -210,89 +167,128 @@ function get_program_classification($program_id) {
 
 
 //---------------------------------------------------------------//
-		//----- CLASS TO RETIRVE AND RETURN UPCOMING SCHOOLS OBJECT -----//
-		//---------------------------------------------------------------//
-		
-		class ProgramDates {
-			var $cur_date;
-			var $schools;
-			var $featured;
-			
-			//---- BUILD UPCOMING SCHOOLS OBJECT -----//
-			public function get_schools() {
-				
-				//----- STORE ALL INSTANCES OF SCHOOLS IN ARRAY BASED ON SCHOOL ID -----//
-				$raw_programs = new WP_Query( 'post_type=program&nopaging=true' );
-				
-				if ( $raw_programs->have_posts() ) {
-					while ( $raw_programs->have_posts() ) {
-						$raw_programs->the_post();
-						
-						$i = 1;
-						$start_date = 'start_date' . $i;
-						while (rwmb_meta($start_date) != '') {
-						
-							//GET PROGRAM CLASSIFICATION
-							$program_class = get_the_terms($raw_programs->post->ID, 'program_classification');
-							reset($program_class);
-							$program_class_key = key($program_class);
-							
-							
-							
-							if (rwmb_meta($start_date, '', $post_id=$post->ID) > $this->cur_date) {
-							
-								$raw_program_dates[] = array(
-									'program_name'  =>	$raw_programs->post->post_title,
-									'slug'			=>	$raw_programs->post->post_name,
-									'program_id'	=>	$raw_programs->post->ID,
-									'program_class' =>	$program_class[$program_class_key]->name,
-									'start_date'	=>	rwmb_meta($start_date),
-									'quarter'		=>	define_quarter(rwmb_meta($start_date)),
-								);
-							}
-							$i = ++$i;
-							$start_date = 'start_date' . $i;
-						}
-					}
-				$this->schools = $raw_program_dates;
-				usort($this->schools, array($this, 'sort_by_date'));
+//----- CLASS TO RETIRVE AND RETURN UPCOMING SCHOOLS OBJECT -----//
+//---------------------------------------------------------------//
 
+class ProgramDates {
+	var $cur_date;
+	var $schools;
+	var $featured;
+	
+	//---- BUILD UPCOMING SCHOOLS OBJECT -----//
+	public function get_schools() {
+		
+		//----- STORE ALL INSTANCES OF SCHOOLS IN ARRAY BASED ON SCHOOL ID -----//
+		$raw_programs = new WP_Query( 'post_type=program&nopaging=true' );
+		
+		if ( $raw_programs->have_posts() ) {
+			while ( $raw_programs->have_posts() ) {
+				$raw_programs->the_post();
+				
+				$i = 1;
+				$start_date = 'start_date' . $i;
+				while (rwmb_meta($start_date) != '') {
+				
+					//GET PROGRAM CLASSIFICATION
+					$program_class = get_the_terms($raw_programs->post->ID, 'program_classification');
+					reset($program_class);
+					$program_class_key = key($program_class);
+					
+					
+					
+					if (rwmb_meta($start_date, '', $post_id=$post->ID) > $this->cur_date) {
+					
+						$raw_program_dates[] = array(
+							'program_name'  =>	$raw_programs->post->post_title,
+							'slug'			=>	$raw_programs->post->post_name,
+							'program_id'	=>	$raw_programs->post->ID,
+							'program_class' =>	$program_class[$program_class_key]->name,
+							'start_date'	=>	rwmb_meta($start_date),
+							'quarter'		=>	define_quarter(rwmb_meta($start_date)),
+						);
+					}
+					$i = ++$i;
+					$start_date = 'start_date' . $i;
 				}
 			}
-			
-			
-			//----- SORT UPCOMING SCHOOLS BY DATE -----//
-			public function sort_by_date($a, $b) {
-				return ($a['start_date'] < $b['start_date']) ? -1 : 1;
-			}
-				
-			
-			
-			function __construct() {
-				$this->cur_date = date('Ymd');
-				$this->get_schools();
+		$this->schools = $raw_program_dates;
+		usort($this->schools, array($this, 'sort_by_date'));
+
+		}
+	}
+	
+	
+	//----- SORT UPCOMING SCHOOLS BY DATE -----//
+	public function sort_by_date($a, $b) {
+		return ($a['start_date'] < $b['start_date']) ? -1 : 1;
+	}
+		
+	function __construct() {
+		$this->cur_date = date('Ymd');
+		$this->get_schools();
+		wp_reset_postdata();
+	}
+}
+
+//------------------------------------------------//
+//----- PROGRAM DATES CLASS HELPER FUNCTIONS -----//
+//------------------------------------------------//
+
+	//----- GET UPCOMING SCHOOLS -----//
+	function get_upcoming_schools($num_requested) {
+		$programs = new ProgramDates();
+		
+		// Define Upcoming Schools Variable
+		$upcoming_schools = array();
+		
+		/*	Search Array Function
+		 * 
+		 * 	We use this function to verify that there aren't
+		 * 	any duplicate programs displayed, even if they are
+		 * 	"more" upcoming than others.
+		 */
+		 
+		function search_array($needle, $haystack) {
+		     if(in_array($needle, $haystack)) {
+		          return true;
+		     }
+		     foreach($haystack as $element) {
+		          if(is_array($element) && search_array($needle, $element))
+		               return true;
+		     }
+		   return false;
+		}
+		
+		// Use the search_array function to check for duplicate school entries
+		foreach ($programs->schools as $program) {
+			if (!search_array($program['slug'], $upcoming_schools)) {
+				$upcoming_schools[] = $program;
 			}
 		}
 		
-		//------------------------------------------------//
-		//----- PROGRAM DATES CLASS HELPER FUNCTIONS -----//
-		//------------------------------------------------//
+		// Grab the 10 closest schools and shuffle them.
+		$upcoming_schools = array_slice($upcoming_schools, 0, 10);
+		shuffle($upcoming_schools);
 		
-			//----- GET UPCOMING SCHOOLS -----//
-			function get_upcoming_schools($num_requested) {
-				$programs = new ProgramDates();
-				
-				$programs->schools = array_slice($programs->schools, 0, 8);
-				shuffle($programs->schools);
-				
-				//----- FINALIZE RANDOMIZED SCHOOLS
-				$programs->schools = array_slice($programs->schools, 0, $num_requested);
-				return $programs;
-			}
+		// Package upcoming schools and inject back into the object.
+		$programs->schools = array_slice($upcoming_schools, 0, $num_requested);
+		return $programs;
+	}
 			
 			
-			
-			
+/**
+ * Display Also Available Via Correspondence
+ * This function displays the also available via correspondence link
+ * wherever it is called.
+ */	
+ 
+function available_via_correspondence_link() {
+	if (rwmb_meta('via_correspondence')) : ?>
+		<div class="via-correspondence-link">
+			<a href="#viacorrespondence">Also Available Via Correspondence<i class="fa fa-info info-circle-link"></i></a>
+		</div>
+	<?php endif; 
+}
 			
 			
 			

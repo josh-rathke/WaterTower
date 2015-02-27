@@ -24,10 +24,9 @@ function my_taxonomies_target_nations_taxo() {
 		'labels' => $labels,
 		'hierarchical' => true,
 		'rewrite' => array(
-					'hierarchical' => true,
-					'slug'		=> 'target-nation-blogs',
-					),
-		'rewrite' => array('hierarchical' => true ),
+			'hierarchical' => true,
+			'slug'		=> 'target-nation-blogs',
+		),
 	);
 	register_taxonomy( 'target_nations_taxo', array( 'post' ), $args );
 }

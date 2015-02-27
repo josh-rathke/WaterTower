@@ -81,13 +81,49 @@
     }
   }
   
+  .videos-container {
+    margin-top: -40px;
+    padding-top: 40px;
+    
+    h2 {
+      height: 0px !important;
+      overflow: hidden;
+    }
+  }
+  
+  .upcoming-schools-header {
+      margin-bottom: 30px;
+    
+      h2 {
+        border-bottom: 1px solid #CCC;
+        margin: 0px;
+      }
+    
+      .via-correspondence-link {
+        font-size: 14px;
+        margin-top: 0px;
+        padding-top: 5px;
+      }
+    }
+    
+  .via-correspondence-container {
+    margin-top: -60px;
+    padding: 60px 10px 10px 10px;
+    
+    p {
+      color: #666;
+      font-size: 12px;
+    }
+  }
+  
   .program-dates-container {
-    margin: 0px 0px 20px 0px;
+    margin: 0px;
     padding-top: 70px;
-    text-align: center;
+    
     
     .program-date-info-container {
       background: #F6F6F6;
+      text-align: center;
       
       h4 {
         background: #E6E6E6;
@@ -111,6 +147,17 @@
       a.button {
         margin-top: 18px;
       }
+      
+      .program-app-due-dates-container {
+        
+        h6 {
+          border-bottom: 1px solid #E6E6E6;
+          font-size: 14px;
+          margin: 18px 24px 0px 24px;
+          padding-bottom: 4px;
+          text-align: left;
+        }
+      }
     }
   }
   
@@ -125,6 +172,19 @@
     .program-prereqs-icon-container {
       font-size: 50px;
       text-align: center;
+    }
+  }
+  
+  .program-apply-by-desc-container {
+    margin-top: -30px;
+    padding: 60px 10px 10px 10px;
+    
+    .program-apply-by-desc {
+      
+      p {
+        color: #666;
+        font-size: 12px;
+      }
     }
   }
   

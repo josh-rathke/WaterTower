@@ -91,12 +91,12 @@ public function widget( $args, $instance ) {
 				</div>
 					
 			<?php } elseif ($instance['theme'] == 'thumbs') { ?>
-				<div class="related-media-theme-thumbs-container clearfix">
-					<div class="related-media-theme-thumbs-thumbnail"><?php echo get_the_post_thumbnail( $post->ID, '16:9-media-thumbnail', array('class' => 'img-responsive') ); ?></div>
-					<div class="related-media-theme-thumbs-content">
+				<div class="row related-media-theme-thumbs-container clearfix">
+					<div class="small-8 columns related-media-theme-thumbs-content">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-						<div class="related-media-theme-thumbs-date"><i class="fa fa-pencil"></i><?php echo the_date('F j, Y'); ?></div>
+						<div class="related-media-theme-thumbs-date">Published: <?php echo the_date('F j, Y'); ?></div>
 					</div>
+					<div class="small-4 columns related-media-theme-thumbs-thumbnail"><?php echo get_the_post_thumbnail( $post->ID, 'thumbnail-card'); ?></div>
 				</div>
 			<?php } ?>
 				

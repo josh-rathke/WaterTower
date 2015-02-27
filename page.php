@@ -27,6 +27,8 @@
 	<?php do_action('watertower_after_content'); ?>
 
 	</div>
+	<div class="small-12 large-4 columns">
 	<?php get_sidebar(); ?>
+	</div>
 </div>
 <?php get_footer(); ?>

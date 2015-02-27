@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  *	Blog Template
@@ -11,7 +11,7 @@ $page_id = get_id_by_slug('blog');
 get_header(); 
 ?>
 <div class="row content-archive-container">
-	<div class="small-12 large-9 columns" role="main">
+	<div class="small-12 large-8 columns" role="main">
 		
 	<?php get_template_part( 'parts/archive_header' ); ?>
 
@@ -43,7 +43,7 @@ get_header();
 
 	</div>
 	
-	<aside id="sidebar" class="small-12 large-3 columns">
+	<aside id="sidebar" class="small-12 large-4 columns stick-to-parent">
 		<?php get_sidebar(); ?>
 	</aside>
 </div>

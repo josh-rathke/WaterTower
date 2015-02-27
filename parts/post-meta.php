@@ -49,7 +49,9 @@
 						<?php
 							$related_programs = wp_get_post_terms( $post->ID, 'program_taxo');
 							foreach ($related_programs as $related_program) {
-								$link_url = get_bloginfo('url') . '/programs/' . $related_program->slug;
+								$program_object = get_page_by_path($related_program->slug, OBJECT, 'program');
+								
+								$link_url = get_permalink($program_object->ID);
 								$name = $related_program->name;
 								$link_format = '<div><a href="%s">%s</a></div>';
 								echo sprintf($link_format, $link_url, $name);

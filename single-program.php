@@ -50,12 +50,10 @@
 		 */
 		?>
 		
-		<div class="row">
-			<div class="medium-12 columns">
+		<div class="videos-container" data-magellan-destination="videos">
+			<h2>Videos</h2>
 			<?php echo do_shortcode('[vimeography id="1"]'); ?>
-			</div>
 		</div>
-		
 		
 		
 		
@@ -68,7 +66,7 @@
 		 * if there is an outreach how long it is, and the 
 		 * accreditation information.
 		 */
-		 ?>
+		 if (!empty($program_object->accreditation)) : ?>
 		 
 		 <div id="accreditation" data-magellan-destination="accreditation" class="row program-info-container">
 		 	<h2 style="display: none;">Accreditation</h2>
@@ -81,19 +79,23 @@
 		 		<?php echo $program_object->academic_info['accreditation']; ?>
 		 	</div>
 		 </div>
+		 
+		<?php endif; 
 		
-		
-		
-		<?php
 		/**
 		 *	Program Schedule Section
 		 * 	This is the section where all of the dates for
 		 * 	upcoming programs are displayed along with links to
 		 * 	apply for each of the scheduled schools. 
 		 */
-		echo '<div data-magellan-destination="schedule">';
+		if ($program_object->rolling_enrollment_status != 1) :
+			
+		echo '<div data-magellan-destination="upcoming-schools">';
 			echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
-				echo '<h2 style="display: none;">Schedule</h2>';
+				echo '<div class="upcoming-schools-header"><h2>Upcoming Schools</h2>';
+				available_via_correspondence_link();
+				echo '</div>';
+					
 					if (!empty($program_object->schedule)) {
 							
 						// Dispaly available program instaces	
@@ -107,8 +109,17 @@
 									echo sprintf($program_info_string, 'Start Date', date('m/d/y', strtotime($program_occurance['start_date'])));
 									echo sprintf($program_info_string, 'End Date', date('m/d/y', strtotime($program_occurance['end_date'])));
 									echo sprintf($program_info_string, 'Total Cost', $program_occurance['total_cost']);
-									echo sprintf($program_info_string, 'Apps Due', date('m/d/y', strtotime($program_occurance['app_deadline'])));
 								echo '</ul>';
+								
+								echo '<ul class="program-app-due-dates-container">';
+									echo '<h6>Apply By Dates<a href="#appduedatedesc"><i class="fa fa-info info-circle-link right"></i></a></h6>';
+									echo sprintf($program_info_string, 'African', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 180 days')));
+									echo sprintf($program_info_string, 'Canadian', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 30 days')));
+									echo sprintf($program_info_string, 'International', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 120 days')));
+									echo sprintf($program_info_string, 'Domestic', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 14 days')));
+								echo '</ul>';
+									
+								
 								echo '<a href="#_" class="button">Apply Online</a>';
 							echo '</div></li>';
 							}
@@ -117,8 +128,60 @@
 						echo "Sorry there aren't any available dates at this time.";
 					}
 				echo '</ul>';
+				?>
 		
-			// Display some of the academic and application requirements ?>
+				<div id="appduedatedesc" class="program-apply-by-desc-container">
+					<div class="program-apply-by-desc">
+						<h5>Apply By Dates<i class="fa fa-info info-circle"></i></h5>
+						<p><?php echo of_get_option('apply_by_dates_desc'); ?></p>
+					</div>
+				</div>
+			
+			<?php else : // Display Rolling Enrollment Info ?>
+				<div class="rolling-enrollment-container" data-magellan-destination="rolling-enrollment">
+					<div class="upcoming-schools-header">
+						<h2>Rolling Enrollment</h2>
+						<?php available_via_correspondence_link() ?>
+					</div>
+					
+					<?php echo $program_object->schedule['rolling_enrollment_desc']; ?>
+				</div>
+			<?php endif; ?>
+			
+			
+			<?php 
+			
+			/**
+			 * 	Available Via Correspondence Info Section
+			 * 
+			 * 	This section displays the information related
+			 * 	to taking the course via correspondence.
+			 */
+			 
+			if (rwmb_meta('via_correspondence')) : ?>
+			
+			<div id="viacorrespondence" class="via-correspondence-container">
+				<h5>Also Available Via Correspondence<i class="fa fa-info info-circle"></i></h5>
+				<?php echo rwmb_meta('via_correspondence_desc'); ?>
+			</div>
+			
+			<?php endif; ?>
+			
+		
+			<?php 
+			
+			/**
+			 * 	Pre Requisites Section
+			 * 
+			 * 	This section displays the pre-requisites for each school. The
+			 *  reason we have the check for "Array" is because of a glitch we had
+			 * 	when updated from V2 to V3.
+			 */
+			
+			$pre_reqs = $program_object->academic_info['recommended_prereqs'];
+			
+			if ( $pre_reqs && $pre_reqs != "Array") : ?>
+					
 			<div class="row program-prereqs-container alert-box warning">
 				<div class="small-3 medium-2 columns program-prereqs-icon-container">
 					<i class="fa fa-check-square-o"></i>
@@ -130,7 +193,10 @@
 					</div>
 				</div>
 			</div>
-		</div>
+			
+			<?php endif; ?>
+			
+		</div><!-- upcoming-schools-container -->
 		
 		
 		
@@ -141,12 +207,12 @@
 		
 		
 		
-		
-		<div data-magellan-destination="<?php echo str_replace( ' ', '-', strtolower(rwmb_meta('lecture_phase_title'))); ?>" class="program-onbase-phase-info-container">
+		<div data-magellan-destination="weekly-schedule" class="program-onbase-phase-info-container">
 			
 			<?php // OnBase phase description ?>
 			<div class="program-onbase-phase-desc">
-				<h2><?php echo rwmb_meta('lecture_phase_title'); ?></h2>
+				<h2>Weekly Schedule</h2>
+				<p><?php echo of_get_option('weekly_schedule_desc'); ?></p>
 				<p><?php echo rwmb_meta('lecture_phase_desc'); ?></p>
 			</div>
 			
@@ -429,9 +495,12 @@
 			
 			</ul>
 		</div>
-	<?php else : ?>
+	
+	<?php 
+	else :
 		// no posts found
-	<?php endif; wp_reset_postdata(); ?>
+	endif; wp_reset_postdata(); 
+	?>
 		
 		
 		
@@ -446,7 +515,7 @@
 	$terms = rwmb_meta('leaders', 'type=select&multiple=1');
 	
 	if (!empty($terms)) {
-		echo '<div class="authors-container program-leaders-container">';
+		echo '<div data-magellan-destination="school-leaders" class="authors-container program-leaders-container">';
 			echo '<h2>School Leaders</h2>';
 			foreach ( $terms as $term ) {
 				$author_object = get_post( $term, OBJECT);
@@ -462,8 +531,8 @@
 		
 	</div>
  	
- 	<div class="large-3 columns">
- 		<div class="magellan-container" data-magellan-expedition="fixed">
+ 	<div class="large-3 columns stick-to-parent">
+ 		<div class="magellan-container" data-magellan-expedition>
 		  <dl class="sub-nav side-nav-container side-nav-by-heading">
 		  </dl>
 		</div>

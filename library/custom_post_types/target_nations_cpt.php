@@ -30,6 +30,7 @@ function my_custom_post_target_nations() {
 		'menu_position' => 6,
 		'menu_icon'		=> 'dashicons-location-alt',
 		'supports'      => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
 		'rewrite' => array('slug' => 'target-nations'), 
@@ -38,5 +39,37 @@ function my_custom_post_target_nations() {
 }
 add_action( 'init', 'my_custom_post_target_nations' );
 
+
+function jp_country_info($country_id) {
+	
+	$api_key = "491f2410d044";
+	$url = "http://joshuaproject.net/api/v2/countries?api_key={$api_key}&ROG3={$country_id}";
+	
+	// Open Connection
+	$ch = curl_init();
+	
+	// Set Curl Options
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+	
+	// Execute Request
+	$result = curl_exec($ch) or die(curl_error($ch));
+	
+	// Kill Connection
+	curl_close($ch);
+	
+	// Decode JSON Response
+	$decoded_json = json_decode($result, true);
+		
+	// Check for JSON Errors
+	if (!is_array($decoded_json)) {
+	    echo "Unable to retrieve the JSON.";
+	    exit;
+	}
+	
+	return $decoded_json;
+}
 
 ?>

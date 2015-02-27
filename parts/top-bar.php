@@ -2,7 +2,6 @@
     <nav class="top-bar" data-topbar role="navigation">
         <section class="top-bar-section">
             <?php watertower_top_bar_main(); ?>
-            <?php watertower_top_bar_contact(); ?>
             
             <ul class="right">
 		      <li><div class="desktop-search-form-container"><?php get_search_form( true ); ?></div></li>

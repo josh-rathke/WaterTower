@@ -1,0 +1,62 @@
+.front-page-hr-container {
+  margin-bottom: 60px;
+  
+  > div > div {
+    border-bottom: 1px solid #CCC;
+    text-align: center;
+    
+    .front-page-hr-title {
+      background: white;
+      display: inline-block;
+      padding: 0px 16px;
+      position: relative;
+      top: 26px;
+    }
+  }
+}
+
+.front-page-widgets-container {
+  margin: 60px auto;
+}
+
+.front-page-upcoming-schools-container {
+  margin-bottom: 60px !important;
+  
+  li {
+    font-family:"HelveticaNeueW01-47LtCn 692686";
+    text-align: center;
+     
+    img {
+      border-radius: 999px;
+    }
+  
+    > a {
+      color: #444;
+    }
+    
+    .upcoming-school-title {
+      padding-top: 16px;
+    }
+  }
+}
+
+.front-page-call-to-action-container {
+  background: #EFEFEF;
+  padding: 36px 0px;
+}
+
+.front-page-featured-video-container {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  
+  .flex-video {
+    margin-bottom: 0px !important;
+  }
+  
+  .front-page-featured-video-desc {
+    
+    p {
+      font-size: 14px;
+    }
+  }
+}

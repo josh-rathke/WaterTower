@@ -1,0 +1,41 @@
+// Transition Time Mixin
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Background Size
+@mixin background-size($args...) {
+  -webkit-background-size: $args !important; 
+     -moz-background-size: $args !important; 
+       -o-background-size: $args !important; 
+          background-size: $args !important;
+}
+
+// Vertical Align
+@mixin vertical-align-relative {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.vertical-align-relative {
+  @include vertical-align-relative();
+}
+
+@mixin vertical-align-absolute {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.vertical-align-absolute {
+  @include vertical-align-absolute();
+}

@@ -1,5 +1,5 @@
 {
-  "name": "foundationpress",
+  "name": "WaterTower",
   "main": [
     "css/foundation.css",
     "js/foundation.js"
@@ -7,6 +7,9 @@
   "ignore": [
   ],
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation",
+    "fontawesome": "4.3.0",
+    "chart.js": "1.0.1",
+    "options-framework-theme": "1.8.0",
   }
 }

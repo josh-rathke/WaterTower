@@ -1,7 +1,5 @@
 <?php
 
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', true);
 
 /*
 Author: Ole Fredrik Lie
@@ -15,18 +13,14 @@ require_once('library/foundation.php');
 require_once('library/navigation.php');
 // Add menu walker
 require_once('library/menu-walker.php');
-// Create widget areas in sidebar and footer
-require_once('library/widget-areas.php');
 // Enqueue scripts
 require_once('library/enqueue-scripts.php');
 // Add theme support
 require_once('library/theme-support.php');
-// Add Header image
-require_once('library/custom-header.php');
 
 
 // Add WaterTower Admin Dashboard Functions
-require_once('library/watertower-admin.php');
+//require_once('library/watertower-admin_old.php');
 // Add WaterTower Custom Meta
 require_once('custom-meta.php');
 // Add Author Class & Helper Functions
@@ -35,6 +29,25 @@ require_once('library/author-class.php');
 require_once('library/program-classification.php');
 // Add Comments Walker
 require_once('library/comments-walker.php');
+
+
+
+/*	Add Options Framework Core Files
+ * 	This will add the options framework core files
+ * 	from the bower_components folder.
+ */
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/bower_components/options-framework-theme/inc/' );
+require_once dirname( __FILE__ ) . '/bower_components/options-framework-theme/inc/options-framework.php';
+
+// Loads options.php from child or parent theme
+$optionsfile = locate_template( 'options.php' );
+load_template( $optionsfile );
+
+add_filter( 'optionsframework_menu', function( $menu ) {
+	    $menu['page_title'] = 'WaterTower Options';
+	    $menu['menu_title'] = 'WaterTower';
+	    return $menu;
+	 });
 
 
 
@@ -54,9 +67,11 @@ require_once('library/comments-walker.php');
 	// Surges CPT
 	include ('library/custom_post_types/surges_cpt.php');
 	// Staff Needs CPT
-	include ('library/custom_post_types/staff_needs_cpt.php');
+	include ('library/custom_post_types/staffing_needs_cpt.php');
 	// Focus Tracks CPT
 	include ('library/custom_post_types/focus_tracks_cpt.php');
+	// Acceptance Packets CPT 
+	include ('library/custom_post_types/acceptance_packets_cpt.php');
 	
 	
 	
@@ -186,6 +201,29 @@ function get_id_by_slug($page_slug) {
 	}
 }
  
- 
+
+
+/*	Function Get Excerpt By ID
+ *	This function allows us to get the excerpt of a
+ *	post by the ID of the post, and also allows a
+ *	word count to be passed to allow for excerpt length
+ *	variability.
+ */
+		
+function get_excerpt_by_id($post_id, $excerpt_length=40){
+	$the_post = get_post($post_id); //Gets post ID
+	$the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
+	$the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+	$words = explode(' ', $the_excerpt, $excerpt_length + 1);
+	
+	if(count($words) > $excerpt_length) :
+		array_pop($words);
+		array_push($words, '…');
+		$the_excerpt = implode(' ', $words);
+	endif;
+	
+	$the_excerpt = '<p>' . $the_excerpt . '</p>';
+	return $the_excerpt;
+}	
  
 ?>
