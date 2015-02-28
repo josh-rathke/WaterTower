@@ -10,6 +10,7 @@ $meta_boxes = array();
 	include ('library/custom_meta/staffing_needs_meta.php');
 	include ('library/custom_meta/focus_tracks_meta.php');
 	include ('library/custom_meta/acceptance_packets_meta.php');
+	include ('library/custom_meta/campus_tour_meta.php');
 
 $meta_boxes[] = array(
 	'title'  => 'Profile Options',
@@ -45,6 +46,9 @@ $meta_boxes[] = array(
 	),
 
 );
+
+
+
 
 
 

@@ -13,6 +13,8 @@ function watertower_theme_support() {
 	if ( function_exists( 'add_theme_support' ) ) {
 		add_theme_support( 'post-thumbnails' );			
 	}
+		// Add Post Thumbnail Support to tribe_venue CPT.
+		add_post_type_support ('tribe_venue', 'thumbnail');
 	
 	//DEFINE THUMBNAIL SIZES
 	if ( function_exists( 'add_image_size' ) ) {

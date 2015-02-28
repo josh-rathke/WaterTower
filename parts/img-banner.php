@@ -67,6 +67,7 @@ if (is_front_page()) {
 	<script type="text/javascript"
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvS3wK11EOSK0jvsAXlTnGvpUb85uXpTw">
 	</script>
+	
 	<script>
 	var panorama = null;
 	var links = null;
@@ -74,10 +75,11 @@ if (is_front_page()) {
 	function setPano2link(pano_id) {
 	  panorama.setPano(pano_id);
 	  panorama.setVisible(true);
+	  $("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	
 	function initialize() {
-	  var myPanoid = 'RB2Y2YqYEncAAAGu5uu9ug';
+	  var myPanoid = 'dB8XpK7BjNkAAAGu5uu9tw';
 	  var panoramaOptions = {
 	    pano: myPanoid,
 	    pov: {
@@ -88,6 +90,7 @@ if (is_front_page()) {
 	    scrollwheel: false,
 		addressControl: false,
 	  };
+	  
 	  panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
 	
 		//Whenever the pano is changed check to make sure that the menu
@@ -102,28 +105,12 @@ if (is_front_page()) {
 			//Toggle the active class to the correct list item.
 			$('#' + curPanoID).toggleClass('active');
 		});
-		
-		google.maps.event.addListener(panorama, 'position_changed', function() {
-		    var positionCell = document.getElementById('position_cell');
-		    var latitude = parseFloat(panorama.getPosition().lat()).toFixed(4);
-		    var longitude = parseFloat(panorama.getPosition().lng()).toFixed(4);
-		    
-		    positionCell.firstChild.nodeValue = '(' + latitude + ' \u00B0, ' + longitude + ' \u00B0)';
-		});
-		
-	    google.maps.event.addListener(panorama, 'pov_changed', function() {
-	      var headingCell = document.getElementById('heading_cell');
-	      var pitchCell = document.getElementById('pitch_cell' + '');
-	      headingCell.firstChild.nodeValue = parseFloat(panorama.getPov().heading).toFixed(7) + ' \u00B0';
-	      pitchCell.firstChild.nodeValue = parseFloat(panorama.getPov().pitch).toFixed(7) + ' \u00B0';
-	    });
 	
 	}
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
 	
 	</script>
-	
 	
 	<div id="pano" style="width: 100%; height: 450px;"></div>
  
