@@ -1,0 +1,21 @@
+.post-featured-program-container {
+  border-top: 1px solid #DDD;
+  padding-top: 40px;
+  
+  .post-featured-program-desc {
+    
+    p {
+      display: inline;
+      font-size: 14px;
+    }
+    
+    a {
+      font-family:"HelveticaNeueW01-47LtCn 692686";
+    }
+  }
+  
+  .button {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
