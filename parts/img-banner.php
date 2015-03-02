@@ -16,38 +16,83 @@ if (is_front_page()) {
 	<div class="slideshow-wrapper primary-slider">
 		<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:true;">
 		
-			<?php
-			$featured_posts = new WP_Query( 'post_type=post' );
+		
+			<?php 
 			
-			// The Loop
-			if ( $featured_posts->have_posts() ) {
-				while ( $featured_posts->have_posts() ) {
-					$featured_posts->the_post();
-					
-					$post_ribbon = new postRibbon($post->ID);
-					$background_color = $post_ribbon->post_color_info[0]['color'];
-					
-					$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail-size', true);
-					
-					echo '<li>';
-					echo '<div class="orbit-slider-placeholder" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">';
-					echo '</div>';
-					
-					echo '<div class="orbit-caption" style="border-top: 3px solid ' . $background_color . '">';
-					echo '<div class="row">';
-					echo '<div class="small-12 columns">';
-					echo '<a href="' . get_the_permalink() . '" style="color: ' . $background_color . '"><i class="fa fa-level-up fa-rotate-90"></i> New Blog Post: <span style="color:#444;">' . get_the_title() . '</span></a>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-					
-					echo '</li>';
+			/**
+			 * 	Display Alert Slide
+			 * 	This will display one slide before all others that is
+			 * 	considered an alert slide. This slide can be activated
+			 * 	from the front page edit screen.
+			 */
+			 
+			 if (rwmb_meta('enable_alert_slide')) :
+			 	$alert_bg_image = wp_get_attachment_image_src(rwmb_meta('alert_bg_image'), 'full-width-banner', true); ?>
+			 	
+			 	<li data-orbit-slide="alert-slide" class="alert-slide-container">
+				    <div class="orbit-slider-placeholder" style="background: url(<?php echo $alert_bg_image[0]; ?>) no-repeat center center;">
+				    	<div class="row alert-slide-content-container vertical-align-relative">
+				    		<div class="small-12 columns">
+				    			<h2 class="fittext"><?php echo rwmb_meta('alert_title'); ?></h2>
+				    		
+				    			<div class="row alert-content-desc">
+						    		<div class="medium-8 columns">
+						    			 <p><?php echo rwmb_meta('alert_desc'); ?></p>
+						    		</div>
+						    		
+						    		<div class="medium-4 columns">
+						    			<a class="button" href="<?php echo rwmb_meta('alert_page_link'); ?>">More Info</a>
+						    		</div>
+					    		</div>
+				    		</div>
+				    	</div>
+				   
+				     
+				    </div>
+				  </li>
+			 	
+			 <?php endif; ?>
+		
+		
+		
+			<?php
+			
+			// Check if alert slide is activated and isolated
+			if (!rwmb_meta('enable_alert_slide') || rwmb_meta('enable_alert_slide') && !rwmb_meta('isolate_alert_slide')) {
+			
+				// Display Featured Posts as Usual
+				$featured_posts = new WP_Query( 'post_type=post' );
+				
+				// The Loop
+				if ( $featured_posts->have_posts() ) {
+					while ( $featured_posts->have_posts() ) {
+						$featured_posts->the_post();
+						
+						$post_ribbon = new postRibbon($post->ID);
+						$background_color = $post_ribbon->post_color_info[0]['color'];
+						
+						$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full-width-banner', true);
+						
+						echo '<li>';
+						echo '<div class="orbit-slider-placeholder" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">';
+						echo '</div>';
+						
+						echo '<div class="orbit-caption" style="border-top: 3px solid ' . $background_color . '">';
+						echo '<div class="row">';
+						echo '<div class="small-12 columns">';
+						echo '<a href="' . get_the_permalink() . '" style="color: ' . $background_color . '"><i class="fa fa-level-up fa-rotate-90"></i> New Blog Post: <span style="color:#444;">' . get_the_title() . '</span></a>';
+						echo '</div>';
+						echo '</div>';
+						echo '</div>';
+						
+						echo '</li>';
+					}
+				} else {
+					// no posts found
 				}
-			} else {
-				// no posts found
+				/* Restore original Post Data */
+				wp_reset_postdata();
 			}
-			/* Restore original Post Data */
-			wp_reset_postdata();
 			?>
 			
 		</ul>
