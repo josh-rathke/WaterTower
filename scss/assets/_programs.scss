@@ -151,11 +151,17 @@
       .program-app-due-dates-container {
         
         h6 {
-          border-bottom: 1px solid #E6E6E6;
           font-size: 14px;
           margin: 18px 24px 0px 24px;
           padding-bottom: 4px;
           text-align: left;
+        }
+        
+        .program-app-due-dates-nationality {
+          font-family:"HelveticaNeueW01-47LtCn 692689";
+          font-size: 13px;
+          margin-top: -10px;
+          text-align: left
         }
       }
     }

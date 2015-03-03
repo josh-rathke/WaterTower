@@ -56,4 +56,4 @@ $(document).ready(function() {
 $(".stick-to-parent").stick_in_parent();
 
 // Add FitText Class to Activate Elements
-jQuery(".fittext").fitText(1.0, {maxFontSize: '100px'});
+jQuery(".fittext").fitText(1.0, {maxFontSize: '70px'});
