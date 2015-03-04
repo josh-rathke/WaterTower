@@ -1,7 +1,5 @@
 .subscribe-widget-container {
-  background: #F9F9F9;
-  padding: 0px 20px 0px 20px;
-  position: relative;
+  padding-bottom: 0px;
   
   .gform_wrapper .top_label input.large,
   .gform_wrapper .top_label select.large,
@@ -11,32 +9,9 @@
   .gform_wrapper .hidden_label textarea.textarea.large {
     background: white;
   }
-  
-  h4 {
-    background: #E9E9E9;
-    margin: -14px -20px 20px -20px;
-    padding: 12px 20px 10px 20px;
-    margin-top: 0px;
     
-    .fa-caret-down {
-      color: #E9E9E9;
-      font-size: 54px;
-      position: absolute;
-      top: 24px;
-      left: 15px;
-    }
-    
-    i {
-      margin-right: 10px;
-    }
+  .gfield_label {
+    display: none !important;
   }
-    
-    .subscribe-widget-desc {
-      font-size: 14px; 
-    }
-    
-    .gfield_label {
-      display: none !important;
-    }
     
 }

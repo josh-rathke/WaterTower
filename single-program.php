@@ -345,6 +345,65 @@
 		
 		
 		
+		<?php 
+		
+		/**
+		 * 	Outreach Section
+		 * 	This section explains the outreach portion of the school if
+		 * 	there is one.
+		 */
+
+		 if ($program_object->academic_info['has_outreach']) {
+		 	echo '<div class="outreach-phase-container" data-magellan-destination="outreach">';
+		 		echo '<h2>Outreach</h2>';
+		 		echo rwmb_meta('outreach_phase_desc');
+		 	echo '</div>';
+		 }
+		 
+		 ?>
+		 
+		 
+		 <?php
+		 
+		 /**
+		  *  Resource Materials Section
+		  *  This section display all of the resource materials
+		  *  if there are materials to be displayed.
+		  */
+		  
+		  $resource_materials = rwmb_meta('file', 'type=file_advanced');
+		  print_r($resource_materials);
+		  
+		  if (!empty($resource_materials)) : ?>
+		  
+		  	<div class="resource-materials-container" data-magellan-destination="resource-materials">
+		  	<h2>Resource Materials</h2>
+			  	
+			  	<div class="resource-materials-grid-container">
+		  		<?php
+		  		foreach ($resource_materials as $resource_material) {
+		  			echo '<div class="row resource-material">';
+			  			echo '<div class="medium-6 columns">';
+							echo "<a href='{$resource_material['url']}'>";
+							echo $resource_material['title'];
+							echo '</a>';
+						echo '</div>';
+						
+						echo '<div class="medium-4 columns">';
+						$resource_pathinfo = pathinfo($resource_material['path']);
+							echo '.' . $resource_pathinfo['extension'], "\n";
+						echo '</div>';
+						
+						echo '<div class="medium-4">';
+						
+						echo '</div>';
+					echo '</div>';
+		  		} ?>
+		  		</div>
+		  	</div>
+		  <?php endif; ?>
+		
+		
 		
 		<div data-magellan-destination="related-posts">
 			<div class="related-posts-header-container">

@@ -39,7 +39,6 @@
 				<?php get_template_part('parts/post-meta') ?>
 			</footer>
 			
-			<?php display_authors($post->ID, null); ?>
 			<?php do_action('watertower_post_before_comments'); ?>
 				<?php comments_template(); ?>
 			<?php do_action('watertower_post_after_comments'); ?>
@@ -51,6 +50,36 @@
 	</div>
 	
 	<aside id="sidebar" class="small-12 large-4 columns stick-to-parent">
+		
+		<div class="post-author-container">
+			<h4><i class='fa fa-user'></i>Post Author<i class='fa fa-caret-down'></i></h4>
+			
+			<?php 
+			
+			/**
+			 * 	Display Author of Post in Sidebar
+			 * 	So far not compatible with the "married_couples" array within
+			 * 	the Authors Class. It only scans the singles array.
+			 */
+			
+			$authors = new authorInfo($post->ID);
+				
+			foreach ($authors->singles as $author) {
+				
+				echo get_the_post_thumbnail($author['ID'], 'thumbnail-card');
+				echo '<h5>' . $author['author_info']['display_name'] . '</h5>';
+				echo '<p>' . $author['author_info']['description'] . '</p>';
+				echo '<ul>';
+					echo '<li><a href="' . get_bloginfo('url') . '/author/' . $author['author_info']['user_login'] . '"><i class="fa fa-paper-plane-o"></i> View All Posts (' . $author['author_info']['post_count'] . ')</a></li>';
+					echo '<li><a href="' . $author['author_info']['website'] . '"><i class="fa fa-globe"></i> ' . properize($author['author_info']['first_name']) . " Website </a></li>";
+					echo '<li><i class="fa fa-map-marker"></i> Hometown: ' . $author['author_info']['hometown'] . '</li>';
+				echo '</ul>';
+			}
+			
+			?>
+			
+		</div>
+		
 		<?php get_sidebar(); ?>
 	</aside>
 </div>

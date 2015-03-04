@@ -34,8 +34,8 @@
 			
 			<div class="find-us-tour"><a href="<?php echo get_permalink(get_page_by_path('campus-tour')->ID); ?>"><i class="fa fa-street-view"></i>Campus Tour</a></div>
 			
+			<h5>Social Networks</h5>
 			<div class="find-us-social">
-				<h5>Social Networks</h5>
 				<ul>
 					<li><a href="<?php echo of_get_option( 'instagram_url' ); ?>" target="_blank"><i class="fa fa-instagram"></i></a></li>
 					<li><a href="<?php echo of_get_option( 'facebook_url' ); ?>" target="_blank"><i class="fa fa-facebook-official"></i></a></li>

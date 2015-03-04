@@ -226,6 +226,24 @@
   }
 }
 
+
+.resource-materials-container {
+  
+  .resource-materials-grid-container {
+    padding: 0px 0.9375rem;
+    
+    .row {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      
+      &:nth-child(2n+0) {
+        background: #EFEFEF;
+      }
+    }
+  }
+}
+
+
 .related-posts-header-container {
   padding-top: 60px;
   

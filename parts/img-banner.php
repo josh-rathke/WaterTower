@@ -184,13 +184,13 @@ if (is_front_page()) {
 	
 	if ( is_archive() || is_home() || $page_id != null ){
 		if ( $page_id != null && has_post_thumbnail($page_id) ) {
-			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'thumbnail-size', true);
+			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($page_id), 'full-width-banner', true);
 
 			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
 		}
 	} else {
 		if ( has_post_thumbnail($post->ID) ) {
-			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail-size', true);
+			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner', true);
 			
 			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
 		}

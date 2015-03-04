@@ -16,7 +16,21 @@
   }
   
   .post-meta-content {
-    margin-left: 23px;
+    margin-left: 26px;
+    
+    a {
+      background: #F3F3F3;
+      color: #888;
+      display: inline-block;
+      margin-right: 5px;
+      margin-top: 5px;
+      padding: 3px 12px;
+      
+      &:hover {
+        background: $primary_color;
+        color: white;
+      }
+    }
   }
   
   @media #{$small-only} {

@@ -25,24 +25,30 @@
 			</div>
 			
 			<?php // Post Categories and Tags ?>
-			<div class="small-12 medium-4 columns">
+			<div class="small-12 medium-8 columns">
 				<div class="post-meta-section">
 					<h6><i class="fa fa-sitemap fa-rotate-270"></i>Categories</h6>
 					<div class="post-meta-content">
-						<?php the_category(', '); ?>
+						<?php 
+						$categories = get_the_category($post->ID);
+						 
+						foreach ($categories as $category) {
+							$category_link = get_category_link($category->term_id);
+							echo "<a href='{$category_link}'>{$category->name}</a>";
+						}
+						
+						?>
+						
 					</div>
 				</div>
 				
-				<div class="post-meta-data-section">
+				<div class="post-meta-section">
 					<h6><i class="fa fa-tags"></i>Tags</h6>
 					<div class="post-meta-content">
-						<?php the_tags('', ', '); ?>
+						<?php the_tags('', ''); ?>
 					</div>
 				</div>
-			</div>
-			
-			<?php // Post Related Programs ?>
-			<div class="small-12 medium-4 columns">
+				
 				<div class="post-meta-section">
 					<h6><i class="fa fa-mortar-board"></i>Related Programs</h6>
 					<div class="post-meta-content">
@@ -60,5 +66,4 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>

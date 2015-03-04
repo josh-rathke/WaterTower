@@ -225,5 +225,14 @@ function get_excerpt_by_id($post_id, $excerpt_length=40){
 	$the_excerpt = '<p>' . $the_excerpt . '</p>';
 	return $the_excerpt;
 }	
- 
+
+/**
+ * 	Properize Function
+ * 	This function simply addes the correct punctuation
+ * 	to add possesion to a string passed through the function.
+ */
+function properize($string) {
+	return $string.'\''.($string[strlen($string) - 1] != 's' ? 's' : '');
+}
+
 ?>
