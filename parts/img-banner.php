@@ -85,7 +85,7 @@ if (is_front_page()) {
 							    		</div>
 							    		
 							    		<div class="medium-4 columns">
-							    			<a class="button" href="<?php echo rwmb_meta('alert_page_link'); ?>">More Info</a>
+							    			<a class="button" href="<?php echo get_permalink($post->ID); ?>">View Post</a>
 							    		</div>
 						    		</div>
 					    		</div>

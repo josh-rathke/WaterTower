@@ -19,17 +19,20 @@ array( 'description' => __( 'This widget allows visitors to subscribe to differe
 // Creating widget front-end
 // This is where the action happens
 public function widget( $args, $instance ) {
+	
+echo '<div class="subscribe-widget-container">';
+
 $title = apply_filters( 'widget_title', $instance['title'] );
 // before and after widget arguments are defined by themes
 echo $args['before_widget'];
-if ( ! empty( $title ) )
-echo $args['before_title'] . $title . $args['after_title'];
+
+if ( ! empty( $title ) ) {
+	echo $args['before_title'] . "<i class='fa fa-rss'></i>" . $title . "<i class='fa fa-caret-down'></i>" . $args['after_title'];
+}
 
 // This is where you run the code and display the output
 
 ?>
-
-<div class="subscribe-widget-container">
 
 <p class="subscribe-widget-desc">Want us to send you an email every time we post new content to the site?  Fill out the form below and we'll be sure to keep you updated</p>
 
