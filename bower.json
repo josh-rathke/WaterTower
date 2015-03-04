@@ -7,9 +7,10 @@
   "ignore": [
   ],
   "dependencies": {
+  	"FitText.js": "1.2.0",
     "foundation": "zurb/bower-foundation",
     "fontawesome": "4.3.0",
-    "chart.js": "1.0.1",
-    "options-framework-theme": "1.8.0",
+    "Chart.js": "1.0.1",
+    "options-framework-theme": "1.8.0"
   }
 }

@@ -32,7 +32,7 @@
 				<div>United States</div>
 			</div>
 			
-			<div class="find-us-tour"><i class="fa fa-long-arrow-right"></i>Campus Tour</div>
+			<div class="find-us-tour"><a href="<?php echo get_permalink(get_page_by_path('campus-tour')->ID); ?>"><i class="fa fa-street-view"></i>Campus Tour</a></div>
 			
 			<div class="find-us-social">
 				<h5>Social Networks</h5>

@@ -93,15 +93,25 @@ if (rwmb_meta('enable_cta')) :
 		<div class="row">
 			<div class="medium-6 columns">
 				<div class="flex-video widescreen vimeo">
-					<iframe src="//player.vimeo.com/video/119893705?title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<?php echo rwmb_meta('video_embed_code'); ?>
 				</div>
 			</div>
 			<div class="medium-6 columns">
 				<div class="front-page-featured-video-desc">
-					<h3>Featured Video</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<h3><?php echo rwmb_meta('video_title'); ?></h3>
+					<p><?php echo rwmb_meta('video_desc'); ?></p>
 					
-					<div><strong>Related:</strong> Discipleship Training School</div>
+					<ul class="front-page-video-related-programs">
+						<strong>Related Programs:</strong> 
+						<?php 
+						
+							$related_program_ids = rwmb_meta('video_related_programs', 'multiple=true');
+							
+							foreach ($related_program_ids as $related_program_id) {
+								echo '<li><a href="' . get_permalink($related_program_id) . '">' . get_the_title($related_program_id) . '</a></li>';
+							}
+						?>
+					</ul>
 				</div>
 			</div>
 		</div>

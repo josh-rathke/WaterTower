@@ -45,7 +45,7 @@
 		</section>
 		<section class="middle tab-bar-section">
 			
-			<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+			<a href="<?php echo get_bloginfo ('url'); ?>"><img class="main-logo" style="opacity: 100; min-width: 190px; max-width: 250px; width: 100%;" src="<?php echo get_bloginfo ('template_directory'); ?>/assets/img/images/ywammt-logo.png" /></a>
 
 		</section>
 	</nav>

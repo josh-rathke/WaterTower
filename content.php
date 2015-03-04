@@ -8,7 +8,7 @@
 ?>
 
 <div class="row content-archive-post-container">
-	<div class="medium-3 columns content-archive-post-image">
+	<div class="medium-3 columns hide-for-small content-archive-post-image">
 		<?php the_post_thumbnail('thumbnail-card'); ?>
 	</div>
 	<div class="medium-9 columns content-archive-post-content">

@@ -14,13 +14,6 @@
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>
-			<footer>
-				<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'watertower'), 'after' => '</p></nav>' )); ?>
-				<p><?php the_tags(); ?></p>
-			</footer>
-			<?php do_action('watertower_page_before_comments'); ?>
-			<?php comments_template(); ?>
-			<?php do_action('watertower_page_after_comments'); ?>
 		</article>
 	<?php endwhile;?>
 

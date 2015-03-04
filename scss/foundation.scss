@@ -58,6 +58,8 @@
 @import "../bower_components/fontawesome/css/font-awesome.css"; // Import Font Awesome
 @import "assets/fonts"; // Import Font Families
 
+//WordPress Style Sheets
+@import "assets/single_post"; //Import Single Post Styles
 
 // WaterTower Style Sheets
 @import "assets/scaffolding"; // Import Scaffolding Styles
@@ -70,9 +72,12 @@
 @import "assets/footer";      // Import Footer Styles
 @import "assets/programs";    // Import Program Pages Styles
 @import "assets/side_nav";    // Import Side Nav Styles
+@import "assets/sidebar";     // Import Sidebar Styles
 @import "assets/staffing_needs"; // Import Staffing Needs Styles
 @import "assets/target_nations"; // Import Target Nations Styles
 @import "assets/front_page"; // Import Front Page Styles
+@import "assets/campus_tour"; // Import Campus Tour Styles
+
 
 // WaterTower Widget Styles
 @import "assets/widgets/wt_subscribe_widget"; // Import Subscribe Widget Styles
@@ -85,6 +90,7 @@
 @import "assets/magellan_hacks";      // Import the Magellan Hacks
 @import "assets/reveal_modal_hacks";  // Import the Reveal Modal
 @import "assets/gravity_forms_hacks"; // Import the Gravity Forms Hacks
+@import "assets/off_canvas_hacks";    // Import the Off Canvas Hacks
 
 /* 
   My custom styles:

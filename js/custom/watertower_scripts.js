@@ -52,4 +52,19 @@ $(document).ready(function() {
 	
 });
 
+// Add Categories Class to Categories Widget
+$(document).ready(function(){
+    var container = $('li.cat-item').parents().get()[1];
+    $(container).addClass('categories').promise().done(function(){
+    	$('.categories h4').append("<i class='fa fa-caret-down'></i>");
+    	$('.categories h4').prepend("<i class='fa fa-sort-amount-asc'></i>");
+    });
+    
+});
+
+// Add StickyKit Class to Activate Elements
 $(".stick-to-parent").stick_in_parent();
+
+// Add FitText Class to Activate Elements
+$(".fittext").fitText(1.0, {maxFontSize: '70px'});
+

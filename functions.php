@@ -218,7 +218,7 @@ function get_excerpt_by_id($post_id, $excerpt_length=40){
 	
 	if(count($words) > $excerpt_length) :
 		array_pop($words);
-		array_push($words, '…');
+		array_push($words, '[…]');
 		$the_excerpt = implode(' ', $words);
 	endif;
 	

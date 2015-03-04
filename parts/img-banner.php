@@ -14,40 +14,93 @@ if (is_front_page()) {
 ?>
 	
 	<div class="slideshow-wrapper primary-slider">
-		<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:true;">
+		<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;">
+		
+		
+			<?php 
+			
+			/**
+			 * 	Display Alert Slide
+			 * 	This will display one slide before all others that is
+			 * 	considered an alert slide. This slide can be activated
+			 * 	from the front page edit screen.
+			 */
+			 
+			 if (rwmb_meta('enable_alert_slide')) :
+			 	$alert_bg_image = wp_get_attachment_image_src(rwmb_meta('alert_bg_image'), 'full-width-banner', true); ?>
+			 	
+			 	<li data-orbit-slide="alert-slide" class="slide-container">
+				    <div class="orbit-slider-placeholder" style="background: url(<?php echo $alert_bg_image[0]; ?>) no-repeat center center;">
+				    	<div class="row slide-content-container vertical-align-relative">
+				    		<div class="small-12 columns">
+				    			
+				    			<h2 class="fittext shadow"><?php echo rwmb_meta('alert_title'); ?></h2>
+				    			<h2 class="fittext"><?php echo rwmb_meta('alert_title'); ?></h2>
+				    		
+				    			<div class="row content-desc">
+						    		<div class="medium-8 columns">
+						    			 <p><?php echo rwmb_meta('alert_desc'); ?></p>
+						    		</div>
+						    		
+						    		<div class="medium-4 columns">
+						    			<a class="button" href="<?php echo rwmb_meta('alert_page_link'); ?>">More Info</a>
+						    		</div>
+					    		</div>
+				    		</div>
+				    	</div>
+				   
+				     
+				    </div>
+				  </li>
+			 	
+			 <?php endif; ?>
+		
+		
 		
 			<?php
-			$featured_posts = new WP_Query( 'post_type=post' );
 			
-			// The Loop
-			if ( $featured_posts->have_posts() ) {
-				while ( $featured_posts->have_posts() ) {
-					$featured_posts->the_post();
-					
-					$post_ribbon = new postRibbon($post->ID);
-					$background_color = $post_ribbon->post_color_info[0]['color'];
-					
-					$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail-size', true);
-					
-					echo '<li>';
-					echo '<div class="orbit-slider-placeholder" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">';
-					echo '</div>';
-					
-					echo '<div class="orbit-caption" style="border-top: 3px solid ' . $background_color . '">';
-					echo '<div class="row">';
-					echo '<div class="small-12 columns">';
-					echo '<a href="' . get_the_permalink() . '" style="color: ' . $background_color . '"><i class="fa fa-level-up fa-rotate-90"></i> New Blog Post: <span style="color:#444;">' . get_the_title() . '</span></a>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-					
-					echo '</li>';
+			// Check if alert slide is activated and isolated
+			if (!rwmb_meta('enable_alert_slide') || rwmb_meta('enable_alert_slide') && !rwmb_meta('isolate_alert_slide')) {
+			
+				// Display Featured Posts as Usual
+				$featured_posts = new WP_Query( 'post_type=post' );
+				
+				// The Loop
+				if ( $featured_posts->have_posts() ) {
+					while ( $featured_posts->have_posts() ) {
+						$featured_posts->the_post();
+						$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full-width-banner', true); ?>
+						
+					<li class="slide-container">
+						<div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
+					    	<div class="row slide-content-container vertical-align-relative">
+					    		<div class="small-12 columns">
+					    			
+					    			<h2 class="fittext shadow"><?php the_title(); ?></h2>
+					    			<h2 class="fittext"><?php the_title(); ?></h2>
+					    		
+					    			<div class="row content-desc">
+							    		<div class="medium-8 columns">
+							    			 <?php echo get_excerpt_by_id($post->ID, 30) ?>
+							    		</div>
+							    		
+							    		<div class="medium-4 columns">
+							    			<a class="button" href="<?php echo get_permalink($post->ID); ?>">View Post</a>
+							    		</div>
+						    		</div>
+					    		</div>
+					    	</div>
+				    	</div>
+				    </li>
+				    
+					<?php
+					}
+				} else {
+					// no posts found
 				}
-			} else {
-				// no posts found
+				/* Restore original Post Data */
+				wp_reset_postdata();
 			}
-			/* Restore original Post Data */
-			wp_reset_postdata();
 			?>
 			
 		</ul>
@@ -67,6 +120,7 @@ if (is_front_page()) {
 	<script type="text/javascript"
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvS3wK11EOSK0jvsAXlTnGvpUb85uXpTw">
 	</script>
+	
 	<script>
 	var panorama = null;
 	var links = null;
@@ -74,10 +128,11 @@ if (is_front_page()) {
 	function setPano2link(pano_id) {
 	  panorama.setPano(pano_id);
 	  panorama.setVisible(true);
+	  $("html, body").animate({ scrollTop: 0 }, "slow");
 	}
 	
 	function initialize() {
-	  var myPanoid = 'RB2Y2YqYEncAAAGu5uu9ug';
+	  var myPanoid = 'dB8XpK7BjNkAAAGu5uu9tw';
 	  var panoramaOptions = {
 	    pano: myPanoid,
 	    pov: {
@@ -88,6 +143,7 @@ if (is_front_page()) {
 	    scrollwheel: false,
 		addressControl: false,
 	  };
+	  
 	  panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
 	
 		//Whenever the pano is changed check to make sure that the menu
@@ -102,28 +158,12 @@ if (is_front_page()) {
 			//Toggle the active class to the correct list item.
 			$('#' + curPanoID).toggleClass('active');
 		});
-		
-		google.maps.event.addListener(panorama, 'position_changed', function() {
-		    var positionCell = document.getElementById('position_cell');
-		    var latitude = parseFloat(panorama.getPosition().lat()).toFixed(4);
-		    var longitude = parseFloat(panorama.getPosition().lng()).toFixed(4);
-		    
-		    positionCell.firstChild.nodeValue = '(' + latitude + ' \u00B0, ' + longitude + ' \u00B0)';
-		});
-		
-	    google.maps.event.addListener(panorama, 'pov_changed', function() {
-	      var headingCell = document.getElementById('heading_cell');
-	      var pitchCell = document.getElementById('pitch_cell' + '');
-	      headingCell.firstChild.nodeValue = parseFloat(panorama.getPov().heading).toFixed(7) + ' \u00B0';
-	      pitchCell.firstChild.nodeValue = parseFloat(panorama.getPov().pitch).toFixed(7) + ' \u00B0';
-	    });
 	
 	}
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
 	
 	</script>
-	
 	
 	<div id="pano" style="width: 100%; height: 450px;"></div>
  

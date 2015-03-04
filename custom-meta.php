@@ -1,7 +1,6 @@
 <?php
 
 $prefix = '';
-
 global $meta_boxes;
 
 $meta_boxes = array();
@@ -10,6 +9,40 @@ $meta_boxes = array();
 	include ('library/custom_meta/staffing_needs_meta.php');
 	include ('library/custom_meta/focus_tracks_meta.php');
 	include ('library/custom_meta/acceptance_packets_meta.php');
+	include ('library/custom_meta/campus_tour_meta.php');
+	include ('library/custom_meta/front_page_meta.php');
+	
+	
+	
+
+$meta_boxes[] = array(
+	'title'  => 'Featured Program',
+	'pages' => array( 'post'),
+	'context' => 'normal',
+	'priority' => 'low',
+	'fields' => array(
+	
+		//Enable Featured Program
+		array(
+			'name' => 'Enable Featured Program',
+			'id'   => "{$prefix}enable_featured_program",
+			'type' => 'checkbox',
+			'std'  => 0,
+		),
+		
+		// Program Select
+		array(
+			'name'        => __( 'Posts (Pages)', 'meta-box' ),
+			'id'          => "{$prefix}featured_program_id",
+			'type'        => 'post',
+			'post_type'   => 'program',
+			'field_type'  => 'select_advanced',
+			'placeholder' => __( 'Select an Item', 'meta-box' ),
+		),
+	),
+);
+
+
 
 $meta_boxes[] = array(
 	'title'  => 'Profile Options',
@@ -45,6 +78,9 @@ $meta_boxes[] = array(
 	),
 
 );
+
+
+
 
 
 
@@ -923,34 +959,6 @@ $meta_boxes[] = array(
 );
 
 
-
-
-
-
-//FRONT PAGE
-$meta_boxes[] = array(
-	'title'  => 'Front Page General Content Settings',
-	'pages' => array( 'page' ),
-	'context' => 'normal',
-	'priority' => 'high',
-	'fields' => array(
-		
-		array(
-				'name' => 'Video Settings',
-				'id'   => "{$prefix}video_shortcode",
-				'type' => 'textarea',
-				'desc' => 'Put the short-code for the video gallery you would like on the front page here.',
-		),
-
-	),
-		
-	'only_on'    => array(
-		'id'       => array(),
-		//'slug'  => array( 'slug' ),
-		'template' => array( 'front-page.php' ),
-		'parent'   => array()
-	),
-);
 
 
 $meta_boxes[] = array(

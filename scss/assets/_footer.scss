@@ -2,7 +2,7 @@
   background: #F6F6F6;
   color: #666;
   font-family:"HelveticaNeueW01-47LtCn 692686";
-  margin: 50px 0px 20px 0px;
+  margin-top: 50px;
   text-transform: uppercase;
   
   .breadcrumbs-prefix {
@@ -41,6 +41,10 @@
   
   .find-us-container {
     font-size: 14px;
+    
+    a {
+      color: white;
+    }
     
     i {
       font-size: 22px;
