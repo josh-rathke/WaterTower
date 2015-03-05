@@ -48,14 +48,15 @@
 		 * This is the section of each school page where we pull in
 		 * any videos that may lend themselves to the school.
 		 */
+		if (rwmb_meta('video_shortcode')) :
 		?>
 		
 		<div class="videos-container" data-magellan-destination="videos">
 			<h2>Videos</h2>
-			<?php echo do_shortcode('[vimeography id="1"]'); ?>
+			<?php echo do_shortcode(rwmb_meta('video_shortcode')); ?>
 		</div>
 		
-		
+		<?php endif; ?>
 		
 		
 		<?php
