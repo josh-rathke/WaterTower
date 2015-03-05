@@ -115,10 +115,10 @@
 								echo '<ul class="program-app-due-dates-container">';
 									echo '<h6>Apply By Dates<a href="#appduedatedesc"><i class="fa fa-info info-circle-link right"></i></a></h6>';
 									echo '<li><div class="program-app-due-dates-nationality">By Applicant Nationality</div></li>';
-									echo sprintf($program_info_string, 'African', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 180 days')));
-									echo sprintf($program_info_string, 'Canadian', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 30 days')));
-									echo sprintf($program_info_string, 'International', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 120 days')));
-									echo sprintf($program_info_string, 'Domestic', date('m/d/y', strtotime($program_occurance['start_date'] . ' + 14 days')));
+									echo sprintf($program_info_string, 'African', date('m/d/y', strtotime($program_occurance['start_date'] . ' - 180 days')));
+									echo sprintf($program_info_string, 'Canadian', date('m/d/y', strtotime($program_occurance['start_date'] . ' - 30 days')));
+									echo sprintf($program_info_string, 'International', date('m/d/y', strtotime($program_occurance['start_date'] . ' - 120 days')));
+									echo sprintf($program_info_string, 'Domestic', date('m/d/y', strtotime($program_occurance['start_date'] . ' - 14 days')));
 								echo '</ul>';
 									
 								
