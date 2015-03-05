@@ -89,9 +89,9 @@
 		 * 	upcoming programs are displayed along with links to
 		 * 	apply for each of the scheduled schools. 
 		 */
-		if ($program_object->rolling_enrollment_status != 1) :
-			
 		echo '<div data-magellan-destination="upcoming-schools">';
+		 
+		if ($program_object->rolling_enrollment_status != 1) :
 			echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
 				echo '<div class="upcoming-schools-header"><h2>Upcoming Schools</h2>';
 				available_via_correspondence_link();
