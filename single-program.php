@@ -372,7 +372,6 @@
 		  */
 		  
 		  $resource_materials = rwmb_meta('file', 'type=file_advanced');
-		  print_r($resource_materials);
 		  
 		  if (!empty($resource_materials)) : ?>
 		  
@@ -383,19 +382,19 @@
 		  		<?php
 		  		foreach ($resource_materials as $resource_material) {
 		  			echo '<div class="row resource-material">';
-			  			echo '<div class="medium-6 columns">';
+			  			echo '<div class="small-8 medium-10 columns">';
 							echo "<a href='{$resource_material['url']}'>";
 							echo $resource_material['title'];
 							echo '</a>';
 						echo '</div>';
 						
-						echo '<div class="medium-4 columns">';
+						echo '<div class="small-2 medium-1 columns">';
 						$resource_pathinfo = pathinfo($resource_material['path']);
 							echo '.' . $resource_pathinfo['extension'], "\n";
 						echo '</div>';
 						
-						echo '<div class="medium-4">';
-						
+						echo '<div class="small-2 medium-1 columns">';
+							echo "<a href='{$resource_material['url']}'><i class='fa fa-download'></i></a>";
 						echo '</div>';
 					echo '</div>';
 		  		} ?>
