@@ -64,8 +64,8 @@ get_header();
 		<?php } ?>
 	</div>
 	
-	<div class="medium-3 columns">
-		<div class="magellan-container" data-magellan-expedition="fixed">
+	<div class="medium-3 columns stick-to-parent">
+		<div class="magellan-container" data-magellan-expedition>
 		  <dl class="sub-nav side-nav-container side-nav-by-heading">
 		  </dl>
 		</div>
