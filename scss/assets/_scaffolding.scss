@@ -43,6 +43,10 @@ blockquote {
   padding: 10px 20px;
   width: 50%;
   
+  &.right {
+  
+  }
+  
   @media #{$small-only} {
     width: 100% !important;
   }
