@@ -526,7 +526,10 @@
 		 		
 				<div class="reveal-modal-bg" style="display: none"></div>
 		 		<div id="<?php echo $post->post_name; ?>" class="reveal-modal small" data-reveal>
-		 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner')[0]; ?>) no-repeat center center;">
+		 			
+		 			<?php $featured_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner'); ?>
+		 			
+		 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo $featured_image[0]; ?>) no-repeat center center;">
 		 				<img class="reveal-modal-post-thumbnail-icon" src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
 		 			</div>
 					  
