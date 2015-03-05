@@ -122,7 +122,7 @@
 								echo '</ul>';
 									
 								
-								echo '<a href="#_" class="button">Apply Online</a>';
+								echo '<a href="' . of_get_option('apply_url') . '" class="button">Apply Online</a>';
 							echo '</div></li>';
 							}
 						
