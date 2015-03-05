@@ -37,6 +37,10 @@
   h2 {
     border-bottom: 1px solid rgba(255, 255, 255, .5);
     color: white;
+    
+    @media #{$small-only} { 
+      margin-top: 40px;
+    }
   }
   
   .find-us-container {
@@ -65,16 +69,15 @@
       margin-top: 16px;
     }
     
+    h5 {
+        color: white;
+        margin-top: 20px;
+      }
+    
     .find-us-social {
       height: 40px;
-      margin-top: 20px;
-      
-      h5 {
-        color: white;
-      }
       
       ul {
-        display: inline-block;
         height: 100%;
         margin: 0px;
         

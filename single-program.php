@@ -48,14 +48,15 @@
 		 * This is the section of each school page where we pull in
 		 * any videos that may lend themselves to the school.
 		 */
+		if (rwmb_meta('video_shortcode')) :
 		?>
 		
 		<div class="videos-container" data-magellan-destination="videos">
 			<h2>Videos</h2>
-			<?php echo do_shortcode('[vimeography id="1"]'); ?>
+			<?php echo do_shortcode(rwmb_meta('video_shortcode')); ?>
 		</div>
 		
-		
+		<?php endif; ?>
 		
 		
 		<?php
@@ -345,6 +346,64 @@
 		
 		
 		
+		<?php 
+		
+		/**
+		 * 	Outreach Section
+		 * 	This section explains the outreach portion of the school if
+		 * 	there is one.
+		 */
+
+		 if ($program_object->academic_info['has_outreach']) {
+		 	echo '<div class="outreach-phase-container" data-magellan-destination="outreach">';
+		 		echo '<h2>Outreach</h2>';
+		 		echo rwmb_meta('outreach_phase_desc');
+		 	echo '</div>';
+		 }
+		 
+		 ?>
+		 
+		 
+		 <?php
+		 
+		 /**
+		  *  Resource Materials Section
+		  *  This section display all of the resource materials
+		  *  if there are materials to be displayed.
+		  */
+		  
+		  $resource_materials = rwmb_meta('file', 'type=file_advanced');
+		  
+		  if (!empty($resource_materials)) : ?>
+		  
+		  	<div class="resource-materials-container" data-magellan-destination="resource-materials">
+		  	<h2>Resource Materials</h2>
+			  	
+			  	<div class="resource-materials-grid-container">
+		  		<?php
+		  		foreach ($resource_materials as $resource_material) {
+		  			echo '<div class="row resource-material">';
+			  			echo '<div class="small-8 medium-10 columns">';
+							echo "<a href='{$resource_material['url']}'>";
+							echo $resource_material['title'];
+							echo '</a>';
+						echo '</div>';
+						
+						echo '<div class="small-2 medium-1 columns">';
+						$resource_pathinfo = pathinfo($resource_material['path']);
+							echo '.' . $resource_pathinfo['extension'], "\n";
+						echo '</div>';
+						
+						echo '<div class="small-2 medium-1 columns">';
+							echo "<a href='{$resource_material['url']}'><i class='fa fa-download'></i></a>";
+						echo '</div>';
+					echo '</div>';
+		  		} ?>
+		  		</div>
+		  	</div>
+		  <?php endif; ?>
+		
+		
 		
 		<div data-magellan-destination="related-posts">
 			<div class="related-posts-header-container">
@@ -467,7 +526,10 @@
 		 		
 				<div class="reveal-modal-bg" style="display: none"></div>
 		 		<div id="<?php echo $post->post_name; ?>" class="reveal-modal small" data-reveal>
-		 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner')[0]; ?>) no-repeat center center;">
+		 			
+		 			<?php $featured_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full-width-banner'); ?>
+		 			
+		 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo $featured_image[0]; ?>) no-repeat center center;">
 		 				<img class="reveal-modal-post-thumbnail-icon" src="<?php echo wp_get_attachment_url(rwmb_meta('focus_track_icon')); ?>" />
 		 			</div>
 					  

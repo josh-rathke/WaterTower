@@ -873,29 +873,8 @@ $meta_boxes[] = array(
 			'type' => 'select',
 			'options' => array(
 				'no'	=>	'No',
-				'yes'	=>	'Yes',
-				'as-god-allows'	=> 'As God Allows',
+				'yes'	=>	'Yes'
 			),
-		),
-		
-		array(
-			'name' => 'Outreach Duration (Weeks)',
-			'id'   => "{$prefix}outreach_phase_duration",
-			'desc' => 'Enter the duration of the outreach phase in weeks',
-			'type' => 'number',
-			'std'  => '',
-		),
-		
-		array(
-			'name' => 'Outreach Locale',
-			'id'   => "{$prefix}outreach_locale",
-			'desc' => 'Choose all locales that apply to the outreach of the school',
-			'type' => 'checkbox_list',
-			'options'  => array (
-					'international' 	=> 'International',
-					'domestic'			=> 'Domestic',
-			)
-			,
 		),
 	
 		array(
