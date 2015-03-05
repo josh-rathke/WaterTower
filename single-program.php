@@ -353,8 +353,7 @@
 		 * 	This section explains the outreach portion of the school if
 		 * 	there is one.
 		 */
-
-		 if ($program_object->academic_info['has_outreach']) {
+		 if ($program_object->academic_info['has_outreach'] == 'yes') {
 		 	echo '<div class="outreach-phase-container" data-magellan-destination="outreach">';
 		 		echo '<h2>Outreach</h2>';
 		 		echo rwmb_meta('outreach_phase_desc');
