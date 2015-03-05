@@ -405,6 +405,26 @@
 		
 		
 		
+		
+		
+		<?php
+		
+		/**
+		 * 	Related Posts Section
+		 */
+		
+		$program_related_posts_query_args = array (
+			'post_type'		=> 'post',
+			'posts_per_page'	=> 2,
+			'program_taxo'	=> $program_object->program_slug,
+		);
+			
+		// The Query
+		$related_posts = new WP_Query( $program_related_posts_query_args );
+		
+		if ( $related_posts->have_posts() ) :
+			
+		?>
 		<div data-magellan-destination="related-posts">
 			<div class="related-posts-header-container">
 				<div class="related-posts-header-title">
@@ -423,7 +443,7 @@
 				
 				<div class="row">
 					<div class="medium-5 columns">
-						<p>Want to know what it's like to go through <?php echo get_the_title($program_object->program_id); ?> from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
+						<p>Want to know what it's like to go through a <?php echo get_the_title($program_object->program_id); ?> from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
 					</div>
 					
 					<div class="medium-4 columns">
@@ -444,46 +464,25 @@
 			</div>
 			
 			
-			<?php 
-			
-			$program_related_posts_query_args = array (
-				'post_type'		=> 'post',
-				'posts_per_page'	=> 2,
-				'program_taxo'	=> $program_object->program_slug,
-			);
-				
-				// The Query
-				$the_query = new WP_Query( $program_related_posts_query_args );
-				
-				// The Loop
-				if ( $the_query->have_posts() ) {
-					echo '<div class="related-posts-container">';
-						while ( $the_query->have_posts() ) {
-							$the_query->the_post();
-							
-							echo '<div class="row related-post-container">';
-								echo '<div class="medium-4 columns related-post-feat-img-container">';
-									the_post_thumbnail('thumbnail-card');
-								echo '</div>';
-								
-								echo '<div class="medium-8 columns related-post-content-container">';
-									echo '<h5>' . get_the_title() . '</h5>';
-									echo '<p>' . get_the_excerpt() . '</p>';
-								echo '</div>';
-							echo '</div>';
-						}
-						echo '</ul>';
-					echo '</div>';
-				} else {
-					// no posts found
-				}
-				/* Restore original Post Data */
-				wp_reset_postdata();
-			
-			
-			?>
-		
+			<div class="related-posts-container">
+				<?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
+					<div class="row related-post-container">
+						<div class="medium-4 columns related-post-feat-img-container">
+							<?php the_post_thumbnail('thumbnail-card'); ?>
+						</div>
+						
+						<div class="medium-8 columns related-post-content-container">
+							<?php echo '<h5>' . get_the_title() . '</h5>'; ?>
+							<?php echo '<p>' . get_the_excerpt() . '</p>'; ?>
+						</div>
+					</div>
+				<?php endwhile; ?>
+			</div>
 		</div>
+	<?php endif; ?>
+	<?php wp_reset_postdata(); ?>
+		
+		
 		
 		
 	<?php
