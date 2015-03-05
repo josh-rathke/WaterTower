@@ -132,7 +132,7 @@ if (is_front_page()) {
 	}
 	
 	function initialize() {
-	  var myPanoid = 'dB8XpK7BjNkAAAGu5uu9tw';
+	  var myPanoid = '<?php echo rwmb_meta('beginning_pano'); ?>';
 	  var panoramaOptions = {
 	    pano: myPanoid,
 	    pov: {

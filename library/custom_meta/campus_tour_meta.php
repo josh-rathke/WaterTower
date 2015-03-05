@@ -13,6 +13,13 @@ $meta_boxes[] = array(
 	'priority' => 'low',
 	'fields' => array(
 	
+		//PanoID Beginning Pano
+		array (
+			'name'	=> 'Beginning Pano',
+			'id'	=> "{$prefix}beginning_pano",
+			'type'	=> 'text',
+		),
+	
 		//How-To Use the Campus Tour
 		array (
 			'name'	=> 'Campus Tour How-To',
