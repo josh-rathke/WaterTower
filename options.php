@@ -58,6 +58,7 @@ function optionsframework_options() {
 	// Include All Options
 	require_once('library/watertower_admin/social-media.php'); // Social Media Options
 	require_once('library/watertower_admin/programs.php'); // Programs Options
+	require_once('library/watertower_admin/footer.php'); // Footer Options
 
 	return $options;
 }

@@ -47,7 +47,7 @@
 		
 		<div class="medium-5 columns contact-us-container">
 			<h2>Contact Us</h2>
-			<?php echo do_shortcode('[gravityform id="1" name="Contact Form" title="false" description="false" ajax="true"]'); ?>
+			<?php echo do_shortcode(of_get_option('footer_contact_form')); ?>
 		</div>
 		
 		<div class="medium-4 columns get-involved-container">
