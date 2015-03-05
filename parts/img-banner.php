@@ -63,7 +63,7 @@ if (is_front_page()) {
 			if (!rwmb_meta('enable_alert_slide') || rwmb_meta('enable_alert_slide') && !rwmb_meta('isolate_alert_slide')) {
 			
 				// Display Featured Posts as Usual
-				$featured_posts = new WP_Query( 'post_type=post' );
+				$featured_posts = new WP_Query( 'post_type=post&posts_per_page=4' );
 				
 				// The Loop
 				if ( $featured_posts->have_posts() ) {
