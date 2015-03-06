@@ -67,4 +67,5 @@ $(".stick-to-parent").stick_in_parent();
 
 // Add FitText Class to Activate Elements
 $(".fittext").fitText(1.0, {maxFontSize: '70px'});
+$(".fittext-large").fitText(.65);
 

@@ -108,6 +108,9 @@ if (is_front_page()) {
 
 <?php
 	
+	
+	
+	
 } elseif (is_page('campus-tour')) {
 	
 	/**
@@ -169,6 +172,58 @@ if (is_front_page()) {
  
 	 <?
 	
+	
+	
+} elseif(is_page('annual-reports')) { 
+	
+	/**
+	 * 	Annual Reports Banner
+	 * 	This pulls in the latest annual report and
+	 * 	displays it as the banner for the page.
+	 */
+	 
+	// Query Annual Reports
+	$featured_posts = new WP_Query( 'page_category=annual-report&posts_per_page=1' );
+	
+	// The Loop
+	if ( $featured_posts->have_posts() ) {
+		while ( $featured_posts->have_posts() ) {
+			$featured_posts->the_post();
+			$post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full-width-banner', true); ?>
+		<div class="slideshow-wrapper primary-slider">
+			<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
+				<li class="slide-container">
+					<div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
+				    	<div class="row slide-content-container vertical-align-relative">
+				    		<div class="small-12 columns">
+				    			
+				    			<h2 class="fittext shadow"><?php the_title(); ?></h2>
+				    			<h2 class="fittext"><?php the_title(); ?></h2>
+				    		
+				    			<div class="row content-desc">
+						    		<div class="medium-8 columns">
+						    			 <p>We coudn't be more excited about all of the incredible things God did last year. Read the latest annual report by clicking on the button.</p>
+						    		</div>
+						    		
+						    		<div class="medium-4 columns">
+						    			<a class="button" href="#" data-reveal-id="reveal-<?php echo $post->post_name; ?>">Read The Report</a>
+						    		</div>
+					    		</div>
+				    		</div>
+				    	</div>
+			    	</div>
+			    </li>
+		    </ul>
+	    </div>
+	    
+		<?php
+		}
+	} else {
+		// no posts found
+	}
+	/* Restore original Post Data */
+	wp_reset_postdata();
+
 } else {
 	
 	/*	Standard Banner	

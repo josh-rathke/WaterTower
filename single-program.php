@@ -402,87 +402,7 @@
 		  	</div>
 		  <?php endif; ?>
 		
-		
-		
-		
-		
-		<?php
-		
-		/**
-		 * 	Related Posts Section
-		 */
-		
-		$program_related_posts_query_args = array (
-			'post_type'		=> 'post',
-			'posts_per_page'	=> 2,
-			'program_taxo'	=> $program_object->program_slug,
-		);
-			
-		// The Query
-		$related_posts = new WP_Query( $program_related_posts_query_args );
-		
-		if ( $related_posts->have_posts() ) :
-			
-		?>
-		<div data-magellan-destination="related-posts">
-			<div class="related-posts-header-container">
-				<div class="related-posts-header-title">
-					<div class="row">
-						<div class="medium-9 columns">
-							<h2>Related Posts</h2>
-						</div>
-						
-						<div class="medium-3 columns">
-							<a href="#_" class="related-posts-header-archive-link">
-								View All Posts
-							</a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="medium-5 columns">
-						<p>Want to know what it's like to go through a <?php echo get_the_title($program_object->program_id); ?> from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
-					</div>
-					
-					<div class="medium-4 columns">
-						<p class="related-posts-header-post-tags">
-							<strong>Popular Tags:</strong>
-							<?php 
-								get_tags_related_to_tax_term_list('program_taxo', $program_object->program_slug, 20);
-							?>
-						</p>
-					</div>
-					
-					<div class="medium-3 columns related-posts-header-post-num-container">
-						<i class="fa fa-caret-down"></i>
-						<div class="related-posts-header-post-num"><?php echo count(get_posts("post_type=post&posts_per_page=-1&program_taxo={$program_object->program_slug}")); ?></div>
-						<div class="related-posts-header-post-num-desc">Related Posts</div>
-					</div>
-				</div>
-			</div>
-			
-			
-			<div class="related-posts-container">
-				<?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
-					<div class="row related-post-container">
-						<div class="medium-4 columns related-post-feat-img-container">
-							<?php the_post_thumbnail('thumbnail-card'); ?>
-						</div>
-						
-						<div class="medium-8 columns related-post-content-container">
-							<?php echo '<h5>' . get_the_title() . '</h5>'; ?>
-							<?php echo '<p>' . get_the_excerpt() . '</p>'; ?>
-						</div>
-					</div>
-				<?php endwhile; ?>
-			</div>
-		</div>
-	<?php endif; ?>
-	<?php wp_reset_postdata(); ?>
-		
-		
-		
+
 		
 	<?php
 			
@@ -588,7 +508,84 @@
 		
 	?>
 		
+	
+	
+	<?php
 		
+		/**
+		 * 	Related Posts Section
+		 */
+		
+		$program_related_posts_query_args = array (
+			'post_type'		=> 'post',
+			'posts_per_page'	=> 2,
+			'program_taxo'	=> $program_object->program_slug,
+		);
+			
+		// The Query
+		$related_posts = new WP_Query( $program_related_posts_query_args );
+		
+		if ( $related_posts->have_posts() ) :
+			
+		?>
+		<div data-magellan-destination="related-posts">
+			<div class="related-posts-header-container">
+				<div class="related-posts-header-title">
+					<div class="row">
+						<div class="medium-9 columns">
+							<h2>Related Posts</h2>
+						</div>
+						
+						<div class="medium-3 columns">
+							<a href="#_" class="related-posts-header-archive-link">
+								View All Posts
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="medium-5 columns">
+						<p>Want to know what it's like to go through a <?php echo get_the_title($program_object->program_id); ?> from the perspective of students and staff who have done it before? Check out all of the posts related to it by clicking on the link to view the archive of related posts.</p>
+					</div>
+					
+					<div class="medium-4 columns">
+						<p class="related-posts-header-post-tags">
+							<strong>Popular Tags:</strong>
+							<?php 
+								get_tags_related_to_tax_term_list('program_taxo', $program_object->program_slug, 20);
+							?>
+						</p>
+					</div>
+					
+					<div class="medium-3 columns related-posts-header-post-num-container">
+						<i class="fa fa-caret-down"></i>
+						<div class="related-posts-header-post-num"><?php echo count(get_posts("post_type=post&posts_per_page=-1&program_taxo={$program_object->program_slug}")); ?></div>
+						<div class="related-posts-header-post-num-desc">Related Posts</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="related-posts-container">
+				<?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
+					<div class="row related-post-container">
+						<div class="medium-4 columns related-post-feat-img-container">
+							<?php the_post_thumbnail('thumbnail-card'); ?>
+						</div>
+						
+						<div class="medium-8 columns related-post-content-container">
+							<?php echo '<h5>' . get_the_title() . '</h5>'; ?>
+							<?php echo '<p>' . get_the_excerpt() . '</p>'; ?>
+						</div>
+					</div>
+				<?php endwhile; ?>
+			</div>
+		</div>
+	<?php endif; ?>
+	<?php wp_reset_postdata(); ?>
+	
+	
 		
 	</div>
  	
