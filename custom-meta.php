@@ -11,6 +11,7 @@ $meta_boxes = array();
 	include ('library/custom_meta/acceptance_packets_meta.php');
 	include ('library/custom_meta/campus_tour_meta.php');
 	include ('library/custom_meta/front_page_meta.php');
+	include ('library/custom_meta/annual_reports_meta.php');
 	
 	
 	
