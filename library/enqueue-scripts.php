@@ -11,14 +11,11 @@ if (!function_exists('watertower_scripts')) :
     wp_register_script( 'jquery', get_template_directory_uri() . '/js/vendor/jquery.js', array(), '1.0.0', false );
     wp_register_script( 'foundation', get_template_directory_uri() . '/js/foundation.js', array('jquery'), '1.0.0', true );
 	wp_register_script( 'chart.js', get_template_directory_uri() . '/bower_components/Chart.js/Chart.js', array('jquery'), '1.0.0', false );
-	wp_register_script( 'fittext', get_template_directory_uri() . '/bower_components/FitText.js/jquery.fittext.js');
-
     // enqueue scripts
     wp_enqueue_script('modernizr');
     wp_enqueue_script('jquery');
     wp_enqueue_script('foundation');
 	wp_enqueue_script('chart.js');
-	wp_enqueue_script('fittext');
 
   }
 
