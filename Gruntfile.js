@@ -59,9 +59,6 @@ module.exports = function(grunt) {
           //'bower_components/foundation/js/foundation/foundation.tooltip.js',
           'bower_components/foundation/js/foundation/foundation.topbar.js',
           
-          // Include FitText
-          '/bower_components/FitText.js/jquery.fittext.js',
-          
           // Using all of your custom js files
           'js/custom/*.js',
           
