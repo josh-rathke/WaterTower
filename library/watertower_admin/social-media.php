@@ -38,6 +38,12 @@ $options[] = array(
 	'id' => 'twitter_url',
 	'std' => 'https://twitter.com/ywammontana',
 	'type' => 'text');
+$options[] = array(
+	'name' => __('Pinterest Profile URL', 'options_framework_theme'),
+	'desc' => __('', 'options_framework_theme'),
+	'id' => 'pinterest_url',
+	'std' => 'https://www.pinterest.com/ywammontana/',
+	'type' => 'text');
 	
 	
 // Application Settings

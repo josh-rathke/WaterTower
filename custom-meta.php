@@ -524,28 +524,18 @@ $meta_boxes[] = array(
 	'fields' => array(
 		
 		array(
+			'name' => 'Enable Weekly Schedule Section',
+			'id'   => "{$prefix}enable_weekly_schedule_section",
+			'type' => 'checkbox',
+			'std'  => 1,
+		),
+		
+		array(
 			'name' => 'Lecture Phase Description',
 			'id'   => "{$prefix}lecture_phase_desc",
 			'desc' => 'Describe lecture phase as a whole in this section.',
 			'type' => 'textarea',
 			'std'  => '',
-		),
-		
-		array(
-			'name' => 'Auto-Populate Lecture With Topics',
-			'id'   => "{$prefix}lecture_block_num",
-			'desc' => 'If you would like WordPress to auto populate the "lecture" activity block with the lecture topics listed below, then insert the "Block Number" that has been used for the "lecture" activity',
-			'type' => 'number',
-			'std'  => '0',
-		),
-		
-		array(
-			'name' => 'Lecture Topics',
-			'id'   => "{$prefix}lecture_topics",
-			'desc' => 'Insert the lecture topics you would like to be displayed on the site.',
-			'type' => 'text',
-			'std'  => '',
-			'clone' => true,
 		),
 		
 		

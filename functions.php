@@ -210,8 +210,9 @@ function get_id_by_slug($page_slug) {
  *	variability.
  */
 		
-function get_excerpt_by_id($post_id, $excerpt_length=40){
+function get_excerpt_by_id($post_id, $excerpt_length=40, $echo_link=false, $link_text='View Post'){
 	$the_post = get_post($post_id); //Gets post ID
+	$the_permalink = get_permalink($post_id);
 	$the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
 	$the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
 	$words = explode(' ', $the_excerpt, $excerpt_length + 1);
@@ -220,6 +221,11 @@ function get_excerpt_by_id($post_id, $excerpt_length=40){
 		array_pop($words);
 		array_push($words, '[…]');
 		$the_excerpt = implode(' ', $words);
+		
+		if ($echo_link){
+			$the_excerpt .= "<a href='{$the_permalink}'>{$link_text}</a>"; 
+		}
+		
 	endif;
 	
 	$the_excerpt = '<p>' . $the_excerpt . '</p>';

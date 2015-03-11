@@ -44,12 +44,7 @@ get_header();
 	</div>
 	
 	<aside id="sidebar" class="small-12 large-4 columns stick-to-parent">
-		<?php dynamic_sidebar("archives_sidebar"); ?>
-		
-		<div class="tag-cloud">
-			<h4><i class='fa fa-tags'></i>Popular Tags<i class='fa fa-caret-down'></i></h4>
-		</div>
-		
+		<?php get_sidebar(); ?>
 	</aside>
 </div>
 <?php get_footer(); ?>

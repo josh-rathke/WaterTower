@@ -208,142 +208,142 @@
 		
 		
 		
-		
-		<div data-magellan-destination="weekly-schedule" class="program-onbase-phase-info-container">
-			
-			<?php // OnBase phase description ?>
-			<div class="program-onbase-phase-desc">
-				<h2>Weekly Schedule</h2>
-				<p><?php echo of_get_option('weekly_schedule_desc'); ?></p>
-				<p><?php echo rwmb_meta('lecture_phase_desc'); ?></p>
-			</div>
-			
-			
-			<?php // On Base Phase Details ?>
-			<div class="onbase-phase-detail-container">
-															
-				<div class="onbase-phase-details">
-					<?php $n = 1; ?>
-					<?php $activity_title = 'activity_title' . $n; ?>
-					<?php $activity_hours = 'hours_per_week' . $n; ?>
-					<?php $activity_desc = 'activity_description' . $n; ?>
-										
-					
-					
-					<?php 
-					
-					/*	Function find_total_hours()
-					 *
-					 *	This function finds the total amount of hours
-					 *	per week for whichever particular program is
-					 *	being displayed.
-					 *
-					 *	@input string $title
-					 *	@output string $total_hours
-					 */
-					 
-					function find_total_hours($title) {
-						
-						while (rwmb_meta($title) !== '') {
-							$j = $j + 1;
-							$title = 'activity_title' . $j;
-							$activity_hours = 'hours_per_week' . $j;
-							$total_hours = $total_hours + rwmb_meta($activity_hours);
-							
-						}
-						return $total_hours;
-					} 
-					
-					$total_hours = find_total_hours($activity_title); 
-					
-					?>
-					
-					
+		<?php if (rwmb_meta('enable_weekly_schedule_section')) : ?>
+			<div data-magellan-destination="weekly-schedule" class="program-onbase-phase-info-container">
 				
-					<?php while (rwmb_meta($activity_title) !== '') { ?>
-					<div class="onbase-phase-activity-details-container row">
+				<?php // OnBase phase description ?>
+				<div class="program-onbase-phase-desc">
+					<h2>Weekly Schedule</h2>
+					<p><?php echo of_get_option('weekly_schedule_desc'); ?></p>
+					<p><?php echo rwmb_meta('lecture_phase_desc'); ?></p>
+				</div>
+				
+				
+				<?php // On Base Phase Details ?>
+				<div class="onbase-phase-detail-container">
+																
+					<div class="onbase-phase-details">
+						<?php $n = 1; ?>
+						<?php $activity_title = 'activity_title' . $n; ?>
+						<?php $activity_hours = 'hours_per_week' . $n; ?>
+						<?php $activity_desc = 'activity_description' . $n; ?>
+											
 						
-						<div class="small-12 columns">
-							<h4>
-								<?php echo rwmb_meta($activity_title); ?>
-								<span class="right show-for-medium-up onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
-							</h4>
-							<span class="show-for-small-only onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
-						</div>
 						
-						<div class="small-12 medium-10 columns">
-							<?php echo rwmb_meta($activity_desc); ?>
+						<?php 
+						
+						/*	Function find_total_hours()
+						 *
+						 *	This function finds the total amount of hours
+						 *	per week for whichever particular program is
+						 *	being displayed.
+						 *
+						 *	@input string $title
+						 *	@output string $total_hours
+						 */
+						 
+						function find_total_hours($title) {
 							
-						</div>
-					
-					
-						<div class="hide-for-small medium-2 columns onbase-phase-activity-detail-chart">
-							<div class="chart-container">
-								<i class="fa fa-caret-down"></i>
-								<canvas id="activity-detail-<?php echo $n; ?>" class="chart" width="150" height="150"></canvas>
+							while (rwmb_meta($title) !== '') {
+								$j = $j + 1;
+								$title = 'activity_title' . $j;
+								$activity_hours = 'hours_per_week' . $j;
+								$total_hours = $total_hours + rwmb_meta($activity_hours);
 								
-								<script>
-									jQuery(document).ready(function($) {
+							}
+							return $total_hours;
+						} 
+						
+						$total_hours = find_total_hours($activity_title); 
+						
+						?>
+						
+						
+					
+						<?php while (rwmb_meta($activity_title) !== '') { ?>
+						<div class="onbase-phase-activity-details-container row">
+							
+							<div class="small-12 columns">
+								<h4>
+									<?php echo rwmb_meta($activity_title); ?>
+									<span class="right show-for-medium-up onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
+								</h4>
+								<span class="show-for-small-only onbase-phase-activity-hours"><?php echo rwmb_meta($activity_hours); ?> Hours/Week</span>
+							</div>
+							
+							<div class="small-12 medium-10 columns">
+								<?php echo rwmb_meta($activity_desc); ?>
+								
+							</div>
+						
+						
+							<div class="hide-for-small medium-2 columns onbase-phase-activity-detail-chart">
+								<div class="chart-container">
+									<i class="fa fa-caret-down"></i>
+									<canvas id="activity-detail-<?php echo $n; ?>" class="chart" width="150" height="150"></canvas>
 									
-									var onbaseOverview = [
-									
-									
-									//LOOP THROUGH TOTAL CHART DATA
-									<?php $i = 1; ?>
-									<?php $activity_title = 'activity_title' . $i; ?>
-									<?php $activity_hours = 'hours_per_week' . $i; ?>
-									<?php $activity_desc = 'activity_description' . $i; ?>
-									<?php $hours_before = 0; ?>
-									<?php $hours_after = $total_hours - rwmb_meta($activity_hours); ?>
-	
-									<?php while (rwmb_meta($activity_title) !== '') { ?>
-	
-											<?php if ($n == $i) { ?>
-												{value : <?php echo $hours_before; ?>, color : "#EFEFEF"},
-												{value : <?php echo rwmb_meta($activity_hours); ?>, color : "#609FCE" },
-												{value : <?php echo $hours_after; ?>, color : "#EFEFEF"},
-											<?php } ?>
-											
-										<?php $hours_before = $hours_before + rwmb_meta($activity_hours); ?>
+									<script>
+										jQuery(document).ready(function($) {
 										
-											
-										<?php $i = $i + 1; ?>
+										var onbaseOverview = [
+										
+										
+										//LOOP THROUGH TOTAL CHART DATA
+										<?php $i = 1; ?>
 										<?php $activity_title = 'activity_title' . $i; ?>
 										<?php $activity_hours = 'hours_per_week' . $i; ?>
 										<?php $activity_desc = 'activity_description' . $i; ?>
-										<?php $hours_after = $total_hours - (rwmb_meta($activity_hours)+$hours_before); ?>
-										
-									<?php } ?>
-									
-										]
-									var options = {
-										segmentStrokeWidth : 2,
-										percentageInnerCutout : 65,
-										animation: false,
-										responsive: true,
-									}
-									var ctx = document.getElementById("activity-detail-<?php echo $n; ?>").getContext("2d");
-									var myNewChart = new Chart(ctx).Doughnut(onbaseOverview, options);
-										
+										<?php $hours_before = 0; ?>
+										<?php $hours_after = $total_hours - rwmb_meta($activity_hours); ?>
+		
+										<?php while (rwmb_meta($activity_title) !== '') { ?>
+		
+												<?php if ($n == $i) { ?>
+													{value : <?php echo $hours_before; ?>, color : "#EFEFEF"},
+													{value : <?php echo rwmb_meta($activity_hours); ?>, color : "#609FCE" },
+													{value : <?php echo $hours_after; ?>, color : "#EFEFEF"},
+												<?php } ?>
+												
+											<?php $hours_before = $hours_before + rwmb_meta($activity_hours); ?>
 											
-									});			
-								</script>
-								
+												
+											<?php $i = $i + 1; ?>
+											<?php $activity_title = 'activity_title' . $i; ?>
+											<?php $activity_hours = 'hours_per_week' . $i; ?>
+											<?php $activity_desc = 'activity_description' . $i; ?>
+											<?php $hours_after = $total_hours - (rwmb_meta($activity_hours)+$hours_before); ?>
+											
+										<?php } ?>
+										
+											]
+										var options = {
+											segmentStrokeWidth : 2,
+											percentageInnerCutout : 65,
+											animation: false,
+											responsive: true,
+										}
+										var ctx = document.getElementById("activity-detail-<?php echo $n; ?>").getContext("2d");
+										var myNewChart = new Chart(ctx).Doughnut(onbaseOverview, options);
+											
+												
+										});			
+									</script>
+									
+								</div>
 							</div>
-						</div>
-					
-					</div><!--/.onbase-phase-detail-container-->
-					
-					<?php $n = $n + 1; ?>
-					<?php $activity_title = 'activity_title' . $n; ?>
-					<?php $activity_hours = 'hours_per_week' . $n; ?>
-					<?php $activity_desc = 'activity_description' . $n; ?>
-					<?php } ?>
-					
+						
+						</div><!--/.onbase-phase-detail-container-->
+						
+						<?php $n = $n + 1; ?>
+						<?php $activity_title = 'activity_title' . $n; ?>
+						<?php $activity_hours = 'hours_per_week' . $n; ?>
+						<?php $activity_desc = 'activity_description' . $n; ?>
+						<?php } ?>
+						
+					</div>
 				</div>
 			</div>
-		</div>
-		
+		<?php endif; ?>
 		
 		
 		<?php 
@@ -425,7 +425,7 @@
 	if ( $focus_tracks->have_posts() ) : ?>
 		<div data-magellan-destination="focus-tracks" class="program-focus-tracks-container">
 	 		<h2>Focus Tracks</h2>
-	 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra elit id mauris bibendum hendrerit. Nulla metus enim, porttitor eget diam quis, sodales faucibus odio. Nunc eu tellus vitae metus suscipit sodales id nec ex. Vestibulum mollis eros nec odio interdum, non malesuada purus hendrerit.</p>
+	 		<p><?php echo of_get_option('focus_tracks_desc') ?></p>
 	 		<ul class="medium-block-grid-4">
 	 			
 			<?php while ( $focus_tracks->have_posts() ) : $focus_tracks->the_post(); ?>
@@ -537,7 +537,7 @@
 						</div>
 						
 						<div class="medium-3 columns">
-							<a href="#_" class="related-posts-header-archive-link">
+							<a href="<?php echo get_bloginfo('url') . '/program-blogs/' . $program_object->program_slug; ?>" class="related-posts-header-archive-link">
 								View All Posts
 							</a>
 						</div>
