@@ -63,9 +63,14 @@ $(document).ready(function(){
 });
 
 // Add StickyKit Class to Activate Elements
-$(".stick-to-parent").stick_in_parent();
+$(window).load(function(){
+	$(".stick-to-parent").stick_in_parent();
+});
 
 // Add FitText Class to Activate Elements
 $(".fittext").fitText(1.0, {maxFontSize: '70px'});
 $(".fittext-large").fitText(.65);
+
+// Configure Chart.js
+Chart.defaults.global.showTooltips = false;
 

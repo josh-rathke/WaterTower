@@ -21,6 +21,10 @@ function widgetize_areas_init() {
 								'title'	=>	'Archives Sidebar',
 								'id'	=>	'archives_sidebar',
 								),
+		'single_sidebar'	=>  array (
+								'title' => 	'Post View Sidebar',
+								'id'	=>	'single_sidebar',
+								),
 								
 		'program_single' 	=>	array (
 								'title'	=>	'Programs Sidebar',

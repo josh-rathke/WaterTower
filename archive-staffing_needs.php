@@ -102,8 +102,8 @@ get_header();
 	
 	</div>
 	
-	<div class="large-4 columns">
-		sidebar
+	<div class="large-4 columns stick-to-parent">
+		<?php get_sidebar(); ?>
 	</div>
 </div>
 

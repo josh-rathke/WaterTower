@@ -2,7 +2,8 @@
 .categories,
 .tag-cloud,
 .post-author-container,
-.subscribe-widget-container {
+.subscribe-widget-container,
+.program-snapshot-container {
   background: #F9F9F9;
   padding: 14px 20px 20px 20px;
   position: relative;
@@ -110,5 +111,27 @@
        }
       
      }
+  }
+}
+
+// Unique Styles to the Program Snapshot
+
+.program-snapshot-container {
+  
+  .program-snapshot-instance {
+    
+    h6 {
+      border-bottom: 1px solid #DDD;
+      margin-top: 20px;
+    }
+    
+    >div {
+      font-size: 14px;
+    }
+  }
+  
+  .button {
+    margin-top: 20px;
+    width: 100%;
   }
 }

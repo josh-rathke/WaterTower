@@ -9,7 +9,7 @@
 
 <div class="row content-archive-post-container">
 	<div class="medium-3 columns hide-for-small content-archive-post-image">
-		<?php the_post_thumbnail('thumbnail-card'); ?>
+		<?php the_post_thumbnail('thumbnail'); ?>
 	</div>
 	<div class="medium-9 columns content-archive-post-content">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

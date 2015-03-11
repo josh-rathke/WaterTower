@@ -74,5 +74,13 @@ $options[] = array(
 	'id' => 'weekly_schedule_desc',
 	'std' => '',
 	'type' => 'textarea');
+	
+// Focus Tracks Description
+$options[] = array(
+	'name' => __('Focus Tracks Description', 'options_framework_theme'),
+	'desc' => __('This is the description that will be displayed before the focus tracks section of the programs pages.', 'options_framework_theme'),
+	'id' => 'focus_tracks_desc',
+	'std' => '',
+	'type' => 'textarea');
 
 ?>

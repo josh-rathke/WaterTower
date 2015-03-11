@@ -18,7 +18,7 @@
 <footer class="footer">
 	<div class="row">
 		
-		<div class="medium-3 columns find-us-container">
+		<div class="medium-4 large-3 columns find-us-container">
 			<h2>Find Us</h2>
 			
 			<div class="find-us-phone"><i class="fa fa-mobile"></i>(406) - 844 - 2221</div>
@@ -41,16 +41,17 @@
 					<li><a href="<?php echo of_get_option( 'facebook_url' ); ?>" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
 					<li><a href="<?php echo of_get_option( 'vimeo_url' ); ?>" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>
 					<li><a href="<?php echo of_get_option( 'twitter_url' ); ?>" target="_blank"><i class="fa fa-twitter-square"></i></a></li>
+					<li><a href="<?php echo of_get_option( 'pinterest_url' ); ?>" target="_blank"><i class="fa fa-pinterest-square"></i></a></li>
 				</ul>
 			</div>
 		</div>
 		
-		<div class="medium-5 columns contact-us-container">
+		<div class="medium-4 large-5 columns contact-us-container">
 			<h2>Contact Us</h2>
 			<?php echo do_shortcode(of_get_option('footer_contact_form')); ?>
 		</div>
 		
-		<div class="medium-4 columns get-involved-container">
+		<div class="medium-4 large-4 columns get-involved-container">
 			
 			<?php
 			// Query Staffing Needs
