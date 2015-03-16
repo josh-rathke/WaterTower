@@ -31,7 +31,7 @@ get_header();
 				echo '<li>';
 				echo '<a href="#' . $post->post_name . '">';
 					the_post_thumbnail('thumbnail-card');
-					echo '<h4>' . get_the_title() . '</h4>';
+					echo '<h4 class="fittext">' . get_the_title() . '</h4>';
 				echo '</a>';
 				echo '</li>';
 			}
@@ -42,6 +42,19 @@ get_header();
 		wp_reset_postdata();	
 		?>
 		
+		<div class="target-nations-archive-surge-preview">
+			<div class="row">
+				<div class="medium-4 columns">
+					<img src="<?php echo get_bloginfo('template_url'); ?>/assets/img/images/surge_logo.png" />
+					<a href="<?php echo get_permalink(get_id_by_slug('the-surge')); ?>" class="button show-for-medium-up">More Info</a>
+				</div>
+				<div class="medium-8 columns">
+					<h2>The Surge</h2>
+					<p>“The Surge” is a laser-like strategy that will partner with one Target Nation for 3-5 years at a time to meet mutually agreed upon, God-given goals.  We may be able to coordinate a Surge in 2-3 different Target Nations at the same time (all at different stages in their Surge timelines) depending on what the goal/strategy is that we are partnering alongside.</p>
+					<a href="<?php echo get_permalink(get_id_by_slug('the-surge')); ?>" class="button show-for-small-only">More Info</a>
+				</div>
+			</div>
+		</div>
 		
 		
 		<?php
@@ -55,14 +68,25 @@ get_header();
 				echo '<div class="target-nation-container">';
 				$country_id = rwmb_meta('country_id', '', $post->ID);
 				$country_info = jp_country_info(strtoupper($country_id));
-				$country_name = strtolower($country_info['data'][0]['Ctry']);
+				$country_name = strtolower($country_info['data'][0]['Ctry']); ?>
 				
-				the_post_thumbnail('full-width-banner');
+				<div class="target-nation-header-image-container" data-magellan-destination="<?php echo $post->post_name; ?>">
+				<?php
+					the_post_thumbnail('full-width-banner');
+					
+					echo '<div class="target-nation-header-info vertical-align-absolute">';
+						echo '<h2 class="fittext">' . get_the_title() . '</h2>';
+						echo '<span class="target-nation-section-percentage">' . number_format($country_info['data'][0]['PercentChristianity'], 2) . '% Christian</span></h2>';
+					echo '</div>';
+				?>
+				</div>
 				
-				echo '<div class="target-nation-title-wrapper">';
-				echo '<h2 class="target-nation-section-title">' . get_the_title() . '</h2>';
-				echo '<span class="target-nation-section-percentage"><i class="fa fa-long-arrow-right"></i> ' . number_format($country_info['data'][0]['PercentChristianity'], 2) . '% Christian</span></h2>';
-				echo '</div>';
+				<?php
+				
+				//echo '<div class="target-nation-title-wrapper">';
+				//echo '<h2 class="target-nation-section-title">' . get_the_title() . '</h2>';
+				//echo '<span class="target-nation-section-percentage right">' . number_format($country_info['data'][0]['PercentChristianity'], 2) . '% Christian</span></h2>';
+				//echo '</div>';
 				?>
 				
 				

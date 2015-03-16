@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 		
 		// Create Back to Top Button
 		jQuery('.side-nav-by-heading').append(
-			'<dd class="back-to-top"><a href="#back-to-top">Back To Top<i class="fa fa-angle-double-up"></i></dd>'
+			'<dd class="back-to-top"><a>Back To Top<i class="fa fa-angle-double-up"></i></dd>'
 		);
 		
 	} else {
@@ -73,4 +73,11 @@ $(".fittext-large").fitText(.65);
 
 // Configure Chart.js
 Chart.defaults.global.showTooltips = false;
+
+// Scroll To Top
+$(document).ready(function(){
+	$('.back-to-top').click(function() {
+	    $('html, body').animate({ scrollTop: 0 }, 500);
+	});
+});
 
