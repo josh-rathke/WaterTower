@@ -50,16 +50,16 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 				$photosphere_url = rwmb_meta('photosphere_url');
 				
 				if (rwmb_meta('include_in_tour')) {
-					echo '<div class="medium-5 columns">';
-						the_post_thumbnail('thumbnail-card');
+					echo '<div class="medium-4 columns">';
+						echo '<a href="#_" onclick="setPano2link(\'' . $photosphere_id . '\')">' . get_the_post_thumbnail($post->ID, 'thumbnail-card') . '</a>';
 					echo '</div>';
 					
-					echo '<div class="medium-7 columns">';
+					echo '<div class="medium-8 columns">';
 						echo '<h3>' . get_the_title() . '</h3>';
 						the_content();
 						
 						echo '<div class="campus-tour-location-footer">';
-							echo '<a href="#_" onclick="setPano2link(\'' . $photosphere_id . '\')"><i class="fa fa-street-view"></i> Start Virtual Tour</a>';
+							echo '<a href="#_" onclick="setPano2link(\'' . $photosphere_id . '\')"><i class="fa fa-street-view"></i> Take Virtual Tour</a>';
 							echo "<a href='{$photosphere_url}'><i class='fa fa-google'></i> View on Google Maps</a>";
 						echo '</div>';
 					echo '</div>';

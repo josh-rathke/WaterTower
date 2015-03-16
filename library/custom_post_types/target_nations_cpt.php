@@ -40,6 +40,18 @@ function my_custom_post_target_nations() {
 add_action( 'init', 'my_custom_post_target_nations' );
 
 
+// Disable Single Post View
+function target_nations_redirect_post() {
+  $queried_post_type = get_query_var('post_type');
+  if ( is_single() && 'target_nations' ==  $queried_post_type ) {
+    wp_redirect( get_bloginfo('url') . '/target-nations/', 301 );
+    exit;
+  }
+}
+
+add_action( 'template_redirect', 'target_nations_redirect_post' );
+
+
 function jp_country_info($country_id) {
 	
 	$api_key = "491f2410d044";

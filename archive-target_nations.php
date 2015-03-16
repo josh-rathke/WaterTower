@@ -15,7 +15,7 @@ get_header();
 ?>
 
 <div class="row target-nations-archive-container">
-	<div class="large-9 columns entry" data-magellan-destination="school-leaders">
+	<div class="large-9 columns entry">
 		
 		<h1><?php echo get_the_title($page_id); ?></h1>
 		<?php echo apply_filters('the_content', get_post_field('post_content', $page_id)); ?>
@@ -42,7 +42,7 @@ get_header();
 		wp_reset_postdata();	
 		?>
 		
-		<div class="target-nations-archive-surge-preview">
+		<div class="target-nations-archive-surge-preview" data-magellan-destination="the-surge">
 			<div class="row">
 				<div class="medium-4 columns">
 					<img src="<?php echo get_bloginfo('template_url'); ?>/assets/img/images/surge_logo.png" />
@@ -117,8 +117,8 @@ get_header();
 				<?php the_content(); ?>
 				
 				<ul class="target-nation-footer">
-					<li><a href="<?php echo get_bloginfo('url'); ?>/target-nation-blogs/<?php echo $country_name ?>">Posts Related to <?php echo ucfirst($country_name); ?> (<?php echo count(get_posts("target_nations_taxo={$country_name}")) ?>)</a></li>
-					<li><a href="http://joshuaproject.net/countries/<?php echo $country_id; ?>">Joshua Project <i class="fa fa-external-link"></i></a></li>
+					<li><a href="<?php echo get_bloginfo('url'); ?>/target-nation-blogs/<?php echo $country_name ?>"><i class="fa fa-sitemap"></i> Posts Related to <?php echo ucfirst($country_name); ?> (<?php echo count(get_posts("target_nations_taxo={$country_name}")) ?>)</a></li>
+					<li><a href="http://joshuaproject.net/countries/<?php echo $country_id; ?>"><i class="fa fa-external-link"></i> Joshua Project</a></li>
 				</ul>
 			</div>
 			<?php }
