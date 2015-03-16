@@ -15,7 +15,7 @@
 
 
 <?php do_action('watertower_before_footer'); ?>
-<footer class="footer">
+<footer id="contact" class="footer">
 	<div class="row">
 		
 		<div class="medium-4 large-3 columns find-us-container">
