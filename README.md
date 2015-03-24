@@ -1,4 +1,4 @@
-# watertower
+# watertower [![Build Status](https://travis-ci.org/ywammontana/WaterTower.svg?branch=master)](https://travis-ci.org/ywammontana/WaterTower)
 
 This is a WordPress starter theme based on Foundation 5 by Zurb. The purpose of watertower, is to act as a small and handy toolbox that contains the essentials needed to build any design. watertower is meant to be a starting point, not the final product. If you're looking for an all-in-one theme with built-in shortcodes, plugins, fancypancy portfolio templates or whatnot, I'm afraid you have to look elsewhere.
 
