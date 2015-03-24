@@ -2,15 +2,12 @@
 
 /**
  *    Program Archive Page Template
- *    This page template displays all of the programs
- *     we offer.
- * 
+ *    This page template displays all of the programs we offer
  *    Template Name: Target Nations
  */
  
 //	Get Page ID from the slug
 $page_id = get_id_by_slug('target-nations');
-
 get_header();
 ?>
 
