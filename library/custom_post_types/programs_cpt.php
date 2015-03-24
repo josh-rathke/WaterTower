@@ -96,28 +96,12 @@ class programInfo {
 	
 	
 	public function populate_academic_info() {
-	
-		$raw_prereqs = get_the_terms( $this->program_id, 'prereqs_taxo', '', $program_id=$this->program_id);
-		foreach ($raw_prereqs as $prereq) {
-			if ($prereq->slug != $this->program_slug) {
-				$filtered_prereqs[] = array(
-					'slug' => $prereq->slug,
-					'name' => $prereq->name,
-				);
-			}
-		}
 		
 		$this->academic_info = array(
-			'short_name' => rwmb_meta('short_name', '', $program_id=$this->program_id),
-			'program_acronym' => rwmb_meta('acronym', '', $program_id=$this->program_id),
 			'program_duration' => rwmb_meta('program_duration', '', $program_id=$this->program_id),
-			'min_age_wo_ged' => rwmb_meta('min_age_woged_prereqs', '', $program_id=$this->program_id),
-			'program_prereqs' => $filtered_prereqs != '' ? $filtered_prereqs : null,
 			'recommended_prereqs' => rwmb_meta('custom_prereqs', '', $program_id=$this->program_id),
 			'accreditation' => rwmb_meta('accreditation', '', $program_id=$this->program_id),
 			'has_outreach' => rwmb_meta('has_outreach_phase', '', $program_id=$this->program_id),
-			'outreach_duration' => rwmb_meta('outreach_phase_duration', '', $program_id=$this->program_id),
-			'outreach_locale' => rwmb_meta('outreach_locale', 'type=checkbox_list', $program_id=$this->program_id),
 		);
 		
 	}
