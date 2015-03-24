@@ -4,14 +4,14 @@
  *	This is where we define all of the custom
  * 	meta fields for the Acceptance Packets custom post type.
  */
- 
+
 $meta_boxes[] = array(
 	'title'  => 'Additional Info',
 	'pages' => array( 'acceptance_packets'),
 	'context' => 'normal',
 	'priority' => 'low',
 	'fields' => array(
-	
+
 		// POST
 		array(
 			'name'        => __( 'Related Program', 'meta-box' ),
@@ -25,9 +25,9 @@ $meta_boxes[] = array(
 				'posts_per_page' => - 1,
 			)
 		),
-		
+
 		// SCHOOL LEADERS
-		
+
 		array(
 			'name'    => __( 'School Leaders', 'rwmb' ),
 			'id'      => "{$prefix}leaders",

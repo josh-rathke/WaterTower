@@ -1,17 +1,17 @@
 <?php
 
 /*	Staff Needs Custom Meta
- *	This is where all of the custom meta for any of the 
+ *  This is where all of the custom meta for any of the
  *	staff needs goes along with the archive page.
  */
- 
+
 $meta_boxes[] = array(
 	'title'  => 'Staff Needs',
 	'pages' => array( 'staffing_needs'),
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-		
+
 		array(
 			'name'  => 'Helpful Skills',
 			'id'    => "{$prefix}helpful_skills",
@@ -19,7 +19,7 @@ $meta_boxes[] = array(
 			'type'  => 'textarea',
 			'std'   => '',
 		),
-		
+
 		array(
 			'name'  => 'Requirements',
 			'id'    => "{$prefix}requirements",
@@ -38,7 +38,7 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		// ENABLE STAFF NEEDS
 		array(
 			'name' => __( 'Enable What To Expect Section', 'meta-box' ),
@@ -46,7 +46,7 @@ $meta_boxes[] = array(
 			'type' => 'checkbox',
 			'std'  => 1,
 		),
-		
+
 		// WHAT TO EXPECT TITLE
 		array(
 			'name'  => 'What To Expect Title',
@@ -56,7 +56,7 @@ $meta_boxes[] = array(
 			'std'   => 'What To Expect While on Staff',
 			'clone' => false,
 		),
-		
+
 		// WYSIWYG/RICH TEXT EDITOR
 		array(
 			'name' => __( 'What To Expect', 'meta-box' ),
@@ -71,7 +71,7 @@ $meta_boxes[] = array(
 				'media_buttons' => false,
 			),
 		),
-		
+
 	),
 	'only_on'    => array(
 		'id'       => array(),
@@ -88,7 +88,7 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		// ENABLE STAFF NEEDS
 		array(
 			'name' => __( 'Enable Staff Commitment Section', 'meta-box' ),
@@ -96,7 +96,7 @@ $meta_boxes[] = array(
 			'type' => 'checkbox',
 			'std'  => 1,
 		),
-		
+
 		// WHAT TO EXPECT TITLE
 		array(
 			'name'  => 'Staff Commitment Title',
@@ -106,7 +106,7 @@ $meta_boxes[] = array(
 			'std'   => 'Staff Commitment',
 			'clone' => false,
 		),
-		
+
 		// WYSIWYG/RICH TEXT EDITOR
 		array(
 			'name' => __( 'Staff Commitment', 'meta-box' ),
@@ -121,7 +121,7 @@ $meta_boxes[] = array(
 				'media_buttons' => false,
 			),
 		),
-		
+
 	),
 	'only_on'    => array(
 		'id'       => array(),
@@ -137,7 +137,7 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		// ENABLE STAFF NEEDS
 		array(
 			'name' => __( 'Enable Position Descriptions Section', 'meta-box' ),
@@ -145,7 +145,7 @@ $meta_boxes[] = array(
 			'type' => 'checkbox',
 			'std'  => 1,
 		),
-		
+
 		// WHAT TO EXPECT TITLE
 		array(
 			'name'  => 'Staff Commitment Title',
@@ -155,7 +155,7 @@ $meta_boxes[] = array(
 			'std'   => 'Position Descrptions',
 			'clone' => false,
 		),
-		
+
 		// WYSIWYG/RICH TEXT EDITOR
 		array(
 			'name' => __( 'Staff Commitment', 'meta-box' ),
@@ -170,7 +170,7 @@ $meta_boxes[] = array(
 				'media_buttons' => false,
 			),
 		),
-		
+
 	),
 	'only_on'    => array(
 		'id'       => array(),
@@ -187,7 +187,7 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		// ENABLE STAFF NEEDS
 		array(
 			'name' => __( 'Enable Request Info Section', 'meta-box' ),
@@ -195,7 +195,7 @@ $meta_boxes[] = array(
 			'type' => 'checkbox',
 			'std'  => 1,
 		),
-		
+
 		// WHAT TO EXPECT TITLE
 		array(
 			'name'  => 'Request Info Title',
@@ -205,7 +205,7 @@ $meta_boxes[] = array(
 			'std'   => 'Request Info',
 			'clone' => false,
 		),
-		
+
 		// WYSIWYG/RICH TEXT EDITOR
 		array(
 			'name' => __( 'Request Info Description', 'meta-box' ),
@@ -220,7 +220,7 @@ $meta_boxes[] = array(
 				'media_buttons' => false,
 			),
 		),
-		
+
 	),
 	'only_on'    => array(
 		'id'       => array(),

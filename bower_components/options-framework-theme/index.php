@@ -102,13 +102,13 @@ get_header(); ?>
 			<dt>type: multicheck</dt>
 			<dd>of_get_option('multicheck'):
 			<?php $multicheck = of_get_option( 'example_multicheck', 'none' ); ?>
-			<?php print_r($multicheck); ?>
+			<?php print_r( $multicheck ); ?>
 			</dd>
 			</dl>
 
 			<p>The array sent in the options panel was defined as:<br>
 			<?php
-			$test_array_jr = array( "one" => "French Toast", "two" => "Pancake", "three" => "Omelette", "four" => "Crepe", "five" => "Waffle" );
+			$test_array_jr = array( 'one' => 'French Toast', 'two' => 'Pancake', 'three' => 'Omelette', 'four' => 'Crepe', 'five' => 'Waffle' );
 			print_r( $test_array_jr );
 			?>
 			</p>
@@ -147,15 +147,15 @@ get_header(); ?>
 			<dl>
 			<dt>type: background</dt>
 			<dd>of_get_option('background'):
-			<?php $background = of_get_option('example_background');
+			<?php $background = of_get_option( 'example_background' );
 			if ( $background ) {
 				if ( $background['image'] ) {
 					echo '<span style="display: block; height: 200px; width: 200px; background:url(' . $background['image'] . ') "></span>';
 					echo '<ul>';
-					foreach ( $background as $i=> $param ){
+					foreach ( $background as $i => $param ){
 						echo '<li>'.$i . ' = ' . $param . '</li>';
-				}
-				echo '</ul>';
+					}
+					echo '</ul>';
 				} else {
 					echo '<span style="display: inline-block; height: 20px; width: 20px; background:' . $background['color'] . ' "></span>';
 					echo '<ul>';
@@ -163,7 +163,7 @@ get_header(); ?>
 					echo '</ul>';
 				}
 			} else {
-				echo "no entry";
+				echo 'no entry';
 			}; ?>
 			</span>
 			</dd>
@@ -181,7 +181,7 @@ get_header(); ?>
 			<dl>
 			<dt>type: typography</dt>
 			<dd>of_get_option('typography'):
-			<?php $typography = of_get_option('example_typography');
+			<?php $typography = of_get_option( 'example_typography' );
 			if ( $typography ) {
 				echo '<ul>';
 				foreach ( $typography as $i => $param ) {
@@ -190,7 +190,7 @@ get_header(); ?>
 				echo '</ul>';
 				echo '<span style="font-family: ' . $typography['face'] . '; font-size:' . $typography['size'] . '; font-style: ' . $typography['style'] . '; color:'.$typography['color'] . ';">Some sample text in your style</span>';
 			} else {
-				echo "no entry";
+				echo 'no entry';
 			} ?>
 			</dd>
 			</dl>
@@ -202,7 +202,7 @@ get_header(); ?>
 			<dl>
 			<dt>type: editor</dt>
 			<dd>of_get_option('example_editor'):<br>
-			<?php echo of_get_option( 'example_editor', 'no entry'); ?>
+			<?php echo of_get_option( 'example_editor', 'no entry' ); ?>
 			</dd>
 			</dl>
 

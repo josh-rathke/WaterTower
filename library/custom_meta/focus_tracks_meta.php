@@ -4,21 +4,21 @@
  *	This is where we define all of the custom
  * 	meta fields for the Focus Tracks custom post type.
  */
- 
+
 $meta_boxes[] = array(
 	'title'  => 'Track Info',
 	'pages' => array( 'focus_tracks'),
 	'context' => 'side',
 	'priority' => 'low',
 	'fields' => array(
-	
+
 		array(
 			'name'             => __( 'Focus Track Icon', 'meta-box' ),
 			'id'               => "{$prefix}focus_track_icon",
 			'type'             => 'image_advanced',
 			'max_file_uploads' => 1,
 		),
-		
+
 		// CHECKBOX LIST
 		array(
 			'name'    => __( 'Quarters Offered', 'meta-box' ),

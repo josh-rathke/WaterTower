@@ -3,22 +3,22 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><?php if (is_category() ) {
-        echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo('name');
-} elseif (is_tag() ) {
-    echo 'Tag Archive for &quot;'; single_tag_title(); echo '&quot; | '; bloginfo('name');
-} elseif (is_archive() ) {
-    wp_title(''); echo ' Archive | '; bloginfo('name');
-} elseif (is_search() ) {
-    echo 'Search for &quot;'.esc_html($s).'&quot; | '; bloginfo('name');
-} elseif (is_home() || is_front_page() ) {
-    bloginfo('name'); echo ' | '; bloginfo('description');
-}  elseif (is_404() ) {
-    echo 'Error 404 Not Found | '; bloginfo('name');
-} elseif (is_single() ) {
-    wp_title('');
+		<title><?php if ( is_category() ) {
+			echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
+} elseif ( is_tag() ) {
+	echo 'Tag Archive for &quot;'; single_tag_title(); echo '&quot; | '; bloginfo( 'name' );
+} elseif ( is_archive() ) {
+	wp_title( '' ); echo ' Archive | '; bloginfo( 'name' );
+} elseif ( is_search() ) {
+	echo 'Search for &quot;'.esc_html( $s ).'&quot; | '; bloginfo( 'name' );
+} elseif ( is_home() || is_front_page() ) {
+	bloginfo( 'name' ); echo ' | '; bloginfo( 'description' );
+}  elseif ( is_404() ) {
+	echo 'Error 404 Not Found | '; bloginfo( 'name' );
+} elseif ( is_single() ) {
+	wp_title( '' );
 } else {
-    echo wp_title(' | ', 'false', 'right'); bloginfo('name');
+	echo wp_title( ' | ', 'false', 'right' ); bloginfo( 'name' );
 } ?></title>
 		
 		<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/foundation.css" />
@@ -32,12 +32,12 @@
     <?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
-    <?php do_action('watertower_after_body'); ?>
+    <?php do_action( 'watertower_after_body' ); ?>
 	
 	<div class="off-canvas-wrap" data-offcanvas>
 	<div class="inner-wrap">
 	
-    <?php do_action('watertower_layout_start'); ?>
+    <?php do_action( 'watertower_layout_start' ); ?>
 	
 	<nav class="tab-bar show-for-small-only">
 		<section class="left-small">
@@ -45,21 +45,21 @@
 		</section>
 		<section class="middle tab-bar-section">
 			
-			<a href="<?php echo get_bloginfo('url'); ?>"><img class="main-logo" style="opacity: 100; min-width: 190px; max-width: 250px; width: 100%;" src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/ywammt-logo.png" /></a>
+			<a href="<?php echo get_bloginfo( 'url' ); ?>"><img class="main-logo" style="opacity: 100; min-width: 190px; max-width: 250px; width: 100%;" src="<?php echo get_bloginfo( 'template_directory' ); ?>/assets/img/images/ywammt-logo.png" /></a>
 
 		</section>
 	</nav>
 
-    <?php get_template_part('parts/off-canvas-menu'); ?>
+    <?php get_template_part( 'parts/off-canvas-menu' ); ?>
 	
-    <?php get_template_part('parts/logo-banner'); ?>
+    <?php get_template_part( 'parts/logo-banner' ); ?>
 
-    <?php get_template_part('parts/top-bar'); ?>
+    <?php get_template_part( 'parts/top-bar' ); ?>
 	
-    <?php get_template_part('parts/img-banner'); ?>
+    <?php get_template_part( 'parts/img-banner' ); ?>
 	
 	
 	
 
 <section class="container" role="document">
-    <?php do_action('watertower_after_header'); ?>
+    <?php do_action( 'watertower_after_header' ); ?>

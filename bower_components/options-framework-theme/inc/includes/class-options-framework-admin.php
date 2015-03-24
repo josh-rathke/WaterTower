@@ -10,25 +10,25 @@
 class Options_Framework_Admin {
 
 	/**
-     * Page hook for the options screen
-     *
-     * @since 1.7.0
-     * @type string
-     */
-    protected $options_screen = null;
+	 * Page hook for the options screen
+	 *
+	 * @since 1.7.0
+	 * @type string
+	 */
+	protected $options_screen = null;
 
-    /**
-     * Hook in the scripts and styles
-     *
-     * @since 1.7.0
-     */
-    public function init() {
+	/**
+	 * Hook in the scripts and styles
+	 *
+	 * @since 1.7.0
+	 */
+	public function init() {
 
 		// Gets options to load
-    	$options = & Options_Framework::_optionsframework_options();
+		$options = & Options_Framework::_optionsframework_options();
 
 		// Checks if options are available
-    	if ( $options ) {
+		if ( $options ) {
 
 			// Add the options page and menu item.
 			add_action( 'admin_menu', array( $this, 'add_custom_options_page' ) );
@@ -45,17 +45,17 @@ class Options_Framework_Admin {
 
 		}
 
-    }
+	}
 
 	/**
-     * Registers the settings
-     *
-     * @since 1.7.0
-     */
-    function settings_init() {
+	 * Registers the settings
+	 *
+	 * @since 1.7.0
+	 */
+	function settings_init() {
 
-    	// Load Options Framework Settings
-        $optionsframework_settings = get_option( 'optionsframework' );
+		// Load Options Framework Settings
+		$optionsframework_settings = get_option( 'optionsframework' );
 
 		// Registers the settings fields and callback
 		register_setting( 'optionsframework', $optionsframework_settings['id'],  array ( $this, 'validate_options' ) );
@@ -63,7 +63,7 @@ class Options_Framework_Admin {
 		// Displays notice after options save
 		add_action( 'optionsframework_after_validate', array( $this, 'save_options_notice' ) );
 
-    }
+	}
 
 	/*
 	 * Define menu options
@@ -84,18 +84,18 @@ class Options_Framework_Admin {
 		$menu = array(
 
 			// Modes: submenu, menu
-            'mode' => 'submenu',
+			'mode' => 'submenu',
 
-            // Submenu default settings
-            'page_title' => __( 'Theme Options', 'textdomain'),
-			'menu_title' => __('Theme Options', 'textdomain'),
+			// Submenu default settings
+			'page_title' => __( 'Theme Options', 'textdomain' ),
+			'menu_title' => __( 'Theme Options', 'textdomain' ),
 			'capability' => 'edit_theme_options',
 			'menu_slug' => 'options-framework',
-            'parent_slug' => 'themes.php',
+			'parent_slug' => 'themes.php',
 
-            // Menu default settings
-            'icon_url' => 'dashicons-admin-generic',
-            'position' => '61'
+			// Menu default settings
+			'icon_url' => 'dashicons-admin-generic',
+			'position' => '61'
 
 		);
 
@@ -103,10 +103,10 @@ class Options_Framework_Admin {
 	}
 
 	/**
-     * Add a subpage called "Theme Options" to the appearance menu.
-     *
-     * @since 1.7.0
-     */
+	 * Add a subpage called "Theme Options" to the appearance menu.
+	 *
+	 * @since 1.7.0
+	 */
 	function add_custom_options_page() {
 
 		$menu = $this->menu_settings();
@@ -117,40 +117,40 @@ class Options_Framework_Admin {
 		// Code removed because it conflicts with .org theme check.
 
 		$this->options_screen = add_submenu_page(
-            	$menu['parent_slug'],
-            	$menu['page_title'],
-            	$menu['menu_title'],
-            	$menu['capability'],
-            	$menu['menu_slug'],
-            	array( $this, 'options_page' )
-        );
+			$menu['parent_slug'],
+			$menu['page_title'],
+			$menu['menu_title'],
+			$menu['capability'],
+			$menu['menu_slug'],
+			array( $this, 'options_page' )
+		);
 
 	}
 
 	/**
-     * Loads the required stylesheets
-     *
-     * @since 1.7.0
-     */
+	 * Loads the required stylesheets
+	 *
+	 * @since 1.7.0
+	 */
 
 	function enqueue_admin_styles( $hook ) {
 
-		if ( $this->options_screen != $hook )
-	        return;
+		if ( $this->options_screen != $hook ) {
+	        return; }
 
 		wp_enqueue_style( 'optionsframework', OPTIONS_FRAMEWORK_DIRECTORY . 'css/optionsframework.css', array(),  Options_Framework::VERSION );
 		wp_enqueue_style( 'wp-color-picker' );
 	}
 
 	/**
-     * Loads the required javascript
-     *
-     * @since 1.7.0
-     */
+	 * Loads the required javascript
+	 *
+	 * @since 1.7.0
+	 */
 	function enqueue_admin_scripts( $hook ) {
 
-		if ( $this->options_screen != $hook )
-	        return;
+		if ( $this->options_screen != $hook ) {
+	        return; }
 
 		// Enqueue custom option panel JS
 		wp_enqueue_script( 'options-custom', OPTIONS_FRAMEWORK_DIRECTORY . 'js/options-custom.js', array( 'jquery','wp-color-picker' ), Options_Framework::VERSION );
@@ -165,8 +165,8 @@ class Options_Framework_Admin {
 	}
 
 	/**
-     * Builds out the options panel.
-     *
+	 * Builds out the options panel.
+	 *
 	 * If we were using the Settings API as it was intended we would use
 	 * do_settings_sections here.  But as we don't want the settings wrapped in a table,
 	 * we'll call our own custom optionsframework_fields.  See options-interface.php
@@ -174,9 +174,9 @@ class Options_Framework_Admin {
 	 *
 	 * Nonces are provided using the settings_fields()
 	 *
-     * @since 1.7.0
-     */
-	 function options_page() { ?>
+	 * @since 1.7.0
+	 */
+	function options_page() { ?>
 
 		<div id="optionsframework-wrap" class="wrap">
 

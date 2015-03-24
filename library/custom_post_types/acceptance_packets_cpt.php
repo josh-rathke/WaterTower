@@ -4,8 +4,8 @@
  * 	This post type holds all of the information relavent to the
  * 	many acceptance packets we offer in our schools.
  */
- 
- 
+
+
 function acceptance_packets_cpt() {
 	$labels = array(
 		'name'               => _x( 'Acceptance Packets', 'post type general name', 'water-tower' ),
@@ -18,7 +18,7 @@ function acceptance_packets_cpt() {
 		'view_item'          => __( 'View Acceptance Packet', 'water-tower' ),
 		'search_items'       => __( 'Search Acceptance Packets', 'water-tower' ),
 		'not_found'          => __( 'No acceptance packets found', 'water-tower' ),
-		'not_found_in_trash' => __( 'No acceptance packets found in the Trash', 'water-tower' ), 
+		'not_found_in_trash' => __( 'No acceptance packets found in the Trash', 'water-tower' ),
 		'menu_name'          => __( 'Acceptance Packets', 'water-tower' ),
 	);
 	$args = array(
@@ -28,10 +28,10 @@ function acceptance_packets_cpt() {
 		'supports'      => array( 'title', 'editor', 'revisions' ),
 		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
-		'rewrite' 		=> array('slug' => 'acceptance-packets'), 
+		'rewrite' 		=> array('slug' => 'acceptance-packets'),
 		'taxonomies' 	=> array(),
 	);
-	register_post_type( 'acceptance_packets', $args );	
+	register_post_type( 'acceptance_packets', $args );
 }
 add_action( 'init', 'acceptance_packets_cpt' );
 

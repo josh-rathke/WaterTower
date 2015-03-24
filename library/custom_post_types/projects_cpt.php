@@ -21,7 +21,7 @@ function my_custom_post_projects() {
 		'search_items'       => __( 'Search Projects', 'water-tower' ),
 		'not_found'          => __( 'No Projects found', 'water-tower' ),
 		'not_found_in_trash' => __( 'No Projects found in the Trash', 'water-tower' ),
-		'menu_name'          => __('Projects', 'water-tower'),
+		'menu_name'          => __( 'Projects', 'water-tower' ),
 	);
 	$args = array(
 		'labels'        => $labels,
@@ -34,7 +34,7 @@ function my_custom_post_projects() {
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
 	);
-	register_post_type( 'projects', $args );	
+	register_post_type( 'projects', $args );
 }
 add_action( 'init', 'my_custom_post_projects' );
 

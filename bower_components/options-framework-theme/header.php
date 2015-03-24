@@ -14,4 +14,4 @@
 
 <body <?php body_class(); ?>>
 
-	<div id="page">
+    <div id="page">

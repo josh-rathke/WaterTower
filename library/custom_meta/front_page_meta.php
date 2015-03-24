@@ -7,35 +7,35 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-		
+
 		// Enable Alert Box
 		array(
 				'name' => 'Alert Slide',
 				'id'   => "{$prefix}enable_alert_slide",
 				'type' => 'checkbox',
 		),
-		
+
 		// Alert Title
 		array(
 				'name' => 'Alert Title',
 				'id'   => "{$prefix}alert_title",
 				'type' => 'text',
 		),
-		
+
 		// Alert Description
 		array(
 				'name' => 'Alert Description',
 				'id'   => "{$prefix}alert_desc",
 				'type' => 'textarea',
 		),
-		
+
 		// Alert Page Link
 		array(
 				'name' => 'Alert Page Link',
 				'id'   => "{$prefix}alert_page_link",
 				'type' => 'text',
 		),
-		
+
 		// Alert Box Background
 		array(
 			'name'             => __( 'Alert Box Background Image', 'meta-box' ),
@@ -43,7 +43,7 @@ $meta_boxes[] = array(
 			'type'             => 'image_advanced',
 			'max_file_uploads' => 1,
 		),
-		
+
 		// Isolate Slide
 		array(
 				'name' => 'Isolate Slide',
@@ -52,7 +52,7 @@ $meta_boxes[] = array(
 				'desc' => 'Check this box if you would like the alert slide to be the only slide that displays in the gallery.'
 		),
 	),
-		
+
 	'only_on'    => array(
 		'id'       => array(),
 		'template' => array( 'front-page.php' ),
@@ -73,7 +73,7 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		// Video Title
 		array(
 				'name' => 'Video Title',
@@ -81,7 +81,7 @@ $meta_boxes[] = array(
 				'type' => 'text',
 				'desc' => 'Put the title of the video here.',
 		),
-		
+
 		// Video Description
 		array(
 				'name' => 'Video Description',
@@ -89,7 +89,7 @@ $meta_boxes[] = array(
 				'type' => 'textarea',
 				'desc' => 'Put a description of the video here.',
 		),
-		
+
 		// Video Embed Code
 		array(
 				'name' => 'Video Embed Code',
@@ -97,7 +97,7 @@ $meta_boxes[] = array(
 				'type' => 'textarea',
 				'desc' => 'Put the embed code for the video here.',
 		),
-		
+
 		// Video Related Programs
 		array(
 			'name'    => __( 'Related Programs', 'rwmb' ),
@@ -111,7 +111,7 @@ $meta_boxes[] = array(
 		),
 
 	),
-		
+
 	'only_on'    => array(
 		'id'       => array(),
 		'template' => array( 'front-page.php' ),

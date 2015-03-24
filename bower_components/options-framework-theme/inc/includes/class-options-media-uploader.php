@@ -50,7 +50,7 @@ class Options_Framework_Media_Uploader {
 			$value = $_value;
 		}
 
-		if ($_name != '') {
+		if ( $_name != '' ) {
 			$name = $_name;
 		}
 		else {
@@ -60,7 +60,7 @@ class Options_Framework_Media_Uploader {
 		if ( $value ) {
 			$class = ' has-file';
 		}
-		$output .= '<input id="' . $id . '" class="upload' . $class . '" type="text" name="'.$name.'" value="' . $value . '" placeholder="' . __('No file chosen', 'textdomain') .'" />' . "\n";
+		$output .= '<input id="' . $id . '" class="upload' . $class . '" type="text" name="'.$name.'" value="' . $value . '" placeholder="' . __( 'No file chosen', 'textdomain' ) .'" />' . "\n";
 		if ( function_exists( 'wp_enqueue_media' ) ) {
 			if ( ( $value == '' ) ) {
 				$output .= '<input id="upload-' . $id . '" class="upload-button button" type="button" value="' . __( 'Upload', 'textdomain' ) . '" />' . "\n";
@@ -83,8 +83,8 @@ class Options_Framework_Media_Uploader {
 			if ( $image ) {
 				$output .= '<img src="' . $value . '" alt="" />' . $remove;
 			} else {
-				$parts = explode( "/", $value );
-				for( $i = 0; $i < sizeof( $parts ); ++$i ) {
+				$parts = explode( '/', $value );
+				for ( $i = 0; $i < sizeof( $parts ); ++$i ) {
 					$title = $parts[$i];
 				}
 
@@ -107,11 +107,11 @@ class Options_Framework_Media_Uploader {
 
 		$menu = Options_Framework_Admin::menu_settings();
 
-        if ( substr( $hook, -strlen( $menu['menu_slug'] ) ) !== $menu['menu_slug'] )
-	        return;
+		if ( substr( $hook, -strlen( $menu['menu_slug'] ) ) !== $menu['menu_slug'] ) {
+	        return; }
 
-		if ( function_exists( 'wp_enqueue_media' ) )
-			wp_enqueue_media();
+		if ( function_exists( 'wp_enqueue_media' ) ) {
+			wp_enqueue_media(); }
 
 		wp_register_script( 'of-media-uploader', OPTIONS_FRAMEWORK_DIRECTORY .'js/media-uploader.js', array( 'jquery' ), Options_Framework::VERSION );
 		wp_enqueue_script( 'of-media-uploader' );

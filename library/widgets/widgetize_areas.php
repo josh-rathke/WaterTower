@@ -8,38 +8,35 @@
 
 function widgetize_areas_init() {
 
-	
-	
 	$widgetized_areas = array(
-		
-		'default_sidebar' 	=>	array (
-								'title'	=>	'Default Sidebar',
-								'id'	=>	'default_sidebar',
+
+		'default_sidebar' 	=> array (
+								'title'	=> 'Default Sidebar',
+								'id'	=> 'default_sidebar',
 								),
-								
-		'archives_sidebar' 	=>	array (
-								'title'	=>	'Archives Sidebar',
-								'id'	=>	'archives_sidebar',
+
+		'archives_sidebar' 	=> array (
+								'title'	=> 'Archives Sidebar',
+								'id'	=> 'archives_sidebar',
 								),
-		'single_sidebar'	=>  array (
-								'title' => 	'Post View Sidebar',
-								'id'	=>	'single_sidebar',
+		'single_sidebar'	=> array (
+								'title' => 'Post View Sidebar',
+								'id'	=> 'single_sidebar',
 								),
-								
-		'program_single' 	=>	array (
-								'title'	=>	'Programs Sidebar',
-								'id'	=>	'program_sidebar',
+
+		'program_single' 	=> array (
+								'title'	=> 'Programs Sidebar',
+								'id'	=> 'program_sidebar',
 								),
-		
-		'target_nations_archive'=> array (
+
+		'target_nations_archive' => array (
 								'title' => 'Target Nations Archive',
 								'id'	=> 'target_nations_archive',
 								),
 	);
-	
-	
+
 	// Run through the array, and register all of the sidebars defined.
-	foreach ($widgetized_areas as $widgetized_area) {
+	foreach ( $widgetized_areas as $widgetized_area ) {
 		register_sidebar( array(
 			'name' => $widgetized_area['title'],
 			'id' => $widgetized_area['id'],
@@ -49,7 +46,7 @@ function widgetize_areas_init() {
 			'after_title' => '</h4>',
 		) );
 	};
-	
+
 }
 
 add_action( 'widgets_init', 'widgetize_areas_init' );
@@ -65,24 +62,21 @@ add_action( 'widgets_init', 'widgetize_areas_init' );
 
 function widgetize_3col_areas_init() {
 
-	
-	
 	$widgetized_3col_areas = array(
-	
-		'home-page-middle'	=>	array (
-								'title' =>	'Home Page Middle',
-								'id'	=>	'home-page-middle',
+
+		'home-page-middle'	=> array (
+								'title' => 'Home Page Middle',
+								'id'	=> 'home-page-middle',
 								),
-								
-		'alumni-page-middle'=>	array (
-								'title' =>	'Alumni Page Middle',
-								'id'	=>	'alumni-page-middle',
-								),			
+
+		'alumni-page-middle' => array (
+								'title' => 'Alumni Page Middle',
+								'id'	=> 'alumni-page-middle',
+								),
 	);
-	
-	
+
 	// Run through the array, and register all of the sidebars defined.
-	foreach ($widgetized_3col_areas as $widgetized_area) {
+	foreach ( $widgetized_3col_areas as $widgetized_area ) {
 		register_sidebar( array(
 			'name' => $widgetized_area['title'],
 			'id' => $widgetized_area['id'],
@@ -92,7 +86,7 @@ function widgetize_3col_areas_init() {
 			'after_title' => '</h3>',
 		) );
 	};
-	
+
 }
 
 add_action( 'widgets_init', 'widgetize_3col_areas_init' );

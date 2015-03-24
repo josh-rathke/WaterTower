@@ -4,7 +4,7 @@
             <?php watertower_top_bar_main(); ?>
             
             <ul class="right">
-		      <li><div class="desktop-search-form-container"><?php get_search_form(true); ?></div></li>
+		      <li><div class="desktop-search-form-container"><?php get_search_form( true ); ?></div></li>
 		    </ul>
         </section>
     </nav>

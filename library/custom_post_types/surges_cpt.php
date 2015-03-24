@@ -4,8 +4,8 @@
  * The surges custom post type contains all of our surgess
  * specific data including dates, costs, descriptions etc.
  */
- 
- 
+
+
 function my_custom_post_surge() {
 	$labels = array(
 		'name'               => _x( 'Surges', 'post type general name', 'water-tower' ),
@@ -18,7 +18,7 @@ function my_custom_post_surge() {
 		'view_item'          => __( 'View Surge', 'water-tower' ),
 		'search_items'       => __( 'Search Surges', 'water-tower' ),
 		'not_found'          => __( 'No surges found', 'water-tower' ),
-		'not_found_in_trash' => __( 'No surges found in the Trash', 'water-tower' ), 
+		'not_found_in_trash' => __( 'No surges found in the Trash', 'water-tower' ),
 		'menu_name'          => __( 'Surges', 'water-tower' ),
 	);
 	$args = array(
@@ -31,9 +31,9 @@ function my_custom_post_surge() {
 		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
-		'rewrite' => array('slug' => 'surges'), 
+		'rewrite' => array('slug' => 'surges'),
 	);
-	register_post_type( 'surges', $args );	
+	register_post_type( 'surges', $args );
 }
 add_action( 'init', 'my_custom_post_surge' );
 

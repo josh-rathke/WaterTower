@@ -5,21 +5,21 @@
  * 	This is the custom meta for the campus
  * 	tour page and venues.
  */
- 
+
 $meta_boxes[] = array(
 	'title'  => 'Campus Tour Info',
 	'pages' => array('page'),
 	'context' => 'normal',
 	'priority' => 'low',
 	'fields' => array(
-	
+
 		//PanoID Beginning Pano
 		array (
 			'name'	=> 'Beginning Pano',
 			'id'	=> "{$prefix}beginning_pano",
 			'type'	=> 'text',
 		),
-	
+
 		//How-To Use the Campus Tour
 		array (
 			'name'	=> 'Campus Tour How-To',
@@ -40,14 +40,14 @@ $meta_boxes[] = array(
 	'context' => 'side',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		//Include in Campus Tour
 		array (
 			'name'	=> 'Include in Campus Tour',
 			'id'	=> "{$prefix}include_in_tour",
 			'type'	=> 'checkbox',
 		),
-	
+
 		//Photosphere ID
 		array (
 			'name'	=> 'Photosphere ID',
@@ -55,7 +55,7 @@ $meta_boxes[] = array(
 			'type'	=> 'text',
 			'desc'	=> 'Input the photosphere ID of this particular venue.'
 		),
-		
+
 		//Photosphere URL
 		array (
 			'name'	=> 'Photosphere URL',

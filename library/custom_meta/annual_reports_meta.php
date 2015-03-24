@@ -6,14 +6,14 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
-	
+
 		//E-Magazine Embed Code
 		array (
 			'name'	=> 'E-Magazine Embed Code',
 			'id'	=> "{$prefix}embed_code",
 			'type'	=> 'textarea',
 		),
-		
+
 		//Year Range
 		array (
 			'name'	=> 'Report Year Range',
@@ -24,7 +24,7 @@ $meta_boxes[] = array(
 	'only_on'    => array(
 		'id'       => array(),
 		'template' => array(),
-		'parent'   => array(get_page_by_path('annual-reports')->ID)
+		'parent'   => array(get_page_by_path( 'annual-reports' )->ID)
 	),
 );
 

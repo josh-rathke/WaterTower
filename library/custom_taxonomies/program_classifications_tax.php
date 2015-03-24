@@ -13,7 +13,7 @@ function my_taxonomies_program_classification() {
 		'all_items'         => __( 'All Classifications', 'water-tower' ),
 		'parent_item'       => __( 'Parent Classification', 'water-tower' ),
 		'parent_item_colon' => __( 'Parent Classification:', 'water-tower' ),
-		'edit_item'         => __( 'Edit Classification', 'water-tower' ), 
+		'edit_item'         => __( 'Edit Classification', 'water-tower' ),
 		'update_item'       => __( 'Update Classification', 'water-tower' ),
 		'add_new_item'      => __( 'Add New Classification', 'water-tower' ),
 		'new_item_name'     => __( 'New Classification', 'water-tower' ),

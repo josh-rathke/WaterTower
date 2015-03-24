@@ -4,8 +4,8 @@
  * 	This post type holds all of the information relavent to the
  * 	many focus tracks we offer in our schools.
  */
- 
- 
+
+
 function focus_tracks_cpt() {
 	$labels = array(
 		'name'               => _x( 'Focus Tracks', 'post type general name', 'water-tower' ),
@@ -18,7 +18,7 @@ function focus_tracks_cpt() {
 		'view_item'          => __( 'View Focus Track', 'water-tower' ),
 		'search_items'       => __( 'Search Focus Tracks', 'water-tower' ),
 		'not_found'          => __( 'No focus tracks found', 'water-tower' ),
-		'not_found_in_trash' => __( 'No focus tracks found in the Trash', 'water-tower' ), 
+		'not_found_in_trash' => __( 'No focus tracks found in the Trash', 'water-tower' ),
 		'menu_name'          => __( 'Surges', 'water-tower' ),
 	);
 	$args = array(
@@ -28,10 +28,10 @@ function focus_tracks_cpt() {
 		'supports'      => array( 'title', 'editor', 'thumbnail', 'revisions' ),
 		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
-		'rewrite' => array('slug' => 'focus-tracks'), 
+		'rewrite' => array('slug' => 'focus-tracks'),
 		'taxonomies' 	=> array('post_tag'),
 	);
-	register_post_type( 'focus_tracks', $args );	
+	register_post_type( 'focus_tracks', $args );
 }
 add_action( 'init', 'focus_tracks_cpt' );
 
