@@ -3,13 +3,13 @@
  * The default template for displaying content. Used for index/archive/search.
  *
  * @subpackage watertower
- * @since watertower 1.0
+ * @since      watertower 1.0
  */
 ?>
 
 <div class="row content-archive-post-container">
 	<div class="medium-3 columns hide-for-small content-archive-post-image">
-		<?php the_post_thumbnail('thumbnail'); ?>
+    <?php the_post_thumbnail('thumbnail'); ?>
 	</div>
 	<div class="medium-9 columns content-archive-post-content">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -24,10 +24,10 @@
 			<footer>
 				<span>Posted: <?php the_date(); ?></span>
 				<span>By: 
-					<?php 
-						$authors = new authorInfo($post->ID);
-						$authors->author_links_list();
-					?>
+        <?php 
+        $authors = new authorInfo($post->ID);
+        $authors->author_links_list();
+        ?>
 				</span>
 			</footer>
 			

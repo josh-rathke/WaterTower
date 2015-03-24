@@ -25,6 +25,9 @@ Bower is a package manager used by Zurb to distribute Foundation. When you have 
 
 ## Quickstart
 
+Travis CI Usage:
+Codesniffer setup: http://viastudio.com/configure-php-codesniffer-for-mac-os-x/
+
 ```bash
 cd my-wordpress-folder/wp-content/themes/
 git clone git@github.com:olefredrik/watertower.git
