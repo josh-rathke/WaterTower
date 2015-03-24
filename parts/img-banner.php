@@ -175,7 +175,7 @@ if (is_front_page()) {
     
     
     
-} elseif(is_page('annual-reports')) { 
+} elseif (is_page('annual-reports')) { 
     
     /**
      *     Annual Reports Banner
@@ -187,8 +187,8 @@ if (is_front_page()) {
     $annual_reports = new WP_Query('page_category=annual-report&posts_per_page=1');
     
     // The Loop
-    if ($$annual_reports->have_posts() ) {
-        while ( $$annual_reports->have_posts() ) :
+    if ($annual_reports->have_posts() ) {
+        while ( $$annual_reports->have_posts() ) {
             $$annual_reports->the_post();
             $post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full-width-banner', true); ?>
         <div class="slideshow-wrapper primary-slider">
@@ -219,7 +219,7 @@ if (is_front_page()) {
 	    
         <?php
 		
-		endwhile;
+		}
     }
     /* Restore original Post Data */
     wp_reset_postdata();
