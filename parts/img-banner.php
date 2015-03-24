@@ -188,7 +188,7 @@ if (is_front_page()) {
     
     // The Loop
     if ($featured_posts->have_posts() ) {
-        while ( $featured_posts->have_posts() ) {
+        while ( $featured_posts->have_posts() ) :
             $featured_posts->the_post();
             $post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full-width-banner', true); ?>
         <div class="slideshow-wrapper primary-slider">
@@ -218,7 +218,7 @@ if (is_front_page()) {
            </div>
 	    
         <?php
-        }
+		endwhile;
     } else {
         // no posts found
     }
