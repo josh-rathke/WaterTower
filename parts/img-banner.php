@@ -218,9 +218,8 @@ if (is_front_page()) {
            </div>
 	    
         <?php
+		
 		endwhile;
-    } else {
-        // no posts found
     }
     /* Restore original Post Data */
     wp_reset_postdata();
