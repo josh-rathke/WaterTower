@@ -20,11 +20,11 @@ if (is_front_page()) {
     <?php 
             
     /**
-             *     Display Alert Slide
-             *     This will display one slide before all others that is
-             *     considered an alert slide. This slide can be activated
-             *     from the front page edit screen.
-             */
+     *     Display Alert Slide
+     *     This will display one slide before all others that is
+     *     considered an alert slide. This slide can be activated
+     *     from the front page edit screen.
+     */
              
     if (rwmb_meta('enable_alert_slide')) :
         $alert_bg_image = wp_get_attachment_image_src(rwmb_meta('alert_bg_image'), 'full-width-banner', true); ?>
@@ -184,12 +184,12 @@ if (is_front_page()) {
      */
      
     // Query Annual Reports
-    $featured_posts = new WP_Query('page_category=annual-report&posts_per_page=1');
+    $annual_reports = new WP_Query('page_category=annual-report&posts_per_page=1');
     
     // The Loop
-    if ($featured_posts->have_posts() ) {
-        while ( $featured_posts->have_posts() ) :
-            $featured_posts->the_post();
+    if ($$annual_reports->have_posts() ) {
+        while ( $$annual_reports->have_posts() ) :
+            $$annual_reports->the_post();
             $post_thumbanail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full-width-banner', true); ?>
         <div class="slideshow-wrapper primary-slider">
          <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
