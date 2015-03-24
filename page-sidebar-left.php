@@ -25,7 +25,8 @@ get_header(); ?>
                 <?php comments_template(); ?>
                 <?php do_action('watertower_page_after_comments'); ?>
             </article>
-        <?php endwhile;?>
+        <?php 
+endwhile;?>
 
         <?php do_action('watertower_after_content'); ?>
 
