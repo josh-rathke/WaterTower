@@ -218,8 +218,8 @@ if (is_front_page()) {
            </div>
 	    
         <?php
-        
-        }
+		
+		}
     }
     /* Restore original Post Data */
     wp_reset_postdata();
