@@ -7,8 +7,8 @@
  * instead of template_directory
  */
 
-define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/' );
-require_once dirname( __FILE__ ) . '/inc/options-framework.php';
+define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/');
+require_once dirname(__FILE__) . '/inc/options-framework.php';
 
 /*
  * This is an example of how to add custom scripts to the options panel.
@@ -16,9 +16,11 @@ require_once dirname( __FILE__ ) . '/inc/options-framework.php';
  *
  * You can delete it if you not using that option
  */
-add_action( 'optionsframework_custom_scripts', 'optionsframework_custom_scripts' );
+add_action('optionsframework_custom_scripts', 'optionsframework_custom_scripts');
 
-function optionsframework_custom_scripts() { ?>
+function optionsframework_custom_scripts() 
+{
+    ?>
 
 <script type="text/javascript">
 jQuery(document).ready(function() {

@@ -25,6 +25,12 @@ Bower is a package manager used by Zurb to distribute Foundation. When you have 
 
 ## Quickstart
 
+Install Composer
+`curl -sS https://getcomposer.org/installer | php`
+
+Install Wordpress Coding Standards
+`composer create-project wp-coding-standards/wpcs:dev-master --no-dev`
+
 Travis CI Usage:
 Codesniffer setup: http://viastudio.com/configure-php-codesniffer-for-mac-os-x/
 
