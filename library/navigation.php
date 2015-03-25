@@ -7,7 +7,7 @@ register_nav_menus(
 	array(
 	'top-bar-main'         => 'Top Bar Main Section', // registers the menu in the WordPress admin menu editor
 	'mobile-off-canvas' => 'Mobile',
-	'get-involved'        => 'Get Involved'
+	'get-involved'        => 'Get Involved',
 	)
 );
 /**
@@ -30,7 +30,7 @@ if ( ! function_exists( 'watertower_top_bar_main' ) ) {
 			'link_after' => '',                             // after each link text
 			'depth' => 5,                                   // limit the depth of the nav
 			'fallback_cb' => false,                         // fallback function (see below)
-			'walker' => new top_bar_walker()
+			'walker' => new TopBarWalker()
 			)
 		);
 	}
@@ -77,7 +77,7 @@ if ( ! function_exists( 'watertower_mobile_off_canvas' ) ) {
 			'link_after' => '',                             // after each link text
 			'depth' => 5,                                   // limit the depth of the nav
 			'fallback_cb' => false,                         // fallback function (see below)
-			'walker' => new top_bar_walker()
+			'walker' => new TopBarWalker()
 			)
 		);
 	}

@@ -7,7 +7,7 @@
  */
 
 // Creating the widget
-class water_tower_related_media_widget extends WP_Widget {
+class WaterTowerRelatedMediaWidget extends WP_Widget {
 
 	function __construct() {
 		parent::__construct(
@@ -55,37 +55,37 @@ class water_tower_related_media_widget extends WP_Widget {
 		}
 
 		// Define query arguments
-		$args = array (
+		$args = array(
 			'post_type'	=> $instance['post_type'],
 			'posts_per_page' => $instance['num_posts'],
 			'category_name'		=> $instance['post_category'],
-			'tax_query'		=> array (
-				array (
+			'tax_query'		=> array(
+				array(
 					'taxonomy' => $instance['related_to'],
 					'field'	=> 'slug',
 					'terms'	=> $instance['specific_post'] ? get_query_var( 'name' ) : $related_to_media_terms,
-				)
-			)
+				),
+			),
 		);
 
 		$related_media_query = new WP_Query( $args ); ?>
 			<?php if ( $related_media_query->have_posts() ) : ?>
 			<?php while ( $related_media_query->have_posts() ) : $related_media_query->the_post(); ?>
 			
-			<?php if ( $instance['theme'] == 'gallery' ) { ?>
+			<?php if ( 'gallery' == $instance['theme'] ) { ?>
 			
 				<div class="related-media-theme-gallery-container">
 					<div class="related-media-theme-gallery-title"><?php the_title(); ?></div>
 					<?php echo get_the_post_thumbnail( $post->ID, '16:9-media-thumbnail', array('class' => 'img-responsive') ); ?>
 				</div>
 				
-			<?php } elseif ( $instance['theme'] == 'list' ) { ?>
+			<?php } elseif ( 'list' == $instance['theme'] ) { ?>
 				
 				<div class="related-media-theme-list-container">
 					<div class="related-media-theme-list-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></div>
 				</div>
 					
-			<?php } elseif ( $instance['theme'] == 'thumbs' ) { ?>
+			<?php } elseif ( 'thumbs' == $instance['theme'] ) { ?>
 				<div class="row related-media-theme-thumbs-container clearfix">
 					<div class="small-8 columns related-media-theme-thumbs-content">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
@@ -261,19 +261,19 @@ class water_tower_related_media_widget extends WP_Widget {
 		 echo "<p>Currently displaying the <span style='color: #609FCE; font-weight: bold;'>{$instance['num_posts']}</span> most recent <span style='color: #609FCE; font-weight: bold;'> {$post_type_name} </span>";
 
 		 // Check if Related to Page is checked
-		if ( $instance['related_to_page'] == 'on' ) {
+		if ( 'on' == $instance['related_to_page'] ) {
 			echo ' related to the <span style="color: #609FCE; font-weight: bold;">page being displayed</span>';
 			// If not check for Related To values
 		} else {
-			if ( $instance['related_to'] != null ) {
+			if ( null != $instance['related_to'] ) {
 				echo ' related to <span style="color: #609FCE; font-weight: bold;">' . $tax_name . '</span>';
 			}
 		}
 
 			 // Check if post type is "post"
-		if ( $instance['post_type'] == 'post' ) {
+		if ( 'post' == $instance['post_type'] ) {
 			// Check if a specific Post Category is defined
-			if ( $instance['post_category'] != null ) {
+			if ( null != $instance['post_category'] ) {
 				echo " and categorized within the <span style='color: #609FCE; font-weight: bold;'>{$post_category_name}</span> post category";
 			}
 		}
@@ -302,7 +302,7 @@ class water_tower_related_media_widget extends WP_Widget {
 
 // Register and load the widget
 function wt_related_media_load_widget() {
-	register_widget( 'water_tower_related_media_widget' );
+	register_widget( 'WaterTowerRelatedMediaWidget' );
 }
 add_action( 'widgets_init', 'wt_related_media_load_widget' );
 

@@ -21,6 +21,9 @@ if ( ! function_exists( 'watertower_scripts' ) ) :
 		wp_enqueue_script( 'chart.js' );
 		wp_enqueue_script( 'fittext' );
 
+		// enqueue stylesheet
+		wp_enqueue_style( 'Main Stylesheet', get_stylesheet_directory_uri() . '/css/foundation.css' );
+
 	}
 
 	add_action( 'wp_enqueue_scripts', 'watertower_scripts' );

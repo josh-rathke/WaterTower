@@ -16,13 +16,13 @@ if ( post_password_required() ) {
 
     <?php wp_list_comments(
 	array(
-		'walker' => new ywammontana_walker_comment,
+		'walker' => new WaterTowerWalkerComment,
 		'style' => 'ul',
 		'callback' => null,
 		'end-callback' => null,
 		'type' => 'all',
 		'page' => null,
-		'avatar_size' => 65
+		'avatar_size' => 65,
 	 )
 );
 

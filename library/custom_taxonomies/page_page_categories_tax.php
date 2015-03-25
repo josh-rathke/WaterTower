@@ -27,7 +27,7 @@ function my_taxonomies_page_category() {
 		'hierarchical' => true,
 		'rewrite' => array('hierarchical' => true ),
 		'show_admin_column' => true,
-		'slug' => 'page-category'
+		'slug' => 'page-category',
 	);
 	register_taxonomy( 'page_category', array('page'), $args );
 }

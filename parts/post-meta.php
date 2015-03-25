@@ -2,7 +2,7 @@
 			
 			<?php // Post Date and Author Info ?>
 			
-    <?php $authors = new authorInfo( $post->ID ); ?>
+    <?php $authors = new AuthorInfo( $post->ID ); ?>
 			
 			<div class="small-12 medium-4 columns">
 				<div class="post-meta-section">
@@ -16,32 +16,32 @@
 				<div class="post-meta-section">
 					<h6><i class="fa fa-user"></i>Author</h6>
 					<div class="post-meta-content">
-        <?php
-		$authors = new authorInfo( $post->ID );
-		$authors->author_links_list();
-		?>
+				        <?php
+						$authors = new AuthorInfo( $post->ID );
+						$authors->author_links_list();
+						?>
+					</div>
+				</div>
+				
+				<div class="post-meta-section">
+					<h6><i class="fa fa-sitemap fa-rotate-270"></i>Categories</h6>
+					<div class="post-meta-content">
+				        <?php
+						$categories = get_the_category( $post->ID );
+
+						foreach ( $categories as $category ) {
+							$category_link = get_category_link( $category->term_id );
+							echo "<a href='{$category_link}'>{$category->name}</a>";
+						}
+
+						?>
+						
 					</div>
 				</div>
 			</div>
 			
     <?php // Post Categories and Tags ?>
 			<div class="small-12 medium-8 columns">
-				<div class="post-meta-section">
-					<h6><i class="fa fa-sitemap fa-rotate-270"></i>Categories</h6>
-					<div class="post-meta-content">
-        <?php
-		$categories = get_the_category( $post->ID );
-
-		foreach ( $categories as $category ) {
-			$category_link = get_category_link( $category->term_id );
-			echo "<a href='{$category_link}'>{$category->name}</a>";
-		}
-
-		?>
-						
-					</div>
-				</div>
-				
 				<div class="post-meta-section">
 					<h6><i class="fa fa-tags"></i>Tags</h6>
 					<div class="post-meta-content">

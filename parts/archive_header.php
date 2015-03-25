@@ -64,9 +64,9 @@ if ( is_category() ) {
 
 				$queried_object = get_queried_object();
 				$target_nation_page = get_posts(
-					array (
-					'post_type' => 'target_nations',
-					'name'    => $queried_object->slug,
+					array(
+						'post_type' => 'target_nations',
+						'name'    => $queried_object->slug,
 					)
 				);
 				?>
@@ -110,7 +110,7 @@ if ( is_category() ) {
 			</div>
 			<div>
 				<?php
-				$program_post_num = count( get_posts( "program_taxo={$queried_object->slug}&posts_per_page=-1" ) );
+				$program_post_num = count( get_posts( "program_taxo={$queried_object->slug}&nopaging=true" ) );
 				echo $program_post_num . ' Posts';
 				?>
 			</div>

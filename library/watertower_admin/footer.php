@@ -8,7 +8,8 @@
 
 $options[] = array(
 	'name' => __( 'Footer', 'options_framework_theme' ),
-	'type' => 'heading');
+	'type' => 'heading',
+	);
 
 // Apply By Dates Description
 $options[] = array(
@@ -16,7 +17,8 @@ $options[] = array(
 	'desc' => __( 'This is the shortcode for the contact form in the footer.', 'options_framework_theme' ),
 	'id' => 'footer_contact_form',
 	'std' => '',
-	'type' => 'text');
+	'type' => 'text',
+	);
 
 
 

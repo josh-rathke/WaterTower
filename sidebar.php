@@ -16,7 +16,7 @@ if ( is_archive() || is_home() ) {
 
 		$queried_object = get_queried_object();
 		$program_id = get_page_by_path( $queried_object->slug, OBJECT, 'program' )->ID;
-		$program = new programInfo( $program_id );
+		$program = new ProgramInfo( $program_id );
 
 		?>
 		
@@ -95,7 +95,7 @@ endif; ?>
 		 *     the Authors Class. It only scans the singles array.
 		 */
 
-	$authors = new authorInfo( $post->ID );
+	$authors = new AuthorInfo( $post->ID );
 
 	foreach ( $authors->singles as $author ) {
 

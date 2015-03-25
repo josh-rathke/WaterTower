@@ -49,7 +49,7 @@ $meta_boxes[] = array(
 				'name' => 'Isolate Slide',
 				'id'   => "{$prefix}isolate_alert_slide",
 				'type' => 'checkbox',
-				'desc' => 'Check this box if you would like the alert slide to be the only slide that displays in the gallery.'
+				'desc' => 'Check this box if you would like the alert slide to be the only slide that displays in the gallery.',
 		),
 	),
 

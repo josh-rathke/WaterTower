@@ -11,7 +11,7 @@
  *	@returns object $authors Returns an object of all of the authors that have a public profile.
  *
  */
-class authorInfo
+class AuthorInfo
 {
 	var $post_id;
 	var $author_ids;
@@ -35,14 +35,12 @@ class authorInfo
 	//Take author's ID, and run it through a private function to find out if profile is public
 	private function author_status($author_id)
 	{
-		if ( rwmb_meta( 'profile_status', '', $post_id = $author_id ) == 'public' ) {
+		if ( 'public' == rwmb_meta( 'profile_status', '', $post_id = $author_id ) ) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-
-
 
 	private function family_oriented()
 	{
@@ -54,15 +52,15 @@ class authorInfo
 			if ( ! in_array( $author_id, $this->spouse_ids ) ) {
 
 				//-----CHECK IF SPOUSE EXISTS-----//
-				if ( rwmb_meta( 'has_spouse', '', $post_id = $author_id ) == 1 ) {
+				if ( 1 == rwmb_meta( 'has_spouse', '', $post_id = $author_id ) ) {
 					$spouse_id = rwmb_meta( 'spouse', 'type=select', $post_id = $author_id );
 
 					//-----SPOUSE ACTIVATED BUT NO SPOUSE SELECTED FAILSAFE-----//
-					if ( $spouse_id != '' ) {
+					if ( $spouse_id ) {
 
 						//----- CHECK IF SPOUSE IS PRESENT -----//
 						foreach ( $this->author_ids as $i_spouse_id ) {
-							if ( $spouse_present != true ) {
+							if ( true != $spouse_present ) {
 								if ( $spouse_id != $i_spouse_id ) {
 									$spouse_present = false;
 								}  else {
@@ -145,7 +143,7 @@ class authorInfo
 					$display_name = $spouse_author['author_info']['display_name'];
 					$user_login = $spouse_author['author_info']['user_login'];
 
-					if ( $spouse_author['author_info']['link_active'] == true ) {
+					if ( true == $spouse_author['author_info']['link_active'] ) {
 						$author_url = get_bloginfo( 'url' ) . '/author/' . $user_login;
 						$author_list[] = "<a href='{$author_url}'>{$display_name}</a>";
 					} else {
@@ -161,7 +159,7 @@ class authorInfo
 				$display_name = $single_author['author_info']['display_name'];
 				$user_login = $single_author['author_info']['user_login'];
 
-				if ( $single_author['author_info']['link_active'] == true ) {
+				if ( true == $single_author['author_info']['link_active'] ) {
 					$author_url = get_bloginfo( 'url' ) . '/author/' . $user_login;
 					$author_list[] = "<a href='{$author_url}'>{$display_name}</a>";
 				} else {
@@ -185,7 +183,7 @@ class authorInfo
     *	post.  Currently authors are disabled on programs.
     *
     */
-	function __construct($post_id, $author_ids=null)
+	function __construct($post_id, $author_ids = null)
 	{
 
 		if ( is_null( $author_ids ) ) {
@@ -226,9 +224,9 @@ class authorInfo
  *
  */
 
-function display_authors($post_id, $author_ids=null)
+function display_authors($post_id, $author_ids = null)
 {
-	$authors = new authorInfo( $post_id, $author_ids );
+	$authors = new AuthorInfo( $post_id, $author_ids );
 
 	//Define funny links for user's hometown
 	$funny_links = array(
@@ -272,7 +270,7 @@ function display_authors($post_id, $author_ids=null)
 								<?php
 								$n = 1;
 								foreach ( $couple as $author_info ) {
-									if ( $n == 1 ) {
+									if ( 1 == $n ) {
 										echo $author_info['author_info']['first_name'] . ' & ';
 										$n = ++$n;
 									} else {

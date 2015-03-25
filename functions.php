@@ -133,12 +133,6 @@ add_filter(
 	require 'library/widgets/wt_subscribe_widget.php';
 	// Featured Page Widget
 	require 'library/widgets/wt_featured_page_widget.php';
-	// List Taxonomy Widget
-	require 'library/widgets/wt_list_taxonomy_widget.php';
-	// List Target Nations
-	require 'library/widgets/wt_target_nations_list_widget.php';
-	// List Surge Initiatives
-	require 'library/widgets/wt_list_surges_widget.php';
 	// Related Media
 	require 'library/widgets/wt_related_media_widget.php';
 
@@ -149,9 +143,9 @@ function get_tags_related_to_tax_term($taxonomy, $term)
 {
 
 	// Make all of the args for Get Posts
-	$get_posts_args = array (
-	'posts_per_page' => -1,
-	$taxonomy         => $term,
+	$get_posts_args = array(
+		'posts_per_page' => -1,
+		$taxonomy         => $term,
 	);
 
 	// Get all posts that match the taxonomy and term
@@ -216,7 +210,7 @@ function get_id_by_slug($page_slug)
  *	variability.
  */
 
-function get_excerpt_by_id($post_id, $excerpt_length=40, $echo_link=false, $link_text='View Post')
+function get_excerpt_by_id( $post_id, $excerpt_length = 40, $echo_link = false, $link_text = 'View Post' )
 {
 	$the_post = get_post( $post_id ); //Gets post ID
 	$the_permalink = get_permalink( $post_id );

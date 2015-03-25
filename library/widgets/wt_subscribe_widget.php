@@ -1,7 +1,7 @@
 <?php
 
 // Creating the widget
-class water_tower_subscribe_widget extends WP_Widget {
+class WaterTowerSubscribeWidget extends WP_Widget {
 
 	function __construct() {
 		parent::__construct(
@@ -77,7 +77,7 @@ echo $args['after_widget'];
 
 // Register and load the widget
 function wt_subscribe_load_widget() {
-	register_widget( 'water_tower_subscribe_widget' );
+	register_widget( 'WaterTowerSubscribeWidget' );
 }
 add_action( 'widgets_init', 'wt_subscribe_load_widget' );
 

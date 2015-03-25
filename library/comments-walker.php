@@ -3,7 +3,7 @@
 /**
  * COMMENTS WALKER
 */
-class ywammontana_walker_comment extends Walker_Comment
+class WaterTowerWalkerComment extends Walker_Comment
 {
 
 	// init classwide variables
@@ -98,7 +98,8 @@ class ywammontana_walker_comment extends Walker_Comment
 			'add_below' => $add_below,
 			'depth' => $depth,
 			'reply_text' => '<i class="fa fa-reply"></i> Reply',
-			'max_depth' => $args['max_depth'] );
+			'max_depth' => $args['max_depth'],
+			);
 
 			comment_reply_link( array_merge( $args, $reply_args ) );  ?><?php edit_comment_link( '<i class="fa fa-pencil"></i> Edit Comment' ); ?>
 									

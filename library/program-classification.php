@@ -47,7 +47,7 @@ class PostRibbon
 	{
 
 		//----- DEFINE STYLES -----//
-		if ( $orientation == 'vertical' ) {
+		if ( 'vertical' == $orientation ) {
 			$styles = 'width:' . $thickness . 'px;';
 			$container_class = 'vertical';
 		} else {
@@ -58,7 +58,7 @@ class PostRibbon
 		//----- BUILD THE RIBBON -----//
 		echo '<div style="' . $styles . '" class="post-ribbon-container ' . $container_class . '">';
 		foreach ( $this->post_color_info as $ribbon ) {
-			if ( $orientation == 'vertical' ) {
+			if ( 'vertical' == $orientation ) {
 				echo '<div style="height: ' . (($ribbon['count'] / $this->total_terms) * 100) . '%; background: ' . $ribbon['color'] . ';" class="post-ribbon"></div>';
 			} else {
 				echo '<div style="width: ' . (($ribbon['count'] / $this->total_terms) * 100) . '%; background: ' . $ribbon['color'] . ';" class="post-ribbon"></div>';

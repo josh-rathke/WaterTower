@@ -24,7 +24,7 @@
 			 */
 
 			$program_id = $post->ID;
-			$program_object = new programInfo( $program_id );
+			$program_object = new ProgramInfo( $program_id );
 
 	?>
  			
@@ -94,7 +94,7 @@ endwhile;?>
 		 */
 	echo '<div data-magellan-destination="upcoming-schools">';
 
-	if ( $program_object->rolling_enrollment_status != 1 ) :
+	if ( 1 != $program_object->rolling_enrollment_status ) :
 		echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
 		echo '<div class="upcoming-schools-header"><h2>Upcoming Schools</h2>';
 		available_via_correspondence_link();
@@ -186,7 +186,7 @@ endif; ?>
 
 	$pre_reqs = $program_object->academic_info['recommended_prereqs'];
 
-	if ( $pre_reqs && $pre_reqs != 'Array' ) : ?>
+	if ( $pre_reqs ) : ?>
 					
     <div class="row program-prereqs-container alert-box warning">
      <div class="small-3 medium-2 columns program-prereqs-icon-container">
@@ -363,7 +363,7 @@ endif; ?>
 		 *     This section explains the outreach portion of the school if
 		 *     there is one.
 		 */
-	if ( $program_object->academic_info['has_outreach'] == 'yes' ) {
+	if ( 'yes' == $program_object->academic_info['has_outreach'] ) {
 		echo '<div class="outreach-phase-container" data-magellan-destination="outreach">';
 		echo '<h2>Outreach</h2>';
 		echo rwmb_meta( 'outreach_phase_desc' );
@@ -424,7 +424,7 @@ endif; ?>
 	 *    about each track if/when selected.
 	 */
 
-	$focus_tracks_query_args = array (
+	$focus_tracks_query_args = array(
 	'post_type'     => 'focus_tracks',
 	'program_taxo'    => $program_object->program_slug,
 	);
@@ -525,13 +525,13 @@ endwhile; ?>
     <?php
 
 	/**
-		 *     Related Posts Section
-		 */
+	 *     Related Posts Section
+	 */
 
-	$program_related_posts_query_args = array (
-	'post_type'        => 'post',
-	'posts_per_page'    => 2,
-	'program_taxo'    => $program_object->program_slug,
+	$program_related_posts_query_args = array(
+		'post_type'        => 'post',
+		'posts_per_page'    => 2,
+		'program_taxo'    => $program_object->program_slug,
 	);
 
 	// The Query
@@ -572,7 +572,7 @@ endwhile; ?>
 					
        <div class="medium-3 columns related-posts-header-post-num-container">
         <i class="fa fa-caret-down"></i>
-        <div class="related-posts-header-post-num"><?php echo count( get_posts( "post_type=post&posts_per_page=-1&program_taxo={$program_object->program_slug}" ) ); ?></div>
+        <div class="related-posts-header-post-num"><?php echo count( get_posts( "post_type=post&nopaging=true0&program_taxo={$program_object->program_slug}" ) ); ?></div>
         <div class="related-posts-header-post-num-desc">Related Posts</div>
        </div>
       </div>

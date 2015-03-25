@@ -13,11 +13,11 @@ $meta_boxes[] = array(
 	'fields' => array(
 
 		//Project Status
-		array (
+		array(
 			'name'	=> 'Project Status',
 			'id'	=> "{$prefix}project_status",
 			'type'	=> 'select',
-			'options' => array (
+			'options' => array(
 				'active' => 'Active',
 				'archived'	  => 'archived',
 			),

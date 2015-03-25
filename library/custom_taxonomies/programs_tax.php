@@ -26,7 +26,7 @@ function my_taxonomies_program_taxo() {
 		'hierarchical' => true,
 		'rewrite' => array(
 			'hierarchical' => true,
-			'slug'	=> 'program-blogs'
+			'slug'	=> 'program-blogs',
 		),
 		'show_admin_column' => true,
 	);

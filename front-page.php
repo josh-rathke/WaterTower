@@ -49,7 +49,11 @@ foreach ( $upcoming_schools->schools as $upcoming_school ) {
 			 echo '<a href="' . get_permalink( $upcoming_school['program_id'] ) . '">';
 			 $program_color = get_program_color( $upcoming_school['program_id'] );
 
-			 echo get_the_post_thumbnail( $upcoming_school['program_id'], 'thumbnail', array('style' => "border: 3px solid {$program_color}") );
+			 $thumbnail_args = array(
+			 	'style' => "border: 3px solid {$program_color}",
+			 );
+
+			 echo get_the_post_thumbnail( $upcoming_school['program_id'], 'thumbnail', $thumbnail_args );
 
 			 echo '<div class="upcoming-school-title">' .  $upcoming_school['program_name'] . '</div>';
 			 echo '</a>';

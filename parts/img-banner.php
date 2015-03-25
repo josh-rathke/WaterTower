@@ -171,7 +171,7 @@ if ( is_front_page() ) {
 	
 	<div id="pano" style="width: 100%; height: 450px;"></div>
  
-    <?
+    <?php
 
 
 

@@ -152,7 +152,7 @@ function fixed_img_caption_shortcode($attr, $content = null)
 			'align' => 'alignnone',
 			'width' => '',
 			'caption' => '',
-			'class'   => ''
+			'class'   => '',
 			), $attr
 		)
 	);
@@ -185,13 +185,13 @@ function image_editor($html, $id, $alt, $title)
 		array(
 			'/\s+width="\d+"/i',
 			'/\s+height="\d+"/i',
-			'/alt=""/i'
+			'/alt=""/i',
 		),
 		array(
 			'',
 			'',
 			'',
-			'alt="' . $title . '"'
+			'alt="' . $title . '"',
 		),
 		$html
 	);

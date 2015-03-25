@@ -25,7 +25,7 @@
 				<span>Posted: <?php the_date(); ?></span>
 				<span>By: 
         <?php
-		$authors = new authorInfo( $post->ID );
+		$authors = new AuthorInfo( $post->ID );
 		$authors->author_links_list();
 		?>
 				</span>

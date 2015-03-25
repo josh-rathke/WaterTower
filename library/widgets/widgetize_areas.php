@@ -10,26 +10,26 @@ function widgetize_areas_init() {
 
 	$widgetized_areas = array(
 
-		'default_sidebar' 	=> array (
+		'default_sidebar' 	=> array(
 								'title'	=> 'Default Sidebar',
 								'id'	=> 'default_sidebar',
 								),
 
-		'archives_sidebar' 	=> array (
+		'archives_sidebar' 	=> array(
 								'title'	=> 'Archives Sidebar',
 								'id'	=> 'archives_sidebar',
 								),
-		'single_sidebar'	=> array (
+		'single_sidebar'	=> array(
 								'title' => 'Post View Sidebar',
 								'id'	=> 'single_sidebar',
 								),
 
-		'program_single' 	=> array (
+		'program_single' 	=> array(
 								'title'	=> 'Programs Sidebar',
 								'id'	=> 'program_sidebar',
 								),
 
-		'target_nations_archive' => array (
+		'target_nations_archive' => array(
 								'title' => 'Target Nations Archive',
 								'id'	=> 'target_nations_archive',
 								),
@@ -64,12 +64,12 @@ function widgetize_3col_areas_init() {
 
 	$widgetized_3col_areas = array(
 
-		'home-page-middle'	=> array (
+		'home-page-middle'	=> array(
 								'title' => 'Home Page Middle',
 								'id'	=> 'home-page-middle',
 								),
 
-		'alumni-page-middle' => array (
+		'alumni-page-middle' => array(
 								'title' => 'Alumni Page Middle',
 								'id'	=> 'alumni-page-middle',
 								),

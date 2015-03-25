@@ -41,14 +41,14 @@ add_action( 'init', 'my_custom_post_program' );
 /**
  * 	Get Program Information Class
  *
- *	The programInfo class returns all of the information
+ *	The ProgramInfo class returns all of the information
  * 	needed to build a program page.
  *
  * 	@param string program_id
- * 	@return object programInfo
+ * 	@return object ProgramInfo
  */
 
-class programInfo {
+class ProgramInfo {
 	var $cur_date;
 	var $program_id;
 	var $program_slug;
@@ -122,7 +122,7 @@ class programInfo {
 
 		// Populate Schedule if Ongoing Status is False
 		$this->rolling_enrollment_status = rwmb_meta( 'rolling_enrollment_status', '', $post_id = $this->program_id );
-		if ( $this->rolling_enrollment_status == 0 ) {
+		if ( 0 == $this->rolling_enrollment_status ) {
 			$this->populate_schedule();
 		} else {
 

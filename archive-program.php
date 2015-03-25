@@ -3,7 +3,7 @@
 /**
  *    Program Archive Page Template
  *    This page template displays all of the programs
- *     we offer.
+ *    we offer.
  *
  *    Template Name: Programs Archive
  */
@@ -35,7 +35,7 @@ get_header();
 
 
 		$archive_program_query_args = array(
-		'posts_per_page'            => -1 ,
+		'posts_per_page'             => 50,
 		'post_type'                  => 'program',
 		'program_classification'     => $program_classification->slug,
 		); ?>

@@ -8,14 +8,14 @@ $meta_boxes[] = array(
 	'fields' => array(
 
 		//E-Magazine Embed Code
-		array (
+		array(
 			'name'	=> 'E-Magazine Embed Code',
 			'id'	=> "{$prefix}embed_code",
 			'type'	=> 'textarea',
 		),
 
 		//Year Range
-		array (
+		array(
 			'name'	=> 'Report Year Range',
 			'id'	=> "{$prefix}year_range",
 			'type'	=> 'text',

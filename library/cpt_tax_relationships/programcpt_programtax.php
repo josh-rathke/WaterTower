@@ -16,7 +16,7 @@ function post_program_update($post_id){
 	$post_type = $post_obj->post_type;
 	$slug_title = sanitize_title( $raw_title );
 
-	if ( ($post_type == 'program') && ($slug_title != 'auto-draft') && ( ! empty($raw_title)) ) {
+	if ( ('program' == $post_type) && ('auto-draft' != $slug_title) && ( ! empty($raw_title)) ) {
 		// get the terms associated with this custom post type
 		$terms = get_the_terms( $post_id, 'program_taxo' );
 		$term_id = $terms[0]->term_id;
@@ -27,7 +27,8 @@ function post_program_update($post_id){
 				array(
 						  'description' => $raw_title,
 						  'slug' => $raw_title,
-						  'name' => $raw_title)
+						  'name' => $raw_title,
+				)
 			);
 		} else {
 			// creates a new term in the program_taxo taxonomy

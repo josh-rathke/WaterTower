@@ -24,7 +24,7 @@ function my_taxonomies_program_classification() {
 		'hierarchical' => true,
 		'rewrite' => array('hierarchical' => true ),
 		'show_admin_column' => true,
-		'slug' => 'program-classification'
+		'slug' => 'program-classification',
 	);
 	register_taxonomy( 'program_classification', array( 'program' ), $args );
 }

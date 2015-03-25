@@ -14,14 +14,14 @@ $meta_boxes[] = array(
 	'fields' => array(
 
 		//PanoID Beginning Pano
-		array (
+		array(
 			'name'	=> 'Beginning Pano',
 			'id'	=> "{$prefix}beginning_pano",
 			'type'	=> 'text',
 		),
 
 		//How-To Use the Campus Tour
-		array (
+		array(
 			'name'	=> 'Campus Tour How-To',
 			'id'	=> "{$prefix}campus_tour_howto",
 			'type'	=> 'textarea',
@@ -30,7 +30,7 @@ $meta_boxes[] = array(
 	'only_on'    => array(
 		'id'       => array(),
 		'template' => array( 'campus-tour.php' ),
-		'parent'   => array()
+		'parent'   => array(),
 	),
 );
 
@@ -42,26 +42,26 @@ $meta_boxes[] = array(
 	'fields' => array(
 
 		//Include in Campus Tour
-		array (
+		array(
 			'name'	=> 'Include in Campus Tour',
 			'id'	=> "{$prefix}include_in_tour",
 			'type'	=> 'checkbox',
 		),
 
 		//Photosphere ID
-		array (
+		array(
 			'name'	=> 'Photosphere ID',
 			'id'	=> "{$prefix}photosphere_id",
 			'type'	=> 'text',
-			'desc'	=> 'Input the photosphere ID of this particular venue.'
+			'desc'	=> 'Input the photosphere ID of this particular venue.',
 		),
 
 		//Photosphere URL
-		array (
+		array(
 			'name'	=> 'Photosphere URL',
 			'id'	=> "{$prefix}photosphere_url",
 			'type'	=> 'text',
-			'desc'	=> 'Input the photosphere URL that links back to the photosphere hosted on google.com'
+			'desc'	=> 'Input the photosphere URL that links back to the photosphere hosted on google.com',
 		),
 	),
 );

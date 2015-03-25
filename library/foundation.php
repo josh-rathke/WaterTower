@@ -17,7 +17,7 @@ function watertower_pagination()
 		'prev_next' => true,
 		'prev_text' => __( '&laquo;', 'watertower' ),
 		'next_text' => __( '&raquo;', 'watertower' ),
-		'type' => 'list'
+		'type' => 'list',
 		)
 	);
 
@@ -60,7 +60,7 @@ function watertower_menu_fallback()
 // Add Foundation 'active' class for the current menu item
 function watertower_active_nav_class( $classes, $item )
 {
-	if ( $item->current == 1 || $item->current_item_ancestor == true ) {
+	if ( 1 == $item->current || true == $item->current_item_ancestor ) {
 		$classes[] = 'active';
 	}
 	return $classes;
@@ -176,7 +176,8 @@ endif; ?>
                 <div class="reply">
                     <?php $reply_args = array(
 						'depth' => $depth,
-						'max_depth' => $args['max_depth'] );
+						'max_depth' => $args['max_depth'],
+						);
 
 					comment_reply_link( array_merge( $args, $reply_args ) );  ?>
                 </div><!-- /.reply -->
