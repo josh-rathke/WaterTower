@@ -17,5 +17,6 @@
 		<exclude name="WordPress.Variables.GlobalVariables" />
 		<exclude name="WordPress.Files.FileName" />
 		<exclude name="WordPress.VIP.PostsPerPage.posts_per_page" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.get_page_by_path" />
 	</rule>
 </ruleset>

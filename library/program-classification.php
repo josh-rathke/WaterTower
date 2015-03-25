@@ -23,9 +23,9 @@ class PostRibbon
 				$class_slug = $classification->slug;
 
 				if ( array_key_exists( $classification->slug, $this->post_color_info ) ) {
-					$this->post_color_info[$class_slug][count] = ++$this->post_color_info[$class_slug][count];
+					$this->post_color_info[ $class_slug ]['count'] = ++$this->post_color_info[ $class_slug ]['count'];
 				} else {
-					$this->post_color_info[$class_slug] = array('slug' => $class_slug, 'count' => 1, 'color' => get_program_color( $program->ID ));
+					$this->post_color_info[ $class_slug ] = array('slug' => $class_slug, 'count' => 1, 'color' => get_program_color( $program->ID ));
 				}
 
 				//----- UPDATE TOTAL TERMS EVERYTIME TERM IN FOUND -----//

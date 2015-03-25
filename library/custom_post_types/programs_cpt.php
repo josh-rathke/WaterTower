@@ -71,14 +71,14 @@ class ProgramInfo {
 			//----- ONLY DISPLAY FUTURE SCHOOLS -----//
 			if ( rwmb_meta( $start_date, '', $program_id = $this->program_id ) >= $this->cur_date ) {
 
-				$this->schedule[$i] = array(
+				$this->schedule[ $i ] = array(
 					'start_date' => rwmb_meta( $start_date, '', $program_id = $this->program_id ),
 					'end_date'	 => rwmb_meta( $end_date, '', $program_id = $this->program_id ),
 					'total_cost' => 'USD ' . number_format( rwmb_meta( $total_cost, '', $program_id = $this->program_id ) ),
 					'app_deadline'	=> rwmb_meta( $app_deadline, '', $program_id = $this->program_id ),
 				);
 
-				$this->schedule[$i]['quarter'] = define_quarter( rwmb_meta( $start_date, '', $program_id = $this->program_id ) );
+				$this->schedule[ $i ]['quarter'] = define_quarter( rwmb_meta( $start_date, '', $program_id = $this->program_id ) );
 			}
 
 			$i = ++$i;
@@ -184,7 +184,7 @@ class ProgramDates {
 							'program_name'  => $raw_programs->post->post_title,
 							'slug'			=> $raw_programs->post->post_name,
 							'program_id'	=> $raw_programs->post->ID,
-							'program_class' => $program_class[$program_class_key]->name,
+							'program_class' => $program_class[ $program_class_key ]->name,
 							'start_date'	=> rwmb_meta( $start_date ),
 							'quarter'		=> define_quarter( rwmb_meta( $start_date ) ),
 						);

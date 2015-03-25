@@ -47,8 +47,8 @@ echo $args['after_widget'];
 
 	// Widget Backend
 	public function form( $instance ) {
-		if ( isset( $instance[ 'title' ] ) ) {
-			$title = $instance[ 'title' ];
+		if ( isset( $instance['title'] ) ) {
+			$title = $instance['title'];
 		}
 		else {
 			$title = __( 'Subscribe', 'water_tower_subscribe_widget' );

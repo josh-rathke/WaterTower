@@ -240,7 +240,7 @@ function get_excerpt_by_id( $post_id, $excerpt_length = 40, $echo_link = false, 
  */
 function properize($string)
 {
-	return $string.'\''.($string[strlen( $string ) - 1] != 's' ? 's' : '');
+	return $string.'\''.($string[ strlen( $string ) - 1 ] != 's' ? 's' : '');
 }
 
 ?>

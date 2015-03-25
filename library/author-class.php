@@ -202,7 +202,7 @@ class AuthorInfo
 		if ( isset($this->married_couples) ) {
 			foreach ( $this->married_couples as $couples_key => $couple ) {
 				foreach ( $couple as $spouse_key => $spouse ) {
-					$this->married_couples[$couples_key][$spouse_key]['author_info'] = $this->populate_author_info( $spouse['ID'] );
+					$this->married_couples[ $couples_key ][ $spouse_key ]['author_info'] = $this->populate_author_info( $spouse['ID'] );
 				}
 			}
 		}
@@ -210,7 +210,7 @@ class AuthorInfo
 		//fill information for singles
 		if ( isset($this->singles) ) {
 			foreach ( $this->singles as $single_key => $single ) {
-				$this->singles[$single_key]['author_info'] = $this->populate_author_info( $single['ID'] );
+				$this->singles[ $single_key ]['author_info'] = $this->populate_author_info( $single['ID'] );
 			}
 		}
 
@@ -319,7 +319,7 @@ function display_authors($post_id, $author_ids = null)
 								if ( $location ) {
 									$location_for_search = str_replace( ' ', '+', $location );
 									$format = '<div><a target="_blank" href="%s"><i class="fa fa-map-marker"></i>Hometown: %s</a></div>';
-									echo sprintf( $format, $funny_links[array_rand( $funny_links, 1 )] . $location_for_search, $location );
+									echo sprintf( $format, $funny_links[ array_rand( $funny_links, 1 ) ] . $location_for_search, $location );
 								}
 
 								?>
@@ -383,7 +383,7 @@ function display_authors($post_id, $author_ids = null)
 								if ( $location ) {
 									$location_for_search = str_replace( ' ', '+', $location );
 									$format = '<div><a target="_blank" href="%s"><i class="fa fa-map-marker"></i>Hometown: %s</a></div>';
-									echo sprintf( $format, $funny_links[array_rand( $funny_links, 1 )] . $location_for_search, $location );
+									echo sprintf( $format, $funny_links[ array_rand( $funny_links, 1 ) ] . $location_for_search, $location );
 								}
 
 								?>
