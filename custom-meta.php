@@ -13,42 +13,6 @@ $meta_boxes = array();
 	require 'library/custom_meta/front_page_meta.php';
 	require 'library/custom_meta/annual_reports_meta.php';
 
-
-
-$meta_boxes[] = array(
-	'title'  => 'Post Type Relationships',
-	'pages' => array( 'post'),
-	'context' => 'normal',
-	'priority' => 'low',
-	'fields' => array(
-
-		// Related Programs
-		array(
-			'name'        => __( 'Related Program(s)', 'meta-box' ),
-			'id'          => "{$prefix}related_programs",
-			'type'        => 'post',
-			'post_type'   => 'program',
-			'field_type'  => 'select_advanced',
-			'multiple'      => true,
-			'placeholder' => __( 'Select a Program', 'meta-box' ),
-		),
-
-		// Related Target Nations
-		array(
-			'name'        => __( 'Related Target Nation(s)', 'meta-box' ),
-			'id'          => "{$prefix}related_target_nations",
-			'type'        => 'post',
-			'post_type'   => 'target_nations',
-			'field_type'  => 'select_advanced',
-			'multiple'      => true,
-			'placeholder' => __( 'Select a Target Nation', 'meta-box' ),
-		),
-	),
-);
-
-
-
-
 $meta_boxes[] = array(
 	'title'  => 'Featured Program',
 	'pages' => array( 'post'),
