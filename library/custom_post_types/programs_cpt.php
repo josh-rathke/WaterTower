@@ -30,11 +30,45 @@ function my_custom_post_program() {
 		'show_in_menu'  => 'edit.php?post_type=page',
 		'has_archive'   => true,
 		'taxonomies' 	=> array('post_tag'),
-		'rewrite' => array('slug' => 'programs'),
+		'rewrite' => array('slug' => 'program'),
 	);
 	register_post_type( 'program', $args );
 }
 add_action( 'init', 'my_custom_post_program' );
+
+
+
+/**
+ * 	Remove Post Type Slug From Permalink
+ * 	This will remove /programs/ from the url of the
+ * 	school.
+ */
+function remove_program_slug( $post_link, $post, $leavename ) {
+	if ( 'program' != $post->post_type || 'publish' != $post->post_status ) {
+		return $post_link;
+	}
+
+	$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+	return $post_link;
+}
+add_filter( 'post_type_link', 'remove_program_slug', 10, 3 );
+
+
+function parse_program_request( $query ) {
+	// Only noop the main query
+	if ( ! $query->is_main_query() ) {
+		return; }
+
+	// Only noop our very specific rewrite rule match
+	if ( 2 != count( $query->query )
+		|| ! isset( $query->query['page'] ) ) {
+		return; }
+
+	// 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
+	if ( ! empty( $query->query['name'] ) ) {
+		$query->set( 'post_type', array( 'post', 'program', 'page' ) ); }
+}
+add_action( 'pre_get_posts', 'parse_program_request' );
 
 
 

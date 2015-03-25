@@ -15,6 +15,7 @@ function post_program_update($post_id){
 	$raw_title = $post_obj->post_title;
 	$post_type = $post_obj->post_type;
 	$slug_title = sanitize_title( $raw_title );
+	$post_name = $post_obj->post_name;
 
 	if ( ('program' == $post_type) && ('auto-draft' != $slug_title) && ( ! empty($raw_title)) ) {
 		// get the terms associated with this custom post type
@@ -26,7 +27,7 @@ function post_program_update($post_id){
 				'program_taxo',
 				array(
 						  'description' => $raw_title,
-						  'slug' => $raw_title,
+						  'slug' => $post_name,
 						  'name' => $raw_title,
 				)
 			);
