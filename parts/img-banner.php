@@ -188,8 +188,8 @@ if ( is_front_page() ) {
 
 	// The Loop
 	if ( $annual_reports->have_posts() ) {
-		while ( $$annual_reports->have_posts() ) {
-			$$annual_reports->the_post();
+		while ( $annual_reports->have_posts() ) {
+			$annual_reports->the_post();
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full-width-banner', true ); ?>
         <div class="slideshow-wrapper primary-slider">
          <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
