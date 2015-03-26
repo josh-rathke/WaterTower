@@ -35,9 +35,9 @@ get_header();
 
 
 		$archive_program_query_args = array(
-		'posts_per_page'             => 50,
-		'post_type'                  => 'program',
-		'program_classification'     => $program_classification->slug,
+			'nopaging'             => true,
+			'post_type'                  => 'program',
+			'program_classification'     => $program_classification->slug,
 		); ?>
 		   
        <div id="<?php echo $program_classification->slug; ?>" data-magellan-destination="<?php echo $program_classification->slug; ?>" class="program-archive-programs-container row">
