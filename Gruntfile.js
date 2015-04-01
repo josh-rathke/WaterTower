@@ -1,4 +1,7 @@
 module.exports = function(grunt) {
+  // time
+  require('time-grunt')(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -29,7 +32,32 @@ module.exports = function(grunt) {
         dest: 'js/vendor/'
       },
 
+      iconfonts: {
+        expand: true,
+        cwd: 'bower_components/fontawesome/',
+        src: ['**', '!**/less/**', '!**/css/**', '!bower.json'],
+        dest: 'assets/fontawesome/'
+      },
+
     },
+
+
+      'string-replace': {
+
+        fontawesome: {
+          files: {
+            'assets/fontawesome/scss/_variables.scss': 'assets/fontawesome/scss/_variables.scss'
+          },
+          options: {
+            replacements: [
+              {
+                pattern: '../fonts',
+                replacement: '../assets/fontawesome/fonts'
+              }
+            ]
+          }
+        },
+      },
 
     concat: {
         options: {
@@ -82,7 +110,17 @@ module.exports = function(grunt) {
 
       sass: {
         files: 'scss/**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+              livereload:true,
+            }
+      },
+
+       all: {
+        files: '**/*.php',
+        options: {
+            livereload:true,
+        }
       }
     }
   });
@@ -92,7 +130,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-string-replace');
 
-  grunt.registerTask('build', ['sass', 'copy', 'concat', 'uglify']);
+  grunt.registerTask('build', ['copy', 'string-replace:fontawesome', 'sass', 'concat', 'uglify']);
   grunt.registerTask('default', ['watch']);
 };
