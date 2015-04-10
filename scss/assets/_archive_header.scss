@@ -5,6 +5,14 @@
     font-size: 32px;
   }
   
+  > p {
+    
+    > a {
+      font-size: 14px;
+      margin-left: 10px; 
+    }
+  }
+  
   .archive-header-meta {
     border-bottom: 2px solid $primary_color;
     font-family:"HelveticaNeueW01-47LtCn 692686";

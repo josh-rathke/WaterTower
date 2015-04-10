@@ -30,7 +30,7 @@ function my_taxonomies_program_taxo() {
 		),
 		'show_admin_column' => true,
 	);
-	register_taxonomy( 'program_taxo', array( 'post', 'teachings', 'user', 'class_portfolios', 'focus_tracks' ), $args );
+	register_taxonomy( 'program_taxo', array( 'post', 'user', 'focus_tracks' ), $args );
 }
 add_action( 'init', 'my_taxonomies_program_taxo', 0 );
 
