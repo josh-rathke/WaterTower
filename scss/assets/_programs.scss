@@ -93,6 +93,7 @@
   
   .upcoming-schools-header {
       margin-bottom: 30px;
+      padding-top: 70px;
     
       h2 {
         border-bottom: 1px solid #CCC;
@@ -118,7 +119,7 @@
   
   .program-dates-container {
     margin: 0px;
-    padding-top: 70px;
+    position: relative;
     
     
     .program-date-info-container {
@@ -163,6 +164,29 @@
           margin-top: -10px;
           text-align: left
         }
+      }
+    }
+    
+    .program-schedule-coming-soon-container {
+      position: absolute;
+      top: 3px;
+      right: 0px;
+      bottom: 20px;
+      
+      > div {
+          background: #F9F9F9;
+          background-clip: content-box;
+          border: 4px dashed #EFEFEF;
+          height: 100%;
+          padding: 15px;
+          position: relative;
+          
+          .coming-soon-text {
+            font-family:"HelveticaNeueW01-77BdCn 692722";
+            color: #DDD;
+            text-align: center;
+            text-transform: uppercase;
+          }
       }
     }
   }

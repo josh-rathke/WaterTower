@@ -89,6 +89,22 @@ $meta_boxes[] = array(
 				'type' => 'textarea',
 				'desc' => 'Put a description of the video here.',
 		),
+		
+		// Video Link URL
+		array(
+				'name' => 'Video Link URL',
+				'id'   => "{$prefix}video_link_url",
+				'type' => 'text',
+				'desc' => 'Put the link URL of the video here.',
+		),
+		
+		// Video Link Text
+		array(
+				'name' => 'Video Link Text',
+				'id'   => "{$prefix}video_link_text",
+				'type' => 'text',
+				'desc' => 'Put the link text of the video here.',
+		),
 
 		// Video Embed Code
 		array(

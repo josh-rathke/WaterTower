@@ -3,4 +3,5 @@ node_modules/
 *.sass-cache*
 .project
 *.log
+npm-debug.log
 

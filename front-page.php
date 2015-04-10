@@ -107,6 +107,10 @@ endif; ?>
 					<h3><?php echo rwmb_meta( 'video_title' ); ?></h3>
 					<p><?php echo rwmb_meta( 'video_desc' ); ?></p>
 					
+					<div class="front-page-video-link-container">
+						<a href="<?php echo rwmb_meta('video_link_url'); ?>"><i class="fa fa-long-arrow-right"></i><?php echo rwmb_meta('video_link_text'); ?></a>
+					</div>
+					
 					<ul class="front-page-video-related-programs">
 						<strong>Related Programs:</strong> 
         <?php

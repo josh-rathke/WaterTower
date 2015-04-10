@@ -87,20 +87,32 @@ endwhile;?>
 	endif;
 
 	/**
-		 *    Program Schedule Section
-		 *     This is the section where all of the dates for
-		 *     upcoming programs are displayed along with links to
-		 *     apply for each of the scheduled schools.
-		 */
+	 *    Program Schedule Section
+	 *     This is the section where all of the dates for
+	 *     upcoming programs are displayed along with links to
+	 *     apply for each of the scheduled schools.
+	 */
+	
+	
+	// Define Block Grid Class Based on Number of Schedule Instances
+	$schedule_count = count( $program_object->schedule );
+	if ( in_array($schedule_count, array(0, 1, 2) ) ) {
+		$schedule_width_class = 'small-block-grid-1 medium-block-grid-2';
+	} elseif ( 3 == $schedule_count ) {
+		$schedule_width_class = 'small-block-grid-1 medium-block-grid-3';
+	}
+	 
 	echo '<div data-magellan-destination="upcoming-schools">';
 
 	if ( 1 != $program_object->rolling_enrollment_status ) :
-		echo '<ul id="schedule" class="small-block-grid-1 medium-block-grid-3 program-dates-container">';
 		echo '<div class="upcoming-schools-header"><h2>Upcoming Schools</h2>';
 		available_via_correspondence_link();
 		echo '</div>';
+		
+		echo "<ul id='schedule' class='{$schedule_width_class} program-dates-container'>";
 
 		if ( ! empty($program_object->schedule) ) {
+			
 
 			// Dispaly available program instaces
 			foreach ( $program_object->schedule as $program_occurance ) {
@@ -127,7 +139,17 @@ endwhile;?>
 
 				echo '<a href="' . of_get_option( 'apply_url' ) . '" class="button">Apply Online</a>';
 				echo '</div></li>';
+				
 			}
+
+			if ( in_array($schedule_count, array( 0, 1 ) ) ) {
+				echo '<li class="program-schedule-coming-soon-container">';
+					echo '<div>';
+					echo '<div class="coming-soon-text vertical-align-relative fittext">More Dates<br />Coming Soon</div>';
+					echo '</div>';
+				echo '</li>';
+			}
+
 		} else {
 			echo "Sorry there aren't any available dates at this time.";
 		}
