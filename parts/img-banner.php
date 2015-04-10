@@ -241,13 +241,8 @@ if ( is_front_page() ) {
 	$page_id = $page_id != 0 ? $page_id : null;
 
 	if ( is_archive() || is_home() || $page_id != null ) {
-		if ( $page_id != null && has_post_thumbnail( $page_id ) ) {
-			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full-width-banner', true );
-
-			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
-
-			// Display Program Blogs Archive
-		} elseif ( is_tax( 'program_taxo' ) ) {
+		
+		if ( is_tax( 'program_taxo' ) ) {
 			$program_blog = get_queried_object();
 			$program_page = get_page_by_path( $program_blog->slug, OBJECT, 'program' );
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $program_page->ID ), 'full-width-banner', true ); ?>
@@ -264,6 +259,10 @@ if ( is_front_page() ) {
 		
         <?php
 
+		} elseif ( $page_id != null && has_post_thumbnail( $page_id ) ) {
+			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full-width-banner', true );
+
+			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
 		}
 
 		// Display Image Banner As Usual
