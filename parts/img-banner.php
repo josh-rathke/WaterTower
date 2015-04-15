@@ -238,9 +238,9 @@ if ( is_front_page() ) {
 
 	// Check to see if $page_id variable is set, if so use current setting
 	global $page_id;
-	$page_id = $page_id != 0 ? $page_id : null;
+	$page_id = 0 != $page_id ? $page_id : null;
 
-	if ( is_archive() || is_home() || $page_id != null ) {
+	if ( is_archive() || is_home() || null != $page_id ) {
 
 		if ( is_tax( 'program_taxo' ) ) {
 			$program_blog = get_queried_object();
@@ -259,7 +259,7 @@ if ( is_front_page() ) {
 		
         <?php
 
-		} elseif ( $page_id != null && has_post_thumbnail( $page_id ) ) {
+		} elseif ( null != $page_id && has_post_thumbnail( $page_id ) ) {
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full-width-banner', true );
 
 			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
