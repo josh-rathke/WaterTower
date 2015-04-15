@@ -241,7 +241,7 @@ if ( is_front_page() ) {
 	$page_id = $page_id != 0 ? $page_id : null;
 
 	if ( is_archive() || is_home() || $page_id != null ) {
-		
+
 		if ( is_tax( 'program_taxo' ) ) {
 			$program_blog = get_queried_object();
 			$program_page = get_page_by_path( $program_blog->slug, OBJECT, 'program' );
