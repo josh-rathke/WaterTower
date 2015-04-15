@@ -333,6 +333,25 @@
     .related-post-feat-img-container {
       margin-top: 6px; 
     }
+    
+    h5 {
+      
+      a {
+        color: #444;
+      }
+    }
+    
+    p {
+      font-size: 14px;
+      
+      a {
+        white-space: nowrap;
+        
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
   }
 }
 

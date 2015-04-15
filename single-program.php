@@ -603,17 +603,17 @@ endwhile; ?>
 			
      <div class="related-posts-container">
         <?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
-					<div class="row related-post-container">
-						<div class="medium-4 columns related-post-feat-img-container">
-        <?php the_post_thumbnail( 'thumbnail-card' ); ?>
-						</div>
-						
-						<div class="medium-8 columns related-post-content-container">
-        <?php echo '<h5>' . get_the_title() . '</h5>'; ?>
-        <?php echo '<p>' . get_the_excerpt() . '</p>'; ?>
-						</div>
-					</div>
-				<?php
+			<div class="row related-post-container">
+				<div class="medium-4 columns related-post-feat-img-container">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-card' ); ?></a>
+				</div>
+				
+				<div class="medium-8 columns related-post-content-container">
+			        <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+			        <p><?php echo get_the_excerpt(); ?> <a href="<?php the_permalink(); ?>"><i class="fa fa-long-arrow-right"></i>View Post</a></p>
+				</div>
+			</div>
+		<?php
 endwhile; ?>
      </div>
     </div>

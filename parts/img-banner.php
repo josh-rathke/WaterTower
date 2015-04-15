@@ -14,7 +14,7 @@ if ( is_front_page() ) {
 ?>
 	
 	<div class="slideshow-wrapper primary-slider">
-		<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;">
+		<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:true;">
 		
 		
     <?php
