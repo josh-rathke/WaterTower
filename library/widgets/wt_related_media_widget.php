@@ -252,7 +252,7 @@ class WaterTowerRelatedMediaWidget extends WP_Widget {
 		$post_type_object = get_post_type_object( $instance['post_type'] );
 		$post_type_name = $post_type_object->labels->name;
 
-		if ( $instance['post_category'] != null ) {
+		if ( null != $instance['post_category'] ) {
 			$post_category_name = get_category_by_slug( $instance['post_category'] )->name;
 		}
 

@@ -92,27 +92,27 @@ endwhile;?>
 	 *     upcoming programs are displayed along with links to
 	 *     apply for each of the scheduled schools.
 	 */
-	
-	
+
+
 	// Define Block Grid Class Based on Number of Schedule Instances
 	$schedule_count = count( $program_object->schedule );
-	if ( in_array($schedule_count, array(0, 1, 2) ) ) {
+	if ( in_array( $schedule_count, array(0, 1, 2) ) ) {
 		$schedule_width_class = 'small-block-grid-1 medium-block-grid-2';
 	} elseif ( 3 == $schedule_count ) {
 		$schedule_width_class = 'small-block-grid-1 medium-block-grid-3';
 	}
-	 
+
 	echo '<div data-magellan-destination="upcoming-schools">';
 
 	if ( 1 != $program_object->rolling_enrollment_status ) :
 		echo '<div class="upcoming-schools-header"><h2>Upcoming Schools</h2>';
 		available_via_correspondence_link();
 		echo '</div>';
-		
+
 		echo "<ul id='schedule' class='{$schedule_width_class} program-dates-container'>";
 
 		if ( ! empty($program_object->schedule) ) {
-			
+
 
 			// Dispaly available program instaces
 			foreach ( $program_object->schedule as $program_occurance ) {
@@ -139,18 +139,17 @@ endwhile;?>
 
 				echo '<a href="' . of_get_option( 'apply_url' ) . '" class="button">Apply Online</a>';
 				echo '</div></li>';
-				
+
 			}
 
-			if ( in_array($schedule_count, array( 0, 1 ) ) ) {
+			if ( in_array( $schedule_count, array( 0, 1 ) ) ) {
 				echo '<li class="program-schedule-coming-soon-container">';
 					echo '<div>';
 					echo '<div class="coming-soon-text vertical-align-relative fittext">More Dates<br />Coming Soon</div>';
 					echo '</div>';
 				echo '</li>';
 			}
-
-		} else {
+} else {
 			echo "Sorry there aren't any available dates at this time.";
 		}
 		echo '</ul>';
@@ -603,17 +602,17 @@ endwhile; ?>
 			
      <div class="related-posts-container">
         <?php while ( $related_posts->have_posts() ) : $related_posts->the_post(); ?>
-					<div class="row related-post-container">
-						<div class="medium-4 columns related-post-feat-img-container">
-        <?php the_post_thumbnail( 'thumbnail-card' ); ?>
-						</div>
-						
-						<div class="medium-8 columns related-post-content-container">
-        <?php echo '<h5>' . get_the_title() . '</h5>'; ?>
-        <?php echo '<p>' . get_the_excerpt() . '</p>'; ?>
-						</div>
-					</div>
-				<?php
+			<div class="row related-post-container">
+				<div class="medium-4 columns related-post-feat-img-container">
+				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail-card' ); ?></a>
+				</div>
+				
+				<div class="medium-8 columns related-post-content-container">
+			        <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+			        <p><?php echo get_the_excerpt(); ?> <a href="<?php the_permalink(); ?>"><i class="fa fa-long-arrow-right"></i>View Post</a></p>
+				</div>
+			</div>
+		<?php
 endwhile; ?>
      </div>
     </div>
@@ -625,7 +624,7 @@ endwhile; ?>
 		
 	</div>
  	
- 	<div class="large-3 columns stick-to-parent">
+ 	<div class="large-3 columns stick-to-parent-side-nav">
  		<div class="magellan-container" data-magellan-expedition>
 		  <dl class="sub-nav side-nav-container side-nav-by-heading">
 		  </dl>

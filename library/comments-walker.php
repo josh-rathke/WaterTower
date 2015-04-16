@@ -66,7 +66,7 @@ class WaterTowerWalkerComment extends Walker_Comment
 			
       <div class="row">
        <div class="hidden-for-small-only medium-2 columns comment-author vcard author">
-        <?php echo ( $args['avatar_size'] != 0 ? get_avatar( $comment, $args['avatar_size'] ) :'' ); ?>
+        <?php echo ( 0 != $args['avatar_size'] ? get_avatar( $comment, $args['avatar_size'] ) :'' ); ?>
        </div><!-- /.comment-author -->
 
        <div id="comment-content-<?php comment_ID(); ?>" class="small-12 medium-10 columns comment-content">

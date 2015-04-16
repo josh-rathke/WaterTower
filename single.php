@@ -51,7 +51,7 @@ endwhile;?>
 
 	</div>
 	
-	<aside id="sidebar" class="small-12 large-4 columns stick-to-parent">
+	<aside id="sidebar" class="small-12 large-4 columns stick-to-parent-side-nav">
     <?php get_sidebar(); ?>
 	</aside>
 </div>
