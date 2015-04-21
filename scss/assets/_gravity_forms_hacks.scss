@@ -20,6 +20,10 @@
     padding: 0px 8px !important;
   }
   
+  input.ginput_quantity {
+    width: 80px !important;  
+  }
+  
   @mixin placeholder {
     color: rgba(0, 0, 0, .35);
   }
