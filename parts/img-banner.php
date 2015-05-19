@@ -225,7 +225,32 @@ if ( is_front_page() ) {
 	wp_reset_postdata();
 
 
+} elseif ('surges' == get_post_type() ) { 
+	$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true ); ?>
 
+
+	<div class="slideshow-wrapper primary-slider surge-banner">
+     <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
+      <li class="slide-container">
+       <div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
+           <div class="row slide-content-container center-banner-content vertical-align-relative">
+            <div class="small-10 columns small-centered">
+			    			
+             <h2 class="fittext shadow">The Surge: Taiwan</h2>
+             <h2 class="fittext">The Surge: Taiwan</h2>
+             
+             <div class="img-banner-subtitle">2014 - 2018</div>
+			    		
+            </div>
+           </div>
+          </div>
+         </li>
+        </ul>
+       </div>
+
+
+
+<?php
 
 } else {
 
@@ -259,7 +284,12 @@ if ( is_front_page() ) {
 		
         <?php
 
+        
+		} elseif ( 'acceptance_packets' == get_post_type()) {
+			echo 'working';
+        
 		} elseif ( null != $page_id && has_post_thumbnail( $page_id ) ) {
+			echo 'not quite';
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full-width-banner', true );
 
 			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';

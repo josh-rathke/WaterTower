@@ -61,4 +61,30 @@ $options[] = array(
 	'std' => 'apply.ywammontana.org',
 	'type' => 'text',
 	);
+	
+
+// Instagram API Info
+$options[] = array(
+	'name' => __( 'Instagram Client ID', 'options_framework_theme' ),
+	'desc' => __( '', 'options_framework_theme' ),
+	'id' => 'instagram_clientid',
+	'std' => '',
+	'type' => 'text',
+	);
+	
+$options[] = array(
+	'name' => __( 'Instagram Client Secret', 'options_framework_theme' ),
+	'desc' => __( '', 'options_framework_theme' ),
+	'id' => 'instagram_clientsecret',
+	'std' => '',
+	'type' => 'text',
+	);
+	
+$options[] = array(
+	'name' => __( 'Instagram Access Token', 'options_framework_theme' ),
+	'desc' => __( '', 'options_framework_theme' ),
+	'id' => 'instagram_accesstoken',
+	'std' => '',
+	'type' => 'text',
+	);
 ?>
