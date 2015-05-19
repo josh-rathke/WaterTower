@@ -6,7 +6,7 @@
  */
 
 $meta_boxes[] = array(
-	'title'  => 'Track Info',
+	'title'  => 'Page Settings',
 	'pages' => array( 'page'),
 	'context' => 'side',
 	'priority' => 'low',
