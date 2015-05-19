@@ -18,22 +18,22 @@ get_header();
 	<div class="medium-9 columns entry">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			
-			<h1><?php the_title(); ?></h1>
-    <?php the_content(); ?>
+		<h1><?php the_title(); ?></h1>
+    	<?php the_content(); ?>
 			
-    <?php
-endwhile; else : ?>
-			<p><?php _e( 'Sorry, we could not find that acceptance packet.' ); ?></p>
-    <?php
-endif; ?>
+	  <?php
+	endwhile; else : ?>
+				<p><?php _e( 'Sorry, we could not find that acceptance packet.' ); ?></p>
+	    <?php
+	endif; ?>
 		
     <?php
 
 	/**
-		 *    Leader Section
-		 *     This section displays all of the leaders of the
-		 *     particular program.
-		 */
+	 *    Leader Section
+	 *     This section displays all of the leaders of the
+	 *     particular program.
+	 */
 
 	$terms = rwmb_meta( 'leaders', 'type=select&multiple=1' );
 

@@ -21,6 +21,23 @@
       }
     }
     
+    &.center-banner-content {
+      text-align: center;
+      
+      .shadow {
+        right: 0px !important;
+        left: 0px !important;
+      }
+    }
+    
+    .img-banner-subtitle {
+      background: $primary-color;
+      display: inline-block;
+      font-family:"HelveticaNeueW01-47LtCn 692689";
+      font-size: 18px;
+      padding: 10px 30px;
+    }
+    
     .subtitle {
       font-family:"HelveticaNeueW01-47LtCn 692689";
       font-size: 26px;

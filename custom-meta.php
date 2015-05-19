@@ -12,6 +12,7 @@ $meta_boxes = array();
 	require 'library/custom_meta/campus_tour_meta.php';
 	require 'library/custom_meta/front_page_meta.php';
 	require 'library/custom_meta/annual_reports_meta.php';
+	require 'library/custom_meta/page_meta.php';
 
 $meta_boxes[] = array(
 	'title'  => 'Featured Program',

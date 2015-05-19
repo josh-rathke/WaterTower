@@ -80,6 +80,18 @@ endif; ?>
     <?php do_action( 'watertower_layout_end' ); ?>
 	</div>
 </div>
+
+<div class="footer-copyright">
+	<div class="copyright-bar-links row">
+		<div class="medium-12 columns">
+			<ul>
+				<li><a href="https://ywammontana.org">&copy; 2015, YWAM Montana | Lakeside</a></li>
+				<li><a href="http://ywam.org">Youth With A Mission</a></li>
+				<li><a href="#_" class="get-crazy-button">A Big Red Button</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 <?php wp_footer(); ?>
 <?php do_action( 'watertower_before_closing_body' ); ?>
 </body>

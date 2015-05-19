@@ -138,7 +138,6 @@ add_filter(
 
 
 
-
 function get_tags_related_to_tax_term($taxonomy, $term)
 {
 

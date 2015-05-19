@@ -57,6 +57,7 @@
 // Fonts
 @import "../bower_components/fontawesome/css/font-awesome.css"; // Import Font Awesome
 @import "assets/fonts"; // Import Font Families
+@import "../assets/flaticons/flaticon.css"; // Import Flaticon Font
 
 //WordPress Style Sheets
 @import "assets/single_post"; //Import Single Post Styles
@@ -78,6 +79,8 @@
 @import "assets/front_page"; // Import Front Page Styles
 @import "assets/campus_tour"; // Import Campus Tour Styles
 @import "assets/annual_reports"; // Import Annual Reports Styles
+@import "assets/the_surge"; // Import The Surge Styles
+@import "assets/copyright_bar"; // Import Copyright Bar Styles
 
 
 // WaterTower Widget Styles
@@ -219,7 +222,18 @@
 .primary-slider .orbit-caption a {font-family: "HelveticaNeueW01-47LtCn 692689"; font-size: 15px; letter-spacing: 1px; text-transform: uppercase;}
 .primary-slider .orbit-slider-placeholder {height: 400px; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important;}
 
-
+body.get-crazy * {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+body.get-crazy *:hover {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 
 
 

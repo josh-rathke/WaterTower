@@ -74,6 +74,7 @@ $(".fittext-large").fitText(.65);
 
 // Configure Chart.js
 Chart.defaults.global.showTooltips = false;
+Chart.defaults.global.responsive = true;
 
 // Scroll To Top
 $(document).ready(function(){
@@ -82,3 +83,9 @@ $(document).ready(function(){
 	});
 });
 
+
+
+// Get Crazy Script
+$('.get-crazy-button').click(function() {
+	$('body').toggleClass('get-crazy');
+});
