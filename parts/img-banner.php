@@ -284,12 +284,14 @@ if ( is_front_page() ) {
 		
         <?php
 
-        
+        // Display Banner for Acceptance Packets
 		} elseif ( 'acceptance_packets' == get_post_type()) {
-			echo 'working';
         
+		
+		
+		
+		
 		} elseif ( null != $page_id && has_post_thumbnail( $page_id ) ) {
-			echo 'not quite';
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full-width-banner', true );
 
 			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';

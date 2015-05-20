@@ -108,14 +108,9 @@
 		</div>
 		
 		<h2>Target Locations</h2>
-		<div class="row">
-			<div class="medium-6 columns">
-				<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
-			</div>
-			<div class="medium-6 columns">
-				<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" />
-			</div>
-		</div>
+		<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float:right;" />
+		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
+		<p><h6>A Target Location</h6> Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		
 		<h2>Videos</h2>
 		<div class="flex-video widescreen vimeo">
@@ -132,12 +127,12 @@
 
 	<aside id="sidebar" class="medium-4 columns stick-to-parent">
 		<div class="surge-timeline-snapshot-container">
-			<h4><i class="fa fa-history"></i> Surge Updates</h4>
+			<h3><i class="fa fa-history"></i> Surge Updates</h3>
 			
 			<?php
 
 			// The Query
-			$surge_posts = new WP_Query('post_type=post&posts_per_page=3&category_name=staff-articles');
+			$surge_posts = new WP_Query('post_type=post&posts_per_page=4&category_name=staff-articles');
 			$found_posts = $surge_posts->found_posts;
 			//print_r($surge_posts);
 			
