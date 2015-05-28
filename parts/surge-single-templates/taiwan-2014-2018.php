@@ -108,7 +108,7 @@
 		</div>
 		
 		<h2>Target Locations</h2>
-		<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float:right;" />
+		<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float: right; width: 45%; padding-left: 30px; padding-bottom: 30px;" />
 		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		<p><h6>A Target Location</h6> Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		
@@ -121,6 +121,27 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
 		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		
+		<?php
+
+	/**
+	 *    Leader Section
+	 *     This section displays all of the leaders of the
+	 *     particular program.
+	 */
+
+	$terms = rwmb_meta( 'impact_author', 'type=select&multiple=1' );
+
+	if ( ! empty($terms) ) {
+		echo '<div data-magellan-destination="school-leaders" class="authors-container">';
+		foreach ( $terms as $term ) {
+			$author_object = get_post( $term, OBJECT );
+			$leader_ids[] = $author_object->ID;
+		}
+		display_authors( $program_id, $leader_ids );
+		echo '</div>';
+	}
+
+	?>
 		
 	</div>
 	
@@ -162,7 +183,7 @@
 
 		</div>
 		
-		<!--
+		
 		<?php
 
 		/**
@@ -262,6 +283,5 @@
 			
 		<?php } ?>
 		</div>
-		-->
 	</aside>
 </div>
