@@ -166,10 +166,11 @@ endwhile;?>
 				<div class="rolling-enrollment-container" data-magellan-destination="rolling-enrollment">
 					<div class="upcoming-schools-header">
 						<h2>Rolling Enrollment</h2>
-        <?php available_via_correspondence_link() ?>
+                        <?php available_via_correspondence_link() ?>
 					</div>
 					
-        <?php echo $program_object->schedule['rolling_enrollment_desc']; ?>
+                <?php echo $program_object->schedule['rolling_enrollment_desc']; ?>
+                <a href="'<?php echo of_get_option( 'apply_url' ); ?>" class="button">Apply Online</a>
 				</div>
     <?php
 endif; ?>
