@@ -137,6 +137,12 @@ add_filter(
 	require 'library/widgets/wt_related_media_widget.php';
 
 
+/**
+ *  Include API Call Functions
+ */
+
+require 'library/instagram.php';
+
 
 function get_tags_related_to_tax_term($taxonomy, $term)
 {

@@ -12,6 +12,10 @@ get_header(); ?>
 	<div class="medium-8 columns">
 		<h1><?php the_title(); ?></h1>
 		<?php the_content(); ?>
+        
+        <div class="project-video-container flex-video widescreen vimeo">
+            <iframe src="https://player.vimeo.com/video/71741875?title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
 	</div>
 	
 	<div id="sidebar" class="medium-4 columns stick-to-parent-side-nav">
