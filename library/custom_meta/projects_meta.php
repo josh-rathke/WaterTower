@@ -37,4 +37,38 @@ $meta_boxes[] = array(
 	),
 );
 
+$meta_boxes[] = array(
+    'title' => 'Project Goals Options',
+    'pages' => 'projects',
+    'fields' => array(
+        // Group
+        array(
+            'name' => 'Project Chart Data', // Optional
+            'id' => 'project_chart_data',
+            'type' => 'group',
+            'clone' => true,
+            // List of sub-fields
+            'fields' => array(
+                array(
+                    'name' => 'Goal Date',
+                    'id' => 'goal_date',
+                    'type' => 'text',
+                ),
+                
+                array(
+                    'name' => 'Goal Amount',
+                    'id' => 'goal_amount',
+                    'type' => 'text',
+                ),
+                
+                array(
+                    'name' => 'Actual Amount',
+                    'id' => 'actual_amount',
+                    'type' => 'text',
+                ),
+            ),
+        ),
+    ),
+);
+
 ?>

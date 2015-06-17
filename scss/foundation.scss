@@ -81,6 +81,10 @@
 @import "assets/annual_reports"; // Import Annual Reports Styles
 @import "assets/the_surge"; // Import The Surge Styles
 @import "assets/copyright_bar"; // Import Copyright Bar Styles
+@import "assets/projects"; // Import Projects Styles
+
+// WaterTower Page Template Styles
+@import "assets/page_statement_of_faith"; // Statement of Faith Template
 
 
 // WaterTower Widget Styles
@@ -150,7 +154,8 @@
     background: transparent;
     font-family:"HelveticaNeueW01-47LtCn 692686";
     font-size: 14px;
-    padding: 5px 5px 5px 30px;
+    margin-left: 30px;
+    padding: 5px 5px 5px 0px;
     width: 100%;
     border: none;
     letter-spacing: 1px;
@@ -172,8 +177,6 @@
   }
 }
 
-.desktop-search-form-container.search-active #header-search {background: #F9F9F9;}
-
 .desktop-search-form-container .submit-search {
   color: #444;
   background: transparent;
@@ -194,8 +197,8 @@
 }
 
 .desktop-search-form-container input[type=text] {box-shadow: none !important; @include transition(.6s);}
-.desktop-search-form-container:hover input[type=text] {border: 1px solid #CCC !important;}
-.desktop-search-form-container.search-active input[type=text] {border: 1px solid #CCC !important;}
+.desktop-search-form-container:hover input[type=text] {border-bottom: 1px solid #CCC !important;}
+.desktop-search-form-container.search-active input[type=text] {border-bottom: 1px solid #CCC !important;}
 
 
 /*  Standard Banner

@@ -171,7 +171,14 @@
 }
 
 .surge-instagram-feed {
-    margin-top: 70px !important;
+    
+    span {
+        color: #CCC;
+        float: right;
+        font-family:"HelveticaNeueW01-47LtCn 692689";
+        font-size: 20px;
+        text-transform: lowercase;
+    }
     
     .surge-instagram-post {
       margin-bottom: 30px;
@@ -181,19 +188,22 @@
         
         .instagram-meta {
           font-family: "HelveticaNeueW01-47LtCn 692686";
-          font-size: 20px;
+          font-size: 16px;
           color: #999;
-          position: absolute;
-          right: 0px;
-          top: 0px;
-          bottom: 0px;
+          margin-top: 6px;
           
           div {
-            margin-bottom: 8px;
+            display: inline-block;
+              
+              &.instagram-comments,
+              &.instagram-likes {
+                  float: right;
+                  margin-left: 8px;
+              }
           
             i {
-              color: #999;
-              margin-right: 8px;
+              color: #CCC;
+              margin-right: 4px;
             }
           }
         }

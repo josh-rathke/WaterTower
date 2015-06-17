@@ -236,10 +236,10 @@ if ( is_front_page() ) {
            <div class="row slide-content-container center-banner-content vertical-align-relative">
             <div class="small-10 columns small-centered">
 			    			
-             <h2 class="fittext shadow">The Surge: Taiwan</h2>
-             <h2 class="fittext">The Surge: Taiwan</h2>
+             <h2 class="fittext shadow">The Surge</h2>
+             <h2 class="fittext">The Surge</h2>
              
-             <div class="img-banner-subtitle">2014 - 2018</div>
+             <div class="img-banner-subtitle">Taiwan: 2014-2018</div>
 			    		
             </div>
            </div>

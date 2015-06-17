@@ -60,6 +60,7 @@ function optionsframework_options()
 	include_once 'library/watertower_admin/social-media.php'; // Social Media Options
 	include_once 'library/watertower_admin/programs.php'; // Programs Options
 	include_once 'library/watertower_admin/footer.php'; // Footer Options
+    include_once 'library/watertower_admin/acceptance-packets.php'; // Acceptance Packets Options
 
 	return $options;
 }

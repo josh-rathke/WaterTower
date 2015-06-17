@@ -108,7 +108,7 @@
 		</div>
 		
 		<h2>Target Locations</h2>
-		<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float:right;" />
+		<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float: right; width: 45%; padding-left: 30px; padding-bottom: 30px;" />
 		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		<p><h6>A Target Location</h6> Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		
@@ -121,6 +121,60 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
 		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		
+		<?php
+
+	/**
+	 *    Leader Section
+	 *     This section displays all of the leaders of the
+	 *     particular program.
+	 */
+
+	$terms = rwmb_meta( 'impact_author', 'type=select&multiple=1' );
+
+	if ( ! empty($terms) ) {
+		echo '<div data-magellan-destination="school-leaders" class="authors-container">';
+		foreach ( $terms as $term ) {
+			$author_object = get_post( $term, OBJECT );
+			$leader_ids[] = $author_object->ID;
+		}
+		display_authors( $program_id, $leader_ids );
+		echo '</div>';
+	}
+
+	?>
+    
+    
+        <ul class="medium-block-grid-3 surge-instagram-feed">
+            <h2>Instagram Feed<span><a href="#_">#surgetaiwan</a></span></h2>
+			
+            <?php // Display all of the posts
+
+            $instagram_posts = instagram_object('surgetaiwan');
+            $instagram_posts = array_slice($instagram_posts, 0, 6);
+            foreach ( $instagram_posts as $post ) { ?>
+
+                        <li class="surge-instagram-post">
+                            <div class="instagram-image-container clearfix">
+                                <div class="instagram-img">
+                                    <?php echo '<img src="' . $post['images']['standard_resolution']['url'] . '" />'; ?>
+                                </div>
+
+                                <div class="instagram-meta">
+                                    <div class="instagram-date"><?php echo date('M d', $post['created_time']); ?></div>
+
+                                    <div class="instagram-likes">
+                                        <i class="fa fa-heart-o"></i><?php print_r($post['likes']['count']); ?>
+                                    </div>
+
+                                    <div class="instagram-comments">
+                                        <i class="fa fa-comments-o"></i><?php print_r($post['comments']['count']); ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+            <?php } ?>
+		</ul>
 		
 	</div>
 	
@@ -161,107 +215,5 @@
 			?>
 
 		</div>
-		
-		<!--
-		<?php
-
-		/**
-		 *	By default instagram does not allow us to query for more than
-		 *	attribute, such as media posted by a specific author tagged with
-		 *	a specific tag. In order to accomplish this we will acquire all of
-		 *	the media tagged with the tag we are looking for and then filter it
-		 *	down based on the user.
-		 */
-		
-		// The tag you want to query
-		$tag = 'surgetaiwan';
-		
-		/**
-		 *	Query variables for the CURL URL
-		 * 	For simple queries the client ID alone will suffice. 
-		 * 	We also need a very high number for the requested amount
-		 * 	of posts so that the App continues to give us a paginated
-		 * 	URL that allows us to iterate through all of the media.
-		 */
-		$query = array(
-			'client_id' => of_get_option('instagram_clientid'),
-			'count'	    => 999999
-		);
-		
-		// Set the url for the first iteration of the CURL
-		$url = "https://api.instagram.com/v1/tags/{$tag}/media/recent?".http_build_query($query);
-		
-		/**
-		 *	Instagram will only give us 33 posts at a time, so at the end of the CURL
-		 *	we will reset the $url using the next_url atribute in the pagination section
-		 *	of the returned object.
-		 */
-		while ($url) {
-			
-			try {
-				$curl_connection = curl_init($url);
-				curl_setopt($curl_connection, CURLOPT_CONNECTTIMEOUT, 30);
-				curl_setopt($curl_connection, CURLOPT_RETURNTRANSFER, true);
-				curl_setopt($curl_connection, CURLOPT_SSL_VERIFYPEER, false);
-				
-				//Data are stored in $data
-				$data = json_decode(curl_exec($curl_connection), true);
-				curl_close($curl_connection);
-				
-				/**
-				 *	Loop through all of the posts retrieved in the latest CURL and assign
-				 * 	them to our $instagram_posts variable if they were authored by the user
-				 * 	we are looking for.
-				 */
-				if ( !empty( $data['data'] ) ) {
-					foreach ($data['data'] as $post_tag_match) {
-						if ( $post_tag_match['user']['username'] == 'ywammontanalakeside' ) {
-							$instagram_posts[] = $post_tag_match;
-						}
-					}
-				}
-			
-			} catch(Exception $e) {
-				return $e->getMessage();
-			}
-			
-			// Reset the $url variable using the next_url attribute.
-			$url = $data['pagination']['next_url'];
-		} ?>
-		
-		<div class="surge-instagram-feed">
-			
-		<?php // Display all of the posts
-		$instagram_posts = array_slice($instagram_posts, 0, 3);
-		foreach ( $instagram_posts as $post ) { ?>
-			
-					<div class="surge-instagram-post row">
-						<div class="instagram-image-container clearfix">
-							<div class="small-8 columns instagram-img">
-								<?php echo '<img src="' . $post['images']['standard_resolution']['url'] . '" />'; ?>
-							</div>
-							
-							<div class="small-4 columns instagram-meta">
-								<div class="instagram-date"><?php echo date('M d', $post['created_time']); ?></div>
-								
-								<div class="instagram-likes">
-									<i class="fa fa-heart-o"></i><?php print_r($post['likes']['count']); ?>
-								</div>
-								
-								<div class="instagram-comments">
-									<i class="fa fa-comments-o"></i><?php print_r($post['comments']['count']); ?>
-								</div>
-							</div>
-						</div>
-						
-						
-						<div class="small-12 columns instagram-desc">
-							<p><?php echo $post['caption']['text']; ?></p>
-						</div>
-					</div>
-			
-		<?php } ?>
-		</div>
-		-->
 	</aside>
 </div>

@@ -13,7 +13,7 @@ $options[] = array(
 
 $options[] = array(
 		'name' => __( '', 'options_framework_theme' ),
-		'desc' => __( '<h1>Program Classification Colors</h1>This is just some example information you can put in the panel.', 'theme-textdomain' ),
+		'desc' => __( '<h1>Program Classification Colors</h1>', 'theme-textdomain' ),
 		'type' => 'info',
 	);
 
