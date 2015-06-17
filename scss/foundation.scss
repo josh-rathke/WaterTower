@@ -137,8 +137,12 @@
   font-size: 14px;
   margin: 8px 6px 8px 0px;
   position: relative;
-  width: 90px;
+  width: 52px;
   @include transition(.6s);
+    
+    @media (max-width: 746px) {
+        display: none;
+    }
   
   &:hover {
     width: 150px;
@@ -154,7 +158,6 @@
     background: transparent;
     font-family:"HelveticaNeueW01-47LtCn 692686";
     font-size: 14px;
-    margin-left: 30px;
     padding: 5px 5px 5px 0px;
     width: 100%;
     border: none;
@@ -185,6 +188,7 @@
   position: absolute !important;
   top: 0px;
   bottom: 0px;
+    left: -30px;
   width: 32px;
   
   &:hover {
