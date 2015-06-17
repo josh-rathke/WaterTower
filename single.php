@@ -22,7 +22,7 @@
 										<div class="row">
 											<div class="medium-5 columns">
 						<?php echo get_the_post_thumbnail( $featured_program->ID, 'thumbnail-card' ); ?>
-												<a href="<?php get_permalink( $featured_program->ID ); ?>" class="button">Learn More</a>
+												<a href="<?php echo get_permalink( $featured_program->ID ); ?>" class="button">Learn More</a>
 											</div>
 											<div class="medium-7 columns post-featured-program-desc">
 												<h5>Want to know more about <?php echo $featured_program->post_title; ?>?</h5>
