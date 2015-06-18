@@ -139,7 +139,6 @@ get_header();
 <script>
     $('.doctrine-container h5').click(function(){
         var doctrineContainerID = $(this).attr('data-doctrine');
-        console.log(doctrineContainerID);
         
         $('i', this).toggleClass('fa-plus-square-o fa-minus-square-o');
         
