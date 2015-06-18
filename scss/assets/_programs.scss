@@ -129,6 +129,7 @@
       h4 {
         background: #E6E6E6;
         margin-bottom: 20px;
+        margin-top: 0px;
         padding: 6px 0px;
       }
       
@@ -144,9 +145,24 @@
         padding: 4px;
         text-align: left;
       }
+        
+      .activate-zopim {
+        color: #444;
+        font-family: "HelveticaNeueW01-77BdCn 692722";
+        font-size: 14px;
+        margin-left: 20px;
+        margin-top: 30px;
+        text-transform: uppercase;
+          
+          i {
+              color: $primary_color;
+              font-size: 20px;
+          }
+      }
       
       a.button {
         margin-top: 18px;
+        margin-right: 20px;
       }
       
       .program-app-due-dates-container {
