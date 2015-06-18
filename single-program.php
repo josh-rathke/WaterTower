@@ -116,7 +116,7 @@ endwhile;?>
 
 			// Dispaly available program instaces
 			foreach ( $program_object->schedule as $program_occurance ) {
-				echo '<li><div class="program-date-info-container">';
+				echo '<li><div class="program-date-info-container clearfix">';
 				echo '<h4>' . $program_occurance['quarter'] . '</h4>';
 				echo '<ul>';
 
@@ -137,13 +137,14 @@ endwhile;?>
 				echo '</ul>';
 
 
-				echo '<a href="' . of_get_option( 'apply_url' ) . '" class="button">Apply Online</a>';
+				echo '<a href="' . of_get_option( 'apply_url' ) . '" class="button right">Apply Online</a>';
+                echo '<a href="#" class="activate-zopim left"><i class="fa fa-comments-o"></i> Chat Now</a>';
 				echo '</div></li>';
 
 			}
 
 			if ( in_array( $schedule_count, array( 0, 1 ) ) ) {
-				echo '<li class="program-schedule-coming-soon-container">';
+				echo '<li class="program-schedule-coming-soon-container hide-for-small">';
 					echo '<div>';
 					echo '<div class="coming-soon-text vertical-align-relative fittext">More Dates<br />Coming Soon</div>';
 					echo '</div>';
