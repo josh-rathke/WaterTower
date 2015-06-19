@@ -104,6 +104,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 </script>
 <!--End of Zopim Live Chat Script-->
 
+<a href="javascript:$zopim.livechat.window.show()" class="chat-button"><i class="fa fa-comments-o"></i> Chat With Us</a>
+
 
 <?php wp_footer(); ?>
 <?php do_action( 'watertower_before_closing_body' ); ?>

@@ -243,6 +243,29 @@ body.get-crazy *:hover {
 }
 
 
+// Zopim Chat Styles
+.chat-button {
+  background: #5D9ECB;
+  color: white;
+  font-family: "HelveticaNeueW01-77BdCn 692722";
+  font-size: 14px;
+  padding: 14px 30px 10px 30px;
+  position: fixed;
+  right: 30px;
+  bottom: 0px;
+  text-transform: uppercase;
+    
+    &:hover {
+        color: white;
+    }
+    
+    i {
+        font-size: 20px;
+        margin: 0px 10px 0px 0px;
+        vertical-align: top;
+    }
+}
+
 
 
 @import "site/base"; 
