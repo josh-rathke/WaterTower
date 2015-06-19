@@ -33,15 +33,6 @@ jQuery(document).ready(function() {
 });
 
 
-   $('.activate-zopim').click(function(e){
-       e.preventDefault();
-       
-       $zopim(function() {
-           $zopim.livechat.window.show();
-       });
-    });
-
-
 // Animate Auto Function
 jQuery.fn.animateAuto = function(prop, speed, callback){
 	var elem, height, width;

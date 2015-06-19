@@ -138,6 +138,15 @@ add_filter(
 
 
 /**
+ *  Include Zopim Function
+ *  Include all of the functions that use the Zopim API
+ *  to alter the state of the zopim chat window.
+ */
+require 'library/zopim_functions/reveal_badge_on_program.php';
+    
+
+
+/**
  *  Include API Call Functions
  */
 
