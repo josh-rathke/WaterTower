@@ -250,6 +250,8 @@ body.get-crazy *:hover {
   font-family: "HelveticaNeueW01-77BdCn 692722";
   font-size: 14px;
   padding: 14px 30px 10px 30px;
+    text-align: center;
+  width: 240px;
   position: fixed;
   right: 30px;
   bottom: 0px;
@@ -264,6 +266,28 @@ body.get-crazy *:hover {
         margin: 0px 10px 0px 0px;
         vertical-align: top;
     }
+}
+
+.chat-badge {
+  background: #F3F3F3;
+  display: none;
+  padding: 16px 20px 10px 20px;
+  width: 240px;
+  position: fixed;
+  bottom: 45px;
+  right: 30px;
+    
+  p {
+        font-size: 14px;
+    }
+    
+  .close-chat-badge {
+      color: #666;
+      cursor: pointer;
+      position: absolute;
+      top: 6px;
+      right: 12px;
+  }
 }
 
 

@@ -104,7 +104,12 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 </script>
 <!--End of Zopim Live Chat Script-->
 
-<a href="javascript:$zopim.livechat.window.show()" class="chat-button"><i class="fa fa-comments-o"></i> Chat With Us</a>
+<div class="chat-badge">
+    <h3>Got Questions?</h3>
+    <p>Chat with a YWAM Montana-Lakeside volounteer member now!</p>
+    <div class="close-chat-badge"><i class="fa fa-close"></i></div>
+</div>
+<a href="#" class="chat-button activate-zopim"><i class="fa fa-comments-o"></i> Chat With Us</a>
 
 
 <?php wp_footer(); ?>
