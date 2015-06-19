@@ -106,7 +106,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 
 <div class="chat-badge">
     <h3>Got Questions?</h3>
-    <p>Chat with a YWAM Montana-Lakeside volounteer member now!</p>
+    <p>Chat with a YWAM Montana-Lakeside volounteer now!</p>
     <div class="close-chat-badge"><i class="fa fa-close"></i></div>
 </div>
 <a href="#" class="chat-button activate-zopim"><i class="fa fa-comments-o"></i> Chat With Us</a>
