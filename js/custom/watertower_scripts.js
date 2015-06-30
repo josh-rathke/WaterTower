@@ -105,6 +105,16 @@ $(document).ready(function(){
 });
 
 
+// Add Tweet Button to BlockQuotes
+$('.entry-content blockquote').each(function() {
+    
+    // Define what is in the blockquote
+    var blockquoteContent = $('p', this).html().toLowerCase();
+    var articleLink = $('.entry-content').attr('data-shortlink');
+    
+    $(this).append('<a class="tweet-quote" href="http://twitter.com/home/?status=' + blockquoteContent + ' ' + articleLink + '"><i class="fa fa-twitter"></i> Tweet This</a>');
+});
+
 
 // Get Crazy Script
 $('.get-crazy-button').click(function() {
