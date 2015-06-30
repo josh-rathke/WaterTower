@@ -11,7 +11,7 @@
 			</header>
     <?php do_action( 'watertower_post_before_entry_content' ); ?>
 			
-			<div class="entry-content">
+			<div class="entry-content" data-shortlink="<?php echo wp_get_shortlink(); ?>">
 				<?php the_content(); ?>
 				
 				<?php
