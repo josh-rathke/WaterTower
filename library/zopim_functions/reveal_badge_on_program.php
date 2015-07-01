@@ -7,9 +7,6 @@ function reveal_badge_on_program() {
         <script>
         $zopim(function() {
             $zopim.livechat.addTags("program-page");
-            window.setTimeout(function() {
-                $('.chat-badge').css('display', 'block' );
-            }, 30000);
         });
         </script>
     <?php }

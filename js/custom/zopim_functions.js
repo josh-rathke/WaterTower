@@ -7,11 +7,6 @@ $('.activate-zopim').click(function(e){
     });
 });
 
-// Add Class to Close Badge when close button is clicked.
-$('.close-chat-badge').click(function(){
-   $('.chat-badge').css('display', 'none' ); 
-});
-
 // Open Chat Window When Agent Initiates Chat
 $zopim.livechat.setOnChatStart(function() {
    $zopim.livechat.window.show(); 

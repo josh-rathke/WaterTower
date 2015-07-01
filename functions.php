@@ -138,6 +138,16 @@ add_filter(
 
 
 /**
+ *  Include CPT To Body Class Function
+ *  This will add a custom post type definition in the form
+ *  of a class within the <body> tag for use with things like
+ *  javascript to check whether a page is associated with a 
+ *  particular custom post type.
+ */
+require 'library/append_cpt_to_body_class.php';
+
+
+/**
  *  Include Zopim Function
  *  Include all of the functions that use the Zopim API
  *  to alter the state of the zopim chat window.
