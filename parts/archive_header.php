@@ -120,6 +120,30 @@ if ( is_category() ) {
 		</div>
 	
     <?php
+    
+    
+    
+    
+
+} elseif ( is_author() ) { ?>
+
+    <?php 
+    $author_info = get_coauthors();
+    ?>
+
+    <h1>Posts By: <?php echo $author_info[0]->display_name; ?></h1>
+    <div class="row">
+        <div class="columns medium-9">
+            <p><?php echo $author_info[0]->description ?></p>
+        </div>
+        
+        <div class="columns medium-3">
+            <?php $attr = array('class' => 'author-archive-img'); ?>
+            <?php echo get_the_post_thumbnail($author_info[0]->ID, 'thumbnail', $attr); ?>
+        </div>
+    </div>
+
+<?php
 
 	// Search Query
 } elseif ( is_search() ) {

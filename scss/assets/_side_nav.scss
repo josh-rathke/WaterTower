@@ -25,6 +25,15 @@
     font-size: 14px;
     text-transform: uppercase;
   }
+    
+  dd.apply-button {
+      background: $primary_color;
+      
+      a {
+        color: white;
+        font-family:"HelveticaNeueW01-77BdCn 692722";
+      }
+  }
   
   dd.back-to-top {
     background: white;

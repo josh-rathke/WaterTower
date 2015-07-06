@@ -20,6 +20,12 @@ jQuery(document).ready(function() {
 				'<dd data-magellan-arrival="' + slug + '"><a href="#' + slug + '">' + val + '</dd>'
 			);
 		});
+        
+        if ($('body').hasClass('cpt-program') || window.location.pathname.match(/\/programs/)) {
+            jQuery('.side-nav-by-heading').append(
+                '<dd class="apply-button"><a href="http://apply.ywammontana.org">Apply Online</a></dd>'
+            );
+        }
 		
 		// Create Back to Top Button
 		jQuery('.side-nav-by-heading').append(

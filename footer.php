@@ -103,12 +103,6 @@ $.src="//v2.zopim.com/?36NGmoT0awHc6akseNLUaHnYhTOLopEN";z.t=+new Date;$.
 type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 </script>
 <!--End of Zopim Live Chat Script-->
-
-<div class="chat-badge">
-    <h3>Got Questions?</h3>
-    <p>Chat with a YWAM Montana-Lakeside volounteer now!</p>
-    <div class="close-chat-badge"><i class="fa fa-close"></i></div>
-</div>
 <a href="#" class="chat-button activate-zopim"><i class="fa fa-comments-o"></i> Chat With Us</a>
 
 
