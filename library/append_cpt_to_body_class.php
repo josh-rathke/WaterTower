@@ -11,6 +11,4 @@ function append_cpt_to_body_class($classes) {
     }
 }
 
-add_filter( 'body_class', 'append_cpt_to_body_class');
-
 ?>

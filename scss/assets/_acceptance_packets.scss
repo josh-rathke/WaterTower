@@ -1,0 +1,21 @@
+.ap-mock-schedule-container {
+    
+    ul {
+        
+        h3 {
+              background: #EFEFEF;
+              border-left: 3px solid $primary_color;
+              padding: 4px 14px;
+        }
+        
+        .daily-schedule-info {
+            font-size: 14px;
+            margin: 0px;
+            
+            .schedule-item-wrapper {
+                border-bottom: 1px solid #EFEFEF;
+                padding: 4px 6px;
+            }
+        }
+    }
+}

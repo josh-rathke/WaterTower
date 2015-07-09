@@ -33,21 +33,27 @@ get_header();
             $schedules['Friday']    = rwmb_meta('ap_friday_schedule');
             $schedules['Saturday']  = rwmb_meta('ap_saturday_schedule'); ?>
             
-            <?php print_r($schedules); ?>
-            
-            <ul class="medium-block-grid-3">
+            <ul class="medium-block-grid-2">
             <?php
             // Loop through all daily schedules.
-            foreach ($schedules as $day => $schedule) { ?>
+            foreach ($schedules as $day => $schedule) {
+                
+                if (rwmb_meta('ap_enable_' . strtolower($day) . '_schedule')) { ?>
                 
                 <li>
                     <h3><?php echo $day; ?></h3>
-                    <ul>
+                    <div class="daily-schedule-info">
                         <?php foreach ($schedule as $event) { ?>
-                            test8
+                        <div class="schedule-item-wrapper">
+                        <div class="row">
+                            <div class="columns small-7"><?php echo $event['ap_event_name']; ?></div>
+                            <div class="columns small-5" style="text-align: right;"><?php echo $event['ap_event_time']; ?></div>
+                        </div>
+                        </div>
                         <?php } ?>
-                    </ul>
+                    </div>
                 </li>
+                <?php } ?>
             <?php } ?>
             </ul>
         </div>
