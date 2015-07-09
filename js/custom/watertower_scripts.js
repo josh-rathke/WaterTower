@@ -21,7 +21,7 @@ jQuery(document).ready(function() {
 			);
 		});
         
-        if ($('body').hasClass('cpt-program') || window.location.pathname.match(/\/programs/)) {
+        if ($('body').hasClass('cpt-program') || $('body').hasClass('single-program')) {
             jQuery('.side-nav-by-heading').append(
                 '<dd class="apply-button"><a href="http://apply.ywammontana.org">Apply Online</a></dd>'
             );
