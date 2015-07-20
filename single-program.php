@@ -478,15 +478,19 @@ endif; ?>
 				<div class="reveal-modal-bg" style="display: none"></div>
 		 		<div id="<?php echo $post->post_name; ?>" class="reveal-modal small" data-reveal>
 		 			
-        <?php $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner' ); ?>
+                <?php $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner' ); ?>
 		 			
 		 			<div class="reveal-modal-post-thumbnail" style="background: url(<?php echo $featured_image[0]; ?>) no-repeat center center;">
+                        <a class="close-reveal-modal"><i style="color: white; font-size: 24px;" class="fa fa-times"></i></a>
 		 				<img class="reveal-modal-post-thumbnail-icon" src="<?php echo wp_get_attachment_url( rwmb_meta( 'focus_track_icon' ) ); ?>" />
 		 			</div>
 					  
 					 <div class="reveal-modal-post-content-container">
 					 	<h3><?php the_title(); ?></h3>
-        <?php the_content(); ?>
+                        <?php the_content(); ?>
+                        <div class="flex-video widescreen vimeo">
+                            <?php echo rwmb_meta('focus_track_video'); ?>
+                        </div>
 					 </div>
 					 				 	
         <?php

@@ -18,6 +18,15 @@ $meta_boxes[] = array(
 			'type'             => 'image_advanced',
 			'max_file_uploads' => 1,
 		),
+        
+        array(
+				'name' => __( 'Track Video', 'meta-box' ),
+				'desc' => __( 'Insert the embed code for the video you would like to use for this track.', 'meta-box' ),
+				'id'   => "{$prefix}focus_track_video",
+				'type' => 'textarea',
+				'cols' => 20,
+				'rows' => 3,
+			),
 
 		// CHECKBOX LIST
 		array(

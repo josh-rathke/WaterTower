@@ -258,4 +258,27 @@ $meta_boxes[] = array(
     ),
 );
 
+
+/** 
+ *  Acceptance Packets Override Information
+ *  These meta fields are used to override the global information
+ *  set in the backend, by using one of these fields, you will
+ *  override the global setting from being displayed.
+ */
+$meta_boxes[] = array(
+	'title'  => 'Override Global Information',
+	'pages' => array( 'acceptance_packets'),
+	'context' => 'normal',
+	'priority' => 'low',
+	'fields' => array(
+
+		// POST
+		array(
+			'name'        => __( 'Override Policies', 'meta-box' ),
+			'id'          => "{$prefix}ap_override_policies_and_guidlines",
+			'type'        => 'wysiwyg',
+            )
+	),
+);
+
 ?>
