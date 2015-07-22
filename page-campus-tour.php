@@ -11,7 +11,7 @@
 get_header();
 
 // Build Campus Tour Venues Query
-$tour_venues = new WP_Query( 'post_type=tribe_venue' );
+$tour_venues = new WP_Query( 'post_type=tribe_venue&posts_per_page=-1' );
 
 // Start the Page Loop
 if ( have_posts() ) : while ( have_posts() ) : the_post();
