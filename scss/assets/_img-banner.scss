@@ -63,6 +63,12 @@
 .standard-banner-container {
     position: relative;
     overflow: hidden;
+    
+    &.featured-video-container {
+      @media only screen and (min-width: 40em) {
+          background: white !important;
+      }
+  }
   
   @media #{$xlarge-up} {
     height: 480px !important;
@@ -76,8 +82,9 @@
       position: absolute;
       top: 0;
       left: 0;
-        width: 100%;
-        height: auto;
+      width: 100%;
+      height: auto;
+      z-index: 3;
     }
   
 }
