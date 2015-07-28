@@ -315,6 +315,7 @@ if ( is_front_page() ) {
                 
                 <?php // Display Featured Video Banner for Posts
                 if ('post' == get_post_type()) { ?>
+                  <style>.entry-title {display: none;}</style>
                   <div class="row vertical-align-relative" style="z-index: 9;">
                    <div class="small-12 columns slide-content-container" style="text-align: center;">
                     <h2 class="fittext shadow"><?php the_title(); ?></h2>
