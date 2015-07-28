@@ -310,8 +310,13 @@ if ( is_front_page() ) {
             
             echo '<div class="standard-banner-container">'; ?>
                 <video width="320" height="240" autoplay loop muted>
-                  <source src="<?php echo reset(rwmb_meta('mp4_file', 'type=file'))['url'] ?>" type="video/mp4">
-                  <source src="<?php echo reset(rwmb_meta('webm_file', 'type=file'))['url'] ?>" type="video/webm">
+                    
+                    <?php // Get Video File URLS
+                    $mp4_file = reset(rwmb_meta('mp4_file', 'type=file'));
+                    $webm_file = reset(rwmb_meta('webm_file', 'type=file'));?>
+                    
+                  <source src="<?php echo $mp4_file['url']; ?>" type="video/mp4">
+                  <source src="<?php echo $webm_file['url']; ?>" type="video/webm">
                 Your browser does not support the video tag.
                 </video>
             <?php echo '</div>';
