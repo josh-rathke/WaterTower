@@ -303,13 +303,29 @@ if ( is_front_page() ) {
 		if ( has_post_thumbnail( $post->ID ) ) {
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true );
 
+            // Display Image Banner As Usual
             if (!rwmb_meta('enable_featured_video')) {
 			 echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
+            
                 
+            // Display Featured Video Banner
             } else {
             
-            echo '<div class="standard-banner-container">'; ?>
-                <video width="320" height="240" autoplay loop muted>
+            echo '<div class="standard-banner-container slide-container featured-video-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">'; ?>
+                
+                <?php // Display Featured Video Banner for Posts
+                if ('post' == get_post_type()) { ?>
+                  <div class="row vertical-align-relative" style="z-index: 9;">
+                   <div class="small-12 columns slide-content-container" style="text-align: center;">
+                    <h2 class="fittext shadow"><?php the_title(); ?></h2>
+                    <h2 class="fittext"><?php the_title(); ?></h2>
+                       
+                    <p> An Article Written By: <?php coauthors(); ?></p>
+                   </div>
+                  </div>
+                <?php } ?>
+
+                <video class="hide-for-small" autoplay loop muted>
                     
                     <?php // Get Video File URLS
                     $mp4_file = reset(rwmb_meta('mp4_file', 'type=file'));
@@ -319,6 +335,7 @@ if ( is_front_page() ) {
                   <source src="<?php echo $webm_file['url']; ?>" type="video/webm">
                 Your browser does not support the video tag.
                 </video>
+
             <?php echo '</div>';
             }
 		}
