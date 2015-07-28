@@ -315,8 +315,8 @@ if ( is_front_page() ) {
                     $mp4_file = reset(rwmb_meta('mp4_file', 'type=file'));
                     $webm_file = reset(rwmb_meta('webm_file', 'type=file'));?>
                     
-                  <source src="<?php echo $mp4_file['url'] ?>" type="video/mp4">
-                  <source src="<?php echo $webm_file['url'] ?>" type="video/webm">
+                  <source src="<?php echo $mp4_file['url']; ?>" type="video/mp4">
+                  <source src="<?php echo $webm_file['url']; ?>" type="video/webm">
                 Your browser does not support the video tag.
                 </video>
             <?php echo '</div>';
