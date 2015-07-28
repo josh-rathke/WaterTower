@@ -321,7 +321,7 @@ if ( is_front_page() ) {
                     <h2 class="fittext shadow"><?php the_title(); ?></h2>
                     <h2 class="fittext"><?php the_title(); ?></h2>
                        
-                    <p> An Article Written By: <?php coauthors(); ?></p>
+                    <p>Written By: <?php coauthors(); ?></p>
                    </div>
                   </div>
                 <?php } ?>
