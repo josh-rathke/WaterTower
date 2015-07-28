@@ -303,7 +303,19 @@ if ( is_front_page() ) {
 		if ( has_post_thumbnail( $post->ID ) ) {
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true );
 
-			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
+            if (!rwmb_meta('enable_featured_video')) {
+			 echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
+                
+            } else {
+            
+            echo '<div class="standard-banner-container">'; ?>
+                <video width="320" height="240" autoplay loop muted>
+                  <source src="<?php echo reset(rwmb_meta('mp4_file', 'type=file'))['url'] ?>" type="video/mp4">
+                  <source src="<?php echo reset(rwmb_meta('mp4_file', 'type=file'))['url'] ?>" type="video/webm">
+                Your browser does not support the video tag.
+                </video>
+            <?php echo '</div>';
+            }
 		}
 	}
 }
