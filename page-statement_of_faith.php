@@ -86,9 +86,10 @@ get_header();
         
         <div id='sanctification' class="doctrine-container">
             <h5 data-doctrine="sanctification"><i class="fa fa-plus-square-o"></i> Sanctification and Obedience</h5>
-            <p>We affirm that justification takes place in the context of God’s courtroom; that the atoning sacrifice and resurrection of Jesus Christ is the sole ground of justification, while the believer’s faith is the sole condition of justification; that in justification God imputes, reckons, deposits the righteousness of Christ to the account of the believing sinner, and thus declares the believing sinner to be, “righteous.”</p>
+            <p>We affirm that, following justification, God still demands obedience to His moral law.</p>
             
                 <div class="additional-description">
+                    <p>We affirm that justification takes place in the context of God’s courtroom; that the atoning sacrifice and resurrection of Jesus Christ is the sole ground of justification, while the believer’s faith is the sole condition of justification; that in justification God imputes, reckons, deposits the righteousness of Christ to the account of the believing sinner, and thus declares the believing sinner to be, “righteous.”</p>
                     <p>(Matt. 5:17-20; Rom. 6:17-19; 8:29; 1 Cor. 1:2; 6:11; Eph. 1:4; 1 Thess. 4:3; 2 Thess. 2:13)</p>
                     <p>We affirm the Traditional, Biblical definition of marriage as held by all three branches of Christianity - Catholic, Protestant and Orthodox - that marriage is a God-ordained union between a man and a woman; that marriage is a covenant before God between a man and a woman.</p>
                     <p>We further affirm the Traditional, Biblical sexual ethic, i.e., sexual activity only within the covenant of marriage between a man and a woman; that all other sexual activity and practices are sin and inappropriate for those claiming the name of Christ and inheritance in the kingdom of God.</p>
@@ -100,9 +101,10 @@ get_header();
         
         <div id='church' class="doctrine-container">
             <h5 data-doctrine="church"><i class="fa fa-plus-square-o"></i> The Church</h5>
-            <p>We affirm that the Church is God's gathered people on earth, the new Humanity, the body of Christ. YWAM Montana is committed to regular weekly fellowship in a local church.  Entrance into the Church is gained through faith and expressed by the sacraments of baptism and the Lord's supper. Preaching, teaching, worship, prayer, outreach and regular fellowship are all points of uniqueness in participation in the body of Christ.</p>
+            <p>We affirm that the Church is God's gathered people on earth, the new Humanity, the body of Christ.</p>
             
                 <div class="additional-description">
+                    <p>YWAM Montana is committed to regular weekly fellowship in a local church.  Entrance into the Church is gained through faith and expressed by the sacraments of baptism and the Lord's supper. Preaching, teaching, worship, prayer, outreach and regular fellowship are all points of uniqueness in participation in the body of Christ.</p>
                     <p>(Ephesians 1:22-23; 2:15-16; 1 Corinthians 12:12)</p>
                 </div>
         </div>
@@ -111,9 +113,10 @@ get_header();
         
         <div id='participation' class="doctrine-container">
             <h5 data-doctrine="participation"><i class="fa fa-plus-square-o"></i> The Necessity of Participation In The Great Commission</h5>
-            <p>We affirm that our Lord Jesus Christ, prior to His Ascension into heaven, gave the commandment to His Church to preach the gospel to every creature and to make disciples of all nations. We affirm that we are called by God to present the message of salvation through Jesus Christ, and Him alone, to all people everywhere, i.e., every tribe and tongue and people and nation; that we are called by God to teach the entire Word of God as contained in the inspired Scriptures of the Old and New Testaments, in order to make “disciples”, i.e., followers of our Lord Jesus Christ.</p>
+            <p>We affirm that our Lord Jesus Christ, prior to His Ascension into heaven, gave the commandment to His Church to preach the gospel to every creature and to make disciples of all nations.</p>
             
                 <div class="additional-description">
+                    <p>We affirm that we are called by God to present the message of salvation through Jesus Christ, and Him alone, to all people everywhere, i.e., every tribe and tongue and people and nation; that we are called by God to teach the entire Word of God as contained in the inspired Scriptures of the Old and New Testaments, in order to make “disciples”, i.e., followers of our Lord Jesus Christ.</p>
                     <p>We affirm that we are called by God to present the message of the gospel that Jesus Christ, as our representative and substitute, died on a cross for our sins and was raised to life for our justification, according to the Scriptures; that these events are historical reality; that forgiveness of sins are offered in His name for all who repent and believe. We believe that this presentation of the gospel to every tribe and tongue and people and nation is necessary because all of humanity is perishing due to sin, but that God so loved humanity that He sent His Son, our Lord Jesus Christ, to die for sin and be raised for our justification, so that whoever chooses to believe this message and repent will receive forgiveness of sin and eternal life.</p>
                     <p>We affirm the Lausanne Covenant (1974).</p>
                     <p>(Matt. 28:19-20; Mark 16:15; John 3:16-17; Acts 2:38; 4:12; 13:32-39; Rom. 3:21-26; 4:24-25; 1 Cor. 15:1-3; Rev. 5:9; 7:9)</p>
@@ -124,7 +127,11 @@ get_header();
         
         <div id='return' class="doctrine-container">
             <h5 data-doctrine="return"><i class="fa fa-plus-square-o"></i> The Return of Christ</h5>
-            <p>We affirm the visible return of Jesus Christ to the world - anticipating a new Heaven and Earth. This will be personal, physical and glorious. He will be accompanied by His Saints. All who have exercised faith in Christ, among the Old Testament believers in anticipation, or the believers in our era thus completing the people of God will be united to Him forever at this time.</p>
+            <p>We affirm the visible return of Jesus Christ to the world - anticipating a new Heaven and Earth.</p>
+            
+            <div class="additional-description">
+                <p>This will be personal, physical and glorious. He will be accompanied by His Saints. All who have exercised faith in Christ, among the Old Testament believers in anticipation, or the believers in our era thus completing the people of God will be united to Him forever at this time.</p>
+            </div>
             
                 <div class="additional-description">
                 </div>
@@ -134,6 +141,29 @@ get_header();
         <p>We believe that these statements and affirmations are in accordance with the teachings of the Bible and are accepted inter-denominationally. Guided by these beliefs and  affirmations we endeavor to work toward the fulfillment of the Great Commission in our calling as a missionary organization.</p>
         
     </div>
+    
+    <?php 
+    	/**
+		 *	Check for type of sidebar to display on pages,
+		 *	then display the correct sidebar.
+		 */
+		 
+		if ( rwmb_meta('page_sidebar') == 'headings') { ?>
+			
+			<div class="large-3 columns stick-to-parent-side-nav">
+		 		<div class="magellan-container" data-magellan-expedition>
+				  <dl class="sub-nav side-nav-container side-nav-by-heading">
+				  </dl>
+				</div>
+		 	</div>
+			
+		<?php } else { ?>
+			<div class="large-4 columns">
+				<?php get_sidebar(); ?>
+			</div>
+		<?php }?>
+    
+    
 </div>
 
 <script>
