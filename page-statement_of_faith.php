@@ -141,6 +141,29 @@ get_header();
         <p>We believe that these statements and affirmations are in accordance with the teachings of the Bible and are accepted inter-denominationally. Guided by these beliefs and  affirmations we endeavor to work toward the fulfillment of the Great Commission in our calling as a missionary organization.</p>
         
     </div>
+    
+    <?php 
+    	/**
+		 *	Check for type of sidebar to display on pages,
+		 *	then display the correct sidebar.
+		 */
+		 
+		if ( rwmb_meta('page_sidebar') == 'headings') { ?>
+			
+			<div class="large-3 columns stick-to-parent-side-nav">
+		 		<div class="magellan-container" data-magellan-expedition>
+				  <dl class="sub-nav side-nav-container side-nav-by-heading">
+				  </dl>
+				</div>
+		 	</div>
+			
+		<?php } else { ?>
+			<div class="large-4 columns">
+				<?php get_sidebar(); ?>
+			</div>
+		<?php }?>
+    
+    
 </div>
 
 <script>
