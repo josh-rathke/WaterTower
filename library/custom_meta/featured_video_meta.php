@@ -5,7 +5,7 @@
 
 $meta_boxes[] = array(
 	'title'  => 'Featured Video Settings',
-	'pages' => array( 'page', 'post', 'program'),
+	'pages' => array( 'page', 'post', 'program', 'surges' ),
 	'context' => 'normal',
 	'priority' => 'low',
 	'fields' => array(
