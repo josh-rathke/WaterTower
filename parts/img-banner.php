@@ -225,32 +225,62 @@ if ( is_front_page() ) {
 	wp_reset_postdata();
 
 
-} elseif ('surges' == get_post_type() ) { 
-	$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true ); ?>
+} elseif ('surges' == get_post_type() && is_singular('surges') ) {
+    
+    if (!rwmb_meta('enable_featured_video')) {
+        $post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true ); ?>
 
 
-	<div class="slideshow-wrapper primary-slider surge-banner">
-     <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
-      <li class="slide-container">
-       <div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
-           <div class="row slide-content-container center-banner-content vertical-align-relative">
-            <div class="small-10 columns small-centered">
-			    			
-             <h2 class="fittext shadow">The Surge</h2>
-             <h2 class="fittext">The Surge</h2>
-             
-             <div class="img-banner-subtitle">Taiwan: 2014-2018</div>
-			    		
-            </div>
+        <div class="slideshow-wrapper primary-slider surge-banner">
+         <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
+          <li class="slide-container">
+           <div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
+               <div class="row slide-content-container center-banner-content vertical-align-relative">
+                <div class="small-10 columns small-centered">
+
+                 <h2 class="fittext shadow">The Surge</h2>
+                 <h2 class="fittext">The Surge</h2>
+
+                 <div class="img-banner-subtitle">Taiwan: 2014-2018</div>
+
+                </div>
+               </div>
+              </div>
+             </li>
+            </ul>
            </div>
-          </div>
-         </li>
-        </ul>
-       </div>
+    
+    <?php
+    } else {
+        
+        echo '<div class="standard-banner-container slide-container featured-video-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">'; ?>
+                
+                <?php // Display Featured Video Banner for Posts ?>
+                  <style>.entry-title {display: none;}</style>
+                  <div class="row vertical-align-relative" style="z-index: 9;">
+                   <div class="small-12 columns slide-content-container" style="text-align: center;">
+                    <h2 class="fittext shadow">The Surge</h2>
+                    <h2 class="fittext">The Surge</h2>
+                       
+                    <p>Written By: <?php coauthors(); ?></p>
+                   </div>
+                  </div>
 
+                <video class="hide-for-small" autoplay loop muted>
+                    
+                    <?php // Get Video File URLS
+                    $mp4_file = reset(rwmb_meta('mp4_file', 'type=file'));
+                    $webm_file = reset(rwmb_meta('webm_file', 'type=file'));?>
+                    
+                  <source src="<?php echo $mp4_file['url']; ?>" type="video/mp4">
+                  <source src="<?php echo $webm_file['url']; ?>" type="video/webm">
+                Your browser does not support the video tag.
+                </video>
 
+            <?php echo '</div>';
 
-<?php
+    }
+        
 
 } else {
 
