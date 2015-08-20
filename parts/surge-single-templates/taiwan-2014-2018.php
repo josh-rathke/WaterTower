@@ -1,7 +1,6 @@
 <div class="row surge-single-container">
 	<div class="medium-8 columns surge-content-container">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
-		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
+		<?php the_content(); ?>
 		<div class="surge-goals-container">
 			<ul class="small-block-grid-3 surge-goal-charts-container">
 				
@@ -46,6 +45,21 @@
 						<i class="fa fa-angle-down"></i>
 					</div>
 				</li>
+                
+                
+                <?php
+                //Define all parameters for goals
+                $disciples = rwmb_meta('500_disciples_progress');
+                $disciples_needed = 500 - $disciples;
+
+                $church_partnerships = rwmb_meta( '50_church_partnerships_progress' );
+                $church_partnerships_needed = 50 - $church_partnerships;
+
+                $missionaries_sent = rwmb_meta( '50_missionaries_sent_progress' );
+                $missionaries_sent_needed = 50 - $missionaries_sent;
+
+                ?>  
+                
 				<script>
 					
 					var options = {
@@ -59,8 +73,8 @@
 					// Disciples Data
 					var discipledData = [
 						{ value: 60, color: "transparent", },
-					    { value: 300, color:"#5D9ECB", highlight: "#FF5A5E", label: "Disciples" },
-					    { value: 200, color: "#EFEFEF", },
+					    { value: <?php echo $disciples; ?>, color:"#5D9ECB", highlight: "#FF5A5E", label: "Disciples" },
+					    { value: <?php echo $disciples_needed; ?>, color: "#EFEFEF", },
 					    { value: 60, color: "transparent", }, ]
 					var discipled = $("#discipled").get(0).getContext("2d");
 					var discipledChart = new Chart(discipled).Doughnut(discipledData, options);
@@ -68,8 +82,8 @@
 					// Church Parterships Data
 					var churchPartnershipsData = [
 						{ value: 6, color: "transparent", },
-					    { value: 10, color:"#5D9ECB", highlight: "#FF5A5E", label: "Church Partnerships" },
-					    { value: 40, color: "#EFEFEF", },
+					    { value: <?php echo $church_partnerships; ?>, color:"#5D9ECB", highlight: "#FF5A5E", label: "Church Partnerships" },
+					    { value: <?php echo $church_partnerships_needed; ?>, color: "#EFEFEF", },
 					    { value: 6, color: "transparent", }, ]
 					var churchPartnerships = $("#church-partnerships").get(0).getContext("2d");
 					var churchPartnershipsChart = new Chart(churchPartnerships).Doughnut(churchPartnershipsData, options);
@@ -77,8 +91,8 @@
 					// Missionaries Sent Data
 					var missionariesSentData = [
 						{ value: 6, color: "transparent", },
-					    { value: 16, color:"#5D9ECB", highlight: "#FF5A5E", label: "Missionaries Sent" },
-					    { value: 34, color: "#EFEFEF", },
+					    { value: <?php echo $missionaries_sent; ?>, color:"#5D9ECB", highlight: "#FF5A5E", label: "Missionaries Sent" },
+					    { value: <?php echo $missionaries_sent_needed; ?>, color: "#EFEFEF", },
 					    { value: 6, color: "transparent", },
 					]
 					var missionariesSent = $("#missionaries-sent").get(0).getContext("2d");
@@ -91,17 +105,20 @@
 				<div class="surge-goal-desc">
 					<h4><i class="flaticon-jumping28"></i> 500 Disciples Made</h4>
 					<span class="surge-goal-identifier-icon"><i class="fa fa-circle-o"></i></span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
+					<?php echo rwmb_meta( '500_disciples' ); ?>
+
 				</div>
 				<div class="surge-goal-desc">
 					<h4><i class="flaticon-church13"></i> 50 Church Partnerships</h4>
 					<span class="surge-goal-identifier-icon"><i class="fa fa-circle-o"></i></span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
+					<?php echo rwmb_meta( '50_church_partnerships' ); ?>
+                    
 				</div>
 				<div class="surge-goal-desc">
 					<h4><i class="flaticon-running31"></i> 50 Missionaries Sent</h4>
 					<span class="surge-goal-identifier-icon"><i class="fa fa-circle-o"></i></span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
+					<?php echo rwmb_meta( '50_sent' ); ?>
+                    
 				</div>
 				
 			</div>
@@ -109,39 +126,36 @@
 		
 		<h2>Target Locations</h2>
 		<img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float: right; width: 45%; padding-left: 30px; padding-bottom: 30px;" />
-		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
-		<p><h6>A Target Location</h6> Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
+		<?php echo rwmb_meta( 'target_locations_description'); ?>
 		
-		<h2>Videos</h2>
+    
 		<div class="flex-video widescreen vimeo">
-			<iframe src="https://player.vimeo.com/video/108255853?title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<iframe src="<?php echo rwmb_meta('surge_video_url'); ?>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 		
-		<h2>Impact of The Surge: Taiwan</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas venenatis justo id condimentum elementum. Sed posuere ullamcorper finibus. Nulla consequat quam non nisi tempus eleifend. Nam ut tortor eget nisi auctor efficitur id in mi. In auctor tortor non eros commodo, quis imperdiet tellus pretium. Duis interdum justo lacus, at malesuada dui mollis quis. Curabitur ac sapien sit amet urna viverra sodales. Sed condimentum accumsan rutrum. Duis eros est, auctor quis cursus ut, eleifend quis odio. Donec nec tincidunt neque. Vivamus luctus, ipsum ac consectetur aliquam, sem massa luctus leo, sit amet sagittis velit ligula feugiat mauris. Sed nec commodo mauris. Aenean justo tellus, porttitor ut nisi eu, condimentum tincidunt neque. In at eleifend nibh, et mattis tellus.</p>
-		<p>Aliquam sodales venenatis rhoncus. Etiam imperdiet ullamcorper lorem, quis condimentum odio ultrices pellentesque. Vivamus dapibus mauris metus. Donec faucibus purus venenatis lectus egestas, vitae hendrerit libero mollis. Aliquam congue risus id orci viverra, ultricies rutrum erat dapibus. Integer commodo rutrum sapien nec sodales. Sed at sagittis risus, eu porttitor risus. Cras consequat libero vitae porta tincidunt. Cras eget neque egestas, commodo orci nec, luctus dui. Maecenas dapibus risus accumsan ligula fermentum, vel vestibulum nisi aliquam. Suspendisse id fermentum dui. Nunc vel tincidunt arcu. Donec porta, metus et luctus posuere, augue ipsum vehicula metus, ac feugiat libero neque eu orci. Donec a elit eu augue eleifend consequat. Sed orci erat, pretium faucibus turpis non, accumsan scelerisque ligula. Ut dapibus ornare odio at congue.</p>
 		
-		<?php
+        <?php
+        
+        // Display Surge Impact Title
+        echo '<h2>Impact of The Surge: ' . rwmb_meta('surge_country') . '</h2>';
 
-	/**
-	 *    Leader Section
-	 *     This section displays all of the leaders of the
-	 *     particular program.
-	 */
+        // Display Surge Impact Description
+        echo rwmb_meta( 'surge_impact' );
 
-	$terms = rwmb_meta( 'impact_author', 'type=select&multiple=1' );
+        // Display Surge Impact Author
+        $terms = rwmb_meta( 'impact_author', 'type=select&multiple=1' );
 
-	if ( ! empty($terms) ) {
-		echo '<div data-magellan-destination="school-leaders" class="authors-container">';
-		foreach ( $terms as $term ) {
-			$author_object = get_post( $term, OBJECT );
-			$leader_ids[] = $author_object->ID;
-		}
-		display_authors( $program_id, $leader_ids );
-		echo '</div>';
-	}
+        if ( ! empty($terms) ) {
+            echo '<div data-magellan-destination="school-leaders" class="authors-container">';
+            foreach ( $terms as $term ) {
+                $author_object = get_post( $term, OBJECT );
+                $leader_ids[] = $author_object->ID;
+            }
+            display_authors( $program_id, $leader_ids );
+            echo '</div>';
+        }
 
-	?>
+        ?>
     
     
         <ul class="medium-block-grid-3 surge-instagram-feed">

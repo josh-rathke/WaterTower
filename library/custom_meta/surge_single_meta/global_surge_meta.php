@@ -11,6 +11,12 @@ $meta_boxes[] = array(
 	'context' => 'normal',
 	'priority' => 'low',
 	'fields' => array(
+        
+        array(
+            'name'  => __( 'Surge Impact', 'rwmb' ),
+            'id'    => "{$prefix}surge_impact",
+            'type'  => "wysiwyg",
+        ),
 
 		array(
 			'name'    => __( 'Surge Impact Author', 'rwmb' ),
@@ -42,6 +48,12 @@ $meta_boxes[] = array(
         array(
             'name' => __( 'Surge Year Span', 'rwmb'),
             'id'    => "{$prefix}surge_year_span",
+            'type'  => 'text',
+        ),
+        
+        array(
+            'name' => __( 'Surge Video URL', 'rwmb'),
+            'id'    => "{$prefix}surge_video_url",
             'type'  => 'text',
         ),
     ),
