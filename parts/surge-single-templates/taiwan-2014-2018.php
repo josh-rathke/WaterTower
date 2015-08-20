@@ -124,7 +124,7 @@
 			</div>
 		</div>
 		
-        <?php if (rwmb_meta( 'target_loctions_description' ) == '') { ?>
+        <?php if (rwmb_meta( 'target_locations_description' ) != '') { ?>
             <h2>Target Locations</h2>
             <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float: right; width: 45%; padding-left: 30px; padding-bottom: 30px;" />
             <?php echo rwmb_meta( 'target_locations_description'); ?>
