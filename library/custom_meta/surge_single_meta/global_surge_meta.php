@@ -24,4 +24,28 @@ $meta_boxes[] = array(
 	),
 );
 
+
+
+$meta_boxes[] = array(
+    'title' => 'Surge Information',
+    'pages' => array( 'surges' ),
+    'context' => 'normal',
+    'priority' => 'low',
+    'fields' => array (
+        
+        array(
+            'name' => __( 'Surge Country', 'rwmb'),
+            'id'    => "{$prefix}surge_country",
+            'type'  => 'text',
+        ),
+        
+        array(
+            'name' => __( 'Surge Year Span', 'rwmb'),
+            'id'    => "{$prefix}surge_year_span",
+            'type'  => 'text',
+        ),
+    ),
+
+);
+
 ?>
