@@ -94,6 +94,8 @@ add_filter(
 	require 'library/custom_taxonomies/page_page_categories_tax.php';
 	// Project Taxo
 	require 'library/custom_taxonomies/projects_tax.php';
+    // Surges Taxo
+    require 'library/custom_taxonomies/surges_tax.php';
 
 
 
@@ -108,8 +110,10 @@ add_filter(
  *	flowing from one post to another.
  */
 
-	 // Program CPT -> Program Taxo
-	 require 'library/cpt_tax_relationships/programcpt_programtax.php';
+    // Program CPT -> Program Taxo
+    require 'library/cpt_tax_relationships/programcpt_programtax.php';
+    // Surges CPT -> Surges Taxo
+    require 'library/cpt_tax_relationships/surgescpt_surgestax.php';
 
 
 
