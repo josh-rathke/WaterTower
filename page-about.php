@@ -156,7 +156,7 @@ get_header(); ?>
         </div>
 
     <?php } else { ?>
-        <div class="large-4 columns">
+        <div class="large-4 columns stick-to-parent">
             <?php get_sidebar(); ?>
         </div>
     <?php }?>
