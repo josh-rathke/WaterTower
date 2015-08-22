@@ -1,0 +1,63 @@
+.just-beginning {
+    background: #EFEFEF;
+    
+    h2 {
+        border-bottom: 1px solid #CCC;
+        font-size: 22px;
+        margin: 5px 20px;
+        
+        i {
+            margin-right: 10px;
+        }
+    }
+    
+    .chapter-menu {
+        margin: 0px 20px;
+        padding: 10px 0px 20px 0px;
+        
+        li {
+            border-bottom: 1px solid #CCC;
+            color: $primary_color;
+            cursor: pointer;
+            font-family:"HelveticaNeueW01-47LtCn 692686";
+            font-size: 14px;
+            list-style-type: none;
+            margin-right: 20px;
+            padding: 2px 0px;
+            
+            .share-link {
+                
+                i {
+                    padding: 0px 1px;
+                }
+            }
+        }
+    }
+}
+
+.share-modal {
+    background: $primary_color;
+    padding: 30px 30px !important;
+
+    h2 {
+        color: white;
+        font-size: 26px;
+        margin-top: 0px;
+        
+        span {
+            font-family:"HelveticaNeueW01-47LtCn 692686";
+            margin-left: 10px;
+        }
+    }
+    
+    .share-description {
+        color: white;
+    }
+
+    .link-url {
+        background: #EFEFEF;
+        color: #444;
+        font-size: 14px;
+        padding: 4px 20px;
+    }
+}
