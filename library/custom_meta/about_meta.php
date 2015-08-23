@@ -6,7 +6,7 @@
  */
 
 $meta_boxes[] = array(
-	'title'  => 'About YWAM',
+	'title'  => 'Our Story',
 	'pages' => array('page'),
 	'context' => 'normal',
 	'priority' => 'low',
