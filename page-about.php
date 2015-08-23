@@ -157,7 +157,7 @@ get_header(); ?>
         
         <?php
         // Display Our Story Section
-        echo '<h2>About YWAM</h2>';
+        echo '<h2>Our Story</h2>';
         echo rwmb_meta( 'about_ywam' );
         ?>
         
