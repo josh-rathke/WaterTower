@@ -1,14 +1,31 @@
 .just-beginning {
     background: #EFEFEF;
     
-    h2 {
-        border-bottom: 1px solid #CCC;
+    h3 {
         font-size: 22px;
         margin: 5px 20px 0px 20px;
         padding-bottom: 10px;
         
-        i {
+        i.fa-list {
             margin-right: 10px;
+        }
+        
+        .share-video-title {
+            color: #999;
+        }
+        
+        .share {
+            margin-top: 5px;
+        }
+        
+        i.fa-facebook {
+            margin-left: 16px;
+            margin-top: 3px;
+        }
+        
+        i.fa-twitter {
+            margin-left: 10px;
+            margin-top: 3px;
         }
     }
     
@@ -23,7 +40,6 @@
             font-family:"HelveticaNeueW01-47LtCn 692686";
             font-size: 14px;
             list-style-type: none;
-            margin-right: 20px;
             padding: 2px 0px;
             
             .share-link {
@@ -31,6 +47,10 @@
                 i {
                     padding: 0px 1px;
                 }
+            }
+            
+            &:last-child {
+                border-bottom: none;
             }
         }
     }
@@ -40,7 +60,7 @@
     background: $primary_color;
     padding: 30px 30px !important;
 
-    h2 {
+    h3 {
         color: white;
         font-size: 26px;
         margin-top: 0px;
