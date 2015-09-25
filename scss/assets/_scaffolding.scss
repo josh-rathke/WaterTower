@@ -93,6 +93,19 @@ i.info-circle {
   text-transform: uppercase;
 }
 
+.button.inverted {
+  background: white !important;
+  border: 2px solid $primary_color !important;
+  color: $primary_color;
+}
+
 .full-width {
     width: 100%;
+}
+
+.dropcap {
+    float: left;
+    font-size: 80px;
+    padding-right: 7px;
+    line-height: 72px;
 }

@@ -152,6 +152,26 @@ require 'library/append_cpt_to_body_class.php';
 
 
 /**
+ *  Include TinyMCE Editor Additions
+ *  This will add customized buttons to the TinyMCE Editor via
+ *  the PHP file and a .js file that defines how each of the 
+ *  buttons functions and alters the output of the content
+ *  of the editor.
+ */
+require 'library/tinymce_addons/tinymce_addons.php';
+
+/**
+ *  Include Shortcodes
+ *  This will register all of the shortcodes needed
+ *  to run the custom shortcodes we have set up for the
+ *  theme.
+ */
+function register_shortcodes(){
+   add_shortcode('promote_post', 'promote_post_output');
+}
+add_action( 'init', 'register_shortcodes');
+
+/**
  *  Include Zopim Function
  *  Include all of the functions that use the Zopim API
  *  to alter the state of the zopim chat window.
@@ -270,5 +290,182 @@ function properize($string)
 {
 	return $string.'\''.($string[ strlen( $string ) - 1 ] != 's' ? 's' : '');
 }
+
+
+
+
+
+
+/**
+ *  Add Media Button to TinyMCE Editor
+ *  This bit of code adds the button to the tinyMCE
+ *  editor in the backend of the Wordpress.
+ */
+add_action('media_buttons_context','insert_promotion_button');
+function insert_promotion_button($context){
+    
+    $icon_url = get_bloginfo( 'template_url' ) . '/assets/img/icons/insert_promotion.png';
+    $icon_styles = 'height: 90%; opacity: .6; padding-right: 8px; margin-top: -2px;';
+
+    return $context.=__("
+    <a href=\"#TB_inline?width=480&inlineId=insert_promotion_popup&width=640&height=513\" class=\"button thickbox\" id=\"insert_promotion_button\" title=\"Insert Promotion\"><img src='{$icon_url}' style='{$icon_styles}' >Insert Promotion</a>");
+}
+
+
+/**
+ *  Generate HTML for Post Type Select Field
+ *  This bit of code generates the necessary HTML for
+ *  select boxes of predefined post types that can be
+ *  highlighted as a promotion.
+ */
+add_action('admin_footer','insert_promotion_popup');
+function insert_select_field_using_post_type($post_types) {
+    foreach ($post_types as $post_type) { ?>
+
+        <div>
+            <label for="<?php echo $post_type['slug']; ?>_to_promote"><?php echo $post_type['name']; ?></label>
+            <select id="<?php echo $post_type['slug']; ?>_to_promote">
+
+                <?php
+
+                global $post;
+
+                // Define Arguments for the query
+                $args = array (
+                    'post_type'      => $post_type['slug'],
+                    'posts_per_page' =>  -1,
+                );
+
+                $query_posts = new WP_Query( $args );
+
+                // The Loop
+                if ( $query_posts->have_posts() ) {
+                    echo "<option value=''>-- Select {$post_type['name']} --</option>";
+                    while ( $query_posts->have_posts() ) {
+                        $query_posts->the_post();
+
+                        echo "<option value='{$post->ID}'>" . get_the_title() . '</option>';
+                    }
+                }
+                wp_reset_postdata(); ?>
+            </select>
+        </div>
+    
+    <?php }
+}
+
+/**
+ *  Generate ThickBox For User Input
+ *  This adds a thickbox for user input after
+ *  the button is clicked.
+ */
+function insert_promotion_popup(){?>
+
+  <div id="insert_promotion_popup" style="display:none;">
+    <div class="wrap">
+      <div>
+        <h2>Insert Promotion</h2>
+        <div class="insert-promotion-options">
+            
+            <div>
+                <h3 style="vertical-align:top;display:block;margin-bottom:0px;">Promotion Title</h3>
+                <input id="promotion_title" type="text">
+            </div>
+            
+            <div>
+                <h3 style="vertical-align:top;display:block;margin-bottom:0px;">Choose Which Post to Promote</h3>
+                <p style="margin-top: 0px;">Chose a post from one of the below post types to promote. Only one of the post types will be used, so make sure you only select the one you want, leave the others blank.</p>
+            <?php 
+            $post_types_to_display = array (
+                'Programs' => array (
+                    'name' => 'Program',
+                    'slug' => 'program',
+                    ),
+                'Pages'    => array (
+                    'name' => 'Page',
+                    'slug' => 'page',
+                    ),
+                'Posts'    => array (
+                    'name' => 'Post',
+                    'slug' => 'post',
+                    )
+            );
+            
+            insert_select_field_using_post_type($post_types_to_display); 
+            ?>
+            </div>
+            
+            <div>
+                <h3 style="vertical-align:top;display:block;margin-bottom:0px;">Optional Description</h3>
+                <p style="margin-top: 0px;">By default the post's content will be used to populate the excerpt of whatever you are choosing to promote. By entering text here, you will overwrite that default functionality.</p>
+                <textarea id="optional_desc" rows="4" cols="50"></textarea>
+            </div>
+            
+          <button class="button-primary" id="insert_promotion_submit_button" style="display: block; margin-top: 20px;">Add Shortcode</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php }
+
+
+/**
+ *  Insert Shortcode in Content Body
+ *  This inserts the shortcode as configured into the
+ *  body of the content.
+ */
+add_action('admin_footer','insert_promotion_into_editor');
+function insert_promotion_into_editor(){?>
+    <script>
+        jQuery('#insert_promotion_submit_button').on('click',function(){
+            
+            var title = jQuery('#promotion_title').val();
+            var desc  = jQuery('#optional_desc').val();
+
+            if (jQuery('#program_to_promote').val() != '') {
+                var post_id = jQuery('#program_to_promote').val();
+
+            } else if (jQuery('#page_to_promote').val() != '') {
+                var post_id = jQuery('#page_to_promote').val();
+
+            } else if (jQuery('#post_to_promote').val() != '') {
+                var post_id = jQuery('#post_to_promote').val();
+
+            } else {
+                post_id = null;
+            }
+
+          var shortcode = '[promote_post title="' + title + '" post_id="' + post_id + '" description="' + desc + '"/]';
+
+          if( !tinyMCE.activeEditor || tinyMCE.activeEditor.isHidden()) {
+            jQuery('textarea#content').val(shortcode);
+          } else {
+            tinyMCE.execCommand('mceInsertContent', false, shortcode);
+          }
+          //close the thickbox after adding shortcode to editor
+          self.parent.tb_remove();
+        });
+    </script>
+<?php }
+
+/**
+ *  Return Promote Post HTML
+ *  This will output the necessary HTML for the
+ *  promote post shortcode.
+ */
+function promote_post_output($attributes) {
+    
+    extract(shortcode_atts(array(
+      'title'       => '',
+      'post_id'     => 1,
+      'description' => '',
+   ), $attributes));
+    
+    ob_start();
+        include(locate_template('parts/promote_post.php'));
+    return ob_get_clean();
+}
+
+
 
 ?>

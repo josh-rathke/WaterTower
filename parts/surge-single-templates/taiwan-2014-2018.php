@@ -1,5 +1,10 @@
 <div class="row surge-single-container">
 	<div class="medium-8 columns surge-content-container">
+        
+        <div class="flex-video widescreen vimeo">
+			<iframe src="<?php echo rwmb_meta('surge_video_url'); ?>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+        
 		<?php the_content(); ?>
 		<div class="surge-goals-container">
 			<ul class="small-block-grid-3 surge-goal-charts-container">
@@ -129,11 +134,6 @@
             <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/img/images/map_website-05.jpg" style="float: right; width: 45%; padding-left: 30px; padding-bottom: 30px;" />
             <?php echo rwmb_meta( 'target_locations_description'); ?>
         <?php } ?>
-		
-    
-		<div class="flex-video widescreen vimeo">
-			<iframe src="<?php echo rwmb_meta('surge_video_url'); ?>" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-		</div>
 		
 		
         <?php

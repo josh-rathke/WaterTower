@@ -1,0 +1,16 @@
+.promote-post-container {
+    background: repeating-linear-gradient(
+      -55deg,
+      #FFF,
+      #FFF 20px,
+      #F6F6F6 20px,
+      #F6F6F6 40px
+    );
+    border: 1px solid $primary_color;
+    margin: 30px 0px;
+    padding: 30px 30px;
+    
+    p {
+        font-size: 14px;
+    }
+}
