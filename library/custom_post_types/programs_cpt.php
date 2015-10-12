@@ -195,6 +195,7 @@ class ProgramDates {
 
 	//---- BUILD UPCOMING SCHOOLS OBJECT -----//
 	public function get_schools() {
+        global $post;
 
 		//----- STORE ALL INSTANCES OF SCHOOLS IN ARRAY BASED ON SCHOOL ID -----//
 		$raw_programs = new WP_Query( 'post_type=program&nopaging=true' );

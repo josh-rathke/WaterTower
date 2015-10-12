@@ -1059,6 +1059,7 @@ add_action( 'admin_init', 'rw_register_meta_boxes' );
  * @return bool
  */
 function rw_maybe_include( $conditions ) {
+    
 	// Include in back-end only
 	if ( ! defined( 'WP_ADMIN' ) || ! WP_ADMIN ) {
 		return false;
@@ -1077,7 +1078,7 @@ function rw_maybe_include( $conditions ) {
 		$post_id = false;
 	}
 	$post_id = (int) $post_id;
-	$post    = get_post( $post_id );
+	$post = get_post( $post_id );
 	foreach ( $conditions as $cond => $v ) {
 		// Catch non-arrays too
 		if ( ! is_array( $v ) ) {
@@ -1104,16 +1105,19 @@ function rw_maybe_include( $conditions ) {
 			case 'category': //post must be saved or published first
 				$categories = get_the_category( $post->ID );
 				$catslugs = array();
-				foreach ( $categories as $category ) {
+				foreach ( $categories as $category )
+				{
 					array_push( $catslugs, $category->slug );
 				}
-				if ( array_intersect( $catslugs, $v ) ) {
+				if ( array_intersect( $catslugs, $v ) )
+				{
 					return true;
 				}
 			break;
 			case 'template':
 				$template = get_post_meta( $post_id, '_wp_page_template', true );
-				if ( in_array( $template, $v ) ) {
+				if ( in_array( $template, $v ) )
+				{
 					return true;
 				}
 			break;

@@ -54,7 +54,7 @@ class WaterTowerWalkerComment extends Walker_Comment
 	/**
  * START_EL
 */
-	function start_el( &$output, $comment, $depth, $args, $id = 0 )
+	function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 )
 	{
 		$depth++;
 		$GLOBALS['comment_depth'] = $depth;
