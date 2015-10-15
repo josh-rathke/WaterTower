@@ -17,6 +17,14 @@ get_header();
 // The Query
 $annual_reports = new WP_Query( 'post_type=page&page_category=annual-report' ); ?>
 
+<script>
+    $(document).ready( function() {
+        if ($('body').hasClass('touch')) {
+            console.log('working');
+        }
+    });
+</script>
+
 <div class="row annual-reports-archive-container">
 	<div class="medium-8 columns">
 		
@@ -30,14 +38,7 @@ $annual_reports = new WP_Query( 'post_type=page&page_category=annual-report' ); 
 
 				// The Loop
 				if ( $annual_reports->have_posts() ) : while ( $annual_reports->have_posts() ) : $annual_reports->the_post();
-						echo '<li><a href="#" data-reveal-id="reveal-' . $post->post_name . '">' . get_the_post_thumbnail( $post->ID, 'thumbnail-card' ) . '<div class="fittext-large vertical-align-absolute">' . rwmb_meta( 'year_range' ) . '</div></a></li>'; ?>
-						
-									<div class="reveal-modal-bg" style="display: none"></div>
-									<div id="reveal-<?php echo $post->post_name; ?>" class="reveal-modal annual-report-modal large" data-reveal>
-				 			
-					<?php echo rwmb_meta( 'embed_code' ); ?>
-				 			
-									</div>
+						echo '<li><a href="' . rwmb_meta( "embed_code" ) . '" target="_blank">' . get_the_post_thumbnail( $post->ID, 'thumbnail-card' ) . '<div class="fittext-large vertical-align-absolute">' . rwmb_meta( 'year_range' ) . '</div></a></li>'; ?>
 					
 					<?php
 				endwhile;
@@ -59,7 +60,5 @@ endif; ?>
 	</div>
 	
 </div>
-
-
 
 <?php get_footer(); ?>

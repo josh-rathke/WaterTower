@@ -9,7 +9,7 @@ $meta_boxes[] = array(
 
 		//E-Magazine Embed Code
 		array(
-			'name'	=> 'E-Magazine Embed Code',
+			'name'	=> 'E-Magazine URL',
 			'id'	=> "{$prefix}embed_code",
 			'type'	=> 'textarea',
 		),
