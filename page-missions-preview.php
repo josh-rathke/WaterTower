@@ -24,7 +24,7 @@ get_header(); ?>
                 </div>
             </div>
             
-            <div class="medium-6 columns panel" data-equalizer-watch>
+            <div class="medium-6 columns panel sidebar" data-equalizer-watch>
                 <h4>Saturday Schedule</h4>
                 <div class="schedule-content">
                     <?php echo rwmb_meta('missions_preview_saturday_schedule'); ?>
@@ -33,8 +33,11 @@ get_header(); ?>
         </div>
     </div>
     
-    <div class="columns medium-4 stick-to-parent">
-        <?php echo do_shortcode(rwmb_meta('missions_preview_form_shortcode')); ?>
+    <div class="columns medium-4 stick-to-parent minimal-gf-form">
+        <div class="missions-preview-form-container">
+            <h4>Want More Info?</h4>
+            <?php echo do_shortcode(rwmb_meta('missions_preview_form_shortcode')); ?>
+        </div>
     </div>
 </div>
     

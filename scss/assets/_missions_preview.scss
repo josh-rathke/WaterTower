@@ -22,4 +22,27 @@
             }
         }
     }
+    
+    .missions-preview-form-container {
+        background: #EFEFEF;
+        padding: 50px 16px 26px 16px;
+        position: relative;
+        
+        h4 {
+            background: $primary_color;
+            color: white;
+            margin-top: 0px;
+            padding: 14px 16px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+        }
+        
+        .button {
+            background: #CCC;
+            position: absolute;
+            left: 0px;
+        }
+    }
 }
