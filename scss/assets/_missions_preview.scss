@@ -1,0 +1,25 @@
+.missions-preview {
+    
+    .missions-preview-schedule {
+        
+        div {
+            background: #EFEFEF;
+            background-clip: content-box;
+         
+            h4 {
+                background: $primary_color;
+                color: white;
+                margin-top: 0px;
+                padding: 6px 16px;
+            }
+            
+            .schedule-content {
+                padding: 10px 16px;
+                
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
