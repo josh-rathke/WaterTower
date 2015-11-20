@@ -1,17 +1,16 @@
 .archive-program-content-container {
   
   h2 {
-    background: #F6F6F6;
     border-bottom: 1px solid #DDD;
     font-size: 26px;
     margin-top: 50px;
     margin-bottom: -1px;
-    padding: 6px 16px 4px 16px;
   }
   
   .program-archive-programs-container {
     
     .program-archive-program-container {
+        margin-bottom: 30px;
       
       &:first-of-type {
         
@@ -30,14 +29,28 @@
       }
       
       .program-archive-program-content {
-        border-left: 1px solid #DDD;
         padding-top: 16px;
         padding-left: 24px;
         
         p {
           font-size: 14px;
+            margin-bottom: 8px;
         }
       }
+        
+        .school-instance {
+            background: #5D9ECB;
+            border-left: 2px solid #5D9ECB;
+            color: white;
+            font-size: 12px;
+            margin-right: 8px;
+            padding: 5px 8px;
+            text-transform: uppercase;
+            
+            i {
+                margin-right: 6px;
+            }
+        }
     }
   }
 }

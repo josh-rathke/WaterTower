@@ -104,11 +104,14 @@ class ProgramInfo {
 
 			//----- ONLY DISPLAY FUTURE SCHOOLS -----//
 			if ( rwmb_meta( $start_date, '', $program_id = $this->program_id ) >= $this->cur_date ) {
+                
+                // Define Cost
+                $total_cost = rwmb_meta( $total_cost, '', $program_id = $this->program_id );
 
 				$this->schedule[ $i ] = array(
 					'start_date' => rwmb_meta( $start_date, '', $program_id = $this->program_id ),
 					'end_date'	 => rwmb_meta( $end_date, '', $program_id = $this->program_id ),
-					'total_cost' => 'USD ' . number_format( rwmb_meta( $total_cost, '', $program_id = $this->program_id ) ),
+					'total_cost' => $total_cost ? 'USD ' . number_format( $total_cost ) : 'Not Available',
 					'app_deadline'	=> rwmb_meta( $app_deadline, '', $program_id = $this->program_id ),
 				);
 
