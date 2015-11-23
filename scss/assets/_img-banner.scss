@@ -69,6 +69,22 @@
           background: white !important;
       }
   }
+    
+    // Define height for Featured Video Container
+    &.featured-video-container {
+        @media #{$large-up} {
+            height: 520px;  
+        }
+    
+        @media #{$xlarge-up} {
+            height: 600px;
+        }
+
+        @media #{$xxlarge-up} {
+            height: 680px;
+        }
+        
+    }
   
   @media #{$xlarge-up} {
     height: 480px !important;

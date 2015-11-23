@@ -5,6 +5,7 @@ global $meta_boxes;
 
 $meta_boxes = array();
 
+    require 'library/custom_meta/programs_meta.php';
 	require 'library/custom_meta/projects_meta.php';
 	require 'library/custom_meta/staffing_needs_meta.php';
 	require 'library/custom_meta/focus_tracks_meta.php';
