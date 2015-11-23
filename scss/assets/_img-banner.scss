@@ -73,15 +73,15 @@
     // Define height for Featured Video Container
     &.featured-video-container {
         @media #{$large-up} {
-            height: 520px;  
+            height: 520px !important;  
         }
     
         @media #{$xlarge-up} {
-            height: 600px;
+            height: 600px !important;
         }
 
         @media #{$xxlarge-up} {
-            height: 680px;
+            height: 680px !important;
         }
         
     }
