@@ -9,258 +9,30 @@
  * will display a featured image if one exists for the post or page.
  */
 
+// Display Front Page Header
 if ( is_front_page() ) {
+    include_once('img_banner_components/front_page.php');
 
-?>
-	
-	<div class="slideshow-wrapper primary-slider">
-		<ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:true;">
-		
-		
-    <?php
-
-	/**
-	 *     Display Alert Slide
-	 *     This will display one slide before all others that is
-	 *     considered an alert slide. This slide can be activated
-	 *     from the front page edit screen.
-	 */
-
-	if ( rwmb_meta( 'enable_alert_slide' ) ) :
-		$alert_bg_image = wp_get_attachment_image_src( rwmb_meta( 'alert_bg_image' ), 'full-width-banner', true ); ?>
-			 	
-			 	<li data-orbit-slide="alert-slide" class="slide-container">
-				    <div class="orbit-slider-placeholder" style="background: url(<?php echo $alert_bg_image[0]; ?>) no-repeat center center;">
-				    	<div class="row slide-content-container vertical-align-relative">
-				    		<div class="small-12 columns">
-				    			
-				    			<h2 class="fittext shadow"><?php echo rwmb_meta( 'alert_title' ); ?></h2>
-				    			<h2 class="fittext"><?php echo rwmb_meta( 'alert_title' ); ?></h2>
-				    		
-				    			<div class="row content-desc">
-						    		<div class="medium-8 columns">
-						    			 <p><?php echo rwmb_meta( 'alert_desc' ); ?></p>
-						    		</div>
-						    		
-						    		<div class="medium-4 columns">
-						    			<a class="button" href="<?php echo rwmb_meta( 'alert_page_link' ); ?>">More Info</a>
-						    		</div>
-					    		</div>
-				    		</div>
-				    	</div>
-				   
-				     
-				    </div>
-				  </li>
-			 	
-				<?php
-	endif; ?>
-		
-		
-		
-    <?php
-
-	// Check if alert slide is activated and isolated
-	if ( ! rwmb_meta( 'enable_alert_slide' ) || rwmb_meta( 'enable_alert_slide' ) && ! rwmb_meta( 'isolate_alert_slide' ) ) {
-
-		// Display Featured Posts as Usual
-		$featured_posts = new WP_Query( 'post_type=post&posts_per_page=4' );
-
-		// The Loop
-		if ( $featured_posts->have_posts() ) {
-			while ( $featured_posts->have_posts() ) {
-				$featured_posts->the_post();
-				$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full-width-banner', true ); ?>
-						
-            <li class="slide-container">
-             <div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
-                 <div class="row slide-content-container vertical-align-relative">
-                  <div class="small-12 columns">
-					    			
-                   <h2 class="fittext shadow"><?php the_title(); ?></h2>
-                   <h2 class="fittext"><?php the_title(); ?></h2>
-					    		
-                   <div class="row content-desc">
-                    <div class="medium-8 columns">
-                        <?php echo get_excerpt_by_id( $post->ID, 30 ) ?>
-                    </div>
-							    		
-                    <div class="medium-4 columns">
-                     <a class="button" href="<?php echo get_permalink( $post->ID ); ?>">View Post</a>
-                    </div>
-                   </div>
-                  </div>
-                 </div>
-                </div>
-               </li>
-				    
-            <?php
-			}
-		} else {
-			// no posts found
-		}
-		/* Restore original Post Data */
-		wp_reset_postdata();
-	}
-	?>
-			
-		</ul>
-	</div>
-
-<?php
-
-
-} elseif (rwmb_meta( 'enable_featured_video' )) {
-    
-    // Display Featured Video
+// Display Featured Video
+} elseif (rwmb_meta( 'enable_featured_video' ) && !is_archive() ) {
     include_once('img_banner_components/featured_video.php');
     
-
+// Campus Tour Interactive Tour    
 } elseif ( is_page( 'campus-tour' ) ) {
+    include_once('img_banner_components/campus_tour.php');
 
-	/**
-	 *     Campus Tour Banner
-	 *     This displays the campus tour header that allows
-	 *     anyone viewing the page to navigate through our
-	 *     campus virtually.
-	 */ ?>
-	 
-	<script type="text/javascript"
-	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvS3wK11EOSK0jvsAXlTnGvpUb85uXpTw">
-	</script>
-	
-	<script>
-	var panorama = null;
-	var links = null;
-	
-	function setPano2link(pano_id) {
-	  panorama.setPano(pano_id);
-	  panorama.setVisible(true);
-	  $("html, body").animate({ scrollTop: 0 }, "slow");
-	}
-	
-	function initialize() {
-	  var myPanoid = '<?php echo rwmb_meta( 'beginning_pano' ); ?>';
-	  var panoramaOptions = {
-	    pano: myPanoid,
-	    pov: {
-	      heading: 270,
-	      pitch: 0
-	    },
-	    visible: true,
-	    scrollwheel: false,
-		addressControl: false,
-	  };
-	  
-	  panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
-	
-		//Whenever the pano is changed check to make sure that the menu
-		//is up to date so that the user can track where they are within
-		//the tour.
-		google.maps.event.addListener(panorama, 'pano_changed', function() {
-			var curPanoID = panorama.getPano();
-		
-			//Toggle the active class off of the list item.
-			$('.campus-tour-jump-to-menu .active').toggleClass('active');
-			
-			//Toggle the active class to the correct list item.
-			$('#' + curPanoID).toggleClass('active');
-		});
-	
-	}
-	
-	google.maps.event.addDomListener(window, 'load', initialize);
-	
-	</script>
-	
-	<div id="pano" style="width: 100%; height: 450px;"></div>
- 
-    <?php
-
-
-
+//  Annual Report Header
 } elseif ( is_page( 'annual-reports' ) ) {
+    include_once('img_banner_components/annual_reports.php');
 
-	/**
-	 *     Annual Reports Banner
-	 *     This pulls in the latest annual report and
-	 *     displays it as the banner for the page.
-	 */
-
-	// Query Annual Reports
-	$annual_reports = new WP_Query( 'page_category=annual-report&posts_per_page=1' );
-
-	// The Loop
-	if ( $annual_reports->have_posts() ) {
-		while ( $annual_reports->have_posts() ) {
-			$annual_reports->the_post();
-			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full-width-banner', true ); ?>
-        <div class="slideshow-wrapper primary-slider">
-         <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
-          <li class="slide-container">
-           <div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
-               <div class="row slide-content-container vertical-align-relative">
-                <div class="small-12 columns">
-				    			
-                 <h2 class="fittext shadow"><?php the_title(); ?></h2>
-                 <h2 class="fittext"><?php the_title(); ?></h2>
-				    		
-                 <div class="row content-desc">
-                  <div class="medium-8 columns">
-                    <p>We coudn't be more excited about all of the incredible things God did last year. Read the latest annual report by clicking on the button.</p>
-                  </div>
-						    		
-                  <div class="medium-4 columns">
-                   <a class="button" href="<?php echo rwmb_meta( 'embed_code' ); ?>">Read The Report</a>
-                  </div>
-                 </div>
-                </div>
-               </div>
-              </div>
-             </li>
-            </ul>
-           </div>
-	    
-        <?php
-
-		}
-	}
-	/* Restore original Post Data */
-	wp_reset_postdata();
-
-
+// Surges & Single Surge Header
 } elseif ('surges' == get_post_type() && is_singular('surges') ) {
+    include_once('img_banner_components/surges.php');
     
-    if (!rwmb_meta('enable_featured_video')) {
-        $post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true ); ?>
-
-
-        <div class="slideshow-wrapper primary-slider surge-banner">
-         <ul class="orbit-slider" data-orbit data-options="resume_on_mouseout:false;navigation_arrows:false;slide_number:false;timer:false;">
-          <li class="slide-container">
-           <div class="orbit-slider-placeholder" style="background: url('<?php echo $post_thumbanail[0]; ?>') no-repeat center center;">
-               <div class="row slide-content-container center-banner-content vertical-align-relative">
-                <div class="small-10 columns small-centered">
-
-                 <h2 class="fittext shadow">The Surge</h2>
-                 <h2 class="fittext">The Surge</h2>
-
-                 <div class="img-banner-subtitle">Taiwan: 2014-2018</div>
-
-                </div>
-               </div>
-              </div>
-             </li>
-            </ul>
-           </div>
-    
-    <?php
-    } else {
+// Display Banner for Acceptance Packets
+		} elseif ( 'acceptance_packets' == get_post_type()) {
         
-        // Display Featured Video
-        include_once('img_banner_components/featured_video.php');
-
-    }
+    echo 'working';
         
 
 } else {
@@ -275,81 +47,20 @@ if ( is_front_page() ) {
 	// Check to see if $page_id variable is set, if so use current setting
 	global $page_id;
 	$page_id = 0 != $page_id ? $page_id : null;
-
+    
+    //Deal with Blog, Category, and Tag Archives
 	if ( is_archive() || is_home() || null != $page_id ) {
-
-		if ( is_tax( 'program_taxo' ) ) {
-			$program_blog = get_queried_object();
-			$program_page = get_page_by_path( $program_blog->slug, OBJECT, 'program' );
-			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $program_page->ID ), 'full-width-banner', true ); ?>
-			
-         <div class="standard-banner-container slide-container" style="background: url(<?php echo $post_thumbanail[0]; ?>) no-repeat center center;">
-          <div class="row vertical-align-relative">
-           <div class="small-12 columns slide-content-container" style="text-align: center;">
-            <h2 class="fittext shadow"><?php echo $program_page->post_title; ?></h2>
-            <h2 class="fittext"><?php echo $program_page->post_title; ?></h2>
-            <div class="subtitle">School Blog</div>
-           </div>
-          </div>
-         </div>
+        include_once('img_banner_components/archive_headers.php');
 		
-        <?php
-
-        // Display Banner for Acceptance Packets
-		} elseif ( 'acceptance_packets' == get_post_type()) {
-        
-		
-		
-		
-		
-		} elseif ( null != $page_id && has_post_thumbnail( $page_id ) ) {
-			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full-width-banner', true );
-
-			echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
-		}
-
-		// Display Image Banner As Usual
+    // Display Image Banner As Usual
 	} else {
 
 		if ( has_post_thumbnail( $post->ID ) ) {
 			$post_thumbanail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full-width-banner', true );
 
             // Display Image Banner As Usual
-            if (!rwmb_meta('enable_featured_video')) {
 			 echo '<div class="standard-banner-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;"></div>';
             
-                
-            // Display Featured Video Banner
-            } else {
-            
-            echo '<div class="standard-banner-container slide-container featured-video-container" style="background: url(' . $post_thumbanail[0] . ') no-repeat center center;">'; ?>
-                
-                <?php // Display Featured Video Banner for Posts
-                if ('post' == get_post_type()) { ?>
-                  <style>.entry-title {display: none;}</style>
-                  <div class="row vertical-align-relative" style="z-index: 9;">
-                   <div class="small-12 columns slide-content-container" style="text-align: center;">
-                    <h2 class="fittext shadow"><?php the_title(); ?></h2>
-                    <h2 class="fittext"><?php the_title(); ?></h2>
-                       
-                    <p>Written By: <?php coauthors(); ?></p>
-                   </div>
-                  </div>
-                <?php } ?>
-
-                <video class="hide-for-small" autoplay loop muted>
-                    
-                    <?php // Get Video File URLS
-                    $mp4_file = reset(rwmb_meta('mp4_file', 'type=file'));
-                    $webm_file = reset(rwmb_meta('webm_file', 'type=file'));?>
-                    
-                  <source src="<?php echo $mp4_file['url']; ?>" type="video/mp4">
-                  <source src="<?php echo $webm_file['url']; ?>" type="video/webm">
-                Your browser does not support the video tag.
-                </video>
-
-            <?php echo '</div>';
-            }
 		}
 	}
 }

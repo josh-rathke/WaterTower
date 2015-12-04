@@ -17,6 +17,7 @@ $meta_boxes = array();
     require 'library/custom_meta/featured_video_meta.php';
     require 'library/custom_meta/about_meta.php';
     require 'library/custom_meta/missions_preview_meta.php';
+    require 'library/custom_meta/testimony_meta.php';
 	
 	// Surge Meta
 	require 'library/custom_meta/surge_single_meta/global_surge_meta.php';

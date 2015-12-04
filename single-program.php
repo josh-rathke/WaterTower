@@ -527,7 +527,7 @@ endwhile; ?>
     <?php
 
 	/**
-	 *    Leader Section
+	 *     Leader Section
 	 *     This section displays all of the leaders of the
 	 *     particular program.
 	 */
@@ -546,6 +546,18 @@ endwhile; ?>
 	}
 
 	?>
+     
+     
+    <?php 
+    /**
+     *  Testimonies Section
+     *  This will display a random number of testimonies or user
+     *  defined testimonies.
+     */
+     
+    display_testimonies( array('section_title' => 'What Students Are Saying' ) );
+     
+    ?>
 		
 	
 	

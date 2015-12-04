@@ -74,6 +74,8 @@ add_filter(
 	require 'library/custom_post_types/focus_tracks_cpt.php';
 	// Acceptance Packets CPT
 	require 'library/custom_post_types/acceptance_packets_cpt.php';
+    // Testimonies CPT
+    require 'library/custom_post_types/testimonies_cpt.php';
 
 
 
@@ -239,14 +241,19 @@ function get_tags_related_to_tax_term_list($taxonomy, $term, $num_requested)
 
 
 
-function get_id_by_slug($page_slug)
-{
+function get_id_by_slug($page_slug) {
 	$page = get_page_by_path( $page_slug );
 	if ( $page ) {
 		return $page->ID;
 	} else {
 		return null;
 	}
+}
+
+function get_the_slug($id) {
+    $post_data = get_post($id, ARRAY_A);
+    $slug = $post_data['post_name'];
+    return $slug; 
 }
 
 
