@@ -1,0 +1,91 @@
+.project-needs-container {
+    
+    .funds-raised,
+    .funds-deficit {
+        font-family:"HelveticaNeueW01-77BdCn 692722";
+        font-size: 36px;
+        line-height: 1.9rem;
+        
+        .currency-denoter {
+            color: #CCC;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+    }
+    
+    .funds-raised {
+        color: $primary-color;
+    }
+    
+    .funds-deficit {
+        color: #CCC;
+    }
+       
+    .project-funds-label {
+        font-family:"HelveticaNeueW01-47LtCn 692689";
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    
+    .project-meta {
+        border-top: 1px solid #DDD;
+        color: #444;
+        font-size: 12px;
+        margin-top: 10px;
+        
+        div {
+            border-bottom: 1px solid #DDD;
+            padding: 6px 0px;
+        }
+    }
+}
+
+.project-goals-container {
+    margin-top: 40px;
+    position: relative;
+    
+    h6 {
+        font-family:"HelveticaNeueW01-47LtCn 692689";
+    }
+    
+    .chart-key {
+        color: #777;
+        font-family:"HelveticaNeueW01-47LtCn 692686";
+        font-size: 14px;
+        position: absolute;
+        top: 40px;
+        left: 0px;
+        
+        .color-indicator {
+            border-radius: 2px;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: text-top;
+            height: 16px;
+            width: 40px;
+        }
+        
+        .projected-funds-raised-key {
+            
+            .color-indicator {
+                background: $primary-color;
+            }
+        }
+        
+        .actual-funds-raised-key {
+            
+            .color-indicator {
+                background: #CCC;
+            }
+        }
+    }
+}
+
+#sidebar {
+    
+    .button {
+        margin-top: 40px;
+    }
+}

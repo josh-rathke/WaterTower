@@ -1,18 +1,209 @@
-#footer-container {
-	max-width: 100%;
-	width: 100%;
-	margin: 0 auto;
-	border-top: 1px solid #ccc;
-	margin-top: rem-calc(60);
+.breadcrumbs-container {
+  background: #F6F6F6;
+  color: #666;
+  font-family:"HelveticaNeueW01-47LtCn 692686";
+  margin-top: 50px;
+  text-transform: uppercase;
+  
+  .breadcrumbs-prefix {
+    font-family:"HelveticaNeueW01-77BdCn 692722";
+  }
+  
+  #breadcrumbs {
+    font-size: 14px;
+    margin: 0px;
+    padding: 10px 0px;
+    
+    span>span {
+      margin: 0px 8px;
+      
+      a {
+        color: #BBB;
+        
+        &:hover {
+          color: $primary_color;
+        }
+      }
+    }
+  }
+}
 
-	#footer {
-		@include grid-row();
-		padding: rem-calc(30) 0;
-
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-	}
+.footer {
+  background: $primary_color;
+  color: white !important;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  
+  h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    color: white;
+    
+    @media #{$small-only} { 
+      margin-top: 40px;
+    }
+  }
+  
+  .find-us-container {
+    font-size: 14px;
+    
+    a {
+      color: white;
+    }
+    
+    i {
+      font-size: 22px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    
+    .find-us-phone {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .find-us-address-container {
+      margin-top: 16px; 
+    }
+    
+    .find-us-tour {
+      margin-top: 16px;
+    }
+    
+    h5 {
+        color: white;
+        margin-top: 20px;
+      }
+    
+    .find-us-social {
+      height: 34px;
+      
+      ul {
+        height: 100%;
+        margin: 0px;
+        
+        li {
+          display: inline-block;
+          height: 100%;
+          list-style-type: none;
+          width: 34px;
+          
+          a {
+            background: rgba(255, 255, 255, .15);
+            color: white;
+            display: block;
+            height: 100%;
+            padding-top: 3px;
+            text-align: center;
+            
+            i {
+              font-size: 18px;
+              margin: 0px;
+            }
+            
+            &:hover {
+              background: rgba(255, 255, 255, .25);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .contact-us-container {
+    position: relative;
+    
+    .gform_wrapper input[type=text], 
+    .gform_wrapper input[type=url], 
+    .gform_wrapper input[type=email], 
+    .gform_wrapper input[type=tel], 
+    .gform_wrapper input[type=number], 
+    .gform_wrapper input[type=password], 
+    .gform_wrapper textarea, 
+    .gform_wrapper select {
+      background: rgba(255, 255, 255, .35);
+      border: none !important;
+      box-shadow: none !important;
+      color: white;
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+    
+    .gform_wrapper textarea {
+      width: 97.5%;
+    }
+    
+    .gform_wrapper .gfield_label {
+      display: none;
+    }
+    
+    .gform_wrapper .gform_footer input.button,
+    .gform_wrapper .gform_footer input[type=submit] {
+      background: rgba(255, 255, 255, .35);
+      float: right;
+      font-size: 12px;
+      margin-top: -15px;
+      margin-right: 10px;
+      padding: 10px 24px;
+    }
+    
+    ::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, .85);
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: rgba(255, 255, 255, .85);
+    }
+    :-ms-input-placeholder {
+      color: rgba(255, 255, 255, .85);
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: rgba(255, 255, 255, .85);
+    }
+    
+    .contact-us-time-to-respond {
+      font-size: 12px;
+      position: absolute;
+      bottom: 0px;
+      width: 65%;
+    }
+  }
+  
+  .get-involved-container {
+    
+    p.get-involved-staffing-needs {
+      font-size: 14px;
+      
+      a {
+        color: white;
+        font-size: 14px;
+      
+        &:hover {
+          border-bottom: 2px solid white;
+        }
+      }
+    }
+    
+    .get-involved-menu {
+      margin: 0px;
+      
+      li {
+        border-top: 1px solid rgba(255, 255, 255, .15);
+        list-style-type: none;
+        
+        a {
+          color: white;
+          display: block;
+          font-size: 14px;
+          padding: 4px 12px;
+          
+          &:hover {
+            background: rgba(255, 255, 255, .15);
+          }
+        }
+      }
+      
+      li:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, .15);
+      }
+    }
+  }
 }

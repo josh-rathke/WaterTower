@@ -1,0 +1,17 @@
+.subscribe-widget-container {
+  padding-bottom: 0px;
+  
+  .gform_wrapper .top_label input.large,
+  .gform_wrapper .top_label select.large,
+  .gform_wrapper .top_label textarea.textarea.large,
+  .gform_wrapper .hidden_label input.large,
+  .gform_wrapper .hidden_label select.large,
+  .gform_wrapper .hidden_label textarea.textarea.large {
+    background: white;
+  }
+    
+  .gfield_label {
+    display: none !important;
+  }
+    
+}

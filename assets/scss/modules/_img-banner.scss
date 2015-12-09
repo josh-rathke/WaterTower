@@ -1,0 +1,119 @@
+// Alert Slide Styles
+.slide-container {
+  color: white;
+  
+  .slide-content-container {
+    
+    h2 {
+      border-bottom: 1px solid white;
+      color: white;
+      font-size: 80px;
+      line-height: .9875em;
+      padding-bottom: 10px;
+      z-index: 999;
+      
+      &.shadow {
+        border: none !important;
+        color: transparent;
+        position: absolute;
+        text-shadow: 0px 0px 80px rgba(0, 0, 0, .55);
+        z-index: -1;
+      }
+    }
+    
+    &.center-banner-content {
+      text-align: center;
+      
+      .shadow {
+        right: 0px !important;
+        left: 0px !important;
+      }
+    }
+    
+    .img-banner-subtitle {
+      background: $primary-color;
+      display: inline-block;
+      font-family:"HelveticaNeueW01-47LtCn 692689";
+      font-size: 18px;
+      padding: 10px 30px;
+    }
+    
+    .subtitle {
+      font-family:"HelveticaNeueW01-47LtCn 692689";
+      font-size: 26px;
+      text-transform: uppercase;
+      text-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
+    }
+    
+    .content-desc {
+      
+      p {
+        text-shadow: 0px 0px 26px rgba(0, 0, 0, .35);
+      }
+      
+      .button {
+        margin-top: 8px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Make the image banner slightly taller for extra large screens
+.standard-banner-container {
+    position: relative;
+    overflow: hidden;
+    
+    &.featured-video-container {
+      @media only screen and (min-width: 40em) {
+          background: white !important;
+      }
+  }
+    
+    // Define height for Featured Video Container
+    &.featured-video-container {
+        @media #{$large-up} {
+            height: 520px !important;  
+        }
+    
+        @media #{$xlarge-up} {
+            height: 600px !important;
+        }
+
+        @media #{$xxlarge-up} {
+            height: 680px !important;
+        }
+        
+    }
+  
+  @media #{$xlarge-up} {
+    height: 480px !important;
+  }
+  
+  @media #{$xxlarge-up} {
+    height: 560px !important;
+  }
+
+    video {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 3;
+    }
+  
+}
+
+
+
+@media #{$xlarge-up} {
+  
+  .primary-slider .orbit-slider-placeholder {
+    height: 480px !important;
+  }
+}
+
+// A Few Orbit Hacks
+.orbit-bullets {
+  display: none !important;
+}

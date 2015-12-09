@@ -1,0 +1,48 @@
+.missions-preview {
+    
+    .missions-preview-schedule {
+        
+        div {
+            background: #EFEFEF;
+            background-clip: content-box;
+         
+            h4 {
+                background: $primary_color;
+                color: white;
+                margin-top: 0px;
+                padding: 6px 16px;
+            }
+            
+            .schedule-content {
+                padding: 10px 16px;
+                
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    
+    .missions-preview-form-container {
+        background: #EFEFEF;
+        padding: 60px 16px 26px 16px;
+        position: relative;
+        
+        h4 {
+            background: $primary_color;
+            color: white;
+            margin-top: 0px;
+            padding: 14px 16px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+        }
+        
+        .button {
+            background: #CCC;
+            position: absolute;
+            left: 0px;
+        }
+    }
+}

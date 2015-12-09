@@ -1,0 +1,67 @@
+.gform_wrapper {
+
+  // Remove Required Star....Cause its ugly!
+  .gfield_required {
+    display: none !important;
+  }
+
+  // Style Standard Fields
+  input[type=text],
+  input[type=url],
+  input[type=email],
+  input[type=tel],
+  input[type=number],
+  input[type=password] {
+    background: #FCFCFC;
+    border: 1px solid #DDD;
+    box-shadow: none;
+    color: #444;
+    font-size: 14px !important;
+    padding: 0px 8px !important;
+  }
+    
+    input:not([type]),
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="color"],
+    textarea {
+        background: #FCFCFC;
+        border: 1px solid #DDD;
+        box-shadow: none;
+        font-size: 14px !important;
+        padding: 8px !important;
+    }
+  
+  input.ginput_quantity {
+    width: 80px !important;  
+  }
+  
+  @mixin placeholder {
+    color: rgba(0, 0, 0, .35);
+  }
+  
+  // Style The Placeholder
+  ::-webkit-input-placeholder {
+    @include placeholder;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    @include placeholder;
+  }
+  :-ms-input-placeholder {
+    @include placeholder;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    @include placeholder;
+  }
+}

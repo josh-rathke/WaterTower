@@ -1,0 +1,33 @@
+@media #{$large-up} {
+ 
+  #pano {
+    height: 560px !important;
+  } 
+}
+
+.campus-tour-desc-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.campus-tour-location-container {
+  margin-bottom: 30px !important;
+  
+  .campus-tour-location-footer {
+    font-size: 16px;
+    
+    a {
+      font-family:"HelveticaNeueW01-47LtCn 692686";
+      
+      &:first-child {
+        border-right: 1px solid #CCC;
+        margin-right: 14px;
+        padding-right: 14px;
+      }
+      
+      i {
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}
