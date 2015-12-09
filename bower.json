@@ -6,8 +6,11 @@
   ],
   "ignore": [],
   "dependencies": {
+    "FitText.js": "1.2.0",
     "foundation-sites": "~6.0.1",
     "motion-ui" : "~1.1.0",
-    "fontawesome": "~4.4.0"
+    "fontawesome": "~4.4.0",
+    "Chart.js": "1.0.2",
+    "options-framework-theme": "1.8.0"
   }
 }
