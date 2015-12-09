@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: watertower-libsass-template 5.4.0\n"
+"Project-Id-Version: foundationpress-libsass-template 5.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-13 17:56+0200\n"
 "PO-Revision-Date: 2014-09-13 18:14+0100\n"
@@ -189,8 +189,8 @@ msgstr ""
 
 #. /archive/search.
 #. *
-#. * @subpackage watertower
-#. * @since watertower 1.0
+#. * @subpackage FoundationPress
+#. * @since FoundationPress 1.0.0
 #.
 #: content.php:16
 msgid "Continue reading..."
