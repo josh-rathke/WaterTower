@@ -15,9 +15,26 @@ get_header(); ?>
     <div class="columns medium-8">
         <h1><?php the_title(); ?></h1>
         <?php the_content(); ?>
-        <?php display_authors( $post->ID ); ?>
         
         <h2>Base Directors</h2>
+        <?php display_authors( $post->ID ); ?>
+        
+        <?php
+        
+        $function_prefix = '_100foldstudio';
+        
+        $foo = "{$function_prefix} . '_foo";
+        function $foo() {
+            echo 'Foo';
+        }
+        
+        $bar = "{$function_prefix} . '_bar";
+        function $bar() {
+            echo 'Bar';
+        }
+        
+        _100foldstudio_foo();
+        _100foldstudio_bar();
         
     </div>
     
