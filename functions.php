@@ -42,6 +42,7 @@ require_once( 'library/theme-support.php' );
 /** Add Nav Options to Customer */
 require_once( 'library/custom-nav.php' );
 
+
 /*	Add Options Framework Core Files
  * 	This will add the options framework core files
  * 	from the bower_components folder.
