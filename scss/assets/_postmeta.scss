@@ -1,0 +1,40 @@
+.postmetadata {
+  border-top: 1px solid #E9E9E9;
+  border-bottom: 1px solid #E9E9E9;
+  font-size: 14px;
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  padding: 25px 0px;
+  
+  i {
+    margin-right: 8px;
+    width: 18px;
+  }
+  
+  .post-meta-section {
+    margin-bottom: 10px;
+  }
+  
+  .post-meta-content {
+    margin-left: 26px;
+    
+    a {
+      background: #F3F3F3;
+      color: #888;
+      display: inline-block;
+      margin-right: 5px;
+      margin-top: 5px;
+      padding: 3px 12px;
+      
+      &:hover {
+        background: $primary_color;
+        color: white;
+      }
+    }
+  }
+  
+  @media #{$small-only} {
+    text-align: center;
+  }
+  
+}

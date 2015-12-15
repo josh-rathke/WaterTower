@@ -1,0 +1,301 @@
+@charset "UTF-8";
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+@import "normalize";
+
+// Import Global Mixins
+@import "global_mixins";
+
+/*  
+  ZURB Foundation components:
+  Import the building blocks you need for your project. 
+  Reducing the number of imported components will optimize page speed.
+*/
+
+@import "config/settings"; // Default settings file. Uncomment each setting you need to change
+@import "assets/icons"; // Load Foundation icon fonts
+
+@import "../bower_components/foundation/scss/foundation/components/grid";
+//@import "../bower_components/foundation/scss/foundation/components/accordion";
+@import "../bower_components/foundation/scss/foundation/components/alert-boxes";
+@import "../bower_components/foundation/scss/foundation/components/block-grid";
+@import "../bower_components/foundation/scss/foundation/components/breadcrumbs";
+//@import "../bower_components/foundation/scss/foundation/components/button-groups";
+@import "../bower_components/foundation/scss/foundation/components/buttons";
+//@import "../bower_components/foundation/scss/foundation/components/clearing";
+//@import "../bower_components/foundation/scss/foundation/components/dropdown";
+//@import "../bower_components/foundation/scss/foundation/components/dropdown-buttons";
+@import "../bower_components/foundation/scss/foundation/components/flex-video";
+//@import "../bower_components/foundation/scss/foundation/components/forms";
+//@import "../bower_components/foundation/scss/foundation/components/icon-bar";
+//@import "../bower_components/foundation/scss/foundation/components/inline-lists";
+//@import "../bower_components/foundation/scss/foundation/components/joyride";
+//@import "../bower_components/foundation/scss/foundation/components/keystrokes";
+//@import "../bower_components/foundation/scss/foundation/components/labels";
+@import "../bower_components/foundation/scss/foundation/components/magellan";
+@import "../bower_components/foundation/scss/foundation/components/orbit";
+@import "../bower_components/foundation/scss/foundation/components/pagination";
+//@import "../bower_components/foundation/scss/foundation/components/panels";
+//@import "../bower_components/foundation/scss/foundation/components/pricing-tables";
+//@import "../bower_components/foundation/scss/foundation/components/progress-bars";
+//@import "../bower_components/foundation/scss/foundation/components/range-slider";
+@import "../bower_components/foundation/scss/foundation/components/reveal";
+@import "../bower_components/foundation/scss/foundation/components/side-nav";
+//@import "../bower_components/foundation/scss/foundation/components/split-buttons";
+//@import "../bower_components/foundation/scss/foundation/components/sub-nav";
+//@import "../bower_components/foundation/scss/foundation/components/switches";
+//@import "../bower_components/foundation/scss/foundation/components/tables";
+//@import "../bower_components/foundation/scss/foundation/components/tabs";
+//@import "../bower_components/foundation/scss/foundation/components/thumbs";
+@import "../bower_components/foundation/scss/foundation/components/tooltips";
+@import "../bower_components/foundation/scss/foundation/components/top-bar";
+//@import "../bower_components/foundation/scss/foundation/components/type";
+@import "../bower_components/foundation/scss/foundation/components/offcanvas";
+@import "../bower_components/foundation/scss/foundation/components/visibility";
+
+
+// Fonts
+@import "../bower_components/fontawesome/css/font-awesome.css"; // Import Font Awesome
+@import "assets/fonts"; // Import Font Families
+@import "../assets/flaticons/flaticon.css"; // Import Flaticon Font
+
+//WordPress Style Sheets
+@import "assets/single_post"; //Import Single Post Styles
+
+// WaterTower Style Sheets
+@import "assets/scaffolding"; // Import Scaffolding Styles
+@import "assets/acceptance_packets"; // Import Acceptance Packets Styles
+@import "assets/archive_header";     // Import Archive Header Styles
+@import "assets/content";     // Import Content Styles
+@import "assets/img-banner";  // Import Image Banner Styles
+@import "assets/postmeta";    // Import Post Meta Styles
+@import "assets/comments";    // Import Comment Styles
+@import "assets/authors";     // Import Author Styles
+@import "assets/footer";      // Import Footer Styles
+@import "assets/programs";    // Import Program Pages Styles
+@import "assets/side_nav";    // Import Side Nav Styles
+@import "assets/sidebar";     // Import Sidebar Styles
+@import "assets/staffing_needs"; // Import Staffing Needs Styles
+@import "assets/target_nations"; // Import Target Nations Styles
+@import "assets/front_page"; // Import Front Page Styles
+@import "assets/campus_tour"; // Import Campus Tour Styles
+@import "assets/annual_reports"; // Import Annual Reports Styles
+@import "assets/the_surge"; // Import The Surge Styles
+@import "assets/copyright_bar"; // Import Copyright Bar Styles
+@import "assets/projects"; // Import Projects Styles
+@import "assets/promote_post"; // Import Promote Post Styles
+@import "assets/missions_preview"; // Import Missions Preview Styles
+@import "assets/testimonies"; // Import Testimonies Styles
+
+
+// WaterTower Page Template Styles
+@import "assets/page_about"; // About Us Page
+@import "assets/page_statement_of_faith"; // Statement of Faith Template
+
+
+// WaterTower Widget Styles
+@import "assets/widgets/wt_subscribe_widget"; // Import Subscribe Widget Styles
+@import "assets/widgets/wt_related_media_widget"; // Import Related Media Widget
+@import "assets/widgets/wt_featured_page_widget"; // Import Featured Page Widget
+
+// CSS Hacks
+@import "assets/topbar_hacks";        // Import the top bar hacks.
+@import "assets/vimeography_hacks";   // Import the hacky css for Vimeography
+@import "assets/magellan_hacks";      // Import the Magellan Hacks
+@import "assets/reveal_modal_hacks";  // Import the Reveal Modal
+@import "assets/gravity_forms_hacks"; // Import the Gravity Forms Hacks
+@import "assets/off_canvas_hacks";    // Import the Off Canvas Hacks
+
+/* 
+  My custom styles:
+  Add your own folders and scss files for your project and import them below
+*/ 
+
+
+
+
+.desktop-header {padding: 40px 0px;}
+.main-logo {width: 370px;}
+
+// Top Bar Styles
+.top-bar-container {background: white !important; border-top: 1px solid #DDD; margin-bottom: -2px !important;}
+
+.top-bar {background: transparent !important;}
+.top-bar-section > ul > li {background: transparent !important;}
+
+.top-bar-section li a {font-size: 14px !important;}
+.top-bar-section .has-dropdown > a {padding-right: 15px !important;}
+.top-bar-section .has-dropdown > a:after {border-color: transparent transparent transparent;}
+
+.top-bar-section li a:not(.button) { background: transparent !important; color: #222; font-family:"HelveticaNeueW01-47LtCn 692686" !important; letter-spacing: 2px; text-transform: uppercase;}
+
+.top-bar-section li.active:not(has-form) a:not(.button) {color: #333 !important;}
+.top-bar-section li.active:hover a:not(.button) {color: white;}
+.top-bar-section .dropdown a:not(.button) { background: #EFEFEF !important; color: #333 !important; font-size: 12px !important;}
+.top-bar-section .dropdown li:hover a:not(.button) {background: #DDD !important;}
+
+.top-bar-section li:hover a { background: #609FCE !important;}
+.top-bar-section li a i {color: #555;}
+
+
+.desktop-search-form-container {
+  float: left;
+  font-size: 14px;
+  margin: 8px 6px 8px 0px;
+  position: relative;
+  width: 52px;
+  @include transition(.6s);
+    
+    @media (max-width: 746px) {
+        display: none;
+    }
+  
+  &:hover {
+    width: 150px;
+  }
+  
+  fieldset {
+    padding: 0px;
+    border: none;
+    margin: 0px;
+  }
+  
+  #header-search {
+    background: transparent;
+    font-family:"HelveticaNeueW01-47LtCn 692686";
+    font-size: 14px;
+    padding: 5px 5px 5px 0px;
+    width: 100%;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    top: 0px;
+  }
+  
+  ::-webkit-input-placeholder {
+    color: #444;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #444;
+  }
+  :-ms-input-placeholder {
+    color: #444;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #444;
+  }
+}
+
+.desktop-search-form-container .submit-search {
+  color: #444;
+  background: transparent;
+  font-size: 12px;
+  padding: 0px 9px;
+  position: absolute !important;
+  top: 0px;
+  bottom: 0px;
+    left: -30px;
+  width: 32px;
+  
+  &:hover {
+    color: #444; 
+  }
+}
+
+.desktop-search-form-container.search-active {
+  width: 150px !important;
+}
+
+.desktop-search-form-container input[type=text] {box-shadow: none !important; @include transition(.6s);}
+.desktop-search-form-container:hover input[type=text] {border-bottom: 1px solid #CCC !important;}
+.desktop-search-form-container.search-active input[type=text] {border-bottom: 1px solid #CCC !important;}
+
+
+/*  Standard Banner
+ *  These styles partain to the standard
+ *  banner that uses a simple image.
+ */
+ 
+ .standard-banner-container {
+   height: 400px; 
+   @include background-size(cover); 
+   margin-bottom: 40px;
+ }
+
+
+
+/*  Slider Styles
+ *  These styles are reserved for the slider used in the
+ *  website.
+ */
+ 
+.primary-slider {}
+.primary-slider .orbit-container .orbit-slides-container>* .orbit-caption {background: transparent !important; color: #222; font-size: 16px !important; position: relative !important;}
+.primary-slider .orbit-caption i {font-size: 18px; margin-right: 5px;}
+.primary-slider .orbit-caption a {font-family: "HelveticaNeueW01-47LtCn 692689"; font-size: 15px; letter-spacing: 1px; text-transform: uppercase;}
+.primary-slider .orbit-slider-placeholder {height: 400px; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover !important; background-size: cover !important;}
+
+body.get-crazy * {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+body.get-crazy *:hover {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+
+// Zopim Chat Styles
+.chat-button {
+  background: #5D9ECB;
+  color: white;
+  font-family: "HelveticaNeueW01-77BdCn 692722";
+  font-size: 14px;
+  padding: 14px 30px 10px 30px;
+    text-align: center;
+  width: 240px;
+  position: fixed;
+  right: 30px;
+  bottom: 0px;
+  text-transform: uppercase;
+    
+    &:hover {
+        color: white;
+    }
+    
+    i {
+        font-size: 20px;
+        margin: 0px 10px 0px 0px;
+        vertical-align: top;
+    }
+}
+
+.chat-badge {
+  background: #F3F3F3;
+  display: none;
+  padding: 16px 20px 10px 20px;
+  width: 240px;
+  position: fixed;
+  bottom: 45px;
+  right: 30px;
+    
+  p {
+        font-size: 14px;
+    }
+    
+  .close-chat-badge {
+      color: #666;
+      cursor: pointer;
+      position: absolute;
+      top: 6px;
+      right: 12px;
+  }
+}
+
+
+
+@import "site/base"; 

@@ -1,45 +1,47 @@
-<?php
-/**
- * The template for displaying pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that
- * other "pages" on your WordPress site will use a different template.
- *
- * @package WordPress
- * @subpackage FoundationPress
- * @since FoundationPress 1.0.0
- */
+<?php get_header(); ?>
 
- get_header(); ?>
+<div class="row">
+	<div class="large-8 columns entry" role="main">
 
- <?php get_template_part( 'parts/featured-image' ); ?>
+    <?php do_action( 'watertower_before_content' ); ?>
 
- <div id="page" role="main">
+    <?php while ( have_posts() ) : the_post(); ?>
+		<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+			<header>
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+			</header>
+    <?php do_action( 'watertower_page_before_entry_content' ); ?>
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div>
+		</article>
+    <?php
+endwhile;?>
 
- <?php do_action( 'foundationpress_before_content' ); ?>
- <?php while ( have_posts() ) : the_post(); ?>
-   <article class="main-content" <?php post_class() ?> id="post-<?php the_ID(); ?>">
-       <header>
-           <h1 class="entry-title"><?php the_title(); ?></h1>
-       </header>
-       <?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-       <div class="entry-content">
-           <?php the_content(); ?>
-       </div>
-       <footer>
-           <?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-           <p><?php the_tags(); ?></p>
-       </footer>
-       <?php do_action( 'foundationpress_page_before_comments' ); ?>
-       <?php comments_template(); ?>
-       <?php do_action( 'foundationpress_page_after_comments' ); ?>
-   </article>
- <?php endwhile;?>
+    <?php do_action( 'watertower_after_content' ); ?>
 
- <?php do_action( 'foundationpress_after_content' ); ?>
- <?php get_sidebar(); ?>
-
- </div>
-
- <?php get_footer(); ?>
+	</div>
+    	
+    	<?php 
+    	/**
+		 *	Check for type of sidebar to display on pages,
+		 *	then display the correct sidebar.
+		 */
+		 
+		if ( rwmb_meta('page_sidebar') == 'headings') { ?>
+			
+			<div class="large-3 columns stick-to-parent-side-nav">
+		 		<div class="magellan-container" data-magellan-expedition>
+				  <dl class="sub-nav side-nav-container side-nav-by-heading">
+				  </dl>
+				</div>
+		 	</div>
+			
+		<?php } else { ?>
+			<div class="large-4 columns">
+				<?php get_sidebar(); ?>
+			</div>
+		<?php }?>
+		
+</div>
+<?php get_footer(); ?>

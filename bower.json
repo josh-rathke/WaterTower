@@ -1,13 +1,16 @@
 {
-  "name": "foundationpress",
+  "name": "WaterTower",
   "main": [
-    "assets/stylesheets/foundation.css",
-    "assets/javascript/foundation.js"
+    "css/foundation.css",
+    "js/foundation.js"
   ],
-  "ignore": [],
+  "ignore": [
+  ],
   "dependencies": {
-    "foundation-sites": "~6.0.1",
-    "motion-ui" : "~1.1.0",
-    "fontawesome": "~4.4.0"
+  	"FitText.js": "1.2.0",
+    "foundation": "zurb/bower-foundation",
+    "fontawesome": "4.3.0",
+    "Chart.js": "1.0.1",
+    "options-framework-theme": "1.8.0"
   }
 }
